@@ -1,0 +1,89 @@
+$prefix: 'fob-';
+
+.#{$prefix}comment {
+    &-list {
+        margin-bottom: 5rem;
+
+        &-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    &-item {
+        display: flex;
+        margin-bottom: 2.5rem;
+
+        &-avatar {
+            margin-inline-end: 20px;
+
+            img {
+                width: 70px;
+                border-radius: 50%;
+            }
+        }
+
+        &-content {
+            width: 100%;
+        }
+
+        &-pending {
+            display: block;
+            color: #5e5e5e;
+            margin-bottom: 0.75em;
+        }
+
+        &-body {
+            p {
+                font-size: 1rem;
+                margin-bottom: 0.75rem;
+            }
+        }
+
+        &-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &-author {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+
+        &-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        &-date {
+            font-size: 0.8rem;
+            color: #999999;
+            margin-bottom: 0;
+        }
+
+        &-reply {
+            background-color: transparent;
+            color: #888888;
+            font-size: 14px;
+            display: block;
+            font-weight: 400;
+            border-bottom: 1px solid rgb(225, 225, 225);
+            font-style: italic;
+        }
+    }
+
+    &-form {
+        &-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        &-note {
+        }
+    }
+}

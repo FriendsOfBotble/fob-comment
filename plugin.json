@@ -1,0 +1,10 @@
+{
+    "id": "friendsofbotble/comment",
+    "name": "Comment",
+    "namespace": "FriendsOfBotble\\Comment\\",
+    "provider": "FriendsOfBotble\\Comment\\Providers\\CommentServiceProvider",
+    "author": "Friends of Botble",
+    "url": "https://friendsofbotble.com",
+    "version": "1.0.0",
+    "description": "Allow visitors to comment on your website."
+}

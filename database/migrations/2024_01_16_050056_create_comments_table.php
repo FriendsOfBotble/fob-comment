@@ -11,7 +11,7 @@ return new class() extends Migration
     {
         Schema::create('fob_comments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('parent_id')->nullable()->index();
+            $table->foreignId('reply_to')->nullable()->index();
             $table->nullableMorphs('author');
             $table->nullableMorphs('reference');
             $table->string('reference_url', 255)->nullable()->index();

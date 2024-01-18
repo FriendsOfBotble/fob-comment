@@ -2,6 +2,7 @@
 
 namespace FriendsOfBotble\Comment\Providers;
 
+use Botble\Base\Facades\DashboardMenu;
 use Botble\Base\Facades\PanelSectionManager;
 use Botble\Base\Models\BaseModel;
 use Botble\Base\PanelSections\PanelSectionItem;
@@ -20,17 +21,30 @@ class CommentServiceProvider extends ServiceProvider
             ->publishAssets()
             ->loadAndPublishViews()
             ->loadRoutes()
+            ->loadAndPublishConfigurations(['permissions'])
+            ->loadAndPublishTranslations()
             ->loadMigrations();
+
+        DashboardMenu::default()->beforeRetrieving(function () {
+            DashboardMenu::make()
+                ->registerItem([
+                    'id' => 'cms-plugins-fob-comment',
+                    'priority' => 99,
+                    'name' => 'plugins/fob-comment::comment.title',
+                    'icon' => 'ti ti-messages',
+                    'route' => 'fob-comment.comments.index',
+                ]);
+        });
 
         PanelSectionManager::default()->beforeRendering(function () {
             PanelSectionManager::registerItem(
                 SettingOthersPanelSection::class,
                 fn () => PanelSectionItem::make('fob-comment')
-                    ->setTitle('Comment')
+                    ->setTitle(trans('plugins/fob-comment::comment.settings.title'))
+                    ->withDescription(trans('plugins/fob-comment::comment.settings.description'))
                     ->withIcon('ti ti-message-cog')
-                    ->withDescription('Manage comment settings.')
                     ->withPriority(0)
-                    ->withRoute('blog.settings')
+                    ->withRoute('fob-comment.settings')
             );
         });
 

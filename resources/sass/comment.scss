@@ -2,8 +2,6 @@ $prefix: 'fob-';
 
 .#{$prefix}comment {
     &-list {
-        margin-bottom: 5rem;
-
         &-title {
             font-size: 1.5rem;
             font-weight: 600;
@@ -12,14 +10,16 @@ $prefix: 'fob-';
     }
 
     &-item {
-        display: flex;
-        margin-bottom: 2.5rem;
+        &-inner {
+            display: flex;
+            margin-bottom: 2.5rem;
+        }
 
         &-avatar {
             margin-inline-end: 20px;
 
             img {
-                width: 70px;
+                width: 60px;
                 border-radius: 50%;
             }
         }
@@ -36,7 +36,7 @@ $prefix: 'fob-';
 
         &-body {
             p {
-                font-size: 1rem;
+                font-size: 1rem !important;
                 margin-bottom: 0.75rem;
             }
         }
@@ -48,7 +48,7 @@ $prefix: 'fob-';
         }
 
         &-author {
-            font-size: 1rem;
+            font-size: 0.875rem !important;
             font-weight: 600;
             margin-bottom: 0;
         }
@@ -74,16 +74,31 @@ $prefix: 'fob-';
             border-bottom: 1px solid rgb(225, 225, 225);
             font-style: italic;
         }
+
+        .#{$prefix}comment-list {
+            margin-inline-start: 2.5rem;
+        }
     }
 
     &-form {
+        &-section {
+            margin: 3rem 0;
+        }
+
         &-title {
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 1.5rem;
         }
+    }
+}
 
-        &-note {
-        }
+#cancel-comment-reply-link {
+    font-size: 0.875rem;
+    margin-inline-start: 1rem;
+    text-decoration: underline;
+
+    &:hover {
+        text-decoration: none;
     }
 }

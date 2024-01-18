@@ -29,21 +29,21 @@ class Comment extends BaseModel
         return $this->morphTo();
     }
 
-    public function parent(): BelongsTo
+    public function comment(): BelongsTo
     {
-        return $this->belongsTo(static::class, 'parent_id');
+        return $this->belongsTo(static::class, 'reply_to');
     }
 
-    public function children(): HasMany
+    public function replies(): HasMany
     {
-        return $this->hasMany(static::class, 'parent_id');
+        return $this->hasMany(static::class, 'reply_to');
     }
 
     protected function avatarUrl(): Attribute
     {
         return Attribute::get(function () {
-            $address = strtolower(trim($this->email));
-            $hash = hash('sha256', $address);
+            $email = strtolower(trim($this->email));
+            $hash = hash('sha256', $email);
 
             return "https://www.gravatar.com/avatar/{$hash}";
         });

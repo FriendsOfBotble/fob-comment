@@ -1,6 +1,6 @@
 {
-    "id": "friendsofbotble/comment",
-    "name": "Comment",
+    "id": "friendsofbotble/fob-comment",
+    "name": "FOB Comment",
     "namespace": "FriendsOfBotble\\Comment\\",
     "provider": "FriendsOfBotble\\Comment\\Providers\\CommentServiceProvider",
     "author": "Friends of Botble",

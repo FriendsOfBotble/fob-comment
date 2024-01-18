@@ -3,27 +3,21 @@
 namespace FriendsOfBotble\Comment\Http\Controllers\Fronts;
 
 use Botble\Base\Http\Controllers\BaseController;
-use Botble\Base\Models\BaseModel;
+use FriendsOfBotble\Comment\Actions\CreateNewComment;
+use FriendsOfBotble\Comment\Actions\GetCommentReference;
 use FriendsOfBotble\Comment\Enums\CommentStatus;
-use FriendsOfBotble\Comment\Http\Requests\CommentReferenceRequest;
-use FriendsOfBotble\Comment\Http\Requests\CommentRequest;
+use FriendsOfBotble\Comment\Http\Requests\Fronts\CommentReferenceRequest;
+use FriendsOfBotble\Comment\Http\Requests\Fronts\CommentRequest;
 use FriendsOfBotble\Comment\Models\Comment;
+use FriendsOfBotble\Comment\Support\CommentHelper;
+use Illuminate\Database\Eloquent\Builder;
 
 class CommentController extends BaseController
 {
-    public function index(CommentReferenceRequest $request)
+    public function index(CommentReferenceRequest $request, GetCommentReference $getCommentReference)
     {
         if ($request->input('reference_type')) {
-            if (! class_exists($request->input('reference_type'))) {
-                abort(404);
-            }
-
-            /**
-             * @var BaseModel $reference
-             */
-            $reference = $request->input('reference_type')::query()->find($request->input('reference_id'));
-
-            abort_if(! $reference, 404);
+            $reference = $getCommentReference($request->input('reference_type'), $request->input('reference_id'));
 
             $query = Comment::query()
                 ->where('reference_id', $reference->getKey())
@@ -34,55 +28,54 @@ class CommentController extends BaseController
         }
 
         $comments = $query
-            ->where('status', CommentStatus::APPROVED)
-            ->oldest()
-            ->paginate();
+            ->where(function (Builder $query) {
+                $query
+                    ->where('status', CommentStatus::APPROVED)
+                    ->orWhere(function (Builder $query) {
+                        $query->where('status', CommentStatus::PENDING)
+                            ->where('ip_address', request()->ip());
+                    });
+            })
+            ->where('reply_to', null)
+            ->with(['replies'])
+            ->orderBy('created_at', CommentHelper::getCommentOrder());
+
+        $comments = apply_filters('fob_comment_list_query', $comments, $request)->paginate(10);
+
+        $count = $comments->total();
+
+        $view = apply_filters('fob_comment_list_view_path', 'plugins/fob-comment::partials.list');
 
         return $this
             ->httpResponse()
             ->setData([
-                'title' => __(':count comment(s) for :reference', [
-                    'count' => $comments->total(),
-                    'reference' => $request->input('reference_url') ?? $reference->name,
-                ]),
-                'html' => view('plugins/fob-comment::partials.list', compact('comments'))->render(),
+                'title' => trans_choice('plugins/fob-comment::comment.front.list.title', $count, ['count' => $count]),
+                'html' => view($view, compact('comments'))->render(),
                 'comments' => $comments,
             ]);
     }
 
-    public function store(CommentRequest $request)
+    public function store(CommentRequest $request, CreateNewComment $createNewComment, GetCommentReference $getCommentReference)
     {
         $data = [
             ...$request->validated(),
-            'ip_address' => $request->ip(),
-            'user_agent' => $request->userAgent(),
+            'reference_url' => $request->input('reference_url') ?? url()->previous(),
         ];
 
         if ($request->input('reference_type')) {
-            if (! class_exists($request->input('reference_type'))) {
-                abort(404);
-            }
-
-            /**
-             * @var BaseModel $reference
-             */
-            $reference = $request->input('reference_type')::query()->find($request->input('reference_id'));
-
-            abort_if(! $reference, 404);
+            $reference = $getCommentReference($request->input('reference_type'), $request->input('reference_id'));
 
             $data = [
                 ...$data,
                 'reference_id' => $reference->getKey(),
                 'reference_type' => $reference::class,
             ];
-        } else {
-            $data['reference_url'] = $request->input('reference_url');
         }
 
-        Comment::query()->create($data);
+        $createNewComment($data);
 
         return $this
             ->httpResponse()
-            ->setMessage(__('Thank you for your comment.'));
+            ->setMessage(trans('plugins/fob-comment::comment.front.comment_success_message'));
     }
 }

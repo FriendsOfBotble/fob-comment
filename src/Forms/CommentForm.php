@@ -2,82 +2,72 @@
 
 namespace FriendsOfBotble\Comment\Forms;
 
-use Botble\Base\Forms\FieldOptions\CheckboxFieldOption;
 use Botble\Base\Forms\FieldOptions\EmailFieldOption;
+use Botble\Base\Forms\FieldOptions\HtmlFieldOption;
+use Botble\Base\Forms\FieldOptions\StatusFieldOption;
 use Botble\Base\Forms\FieldOptions\TextareaFieldOption;
 use Botble\Base\Forms\FieldOptions\TextFieldOption;
 use Botble\Base\Forms\Fields\EmailField;
-use Botble\Base\Forms\Fields\OnOffCheckboxField;
+use Botble\Base\Forms\Fields\HtmlField;
+use Botble\Base\Forms\Fields\SelectField;
 use Botble\Base\Forms\Fields\TextareaField;
 use Botble\Base\Forms\Fields\TextField;
 use Botble\Base\Forms\FormAbstract;
-use Botble\Base\Models\BaseModel;
+use FriendsOfBotble\Comment\Enums\CommentStatus;
 use FriendsOfBotble\Comment\Http\Requests\CommentRequest;
+use FriendsOfBotble\Comment\Models\Comment;
 
 class CommentForm extends FormAbstract
 {
     public function setup(): void
     {
-        $reference = $this->getData('reference');
+        $model = $this->getModel();
 
         $this
-            ->contentOnly()
-            ->setFormOption('class', 'fob-comment-form')
-            ->setUrl(route('fob-comment.comments.store'))
+            ->model(Comment::class)
             ->setValidatorClass(CommentRequest::class)
-            ->columns()
-            ->when(
-                $reference instanceof BaseModel,
-                function (FormAbstract $form) use ($reference) {
-                    $form
-                        ->add('reference_id', 'hidden', ['value' => $reference->getKey()])
-                        ->add('reference_type', 'hidden', ['value' => $reference::class]);
-                },
-                fn (FormAbstract $form) => $form->add('reference_url', 'hidden', ['value' => url()->current()])
-            )
+            ->setBreakFieldPoint('status')
             ->add(
-                'content',
-                TextareaField::class,
-                TextareaFieldOption::make()->label('Content')
-                    ->required()
-                    ->colspan(2)
+                'permalink',
+                HtmlField::class,
+                HtmlFieldOption::make()
+                    ->bladeContent(<<<BLADE
+                        <div class="mb-3">
+                            <label class="form-label d-inline-block mb-0">{{ trans('plugins/fob-comment::comment.permalink') }}:</label>
+                            {{ Html::link('$model->reference_url'. '#' . 'comment-' . $model->id, '$model->reference_url', ['target' => '_blank']) }}
+                        </div>
+                    BLADE)
                     ->toArray()
             )
             ->add(
                 'name',
                 TextField::class,
-                TextFieldOption::make()->label('Name')
-                    ->required()
-                    ->toArray()
+                TextFieldOption::make()->label(trans('plugins/fob-comment::comment.common.name'))->toArray()
             )
             ->add(
                 'email',
                 EmailField::class,
-                EmailFieldOption::make()->label('Email')
-                    ->required()
-                    ->toArray()
+                EmailFieldOption::make()->label(trans('plugins/fob-comment::comment.common.email'))->toArray()
             )
             ->add(
                 'website',
                 TextField::class,
-                TextFieldOption::make()->label('Website')
-                    ->colspan(2)
-                    ->toArray()
+                TextFieldOption::make()->label(trans('plugins/fob-comment::comment.url'))->toArray()
             )
             ->add(
-                'remember',
-                OnOffCheckboxField::class,
-                CheckboxFieldOption::make()
-                    ->label('Remember my name, email, and website in this browser for the next time I comment.')
-                    ->colspan(2)
-                    ->toArray()
+                'content',
+                TextareaField::class,
+                TextareaFieldOption::make()->label(trans('plugins/fob-comment::comment.common.comment'))->rows(5)->toArray()
             )
-            ->add('button', 'submit', [
-                'label' => 'Post Comment',
-                'attr' => [
-                    'class' => 'btn btn-primary',
-                ],
-                'colspan' => 2,
-            ]);
+            ->add(
+                'status',
+                SelectField::class,
+                StatusFieldOption::make()->choices(CommentStatus::labels())->toArray()
+            )
+            ->add(
+                'created_at',
+                TextField::class,
+                TextFieldOption::make()->label(trans('plugins/fob-comment::comment.submitted_on'))->disabled()->toArray()
+            );
     }
 }

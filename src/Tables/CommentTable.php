@@ -30,6 +30,8 @@ class CommentTable extends TableAbstract
                 IdColumn::make(),
                 FormattedColumn::make('author')
                     ->label(trans('plugins/fob-comment::comment.author'))
+                    ->orderable(false)
+                    ->searchable(false)
                     ->getValueUsing(function (FormattedColumn $column) {
                         $item = $column->getItem();
 
@@ -40,6 +42,8 @@ class CommentTable extends TableAbstract
                     ->limit(100),
                 LinkableColumn::make('reference')
                     ->label(trans('plugins/fob-comment::comment.responsed_to'))
+                    ->orderable(false)
+                    ->searchable(false)
                     ->getValueUsing(function (LinkableColumn $column) {
                         $model = $column->getItem();
 
@@ -62,13 +66,13 @@ class CommentTable extends TableAbstract
                     ->label(trans('plugins/fob-comment::comment.submitted_on'))
                     ->dateFormat('Y-m-d H:i:s'),
             ])
-            ->addBulkActions([
+            ->addBulkAction(
                 DeleteBulkAction::make()->permission('fob-comment.comments.destroy'),
-            ])
-            ->addBulkChanges([
+            )
+            ->addBulkChange(
                 StatusBulkChange::make()
                     ->choices(CommentStatus::labels())
                     ->validate(['required', Rule::in(CommentStatus::values())]),
-            ]);
+            );
     }
 }

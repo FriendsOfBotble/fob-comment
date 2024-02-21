@@ -9,6 +9,9 @@ use Botble\Base\PanelSections\PanelSectionItem;
 use Botble\Base\Supports\ServiceProvider;
 use Botble\Base\Traits\LoadAndPublishDataTrait;
 use Botble\Setting\PanelSections\SettingOthersPanelSection;
+use FriendsOfBotble\Comment\Enums\CommentStatus;
+use FriendsOfBotble\Comment\Models\Comment;
+use Illuminate\Support\Facades\Auth;
 
 class CommentServiceProvider extends ServiceProvider
 {
@@ -51,6 +54,27 @@ class CommentServiceProvider extends ServiceProvider
         $this->app->booted(function () {
             add_filter(BASE_FILTER_PUBLIC_COMMENT_AREA, function (string $html, BaseModel $model) {
                 return $html . view('plugins/fob-comment::comment', compact('model'))->render();
+            }, 1, 2);
+
+            add_filter(BASE_FILTER_APPEND_MENU_NAME, function (string|null $html, string $menuId) {
+                if ($menuId !== 'cms-plugins-fob-comment') {
+                    return $html;
+                }
+
+                return view('core/base::partials.navbar.badge-count', ['class' => 'unapproved-comments-count']);
+            }, 1, 2);
+
+            add_filter(BASE_FILTER_MENU_ITEMS_COUNT, function (array $data = []) {
+                if (! Auth::guard()->user()->hasPermission('fob-comment.comments.index')) {
+                    return $data;
+                }
+
+                $data[] = [
+                    'key' => 'unapproved-comments-count',
+                    'value' => Comment::query()->where('status', CommentStatus::PENDING)->count(),
+                ];
+
+                return $data;
             }, 1, 2);
         });
     }

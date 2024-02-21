@@ -2,27 +2,12 @@
 
 namespace FriendsOfBotble\Comment\Http\Requests\Fronts;
 
-use Botble\Captcha\Facades\Captcha;
-use Botble\Support\Http\Requests\Request;
-use FriendsOfBotble\Comment\Http\Requests\CommentRequest as BaseCommentRequest;
-use FriendsOfBotble\Comment\Support\CommentHelper;
 use Illuminate\Support\Arr;
 
-class ReplyCommentRequest extends Request
+class ReplyCommentRequest extends CommentRequest
 {
     public function rules(): array
     {
-        $rules = Arr::except((new BaseCommentRequest())->rules(), 'status');
-
-        if (CommentHelper::isEnableReCaptcha()) {
-            $rules = [...$rules, ...Captcha::rules()];
-        }
-
-        return $rules;
-    }
-
-    public function attributes(): array
-    {
-        return CommentHelper::isEnableReCaptcha() ? Captcha::attributes() : [];
+        return Arr::except(parent::rules(), ['reference_id', 'reference_type', 'reference_url']);
     }
 }

@@ -11,6 +11,13 @@ use Illuminate\Validation\Rule;
 
 class CommentRequest extends Request
 {
+    protected function prepareForValidation(): void
+    {
+        $preparedData = CommentHelper::preparedDataForFill();
+
+        $this->merge($preparedData);
+    }
+
     public function rules(): array
     {
         $rules = [

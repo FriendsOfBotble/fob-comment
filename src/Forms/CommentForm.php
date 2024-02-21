@@ -31,12 +31,7 @@ class CommentForm extends FormAbstract
                 'permalink',
                 HtmlField::class,
                 HtmlFieldOption::make()
-                    ->bladeContent(<<<BLADE
-                        <div class="mb-3">
-                            <label class="form-label d-inline-block mb-0">{{ trans('plugins/fob-comment::comment.permalink') }}:</label>
-                            {{ Html::link('$model->reference_url'. '#' . 'comment-' . $model->id, '$model->reference_url', ['target' => '_blank']) }}
-                        </div>
-                    BLADE)
+                    ->content(view('plugins/fob-comment::partials.permalink', compact('model')))
                     ->toArray()
             )
             ->add(

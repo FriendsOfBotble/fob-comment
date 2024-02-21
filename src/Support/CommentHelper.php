@@ -36,4 +36,31 @@ class CommentHelper
     {
         return setting('fob_comment_auto_fill_comment_form', true);
     }
+
+    public static function preparedDataForFill(): array
+    {
+        if (! CommentHelper::isAutoFillCommentForm()) {
+            return [];
+        }
+
+        $data = [];
+
+        $guard = match (true) {
+            is_plugin_active('member') => 'member',
+            is_plugin_active('real-estate') => 'account',
+            is_plugin_active('ecommerce') => 'customer',
+            default => null,
+        };
+
+        if ($guard) {
+            $user = auth($guard)->user();
+
+            if ($user) {
+                $data['name'] = $user->name;
+                $data['email'] = $user->email;
+            }
+        }
+
+        return apply_filters('fob_comment_prepare_comment_data', $data);
+    }
 }

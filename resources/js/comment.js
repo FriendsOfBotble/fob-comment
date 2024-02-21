@@ -28,9 +28,9 @@ $(() => {
 
         if (getCookie(name)) {
             if (name === 'cookie_consent') {
-                $(document).find(`input[name="${name}"]`).prop('checked', true)
+                $(input).prop('checked', true)
             } else {
-                $(document).find(`input[name="${name}"]`).val(getCookie(name))
+                $(input).val($(input).val() || getCookie(name))
             }
         }
     })

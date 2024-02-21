@@ -11,6 +11,7 @@ use Botble\Base\Forms\Fields\OnOffCheckboxField;
 use Botble\Base\Forms\Fields\TextareaField;
 use Botble\Base\Forms\Fields\TextField;
 use Botble\Base\Forms\FormAbstract;
+use Botble\Base\Forms\FormBuilder;
 use Botble\Base\Models\BaseModel;
 use Botble\Captcha\Forms\Fields\ReCaptchaField;
 use FriendsOfBotble\Comment\Http\Requests\Fronts\CommentRequest;
@@ -19,11 +20,11 @@ use Illuminate\Support\Arr;
 
 class CommentForm extends FormAbstract
 {
+    protected static BaseModel|null $reference = null;
+
     public function setup(): void
     {
-        $reference = $this->getData('reference');
-
-        $preparedData = $this->prepareCommentData();
+        $preparedData = CommentHelper::preparedDataForFill();
 
         $this
             ->contentOnly()
@@ -32,8 +33,8 @@ class CommentForm extends FormAbstract
             ->setValidatorClass(CommentRequest::class)
             ->columns()
             ->when(
-                $reference instanceof BaseModel,
-                function (FormAbstract $form) use ($reference) {
+                $this->getReference(),
+                function (FormAbstract $form, BaseModel $reference) {
                     $form
                         ->add('reference_id', 'hidden', ['value' => $reference->getKey()])
                         ->add('reference_type', 'hidden', ['value' => $reference::class]);
@@ -52,16 +53,22 @@ class CommentForm extends FormAbstract
                 'name',
                 TextField::class,
                 TextFieldOption::make()->label(trans('plugins/fob-comment::comment.common.name'))
-                    ->required()
-                    ->defaultValue(Arr::get($preparedData, 'name'))
+                    ->when(
+                        Arr::get($preparedData, 'name'),
+                        fn (TextFieldOption $option, $value) => $option->defaultValue($value)->disabled(),
+                        fn (TextFieldOption $option) => $option->required()
+                    )
                     ->toArray()
             )
             ->add(
                 'email',
                 EmailField::class,
                 EmailFieldOption::make()->label(trans('plugins/fob-comment::comment.common.email'))
-                    ->required()
-                    ->defaultValue(Arr::get($preparedData, 'email'))
+                    ->when(
+                        Arr::get($preparedData, 'email'),
+                        fn (EmailFieldOption $option, $value) => $option->defaultValue($value)->disabled(),
+                        fn (EmailFieldOption $option) => $option->required()
+                    )
                     ->toArray()
             )
             ->add(
@@ -69,7 +76,11 @@ class CommentForm extends FormAbstract
                 TextField::class,
                 TextFieldOption::make()->label(trans('plugins/fob-comment::comment.common.website'))
                     ->colspan(2)
-                    ->defaultValue(Arr::get($preparedData, 'website'))
+                    ->when(
+                        Arr::get($preparedData, 'website'),
+                        fn (TextFieldOption $option, $value) => $option->defaultValue($value)->disabled(),
+                        fn (TextFieldOption $option) => $option->required()
+                    )
                     ->toArray()
             )
             ->when(
@@ -95,30 +106,15 @@ class CommentForm extends FormAbstract
             ]);
     }
 
-    protected function prepareCommentData(): array|null
+    public static function createWithReference(BaseModel $model): static
     {
-        if (! CommentHelper::isAutoFillCommentForm()) {
-            return null;
-        }
+        static::$reference = $model;
 
-        $data = [];
+        return app(FormBuilder::class)->create(static::class);
+    }
 
-        $guard = match (true) {
-            is_plugin_active('member') => 'member',
-            is_plugin_active('real-estate') => 'account',
-            is_plugin_active('ecommerce') => 'customer',
-            default => null,
-        };
-
-        if ($guard) {
-            $user = auth($guard)->user();
-
-            if ($user) {
-                $data['name'] = $user->name;
-                $data['email'] = $user->email;
-            }
-        }
-
-        return apply_filters('fob_comment_prepare_comment_data', $data);
+    public static function getReference(): BaseModel|null
+    {
+        return static::$reference;
     }
 }

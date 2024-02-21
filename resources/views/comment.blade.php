@@ -3,8 +3,6 @@
     Theme::asset()->container('footer')->add('fob-comment-js', asset('vendor/core/plugins/fob-comment/js/comment.js'));
 
     use FriendsOfBotble\Comment\Forms\Fronts\CommentForm;
-
-    $form = CommentForm::create(data: ['reference' => $model ?? url()->current()]);
 @endphp
 
 <script>
@@ -24,5 +22,5 @@
     <h3 class="fob-comment-form-title">{{ trans('plugins/fob-comment::comment.front.form.title') }}</h3>
     <p class="fob-comment-form-note">{{ trans('plugins/fob-comment::comment.front.form.description') }}</p>
 
-    {!! $form->renderForm() !!}
+    {!! CommentForm::createWithReference($model)->renderForm() !!}
 </div>

@@ -2,10 +2,13 @@
 
 namespace FriendsOfBotble\Comment\Forms\Settings;
 
+use Botble\Base\Facades\Html;
 use Botble\Base\Forms\FieldOptions\OnOffFieldOption;
 use Botble\Base\Forms\FieldOptions\RadioFieldOption;
 use Botble\Base\Forms\Fields\OnOffCheckboxField;
 use Botble\Base\Forms\Fields\RadioField;
+use Botble\Base\Forms\FormAbstract;
+use Botble\Captcha\Facades\Captcha;
 use Botble\Setting\Forms\SettingForm;
 use FriendsOfBotble\Comment\Http\Requests\Settings\CommentSettingRequest;
 use FriendsOfBotble\Comment\Support\CommentHelper;
@@ -20,14 +23,27 @@ class CommentSettingForm extends SettingForm
             ->setValidatorClass(CommentSettingRequest::class)
             ->setSectionTitle(trans('plugins/fob-comment::comment.settings.title'))
             ->setSectionDescription(trans('plugins/fob-comment::comment.settings.description'))
-            ->add(
-                'fob_comment_enable_recaptcha',
-                OnOffCheckboxField::class,
-                OnOffFieldOption::make()
-                    ->label(trans('plugins/fob-comment::comment.settings.form.enable_recaptcha'))
-                    ->value(CommentHelper::isEnableReCaptcha())
-                    ->toArray()
-            )
+            ->when(is_plugin_active('captcha'), function (FormAbstract $form) {
+                $form->add(
+                    'fob_comment_enable_recaptcha',
+                    OnOffCheckboxField::class,
+                    OnOffFieldOption::make()
+                        ->label(trans('plugins/fob-comment::comment.settings.form.enable_recaptcha'))
+                        ->value(setting('fob_comment_enable_recaptcha', false))
+                        ->when(! Captcha::isEnabled(), function (OnOffFieldOption $option) {
+                            return $option->helperText(
+                                trans(
+                                    'plugins/fob-comment::comment.settings.form.enable_recaptcha_help',
+                                    ['url' => Html::link(
+                                        route('captcha.settings'),
+                                        trans('plugins/fob-comment::comment.settings.form.captcha_setting_label')
+                                    )]
+                                )
+                            );
+                        })
+                        ->toArray()
+                );
+            })
             ->add(
                 'fob_comment_comment_moderation',
                 OnOffCheckboxField::class,

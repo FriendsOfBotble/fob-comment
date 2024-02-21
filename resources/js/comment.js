@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+$(() => {
     let isReplying = false
     let originalForm = ''
 
@@ -19,188 +19,168 @@ document.addEventListener('DOMContentLoaded', function () {
         return null
     }
 
-    ['name', 'email', 'website', 'cookie_consent'].forEach((name) => {
-        if (getCookie(name)) {
-            document.querySelector(`input[name="${name}"]`).value = getCookie(name)
-        }
-    })
-
     const deleteCookie = (name) => {
         document.cookie = `fob-comment-${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`
     }
 
-    const fetchComments = (url = fobComment.listUrl) => {
-        fetch(url, {
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest',
-            },
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                if (window?.Theme !== undefined && data.error) {
-                    Theme.showError(data.message)
+    $(document).find('.fob-comment-form input').each((index, input) => {
+        const name = $(input).prop('name')
 
-                    return
-                }
-
-                const { title, html, comments } = data.data
-
-                const commentListSection = document.querySelector('.fob-comment-list-section')
-
-                if (comments.total < 1) {
-                    commentListSection.style.display = 'none'
-
-                    return
-                }
-
-                commentListSection.style.display = 'block'
-                document.querySelector('.fob-comment-list-title').textContent = title
-                document.querySelector('.fob-comment-list-wrapper').innerHTML = html
-            })
-    }
-
-    const handleCommentSubmit = (event) => {
-        event.stopPropagation()
-        event.preventDefault()
-
-        if (typeof $ !== 'undefined' && typeof $.fn.validate !== 'undefined') {
-            if (!$('.fob-comment-form').valid()) {
-                return
+        if (getCookie(name)) {
+            if (name === 'cookie_consent') {
+                $(document).find(`input[name="${name}"]`).prop('checked', true)
+            } else {
+                $(document).find(`input[name="${name}"]`).val(getCookie(name))
             }
         }
+    })
 
-        const form = event.target
-        const formData = new FormData(form)
+    const fetchComments = (url = fobComment.listUrl) => {
+        $.ajax({
+            url: url,
+            type: 'GET',
+            dataType: 'json',
+            success: ({ error, data, message }) => {
+                if (window?.Theme !== undefined && error) {
+                    Theme.showError(message)
 
-        const cookieConsentsCheckbox = form.querySelector('input[type="checkbox"][name="cookie_consent"]')
-        const saveToCookie = cookieConsentsCheckbox ? cookieConsentsCheckbox.checked : false
+                    return
+                }
 
-        fetch(form.action, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest',
+                const { title, html, comments } = data
+
+                const $commentListSection = $(document).find('.fob-comment-list-section')
+
+                if (comments.total < 1) {
+                    $commentListSection.hide()
+                } else {
+                    $commentListSection.show()
+                    $(document).find('.fob-comment-list-title').text(title)
+                    $(document).find('.fob-comment-list-wrapper').html(html)
+                }
             },
         })
-            .then((response) => response.json())
-            .then((data) => {
-                if (window?.Theme !== undefined) {
-                    if (data.errors) {
-                        Theme.handleValidationError(data.errors)
-
-                        return
-                    }
-
-                    if (data.error) {
-                        Theme.showError(data.message)
-
-                        return
-                    }
-
-                    Theme.showSuccess(data.message)
-                }
-
-                if (saveToCookie) {
-                    setCookie('name', formData.get('name'), 365)
-                    setCookie('email', formData.get('email'), 365)
-                    setCookie('website', formData.get('website'), 365)
-                    setCookie('cookie_consent', 1, 365)
-
-                    form.querySelector('textarea[name="content"]').value = ''
-                } else {
-                    form.reset()
-
-                    deleteCookie('name')
-                    deleteCookie('email')
-                    deleteCookie('website')
-                    deleteCookie('cookie_consent')
-                }
-
-                fetchComments()
-
-                if (isReplying) {
-                    isReplying = false
-
-                    document
-                        .querySelector('.fob-comment-list-section')
-                        .parentNode.insertBefore(
-                            originalForm,
-                            document.querySelector('.fob-comment-list-section').nextSibling
-                        )
-                }
-            })
     }
 
-    const handleCommentListClick = (event) => {
-        const target = event.target
+    $(document)
+        .on('submit', '.fob-comment-form', (e) => {
+            e.stopPropagation()
+            e.preventDefault()
 
-        if (target.closest('.fob-comment-pagination')) {
-            event.preventDefault()
+            if (typeof $.fn.validate !== 'undefined') {
+                if (!$('.fob-comment-form').valid()) {
+                    return
+                }
+            }
 
-            const url = target.href
+            const form = $(e.currentTarget)
+            const formData = new FormData(form[0])
+
+            const cookieConsentsCheckbox = form.find('input[type="checkbox"][name="cookie_consent"]')
+            const saveToCookie = cookieConsentsCheckbox.length > 0 && cookieConsentsCheckbox.is(':checked')
+
+            $.ajax({
+                url: form.prop('action'),
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                dataType: 'json',
+                success: ({ error, message }) => {
+                    if (window?.Theme !== undefined) {
+                        if (error) {
+                            Theme.showError(message)
+
+                            return
+                        }
+
+                        Theme.showSuccess(message)
+                    }
+
+                    if (saveToCookie) {
+                        setCookie('name', formData.get('name'), 365)
+                        setCookie('email', formData.get('email'), 365)
+                        setCookie('website', formData.get('website'), 365)
+                        setCookie('cookie_consent', 1, 365)
+
+                        form.find('textarea[name="content"]').val('')
+                    } else {
+                        form.reset()
+
+                        deleteCookie('name')
+                        deleteCookie('email')
+                        deleteCookie('website')
+                        deleteCookie('cookie_consent')
+                    }
+
+                    fetchComments()
+
+                    if (isReplying) {
+                        isReplying = false
+
+                        $(document).find('.fob-comment-form-section').remove(originalForm)
+
+                        $(document).find('.fob-comment-list-section').after(originalForm)
+                    }
+                },
+                error: (error) => {
+                    if (window?.Theme !== undefined) {
+                        Theme.handleError(error)
+                    }
+                }
+            })
+        })
+        .on('click', '.fob-comment-pagination a', (e) => {
+            e.preventDefault()
+
+            const url = e.currentTarget.href
 
             if (url) {
                 fetchComments(url)
 
-                document.querySelector('.fob-comment-list-section').scrollIntoView({
-                    behavior: 'smooth',
+                $('html, body').animate({
+                    scrollTop: $('.fob-comment-list-section').offset().top,
                 })
             }
-        }
+        })
+        .on('click', '.fob-comment-item-reply', (e) => {
+            e.preventDefault()
 
-        if (target.classList.contains('fob-comment-item-reply')) {
-            event.preventDefault()
+            const currentTarget = $(e.currentTarget)
 
-            const replyForm = document.querySelector('.fob-comment-form-section')
+            const form = $(document).find('.fob-comment-form-section')
 
-            if (replyForm) {
-                replyForm.remove()
+            if (form) {
+                form.remove()
             }
 
             if (!isReplying) {
-                originalForm = replyForm.cloneNode(true)
+                originalForm = form.clone()
             }
 
-            const commentItem = target.closest('.fob-comment-item')
+            currentTarget.closest('.fob-comment-item').after(form)
 
-            commentItem.parentNode.insertBefore(replyForm, commentItem.nextSibling)
-
-            replyForm.querySelector('.fob-comment-form-title').textContent = target.dataset.replyTo
-
-            const cancelReplyLink = document.createElement('a')
-            cancelReplyLink.id = 'cancel-comment-reply-link'
-            cancelReplyLink.href = '#'
-            cancelReplyLink.rel = 'nofollow'
-            cancelReplyLink.textContent = target.dataset.cancelReply
-            replyForm.querySelector('.fob-comment-form-title').appendChild(cancelReplyLink)
-
-            replyForm.querySelector('form').setAttribute('action', target.href)
+            form.find('.fob-comment-form-title').text(currentTarget.data('reply-to'))
+            form.find('.fob-comment-form-title').append(
+                `<a href="#" class="cancel-comment-reply-link" rel="nofollow">${currentTarget.data('cancel-reply')}</a`
+            )
+            form.find('form').prop('action', currentTarget.prop('href'))
 
             isReplying = true
-
-            document.querySelector('.fob-comment-form').addEventListener('submit', handleCommentSubmit)
-        }
-
-        if (target.id === 'cancel-comment-reply-link') {
-            event.preventDefault()
+        })
+        .on('click', '.cancel-comment-reply-link', (e) => {
+            e.preventDefault()
 
             isReplying = false
 
-            const replyForm = document.querySelector('.fob-comment-form-section')
+            const form = $(document).find('.fob-comment-form-section')
 
-            if (replyForm) {
-                replyForm.remove()
+            if (form) {
+                form.remove()
             }
 
-            document
-                .querySelector('.fob-comment-list-section')
-                .parentNode.insertBefore(originalForm, document.querySelector('.fob-comment-list-section').nextSibling)
-        }
-    }
+            $(document).find('.fob-comment-list-section').after(originalForm)
+        })
 
     fetchComments()
-
-    document.querySelector('.fob-comment-form').addEventListener('submit', handleCommentSubmit)
-
-    document.querySelector('.fob-comment-list-section').addEventListener('click', handleCommentListClick)
 })

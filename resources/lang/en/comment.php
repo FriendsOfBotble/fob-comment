@@ -50,6 +50,8 @@ return [
 
         'form' => [
             'enable_recaptcha' => 'Enable reCAPTCHA',
+            'enable_recaptcha_help' => 'You need to enable reCAPTCHA in :url to use this feature.',
+            'captcha_setting_label' => 'Captcha Settings',
             'comment_moderation' => 'Comment must be mannually approved',
             'comment_moderation_help' => 'All comments must be mannually approved by admin before displaying on frontend.',
             'show_comment_cookie_consent' => 'Show comments cookies checkbox, allow visitors to save their information in browser',

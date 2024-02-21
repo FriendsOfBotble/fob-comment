@@ -62,6 +62,15 @@ class CommentSettingForm extends SettingForm
                     ->toArray()
             )
             ->add(
+                'fob_comment_auto_fill_comment_form',
+                OnOffCheckboxField::class,
+                OnOffFieldOption::make()
+                    ->label(trans('plugins/fob-comment::comment.settings.form.auto_fill_comment_form'))
+                    ->value(CommentHelper::isAutoFillCommentForm())
+                    ->helperText(trans('plugins/fob-comment::comment.settings.form.auto_fill_comment_form_help'))
+                    ->toArray()
+            )
+            ->add(
                 'fob_comment_comment_order',
                 RadioField::class,
                 RadioFieldOption::make()

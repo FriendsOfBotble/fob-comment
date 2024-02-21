@@ -31,4 +31,9 @@ class CommentHelper
     {
         return setting('fob_comment_show_comment_cookie_consent', true);
     }
+
+    public static function isAutoFillCommentForm(): bool
+    {
+        return setting('fob_comment_auto_fill_comment_form', true);
+    }
 }

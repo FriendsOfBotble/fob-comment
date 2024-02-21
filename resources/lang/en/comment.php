@@ -46,15 +46,17 @@ return [
 
     'settings' => [
         'title' => 'FOB Comment',
-        'description' => 'Manage related settings for FOB Comment',
+        'description' => 'Configure settings for FOB Comment',
 
         'form' => [
             'enable_recaptcha' => 'Enable reCAPTCHA',
             'enable_recaptcha_help' => 'You need to enable reCAPTCHA in :url to use this feature.',
             'captcha_setting_label' => 'Captcha Settings',
-            'comment_moderation' => 'Comment must be mannually approved',
-            'comment_moderation_help' => 'All comments must be mannually approved by admin before displaying on frontend.',
-            'show_comment_cookie_consent' => 'Show comments cookies checkbox, allow visitors to save their information in browser',
+            'comment_moderation' => 'Comments must be manually approved',
+            'comment_moderation_help' => 'All comments must be manually approved by an admin before displaying on the frontend.',
+            'show_comment_cookie_consent' => 'Show comments cookies checkbox, allowing visitors to save their information in the browser',
+            'auto_fill_comment_form' => 'Auto-fill comment data for logged-in users',
+            'auto_fill_comment_form_help' => 'The comment form will be automatically filled with user data such as full name, email, etc., if they are logged in.',
             'comment_order' => 'Sort comments by',
             'comment_order_help' => 'Choose the preferred order for displaying comments in the list.',
             'comment_order_choices' => [

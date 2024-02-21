@@ -15,12 +15,15 @@ use Botble\Base\Models\BaseModel;
 use Botble\Captcha\Forms\Fields\ReCaptchaField;
 use FriendsOfBotble\Comment\Http\Requests\Fronts\CommentRequest;
 use FriendsOfBotble\Comment\Support\CommentHelper;
+use Illuminate\Support\Arr;
 
 class CommentForm extends FormAbstract
 {
     public function setup(): void
     {
         $reference = $this->getData('reference');
+
+        $preparedData = $this->prepareCommentData();
 
         $this
             ->contentOnly()
@@ -50,6 +53,7 @@ class CommentForm extends FormAbstract
                 TextField::class,
                 TextFieldOption::make()->label(trans('plugins/fob-comment::comment.common.name'))
                     ->required()
+                    ->defaultValue(Arr::get($preparedData, 'name'))
                     ->toArray()
             )
             ->add(
@@ -57,6 +61,7 @@ class CommentForm extends FormAbstract
                 EmailField::class,
                 EmailFieldOption::make()->label(trans('plugins/fob-comment::comment.common.email'))
                     ->required()
+                    ->defaultValue(Arr::get($preparedData, 'email'))
                     ->toArray()
             )
             ->add(
@@ -64,6 +69,7 @@ class CommentForm extends FormAbstract
                 TextField::class,
                 TextFieldOption::make()->label(trans('plugins/fob-comment::comment.common.website'))
                     ->colspan(2)
+                    ->defaultValue(Arr::get($preparedData, 'website'))
                     ->toArray()
             )
             ->when(
@@ -87,5 +93,32 @@ class CommentForm extends FormAbstract
                 ],
                 'colspan' => 2,
             ]);
+    }
+
+    protected function prepareCommentData(): array|null
+    {
+        if (! CommentHelper::isAutoFillCommentForm()) {
+            return null;
+        }
+
+        $data = [];
+
+        $guard = match (true) {
+            is_plugin_active('member') => 'member',
+            is_plugin_active('real-estate') => 'account',
+            is_plugin_active('ecommerce') => 'customer',
+            default => null,
+        };
+
+        if ($guard) {
+            $user = auth($guard)->user();
+
+            if ($user) {
+                $data['name'] = $user->name;
+                $data['email'] = $user->email;
+            }
+        }
+
+        return apply_filters('fob_comment_prepare_comment_data', $data);
     }
 }

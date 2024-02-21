@@ -58,6 +58,12 @@ class CommentTable extends TableAbstract
                     ->urlUsing(function (LinkableColumn $column) {
                         $model = $column->getItem();
 
+                        if (class_exists($model->reference_type)) {
+                            $reference = $model->reference;
+
+                            return $reference->url;
+                        }
+
                         return sprintf('%s#comment-%s', $model->reference_url, $model->getKey());
                     })
                     ->externalLink(),

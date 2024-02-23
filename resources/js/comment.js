@@ -107,7 +107,7 @@ $(() => {
 
                         form.find('textarea[name="content"]').val('')
                     } else {
-                        form.reset()
+                        form[0].reset()
 
                         deleteCookie('name')
                         deleteCookie('email')

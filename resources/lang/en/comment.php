@@ -16,6 +16,8 @@ return [
     'submitted_on' => 'Submitted on',
     'edit_comment' => 'Edit Comment',
 
+    'allow_comments' => 'Allow comments',
+
     'front' => [
         'list' => [
             'title' => ':count comment|:count comments',

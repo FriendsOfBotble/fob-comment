@@ -4,10 +4,13 @@ namespace FriendsOfBotble\Comment\Providers;
 
 use Botble\Base\Facades\DashboardMenu;
 use Botble\Base\Facades\PanelSectionManager;
+use Botble\Base\Forms\FieldOptions\CheckboxFieldOption;
+use Botble\Base\Forms\Fields\OnOffCheckboxField;
 use Botble\Base\Models\BaseModel;
 use Botble\Base\PanelSections\PanelSectionItem;
 use Botble\Base\Supports\ServiceProvider;
 use Botble\Base\Traits\LoadAndPublishDataTrait;
+use Botble\Blog\Forms\PostForm;
 use Botble\Setting\PanelSections\SettingOthersPanelSection;
 use FriendsOfBotble\Comment\Enums\CommentStatus;
 use FriendsOfBotble\Comment\Models\Comment;
@@ -53,6 +56,10 @@ class CommentServiceProvider extends ServiceProvider
 
         $this->app->booted(function () {
             add_filter(BASE_FILTER_PUBLIC_COMMENT_AREA, function (string $html, BaseModel $model) {
+                if (! $model->getMetaData('allow_comments', true)) {
+                    return $html;
+                }
+
                 return $html . view('plugins/fob-comment::comment', compact('model'))->render();
             }, 1, 2);
 
@@ -76,6 +83,17 @@ class CommentServiceProvider extends ServiceProvider
 
                 return $data;
             }, 1, 2);
+
+            PostForm::extend(function (PostForm $form) {
+                $form->add(
+                    'allow_comments',
+                    OnOffCheckboxField::class,
+                    CheckboxFieldOption::make()
+                        ->label(trans('plugins/fob-comment::comment.allow_comments'))
+                        ->metadata()
+                        ->toArray()
+                );
+            });
         });
     }
 }

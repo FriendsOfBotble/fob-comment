@@ -15,11 +15,7 @@ class GetCommentReference
         /**
          * @var BaseModel $reference
          */
-        $reference = $referenceType::query()->find($referenceId);
-
-        if (! $reference) {
-            abort(404);
-        }
+        $reference = $referenceType::query()->findOrFail($referenceId);
 
         return $reference;
     }

@@ -65,6 +65,10 @@ class CommentController extends BaseController
         if ($request->input('reference_type')) {
             $reference = $getCommentReference($request->input('reference_type'), $request->input('reference_id'));
 
+            if (! $reference->getMetaData('allow_comments', true)) {
+                abort(404);
+            }
+
             $data = [
                 ...$data,
                 'reference_id' => $reference->getKey(),

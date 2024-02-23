@@ -44,7 +44,8 @@ class CommentForm extends FormAbstract
             ->add(
                 'content',
                 TextareaField::class,
-                TextareaFieldOption::make()->label(trans('plugins/fob-comment::comment.common.comment'))
+                TextareaFieldOption::make()
+                    ->label(trans('plugins/fob-comment::comment.common.comment'))
                     ->required()
                     ->colspan(2)
                     ->toArray()
@@ -52,7 +53,8 @@ class CommentForm extends FormAbstract
             ->add(
                 'name',
                 TextField::class,
-                TextFieldOption::make()->label(trans('plugins/fob-comment::comment.common.name'))
+                TextFieldOption::make()
+                    ->label(trans('plugins/fob-comment::comment.common.name'))
                     ->when(
                         Arr::get($preparedData, 'name'),
                         fn (TextFieldOption $option, $value) => $option->defaultValue($value)->disabled(),

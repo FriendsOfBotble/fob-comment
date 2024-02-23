@@ -1,12 +1,10 @@
 $prefix: 'fob-';
 
 .#{$prefix}comment {
-    &-list {
-        &-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
+    &-title {
+        font-size: 30px;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
     }
 
     &-item {
@@ -36,7 +34,7 @@ $prefix: 'fob-';
 
         &-body {
             p {
-                font-size: 1rem !important;
+                font-size: 16px;
                 margin-bottom: 0.75rem;
             }
         }
@@ -48,7 +46,7 @@ $prefix: 'fob-';
         }
 
         &-author {
-            font-size: 0.875rem !important;
+            font-size: 14px;
             font-weight: 600;
             margin-bottom: 0;
         }
@@ -60,7 +58,7 @@ $prefix: 'fob-';
         }
 
         &-date {
-            font-size: 0.8rem;
+            font-size: 14px;
             color: #999999;
             margin-bottom: 0;
         }
@@ -85,16 +83,16 @@ $prefix: 'fob-';
             margin: 3rem 0;
         }
 
-        &-title {
-            font-size: 1.5rem;
-            font-weight: 600;
+        &-note {
+            font-size: 14px;
+            color: #888888;
             margin-bottom: 1.5rem;
         }
     }
 }
 
 .cancel-comment-reply-link {
-    font-size: 0.875rem;
+    font-size: 14px;
     margin-inline-start: 1rem;
     text-decoration: underline;
 

@@ -1,5 +1,9 @@
 @php
     $currentIndent ??= 0;
+
+    if (! view()->exists($paginationView = Theme::getThemeNamespace('partials.pagination'))) {
+        $paginationView = 'pagination::bootstrap-5';
+    }
 @endphp
 
 <div class="fob-comment-list">
@@ -68,6 +72,6 @@
 
 @if ($comments instanceof \Illuminate\Contracts\Pagination\LengthAwarePaginator && $comments->hasPages())
     <div class="fob-comment-pagination">
-        {{ $comments->appends(request()->except('page'))->links() }}
+        {{ $comments->appends(request()->except('page'))->links($paginationView) }}
     </div>
 @endif

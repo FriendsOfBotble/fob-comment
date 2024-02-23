@@ -23,17 +23,19 @@ $(() => {
         document.cookie = `fob-comment-${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`
     }
 
-    $(document).find('.fob-comment-form input').each((index, input) => {
-        const name = $(input).prop('name')
+    $(document)
+        .find('.fob-comment-form input')
+        .each((index, input) => {
+            const name = $(input).prop('name')
 
-        if (getCookie(name)) {
-            if (name === 'cookie_consent') {
-                $(input).prop('checked', true)
-            } else {
-                $(input).val($(input).val() || getCookie(name))
+            if (getCookie(name)) {
+                if (name === 'cookie_consent') {
+                    $(input).prop('checked', true)
+                } else {
+                    $(input).val($(input).val() || getCookie(name))
+                }
             }
-        }
-    })
+        })
 
     const fetchComments = (url = fobComment.listUrl) => {
         $.ajax({
@@ -127,7 +129,7 @@ $(() => {
                     if (window?.Theme !== undefined) {
                         Theme.handleError(error)
                     }
-                }
+                },
             })
         })
         .on('click', '.fob-comment-pagination a', (e) => {

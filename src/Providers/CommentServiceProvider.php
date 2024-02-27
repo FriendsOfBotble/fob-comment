@@ -56,7 +56,7 @@ class CommentServiceProvider extends ServiceProvider
 
         $this->app->booted(function () {
             add_filter(BASE_FILTER_PUBLIC_COMMENT_AREA, function (string $html, BaseModel $model) {
-                if (! $model->getMetaData('allow_comments', true)) {
+                if ($model->getMetaData('allow_comments', true) == '0') {
                     return $html;
                 }
 
@@ -91,6 +91,7 @@ class CommentServiceProvider extends ServiceProvider
                     CheckboxFieldOption::make()
                         ->label(trans('plugins/fob-comment::comment.allow_comments'))
                         ->metadata()
+                        ->defaultValue(true)
                         ->toArray()
                 );
             });

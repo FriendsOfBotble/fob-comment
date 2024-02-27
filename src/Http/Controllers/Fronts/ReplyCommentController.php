@@ -14,9 +14,10 @@ class ReplyCommentController extends BaseController
     {
         $comment = Comment::query()
             ->where('status', CommentStatus::APPROVED)
+            ->with('reference')
             ->findOrFail($comment);
 
-        $createNewComment($request->validated(), $comment);
+        $createNewComment($comment->reference, $request->validated(), $comment);
 
         return $this
             ->httpResponse()

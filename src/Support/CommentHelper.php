@@ -3,6 +3,12 @@
 namespace FriendsOfBotble\Comment\Support;
 
 use Botble\Captcha\Facades\Captcha;
+use FontLib\TrueType\Collection;
+use FriendsOfBotble\Comment\Enums\CommentStatus;
+use FriendsOfBotble\Comment\Models\Comment;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class CommentHelper
 {
@@ -62,5 +68,53 @@ class CommentHelper
         }
 
         return apply_filters('fob_comment_prepare_comment_data', $data);
+    }
+
+    public static function getCommentCount(Model $reference): int
+    {
+        $counter = app('fob.comments.counter');
+
+        if (isset($counter[$reference::class][$reference->getKey()])) {
+            return $counter[$reference->getKey()];
+        }
+
+        $counter = static::loadCommentsCount([$reference]);
+
+        return $counter[$reference::class][$reference->getKey()] ?? 0;
+    }
+
+    public static function loadCommentsCount(Collection|array $collect): array
+    {
+        $counter = app('fob.comments.counter');
+
+        if (empty($collect)) {
+            return $counter;
+        }
+
+        $query = Comment::query();
+
+        $query
+            ->select(['reference_type', 'reference_id', DB::raw('count(*) as total')])
+            ->where('status', CommentStatus::APPROVED);
+
+        foreach ($collect as $reference) {
+            $query->orWhere(function (Builder $query) use ($reference) {
+                $query
+                    ->where('reference_type', $reference::class)
+                    ->where('reference_id', $reference->getKey());
+            });
+        }
+
+        $query->groupBy(['reference_type', 'reference_id']);
+
+        $result = $query->get();
+
+        foreach ($result as $item) {
+            $counter[$item->reference_type][$item->reference_id] = $item->total;
+        }
+
+        app()->instance('fob.comments.counter', $counter);
+
+        return $counter;
     }
 }

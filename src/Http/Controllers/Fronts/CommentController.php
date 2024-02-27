@@ -27,7 +27,7 @@ class CommentController extends BaseController
                 ->where('reference_url', $request->input('reference_url'));
         }
 
-        $comments = $query
+        $query
             ->where(function (Builder $query) {
                 $query
                     ->where('status', CommentStatus::APPROVED)
@@ -40,9 +40,9 @@ class CommentController extends BaseController
             ->with(['replies'])
             ->orderBy('created_at', CommentHelper::getCommentOrder());
 
-        $comments = apply_filters('fob_comment_list_query', $comments, $request)->paginate(10);
+        $comments = apply_filters('fob_comment_list_query', $query, $request)->paginate(10);
 
-        $count = $comments->total();
+        $count = CommentHelper::getCommentCount($reference);
 
         $view = apply_filters('fob_comment_list_view_path', 'plugins/fob-comment::partials.list');
 
@@ -68,15 +68,9 @@ class CommentController extends BaseController
             if ($reference->getMetaData('allow_comments', true) == '0') {
                 abort(404);
             }
-
-            $data = [
-                ...$data,
-                'reference_id' => $reference->getKey(),
-                'reference_type' => $reference::class,
-            ];
         }
 
-        $createNewComment($data);
+        $createNewComment($reference, $data);
 
         return $this
             ->httpResponse()

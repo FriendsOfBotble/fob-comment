@@ -20,6 +20,11 @@ class CommentServiceProvider extends ServiceProvider
 {
     use LoadAndPublishDataTrait;
 
+    public function register(): void
+    {
+        $this->app->instance('fob.comments.counter', []);
+    }
+
     public function boot(): void
     {
         $this

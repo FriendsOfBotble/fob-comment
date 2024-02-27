@@ -2,12 +2,12 @@
 
 namespace FriendsOfBotble\Comment\Support;
 
+use Botble\Base\Contracts\BaseModel;
 use Botble\Captcha\Facades\Captcha;
 use FontLib\TrueType\Collection;
 use FriendsOfBotble\Comment\Enums\CommentStatus;
 use FriendsOfBotble\Comment\Models\Comment;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
 class CommentHelper
@@ -70,7 +70,7 @@ class CommentHelper
         return apply_filters('fob_comment_prepare_comment_data', $data);
     }
 
-    public static function getCommentCount(Model $reference): int
+    public static function getCommentsCount(BaseModel $reference): int
     {
         $counter = app('fob.comments.counter');
 

@@ -42,7 +42,7 @@ class CommentController extends BaseController
 
         $comments = apply_filters('fob_comment_list_query', $query, $request)->paginate(10);
 
-        $count = CommentHelper::getCommentCount($reference);
+        $count = CommentHelper::getCommentsCount($reference);
 
         $view = apply_filters('fob_comment_list_view_path', 'plugins/fob-comment::partials.list');
 

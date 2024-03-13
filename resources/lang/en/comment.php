@@ -19,7 +19,7 @@ return [
     'in_reply_to' => 'In reply to :name',
 
     'reply_modal' => [
-        'title' => 'Reply to Comment',
+        'title' => 'Reply to :comment',
         'cancel' => 'Cancel',
     ],
 

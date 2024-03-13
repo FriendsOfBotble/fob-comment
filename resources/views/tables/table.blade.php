@@ -30,6 +30,7 @@
                 const relatedTarget = $(event.relatedTarget).parent()
 
                 $('form#reply-comment-form').prop('action', relatedTarget.data('url'))
+                $('#reply-comment-modal .modal-title').text(relatedTarget.data('modal-title'))
             })
 
             $('form#reply-comment-form').on('submit', function (e) {

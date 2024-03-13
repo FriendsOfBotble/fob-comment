@@ -2,15 +2,15 @@
 
 namespace FriendsOfBotble\Comment\Forms;
 
+use Botble\Base\Forms\FieldOptions\EditorFieldOption;
 use Botble\Base\Forms\FieldOptions\EmailFieldOption;
 use Botble\Base\Forms\FieldOptions\HtmlFieldOption;
 use Botble\Base\Forms\FieldOptions\StatusFieldOption;
-use Botble\Base\Forms\FieldOptions\TextareaFieldOption;
 use Botble\Base\Forms\FieldOptions\TextFieldOption;
+use Botble\Base\Forms\Fields\EditorField;
 use Botble\Base\Forms\Fields\EmailField;
 use Botble\Base\Forms\Fields\HtmlField;
 use Botble\Base\Forms\Fields\SelectField;
-use Botble\Base\Forms\Fields\TextareaField;
 use Botble\Base\Forms\Fields\TextField;
 use Botble\Base\Forms\FormAbstract;
 use FriendsOfBotble\Comment\Enums\CommentStatus;
@@ -51,8 +51,12 @@ class CommentForm extends FormAbstract
             )
             ->add(
                 'content',
-                TextareaField::class,
-                TextareaFieldOption::make()->label(trans('plugins/fob-comment::comment.common.comment'))->rows(5)->toArray()
+                EditorField::class,
+                EditorFieldOption::make()
+                    ->label(trans('plugins/fob-comment::comment.common.comment'))
+                    ->rows(5)
+                    ->addAttribute('without-buttons', true)
+                    ->toArray()
             )
             ->add(
                 'status',

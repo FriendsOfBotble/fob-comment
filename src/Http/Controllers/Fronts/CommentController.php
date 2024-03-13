@@ -55,8 +55,11 @@ class CommentController extends BaseController
             ]);
     }
 
-    public function store(CommentRequest $request, CreateNewComment $createNewComment, GetCommentReference $getCommentReference)
-    {
+    public function store(
+        CommentRequest $request,
+        CreateNewComment $createNewComment,
+        GetCommentReference $getCommentReference
+    ) {
         $data = [
             ...$request->validated(),
             'reference_url' => $request->input('reference_url') ?? url()->previous(),

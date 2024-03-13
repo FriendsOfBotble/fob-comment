@@ -15,10 +15,19 @@ return [
     'url' => 'URL',
     'submitted_on' => 'Submitted on',
     'edit_comment' => 'Edit Comment',
+    'reply' => 'Reply',
+    'in_reply_to' => 'In reply to :name',
+
+    'reply_modal' => [
+        'title' => 'Reply to Comment',
+        'cancel' => 'Cancel',
+    ],
 
     'allow_comments' => 'Allow comments',
 
     'front' => [
+        'admin_badge' => 'Admin',
+
         'list' => [
             'title' => ':count comment|:count comments',
             'reply' => 'Reply',
@@ -65,6 +74,7 @@ return [
                 'asc' => 'Oldest',
                 'desc' => 'Newest',
             ],
+            'display_admin_badge' => 'Display admin badge for admin comments',
         ],
     ],
 ];

@@ -21,6 +21,11 @@ return [
         'parent_flag' => 'fob-comment.index',
     ],
     [
+        'name' => 'Reply',
+        'flag' => 'fob-comment.comments.reply',
+        'parent_flag' => 'fob-comment.index',
+    ],
+    [
         'name' => 'Settings',
         'flag' => 'fob-comment.settings',
         'parent_flag' => 'fob-comment.index',

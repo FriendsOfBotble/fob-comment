@@ -28,18 +28,26 @@
                                 {{ trans('plugins/fob-comment::comment.front.list.waiting_for_approval_message') }}
                             </em>
                         @endif
-
-                        <p>{{ $comment->content }}</p>
+                        @if($comment->is_admin)
+                            {!! BaseHelper::clean($comment->formatted_content) !!}
+                        @else
+                            <p>{{ $comment->formatted_content }}</p>
+                        @endif
                     </div>
 
                     <div class="fob-comment-item-footer">
                         <div class="fob-comment-item-info">
+                            @if(\FriendsOfBotble\Comment\Support\CommentHelper::isDisplayAdminBadge() && $comment->is_admin)
+                                <span class="fob-comment-item-admin-badge">
+                                    {{ trans('plugins/fob-comment::comment.front.admin_badge') }}
+                                </span>
+                            @endif
                             @if ($comment->website)
                                 <a href="{{ $comment->website }}" class="fob-comment-item-author" target="_blank">
                                     <h4 class="fob-comment-item-author">{{ $comment->name }}</h4>
                                 </a>
                             @else
-                            <h4 class="fob-comment-item-author">{{ $comment->name }}</h4>
+                                <h4 class="fob-comment-item-author">{{ $comment->name }}</h4>
                             @endif
                             <span class="fob-comment-item-date">{{ $comment->created_at->diffForHumans() }}</span>
                         </div>

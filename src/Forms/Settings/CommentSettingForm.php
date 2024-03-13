@@ -82,6 +82,14 @@ class CommentSettingForm extends SettingForm
                     ])
                     ->selected(CommentHelper::getCommentOrder())
                     ->toArray()
+            )
+            ->add(
+                'fob_comment_display_admin_badge',
+                OnOffCheckboxField::class,
+                OnOffFieldOption::make()
+                    ->label(trans('plugins/fob-comment::comment.settings.form.display_admin_badge'))
+                    ->value(CommentHelper::isDisplayAdminBadge())
+                    ->toArray()
             );
     }
 }

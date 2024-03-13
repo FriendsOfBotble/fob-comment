@@ -3,6 +3,7 @@
 namespace FriendsOfBotble\Comment\Tables;
 
 use Botble\Table\Abstracts\TableAbstract;
+use Botble\Table\Actions\Action;
 use Botble\Table\Actions\DeleteAction;
 use Botble\Table\Actions\EditAction;
 use Botble\Table\BulkActions\DeleteBulkAction;
@@ -21,8 +22,15 @@ class CommentTable extends TableAbstract
     public function setup(): void
     {
         $this
+            ->setView('plugins/fob-comment::tables.table')
             ->model(Comment::class)
+            ->setOption('id', 'fob-comment-table')
             ->addActions([
+                Action::make('reply')
+                    ->renderUsing(fn (Action $action) => view(
+                        'plugins/fob-comment::tables.reply-button',
+                        compact('action')
+                    )->render()),
                 EditAction::make()->route('fob-comment.comments.edit'),
                 DeleteAction::make()->route('fob-comment.comments.destroy'),
             ])
@@ -33,12 +41,23 @@ class CommentTable extends TableAbstract
                     ->orderable(false)
                     ->searchable(false)
                     ->getValueUsing(function (FormattedColumn $column) {
-                        $item = $column->getItem();
-
-                        return view('plugins/fob-comment::partials.author-column', compact('item'))->render();
+                        return view(
+                            'plugins/fob-comment::tables.author-column',
+                            ['item' => $column->getItem()]
+                        )->render();
                     }),
                 FormattedColumn::make('content')
                     ->label(trans('plugins/fob-comment::comment.common.comment'))
+                    ->getValueUsing(function (FormattedColumn $column) {
+                        $model = $column->getItem();
+
+                        $model->loadMissing('comment');
+
+                        $url = $model->comment->reference_url ?? '#';
+                        $url = sprintf('%s#comment-%s', $url, $model->comment?->getKey());
+
+                        return view('plugins/fob-comment::tables.content-column', compact('model', 'url'))->render();
+                    })
                     ->limit(100),
                 LinkableColumn::make('reference')
                     ->label(trans('plugins/fob-comment::comment.responsed_to'))

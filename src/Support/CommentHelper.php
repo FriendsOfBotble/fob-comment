@@ -7,6 +7,7 @@ use Botble\Captcha\Facades\Captcha;
 use FontLib\TrueType\Collection;
 use FriendsOfBotble\Comment\Enums\CommentStatus;
 use FriendsOfBotble\Comment\Models\Comment;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 
@@ -43,6 +44,27 @@ class CommentHelper
         return setting('fob_comment_auto_fill_comment_form', true);
     }
 
+    public static function isDisplayAdminBadge(): bool
+    {
+        return setting('fob_comment_display_admin_badge', true);
+    }
+
+    public static function getAuthorizedUser(): Authenticatable|null
+    {
+        $guard = match (true) {
+            is_plugin_active('member') => 'member',
+            is_plugin_active('real-estate') => 'account',
+            is_plugin_active('ecommerce') => 'customer',
+            default => null,
+        };
+
+        if (! $guard) {
+            return null;
+        }
+
+        return auth($guard)->user();
+    }
+
     public static function preparedDataForFill(): array
     {
         if (! CommentHelper::isAutoFillCommentForm()) {
@@ -51,20 +73,11 @@ class CommentHelper
 
         $data = [];
 
-        $guard = match (true) {
-            is_plugin_active('member') => 'member',
-            is_plugin_active('real-estate') => 'account',
-            is_plugin_active('ecommerce') => 'customer',
-            default => null,
-        };
+        $user = self::getAuthorizedUser();
 
-        if ($guard) {
-            $user = auth($guard)->user();
-
-            if ($user) {
-                $data['name'] = $user->name;
-                $data['email'] = $user->email;
-            }
+        if ($user) {
+            $data['name'] = $user->name;
+            $data['email'] = $user->email;
         }
 
         return apply_filters('fob_comment_prepare_comment_data', $data);

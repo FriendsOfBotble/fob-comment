@@ -57,6 +57,14 @@ $prefix: 'fob-';
             gap: 0.75rem;
         }
 
+        &-admin-badge {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 0.20rem 0.5rem;
+            font-size: 12px;
+            border-radius: 5px;
+        }
+
         &-date {
             font-size: 14px;
             color: #999999;

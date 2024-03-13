@@ -89,17 +89,19 @@ class CommentServiceProvider extends ServiceProvider
                 return $data;
             }, 1, 2);
 
-            PostForm::extend(function (PostForm $form) {
-                $form->add(
-                    'allow_comments',
-                    OnOffCheckboxField::class,
-                    CheckboxFieldOption::make()
-                        ->label(trans('plugins/fob-comment::comment.allow_comments'))
-                        ->metadata()
-                        ->defaultValue(true)
-                        ->toArray()
-                );
-            });
+            if (is_plugin_active('blog')) {
+                PostForm::extend(function (PostForm $form) {
+                    $form->add(
+                        'allow_comments',
+                        OnOffCheckboxField::class,
+                        CheckboxFieldOption::make()
+                            ->label(trans('plugins/fob-comment::comment.allow_comments'))
+                            ->metadata()
+                            ->defaultValue(true)
+                            ->toArray()
+                    );
+                });
+            }
         });
     }
 }

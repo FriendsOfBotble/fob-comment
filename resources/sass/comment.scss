@@ -88,6 +88,15 @@ $prefix: 'fob-';
             color: #888888;
             margin-bottom: 1.5rem;
         }
+
+        label {
+            &.required {
+                &:after {
+                    color: #ff0000;
+                    content: ' *';
+                }
+            }
+        }
     }
 }
 

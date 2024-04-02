@@ -27,7 +27,7 @@ class CommentSeeder extends BaseSeeder
                 'name' => $fake->name,
                 'email' => $fake->email,
                 'content' => $comment,
-                'website' => parse_url($fake->url, PHP_URL_HOST),
+                'website' => 'https://friendsofbotble.com',
                 'ip_address' => $fake->ipv4,
                 'user_agent' => $fake->userAgent,
                 'status' => CommentStatus::APPROVED,

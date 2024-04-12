@@ -68,7 +68,7 @@ class CommentServiceProvider extends ServiceProvider
                 return $html . view('plugins/fob-comment::comment', compact('model'))->render();
             }, 1, 2);
 
-            add_filter(BASE_FILTER_APPEND_MENU_NAME, function (string|null $html, string $menuId) {
+            add_filter(BASE_FILTER_APPEND_MENU_NAME, function (?string $html, string $menuId) {
                 if ($menuId !== 'cms-plugins-fob-comment') {
                     return $html;
                 }

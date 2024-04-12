@@ -2,6 +2,8 @@
     Theme::asset()->add('fob-comment-css', asset('vendor/core/plugins/fob-comment/css/comment.css'));
     Theme::asset()->container('footer')->add('fob-comment-js', asset('vendor/core/plugins/fob-comment/js/comment.js'));
 
+    Theme::registerToastNotification();
+
     use FriendsOfBotble\Comment\Forms\Fronts\CommentForm;
 @endphp
 
@@ -10,7 +12,7 @@
 
     window.fobComment = {
         listUrl: {{ Js::from(route('fob-comment.public.comments.index', isset($model) ? ['reference_type' => $model::class, 'reference_id' => $model->id] : url()->current())) }},
-    }
+    };
 </script>
 
 <div class="fob-comment-list-section" style="display: none">

@@ -49,7 +49,7 @@ class CommentHelper
         return setting('fob_comment_display_admin_badge', true);
     }
 
-    public static function getAuthorizedUser(): Authenticatable|null
+    public static function getAuthorizedUser(): ?Authenticatable
     {
         $guard = match (true) {
             is_plugin_active('member') => 'member',

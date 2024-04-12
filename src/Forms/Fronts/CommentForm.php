@@ -20,7 +20,7 @@ use Illuminate\Support\Arr;
 
 class CommentForm extends FormAbstract
 {
-    protected static BaseModel|null $reference = null;
+    protected static ?BaseModel $reference = null;
 
     public function setup(): void
     {
@@ -80,8 +80,7 @@ class CommentForm extends FormAbstract
                     ->colspan(2)
                     ->when(
                         Arr::get($preparedData, 'website'),
-                        fn (TextFieldOption $option, $value) => $option->defaultValue($value)->disabled(),
-                        fn (TextFieldOption $option) => $option->required()
+                        fn (TextFieldOption $option, $value) => $option->defaultValue($value)->disabled()
                     )
                     ->toArray()
             )
@@ -115,7 +114,7 @@ class CommentForm extends FormAbstract
         return app(FormBuilder::class)->create(static::class);
     }
 
-    public static function getReference(): BaseModel|null
+    public static function getReference(): ?BaseModel
     {
         return static::$reference;
     }

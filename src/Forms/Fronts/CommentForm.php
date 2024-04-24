@@ -60,6 +60,7 @@ class CommentForm extends FormAbstract
                         fn (TextFieldOption $option, $value) => $option->defaultValue($value)->disabled(),
                         fn (TextFieldOption $option) => $option->required()
                     )
+                    ->colspan(1)
                     ->toArray()
             )
             ->add(
@@ -71,6 +72,7 @@ class CommentForm extends FormAbstract
                         fn (EmailFieldOption $option, $value) => $option->defaultValue($value)->disabled(),
                         fn (EmailFieldOption $option) => $option->required()
                     )
+                    ->colspan(1)
                     ->toArray()
             )
             ->add(
@@ -107,7 +109,7 @@ class CommentForm extends FormAbstract
             ]);
     }
 
-    public static function createWithReference(BaseModel $model): static
+    public static function createWithReference(BaseModel $model): FormAbstract
     {
         static::$reference = $model;
 

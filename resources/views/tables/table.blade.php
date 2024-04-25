@@ -14,7 +14,7 @@
             <x-core::button type="submit" color="primary" form="reply-comment-form">
                 {{ trans('plugins/fob-comment::comment.reply') }}
             </x-core::button>
-            <x-core::button type="button" data-dismiss="modal">
+            <x-core::button type="button" data-bs-dismiss="modal">
                 {{ trans('plugins/fob-comment::comment.reply_modal.cancel') }}
             </x-core::button>
         </x-slot:footer>

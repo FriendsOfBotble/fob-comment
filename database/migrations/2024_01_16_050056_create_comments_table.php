@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Schema;
 return new class () extends Migration {
     public function up(): void
     {
+        if (Schema::hasTable('fob_comments')) {
+            return;
+        }
+
         Schema::create('fob_comments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('reply_to')->nullable()->index();

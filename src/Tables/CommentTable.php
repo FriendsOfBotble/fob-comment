@@ -66,13 +66,12 @@ class CommentTable extends TableAbstract
                     ->getValueUsing(function (LinkableColumn $column) {
                         $model = $column->getItem();
 
-                        if (class_exists($model->reference_type)) {
-                            $reference = $model->reference;
-
+                        if (class_exists($model->reference_type)
+                            && ($reference = $model->reference)) {
                             return $reference->name ?? $reference->title ?? $reference->id;
                         }
 
-                        return $model->reference_url;
+                        return $model->reference_url ?: '-';
                     })
                     ->urlUsing(function (LinkableColumn $column) {
                         $model = $column->getItem();

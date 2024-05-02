@@ -78,11 +78,12 @@ class CommentTable extends TableAbstract
 
                         $url = $model->reference_url;
 
-                        if (class_exists($model->reference_type)) {
-                            $url = $model->reference->url;
+                        if (class_exists($model->reference_type)
+                            && ($reference = $model->reference)) {
+                            $url = $reference->url;
                         }
 
-                        return sprintf('%s#comment-%s', $url, $model->getKey());
+                        return sprintf('%s#comment-%s', $url ?: '#', $model->getKey());
                     })
                     ->externalLink(),
                 StatusColumn::make(),

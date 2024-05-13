@@ -6,6 +6,7 @@ use Botble\Base\Supports\BaseSeeder;
 use Botble\Blog\Models\Post;
 use FriendsOfBotble\Comment\Enums\CommentStatus;
 use FriendsOfBotble\Comment\Models\Comment;
+use Illuminate\Support\Str;
 
 class CommentSeeder extends BaseSeeder
 {
@@ -15,7 +16,7 @@ class CommentSeeder extends BaseSeeder
 
         $fake = $this->fake();
 
-        $posts = Post::query()->select('id')->with(['slugable'])->get();
+        $posts = Post::query()->select('id')->get();
 
         foreach ($this->getData() as $comment) {
             $post = $posts->random();
@@ -23,7 +24,7 @@ class CommentSeeder extends BaseSeeder
             Comment::query()->create([
                 'reference_type' => Post::class,
                 'reference_id' => $post->id,
-                'reference_url' => $post->url,
+                'reference_url' => route('public.single', Str::slug($post->name)),
                 'name' => $fake->name,
                 'email' => $fake->email,
                 'content' => $comment,

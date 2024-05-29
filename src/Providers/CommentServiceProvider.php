@@ -12,7 +12,12 @@ use Botble\Base\Supports\ServiceProvider;
 use Botble\Base\Traits\LoadAndPublishDataTrait;
 use Botble\Blog\Forms\PostForm;
 use Botble\Setting\PanelSections\SettingOthersPanelSection;
+use Botble\Theme\FormFrontManager;
 use FriendsOfBotble\Comment\Enums\CommentStatus;
+use FriendsOfBotble\Comment\Forms\Fronts\CommentForm;
+use FriendsOfBotble\Comment\Forms\ReplyCommentForm;
+use FriendsOfBotble\Comment\Http\Requests\Fronts\CommentRequest;
+use FriendsOfBotble\Comment\Http\Requests\Fronts\ReplyCommentRequest;
 use FriendsOfBotble\Comment\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 
@@ -101,6 +106,11 @@ class CommentServiceProvider extends ServiceProvider
                             ->toArray()
                     );
                 });
+            }
+
+            if (class_exists(FormFrontManager::class)) {
+                FormFrontManager::register(CommentForm::class, CommentRequest::class);
+                FormFrontManager::register(ReplyCommentForm::class, ReplyCommentRequest::class);
             }
         });
     }

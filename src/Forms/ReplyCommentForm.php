@@ -4,10 +4,10 @@ namespace FriendsOfBotble\Comment\Forms;
 
 use Botble\Base\Forms\FieldOptions\EditorFieldOption;
 use Botble\Base\Forms\Fields\EditorField;
-use Botble\Base\Forms\FormAbstract;
+use Botble\Theme\FormFront;
 use FriendsOfBotble\Comment\Http\Requests\ReplyCommentRequest;
 
-class ReplyCommentForm extends FormAbstract
+class ReplyCommentForm extends FormFront
 {
     public function setup(): void
     {

@@ -14,11 +14,12 @@ use Botble\Base\Forms\FormAbstract;
 use Botble\Base\Forms\FormBuilder;
 use Botble\Base\Models\BaseModel;
 use Botble\Captcha\Forms\Fields\ReCaptchaField;
+use Botble\Theme\FormFront;
 use FriendsOfBotble\Comment\Http\Requests\Fronts\CommentRequest;
 use FriendsOfBotble\Comment\Support\CommentHelper;
 use Illuminate\Support\Arr;
 
-class CommentForm extends FormAbstract
+class CommentForm extends FormFront
 {
     protected static ?BaseModel $reference = null;
 
@@ -100,6 +101,7 @@ class CommentForm extends FormAbstract
                         ->toArray()
                 );
             })
+            ->setFormEndKey('button')
             ->add('button', 'submit', [
                 'label' => trans('plugins/fob-comment::comment.front.form.submit'),
                 'attr' => [

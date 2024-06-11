@@ -3,6 +3,7 @@
 namespace FriendsOfBotble\Comment\Http\Controllers\Fronts;
 
 use Botble\Base\Http\Controllers\BaseController;
+use Botble\Base\Models\BaseModel;
 use FriendsOfBotble\Comment\Actions\CreateNewComment;
 use FriendsOfBotble\Comment\Actions\GetCommentReference;
 use FriendsOfBotble\Comment\Enums\CommentStatus;
@@ -16,6 +17,8 @@ class CommentController extends BaseController
 {
     public function index(CommentReferenceRequest $request, GetCommentReference $getCommentReference)
     {
+        $reference = new BaseModel();
+
         if ($request->input('reference_type')) {
             $reference = $getCommentReference($request->input('reference_type'), $request->input('reference_id'));
 
@@ -64,6 +67,8 @@ class CommentController extends BaseController
             ...$request->validated(),
             'reference_url' => $request->input('reference_url') ?? url()->previous(),
         ];
+
+        $reference = new BaseModel();
 
         if ($request->input('reference_type')) {
             $reference = $getCommentReference($request->input('reference_type'), $request->input('reference_id'));

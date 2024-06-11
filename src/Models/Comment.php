@@ -14,7 +14,20 @@ class Comment extends BaseModel
 {
     protected $table = 'fob_comments';
 
-    protected $guarded = [];
+    protected $fillable = [
+        'name',
+        'email',
+        'website',
+        'content',
+        'status',
+        'author_id',
+        'author_type',
+        'reference_id',
+        'reference_type',
+        'reply_to',
+        'ip_address',
+        'user_agent',
+    ];
 
     protected $casts = [
         'status' => CommentStatus::class,

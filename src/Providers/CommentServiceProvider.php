@@ -11,6 +11,8 @@ use Botble\Base\PanelSections\PanelSectionItem;
 use Botble\Base\Supports\ServiceProvider;
 use Botble\Base\Traits\LoadAndPublishDataTrait;
 use Botble\Blog\Forms\PostForm;
+use Botble\PluginManagement\Events\DeactivatedPlugin;
+use Botble\PluginManagement\Events\RemovedPlugin;
 use Botble\Setting\PanelSections\SettingOthersPanelSection;
 use Botble\Theme\FormFrontManager;
 use FriendsOfBotble\Comment\Enums\CommentStatus;
@@ -112,6 +114,15 @@ class CommentServiceProvider extends ServiceProvider
                 FormFrontManager::register(CommentForm::class, CommentRequest::class);
                 FormFrontManager::register(ReplyCommentForm::class, ReplyCommentRequest::class);
             }
+
+            $this->app['events']->listen([DeactivatedPlugin::class, RemovedPlugin::class], function (DeactivatedPlugin|RemovedPlugin $event) {
+                if ($event->plugin === 'member') {
+                    Comment::query()->where('author_type', 'Botble\Member\Models\Member')->update([
+                        'author_id' => null,
+                        'author_type' => null,
+                    ]);
+                }
+            });
         });
     }
 }

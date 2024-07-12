@@ -22,24 +22,26 @@ class CommentSeeder extends BaseSeeder
             $post = $posts->random();
 
             Comment::query()->create([
+                ...$comment,
                 'reference_type' => Post::class,
                 'reference_id' => $post->id,
                 'reference_url' => route('public.single', Str::slug($post->name)),
                 'name' => $fake->name,
                 'email' => $fake->email,
-                'content' => $comment,
                 'website' => 'https://friendsofbotble.com',
                 'ip_address' => $fake->ipv4,
                 'user_agent' => $fake->userAgent,
                 'status' => CommentStatus::APPROVED,
-                'created_at' => $fake->dateTimeBetween('-1 month', 'now'),
+                'created_at' => $fake->dateTimeBetween('-1 month'),
             ]);
         }
     }
 
     protected function getData(): array
     {
-        return [
+        return array_map(function ($item) {
+            return ['content' => $item];
+        }, [
             'This is really helpful, thank you!',
             'I found this article to be quite informative.',
             'Wow, I never knew about this before!',
@@ -87,6 +89,6 @@ class CommentSeeder extends BaseSeeder
             "I've been searching for information on this topic, glad I found this article. It's incredibly insightful and provides a comprehensive overview of the subject matter. I appreciate the effort put into researching and writing this piece. It's truly eye-opening and has given me a new perspective. Thank you for sharing your knowledge with us!",
             "This article is a masterpiece! It dives deep into the topic and offers valuable insights that are both thought-provoking and enlightening. The author's expertise is evident throughout, making it a compelling read from start to finish. I'll definitely be coming back to this for reference in the future.",
             "I'm amazed by the depth of analysis in this article. It covers a wide range of aspects related to the topic, providing a comprehensive understanding. The clarity of explanation is commendable, making complex concepts easy to grasp. This article has enriched my understanding and sparked further curiosity. Kudos to the author!",
-        ];
+        ]);
     }
 }

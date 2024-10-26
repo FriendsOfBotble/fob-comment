@@ -8,9 +8,7 @@ class GetCommentReference
 {
     public function __invoke(string $referenceType, string $referenceId): BaseModel
     {
-        if (! class_exists($referenceType)) {
-            abort(404);
-        }
+        abort_unless(class_exists($referenceType), 404);
 
         /**
          * @var BaseModel $reference

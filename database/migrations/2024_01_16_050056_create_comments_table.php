@@ -12,7 +12,7 @@ return new class () extends Migration {
             return;
         }
 
-        Schema::create('fob_comments', function (Blueprint $table) {
+        Schema::create('fob_comments', function (Blueprint $table): void {
             $table->id();
             $table->foreignId('reply_to')->nullable()->index();
             $table->nullableMorphs('author');

@@ -35,7 +35,7 @@ class CommentForm extends FormFront
             ->columns()
             ->when(
                 $this->getReference(),
-                function (FormAbstract $form, BaseModel $reference) {
+                function (FormAbstract $form, BaseModel $reference): void {
                     $form
                         ->add('reference_id', 'hidden', ['value' => $reference->getKey()])
                         ->add('reference_type', 'hidden', ['value' => $reference::class]);
@@ -91,7 +91,7 @@ class CommentForm extends FormFront
                 CommentHelper::isEnableReCaptcha(),
                 fn (FormAbstract $form) => $form->add('recaptcha', ReCaptchaField::class)
             )
-            ->when(CommentHelper::isShowCommentCookieConsent(), function (FormAbstract $form) {
+            ->when(CommentHelper::isShowCommentCookieConsent(), function (FormAbstract $form): void {
                 $form->add(
                     'cookie_consent',
                     OnOffCheckboxField::class,

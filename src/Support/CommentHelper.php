@@ -111,7 +111,7 @@ class CommentHelper
             ->where('status', CommentStatus::APPROVED);
 
         foreach ($collect as $reference) {
-            $query->orWhere(function (Builder $query) use ($reference) {
+            $query->orWhere(function (Builder $query) use ($reference): void {
                 $query
                     ->where('reference_type', $reference::class)
                     ->where('reference_id', $reference->getKey());

@@ -31,10 +31,10 @@ class CommentController extends BaseController
         }
 
         $query
-            ->where(function (Builder $query) {
+            ->where(function (Builder $query): void {
                 $query
                     ->where('status', CommentStatus::APPROVED)
-                    ->orWhere(function (Builder $query) {
+                    ->orWhere(function (Builder $query): void {
                         $query->where('status', CommentStatus::PENDING)
                             ->where('ip_address', request()->ip());
                     });
@@ -73,9 +73,7 @@ class CommentController extends BaseController
         if ($request->input('reference_type')) {
             $reference = $getCommentReference($request->input('reference_type'), $request->input('reference_id'));
 
-            if ($reference->getMetaData('allow_comments', true) == '0') {
-                abort(404);
-            }
+            abort_if($reference->getMetaData('allow_comments', true) == '0', 404);
         }
 
         $createNewComment($reference, $data);

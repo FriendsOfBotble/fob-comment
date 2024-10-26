@@ -43,7 +43,7 @@ class CommentServiceProvider extends ServiceProvider
             ->loadAndPublishTranslations()
             ->loadMigrations();
 
-        DashboardMenu::default()->beforeRetrieving(function () {
+        DashboardMenu::default()->beforeRetrieving(function (): void {
             DashboardMenu::make()
                 ->registerItem([
                     'id' => 'cms-plugins-fob-comment',
@@ -54,7 +54,7 @@ class CommentServiceProvider extends ServiceProvider
                 ]);
         });
 
-        PanelSectionManager::default()->beforeRendering(function () {
+        PanelSectionManager::default()->beforeRendering(function (): void {
             PanelSectionManager::registerItem(
                 SettingOthersPanelSection::class,
                 fn () => PanelSectionItem::make('fob-comment')
@@ -66,7 +66,7 @@ class CommentServiceProvider extends ServiceProvider
             );
         });
 
-        $this->app->booted(function () {
+        $this->app->booted(function (): void {
             add_filter(BASE_FILTER_PUBLIC_COMMENT_AREA, function (string $html, BaseModel $model) {
                 if ($model->getMetaData('allow_comments', true) == '0') {
                     return $html;
@@ -97,7 +97,7 @@ class CommentServiceProvider extends ServiceProvider
             }, 1, 2);
 
             if (is_plugin_active('blog')) {
-                PostForm::extend(function (PostForm $form) {
+                PostForm::extend(function (PostForm $form): void {
                     $form->add(
                         'allow_comments',
                         OnOffCheckboxField::class,
@@ -115,7 +115,7 @@ class CommentServiceProvider extends ServiceProvider
                 FormFrontManager::register(ReplyCommentForm::class, ReplyCommentRequest::class);
             }
 
-            $this->app['events']->listen([DeactivatedPlugin::class, RemovedPlugin::class], function (DeactivatedPlugin|RemovedPlugin $event) {
+            $this->app['events']->listen([DeactivatedPlugin::class, RemovedPlugin::class], function (DeactivatedPlugin|RemovedPlugin $event): void {
                 if ($event->plugin === 'member') {
                     Comment::query()->where('author_type', 'Botble\Member\Models\Member')->update([
                         'author_id' => null,

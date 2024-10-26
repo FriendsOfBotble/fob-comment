@@ -23,7 +23,7 @@ class CommentSettingForm extends SettingForm
             ->setValidatorClass(CommentSettingRequest::class)
             ->setSectionTitle(trans('plugins/fob-comment::comment.settings.title'))
             ->setSectionDescription(trans('plugins/fob-comment::comment.settings.description'))
-            ->when(is_plugin_active('captcha'), function (FormAbstract $form) {
+            ->when(is_plugin_active('captcha'), function (FormAbstract $form): void {
                 $form->add(
                     'fob_comment_enable_recaptcha',
                     OnOffCheckboxField::class,

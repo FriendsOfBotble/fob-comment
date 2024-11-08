@@ -39,7 +39,11 @@
                         <div class="fob-comment-item-info">
                             @if(\FriendsOfBotble\Comment\Support\CommentHelper::isDisplayAdminBadge() && $comment->is_admin)
                                 <span class="fob-comment-item-admin-badge">
-                                    {{ trans('plugins/fob-comment::comment.front.admin_badge') }}
+                                    @if (setting('fob_comment_show_admin_role_name_for_admin_badge', true) && $comment->author?->roles?->value('name'))
+                                        {{ $comment->author?->roles?->value('name') }}
+                                    @else
+                                        {{ trans('plugins/fob-comment::comment.front.admin_badge') }}
+                                    @endif
                                 </span>
                             @endif
                             @if ($comment->website)

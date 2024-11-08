@@ -75,6 +75,8 @@ return [
                 'desc' => 'Newest',
             ],
             'display_admin_badge' => 'Display admin badge for admin comments',
+            'show_admin_role_name_for_admin_badge' => 'Show admin role name for admin badge',
+            'show_admin_role_name_for_admin_badge_helper' => 'If enabled, the admin badge will display the admin role name instead of the default "Admin" text. If the admin role name is empty, the default text will be used. If user has multiple roles, the first role will be used.',
         ],
     ],
 ];

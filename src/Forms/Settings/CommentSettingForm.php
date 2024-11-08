@@ -90,6 +90,15 @@ class CommentSettingForm extends SettingForm
                     ->label(trans('plugins/fob-comment::comment.settings.form.display_admin_badge'))
                     ->value(CommentHelper::isDisplayAdminBadge())
                     ->toArray()
+            )
+            ->add(
+                'fob_comment_show_admin_role_name_for_admin_badge',
+                OnOffCheckboxField::class,
+                OnOffFieldOption::make()
+                    ->label(trans('plugins/fob-comment::comment.settings.form.show_admin_role_name_for_admin_badge'))
+                    ->helperText(trans('plugins/fob-comment::comment.settings.form.show_admin_role_name_for_admin_badge_helper'))
+                    ->value(CommentHelper::isDisplayAdminBadge())
+                    ->toArray()
             );
     }
 }

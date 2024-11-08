@@ -97,7 +97,7 @@ class CommentSettingForm extends SettingForm
                 OnOffFieldOption::make()
                     ->label(trans('plugins/fob-comment::comment.settings.form.show_admin_role_name_for_admin_badge'))
                     ->helperText(trans('plugins/fob-comment::comment.settings.form.show_admin_role_name_for_admin_badge_helper'))
-                    ->value(CommentHelper::isDisplayAdminBadge())
+                    ->value(setting('fob_comment_show_admin_role_name_for_admin_badge', 'true'))
                     ->toArray()
             );
     }

@@ -67,7 +67,11 @@ class CommentServiceProvider extends ServiceProvider
         });
 
         $this->app->booted(function (): void {
-            add_filter(BASE_FILTER_PUBLIC_COMMENT_AREA, function (string $html, BaseModel $model) {
+            add_filter(BASE_FILTER_PUBLIC_COMMENT_AREA, function (string $html, ?BaseModel $model) {
+                if (! $model) {
+                    return $html;
+                }
+                
                 if ($model->getMetaData('allow_comments', true) == '0') {
                     return $html;
                 }

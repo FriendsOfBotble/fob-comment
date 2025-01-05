@@ -4,6 +4,7 @@ namespace FriendsOfBotble\Comment\Actions;
 
 use Botble\Base\Contracts\BaseModel;
 use Botble\Base\Facades\AdminHelper;
+use Botble\Base\Supports\Helper;
 use FriendsOfBotble\Comment\Enums\CommentStatus;
 use FriendsOfBotble\Comment\Models\Comment;
 use FriendsOfBotble\Comment\Support\CommentHelper;
@@ -20,7 +21,7 @@ class CreateNewComment
     {
         $data = [
             ...$data,
-            'ip_address' => $this->request->ip(),
+            'ip_address' => Helper::getIpFromThirdParty(),
             'user_agent' => $this->request->userAgent(),
             'status' => $this->getStatus(),
             'reference_id' => $reference->getKey(),

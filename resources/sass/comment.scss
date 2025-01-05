@@ -117,3 +117,9 @@ $prefix: 'fob-';
         text-decoration: none;
     }
 }
+
+[data-bs-theme="dark"] {
+    .fob-comment-item-pending {
+        color: #c4c1c1;
+    }
+}

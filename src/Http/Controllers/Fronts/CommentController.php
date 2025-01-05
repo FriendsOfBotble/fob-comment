@@ -4,6 +4,7 @@ namespace FriendsOfBotble\Comment\Http\Controllers\Fronts;
 
 use Botble\Base\Http\Controllers\BaseController;
 use Botble\Base\Models\BaseModel;
+use Botble\Base\Supports\Helper;
 use FriendsOfBotble\Comment\Actions\CreateNewComment;
 use FriendsOfBotble\Comment\Actions\GetCommentReference;
 use FriendsOfBotble\Comment\Enums\CommentStatus;
@@ -36,7 +37,7 @@ class CommentController extends BaseController
                     ->where('status', CommentStatus::APPROVED)
                     ->orWhere(function (Builder $query): void {
                         $query->where('status', CommentStatus::PENDING)
-                            ->where('ip_address', request()->ip());
+                            ->where('ip_address', Helper::getIpFromThirdParty());
                     });
             })
             ->where('reply_to', null)

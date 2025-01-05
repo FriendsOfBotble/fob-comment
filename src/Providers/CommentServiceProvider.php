@@ -71,7 +71,7 @@ class CommentServiceProvider extends ServiceProvider
                 if (! $model) {
                     return $html;
                 }
-                
+
                 if ($model->getMetaData('allow_comments', true) == '0') {
                     return $html;
                 }

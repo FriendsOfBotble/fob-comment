@@ -4,11 +4,13 @@
     if (! view()->exists($paginationView = Theme::getThemeNamespace('partials.pagination'))) {
         $paginationView = 'pagination::bootstrap-5';
     }
+
+    $currentIp = \Botble\Base\Supports\Helper::getIpFromThirdParty();
 @endphp
 
 <div class="fob-comment-list">
     @foreach($comments as $comment)
-        @continue(! $comment->is_approved && $comment->ip_address !== request()->ip())
+        @continue(! $comment->is_approved && $comment->ip_address !== $currentIp)
 
         <div id="comment-{{ $comment->getKey() }}" class="fob-comment-item">
             <div class="fob-comment-item-inner">
@@ -72,7 +74,7 @@
                 </div>
             </div>
 
-            @if ($comment->replies->count())
+            @if ($comment->replies->isNotEmpty())
                 @include('plugins/fob-comment::partials.list', [
                     'comments' => $comment->replies,
                     'currentIndent' => $currentIndent + 1,

@@ -18,6 +18,10 @@ class CommentSeeder extends BaseSeeder
 
         $posts = Post::query()->select('id')->get();
 
+        if ($posts->isEmpty()) {
+            return;
+        }
+
         foreach ($this->getData() as $comment) {
             $post = $posts->random();
 

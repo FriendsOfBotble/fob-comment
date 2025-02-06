@@ -2,10 +2,10 @@ $(() => {
     let isReplying = false
     let originalForm = ''
 
-    const setCookie = (name, value, expriesDate) => {
-        const exdate = new Date()
-        exdate.setDate(exdate.getDate() + expriesDate)
-        value = encodeURIComponent(value) + (expriesDate == null ? '' : '; expires=' + exdate.toUTCString())
+    const setCookie = (name, value, expiresDate) => {
+        const currentDate = new Date()
+        currentDate.setDate(currentDate.getDate() + expiresDate)
+        value = encodeURIComponent(value) + (expiresDate == null ? '' : '; expires=' + currentDate.toUTCString())
         document.cookie = `fob-comment-${name}=${value}; path=/`
     }
 
@@ -162,7 +162,7 @@ $(() => {
 
             currentTarget.closest('.fob-comment-item').after(form)
 
-            form.find('.fob-comment-form-title').text(currentTarget.data('reply-to'))
+            form.find('.fob-comment-form-title span').text(currentTarget.data('reply-to'))
             form.find('.fob-comment-form-title').append(
                 `<a href="#" class="cancel-comment-reply-link" rel="nofollow">${currentTarget.data('cancel-reply')}</a`
             )

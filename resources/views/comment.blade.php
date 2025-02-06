@@ -21,7 +21,9 @@
 </div>
 
 <div class="fob-comment-form-section">
-    <h4 class="fob-comment-title fob-comment-form-title">{{ trans('plugins/fob-comment::comment.front.form.title') }}</h4>
+    <h4 class="fob-comment-title fob-comment-form-title">
+        <span class="d-inline-block">{{ trans('plugins/fob-comment::comment.front.form.title') }}</span>
+    </h4>
     <p class="fob-comment-form-note">{{ trans('plugins/fob-comment::comment.front.form.description') }}</p>
 
     {!! CommentForm::createWithReference($model)->renderForm() !!}

@@ -36,6 +36,18 @@ class CommentRequest extends Request
 
     public function attributes(): array
     {
-        return CommentHelper::isEnableReCaptcha() ? Captcha::attributes() : [];
+        $attributes = [
+            'name' => __('Name'),
+            'email' => __('Email'),
+            'phone' => __('Phone'),
+            'content' => __('Content'),
+            'website' => __('Website'),
+        ];
+
+        if (CommentHelper::isEnableReCaptcha()) {
+            $attributes = [...$attributes, ...Captcha::attributes()];
+        }
+
+        return $attributes;
     }
 }

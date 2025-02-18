@@ -40,7 +40,7 @@ class CommentRequest extends Request
             'name' => __('Name'),
             'email' => __('Email'),
             'phone' => __('Phone'),
-            'content' => __('Message'),
+            'content' => __('Comment'),
             'website' => __('Website'),
         ];
 

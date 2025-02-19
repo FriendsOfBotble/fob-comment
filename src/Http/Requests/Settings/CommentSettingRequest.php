@@ -2,6 +2,7 @@
 
 namespace FriendsOfBotble\Comment\Http\Requests\Settings;
 
+use Botble\Base\Rules\MediaImageRule;
 use Botble\Base\Rules\OnOffRule;
 use Botble\Support\Http\Requests\Request;
 
@@ -17,6 +18,7 @@ class CommentSettingRequest extends Request
             'fob_comment_comment_order' => ['required', 'in:asc,desc'],
             'fob_comment_display_admin_badge' => [new OnOffRule()],
             'fob_comment_show_admin_role_name_for_admin_badge' => [new OnOffRule()],
+            'fob_comment_default_avatar' => ['nullable', new MediaImageRule()],
         ];
     }
 }

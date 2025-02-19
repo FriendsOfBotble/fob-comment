@@ -3,8 +3,10 @@
 namespace FriendsOfBotble\Comment\Forms\Settings;
 
 use Botble\Base\Facades\Html;
+use Botble\Base\Forms\FieldOptions\MediaImageFieldOption;
 use Botble\Base\Forms\FieldOptions\OnOffFieldOption;
 use Botble\Base\Forms\FieldOptions\RadioFieldOption;
+use Botble\Base\Forms\Fields\MediaImageField;
 use Botble\Base\Forms\Fields\OnOffCheckboxField;
 use Botble\Base\Forms\Fields\RadioField;
 use Botble\Base\Forms\FormAbstract;
@@ -99,6 +101,14 @@ class CommentSettingForm extends SettingForm
                     ->helperText(trans('plugins/fob-comment::comment.settings.form.show_admin_role_name_for_admin_badge_helper'))
                     ->value(setting('fob_comment_show_admin_role_name_for_admin_badge', 'true'))
                     ->toArray()
+            )
+            ->add(
+                'fob_comment_default_avatar',
+                MediaImageField::class,
+                MediaImageFieldOption::make()
+                    ->label(trans('plugins/fob-comment::comment.settings.form.default_avatar'))
+                    ->helperText(trans('plugins/fob-comment::comment.settings.form.default_avatar_helper'))
+                    ->value(setting('fob_comment_default_avatar'))
             );
     }
 }

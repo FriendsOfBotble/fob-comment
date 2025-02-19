@@ -4,6 +4,7 @@ namespace FriendsOfBotble\Comment\Models;
 
 use Botble\ACL\Contracts\HasPermissions;
 use Botble\Base\Models\BaseModel;
+use Botble\Media\Facades\RvMedia;
 use FriendsOfBotble\Comment\Enums\CommentStatus;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -58,6 +59,10 @@ class Comment extends BaseModel
         return Attribute::get(function () {
             if ($this->author && $this->author->avatar_url) {
                 return $this->author->avatar_url;
+            }
+
+            if ($defaultAvatar = setting('fob_comment_default_avatar')) {
+                return RvMedia::getImageUrl($defaultAvatar, 'thumb');
             }
 
             $email = strtolower(trim($this->email));

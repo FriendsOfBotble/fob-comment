@@ -101,8 +101,8 @@ class CommentForm extends FormFront
                         ->toArray()
                 );
             })
-            ->setFormEndKey('button')
-            ->add('button', 'submit', [
+            ->setFormEndKey('submit')
+            ->add('submit', 'submit', [
                 'label' => trans('plugins/fob-comment::comment.front.form.submit'),
                 'attr' => [
                     'class' => 'btn btn-primary mb-4',

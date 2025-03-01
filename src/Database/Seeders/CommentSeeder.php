@@ -16,6 +16,10 @@ class CommentSeeder extends BaseSeeder
 
         $fake = $this->fake();
 
+        if (! is_plugin_active('blog')) {
+            return;
+        }
+
         $posts = Post::query()->select('id')->get();
 
         if ($posts->isEmpty()) {

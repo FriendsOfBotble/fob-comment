@@ -12,7 +12,10 @@ class CommentReferenceRequest extends Request
         return [
             'reference_id' => [Rule::when($this->has('reference_type'), 'required', 'nullable'), 'string'],
             'reference_type' => [Rule::when($this->has('reference_id'), 'required', 'nullable'), 'string'],
-            'reference_url' => [Rule::when(! $this->has('reference_id') && ! $this->has('reference_type'), 'required', 'nullable'), 'string'],
+            'reference_url' => [
+                Rule::when(! $this->has('reference_id') && ! $this->has('reference_type'), 'required', 'nullable'),
+                'string',
+            ],
         ];
     }
 }

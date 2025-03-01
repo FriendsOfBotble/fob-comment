@@ -109,6 +109,7 @@ class CommentSettingForm extends SettingForm
                     ->label(trans('plugins/fob-comment::comment.settings.form.default_avatar'))
                     ->helperText(trans('plugins/fob-comment::comment.settings.form.default_avatar_helper'))
                     ->value(setting('fob_comment_default_avatar'))
+                    ->toArray()
             );
     }
 }

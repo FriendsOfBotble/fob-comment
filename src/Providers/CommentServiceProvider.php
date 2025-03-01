@@ -119,14 +119,17 @@ class CommentServiceProvider extends ServiceProvider
                 FormFrontManager::register(ReplyCommentForm::class, ReplyCommentRequest::class);
             }
 
-            $this->app['events']->listen([DeactivatedPlugin::class, RemovedPlugin::class], function (DeactivatedPlugin|RemovedPlugin $event): void {
-                if ($event->plugin === 'member') {
-                    Comment::query()->where('author_type', 'Botble\Member\Models\Member')->update([
-                        'author_id' => null,
-                        'author_type' => null,
-                    ]);
+            $this->app['events']->listen(
+                [DeactivatedPlugin::class, RemovedPlugin::class],
+                function (DeactivatedPlugin|RemovedPlugin $event): void {
+                    if ($event->plugin === 'member') {
+                        Comment::query()->where('author_type', 'Botble\Member\Models\Member')->update([
+                            'author_id' => null,
+                            'author_type' => null,
+                        ]);
+                    }
                 }
-            });
+            );
         });
     }
 }

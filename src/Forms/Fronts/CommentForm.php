@@ -2,6 +2,7 @@
 
 namespace FriendsOfBotble\Comment\Forms\Fronts;
 
+use Botble\Base\Forms\FieldOptions\ButtonFieldOption;
 use Botble\Base\Forms\FieldOptions\EmailFieldOption;
 use Botble\Base\Forms\FieldOptions\OnOffFieldOption;
 use Botble\Base\Forms\FieldOptions\TextareaFieldOption;
@@ -73,6 +74,7 @@ class CommentForm extends FormFront
                         fn (EmailFieldOption $option, $value) => $option->defaultValue($value)->disabled(),
                         fn (EmailFieldOption $option) => $option->required()
                     )
+                    ->placeholder(trans('plugins/fob-comment::comment.common.email_placeholder'))
                     ->colspan(1)
                     ->toArray()
             )
@@ -85,6 +87,7 @@ class CommentForm extends FormFront
                         Arr::get($preparedData, 'website'),
                         fn (TextFieldOption $option, $value) => $option->defaultValue($value)->disabled()
                     )
+                    ->placeholder(trans('plugins/fob-comment::comment.common.website_placeholder'))
                     ->toArray()
             )
             ->when(
@@ -102,13 +105,15 @@ class CommentForm extends FormFront
                 );
             })
             ->setFormEndKey('submit')
-            ->add('submit', 'submit', [
-                'label' => trans('plugins/fob-comment::comment.front.form.submit'),
-                'attr' => [
-                    'class' => 'btn btn-primary mb-4',
-                ],
-                'colspan' => 2,
-            ]);
+            ->add(
+                'submit',
+                'submit',
+                ButtonFieldOption::make()
+                    ->label(trans('plugins/fob-comment::comment.front.form.submit'))
+                    ->cssClass('btn btn-primary mb-4')
+                    ->colspan(2)
+                    ->toArray()
+            );
     }
 
     public static function createWithReference(BaseModel $model): FormAbstract

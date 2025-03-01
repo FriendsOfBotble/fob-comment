@@ -14,10 +14,9 @@ class CreateNewComment
 {
     public function __construct(protected Request $request)
     {
-
     }
 
-    public function __invoke(BaseModel $reference, array $data, ?Comment $replyTo = null)
+    public function __invoke(BaseModel $reference, array $data, ?Comment $replyTo = null): void
     {
         $data = [
             ...$data,

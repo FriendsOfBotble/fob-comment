@@ -6,6 +6,8 @@ return [
         'email' => 'Email',
         'website' => 'Website',
         'comment' => 'Comment',
+        'email_placeholder' => 'Your email address will not be published.',
+        'website_placeholder' => 'e.g. https://example.com',
     ],
 
     'title' => 'Comments',

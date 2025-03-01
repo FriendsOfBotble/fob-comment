@@ -37,17 +37,23 @@ class CommentForm extends FormAbstract
             ->add(
                 'name',
                 TextField::class,
-                TextFieldOption::make()->label(trans('plugins/fob-comment::comment.common.name'))->toArray()
+                TextFieldOption::make()
+                    ->label(trans('plugins/fob-comment::comment.common.name'))
+                    ->toArray()
             )
             ->add(
                 'email',
                 EmailField::class,
-                EmailFieldOption::make()->label(trans('plugins/fob-comment::comment.common.email'))->toArray()
+                EmailFieldOption::make()
+                    ->label(trans('plugins/fob-comment::comment.common.email'))
+                    ->toArray()
             )
             ->add(
                 'website',
                 TextField::class,
-                TextFieldOption::make()->label(trans('plugins/fob-comment::comment.url'))->toArray()
+                TextFieldOption::make()
+                    ->label(trans('plugins/fob-comment::comment.url'))
+                    ->toArray()
             )
             ->add(
                 'content',
@@ -61,12 +67,17 @@ class CommentForm extends FormAbstract
             ->add(
                 'status',
                 SelectField::class,
-                StatusFieldOption::make()->choices(CommentStatus::labels())->toArray()
+                StatusFieldOption::make()
+                    ->choices(CommentStatus::labels())
+                    ->toArray()
             )
             ->add(
                 'created_at',
                 TextField::class,
-                TextFieldOption::make()->label(trans('plugins/fob-comment::comment.submitted_on'))->disabled()->toArray()
+                TextFieldOption::make()
+                    ->label(trans('plugins/fob-comment::comment.submitted_on'))
+                    ->disabled()
+                    ->toArray()
             );
     }
 }

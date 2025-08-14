@@ -6,9 +6,11 @@ use Botble\Base\Facades\Html;
 use Botble\Base\Forms\FieldOptions\MediaImageFieldOption;
 use Botble\Base\Forms\FieldOptions\OnOffFieldOption;
 use Botble\Base\Forms\FieldOptions\RadioFieldOption;
+use Botble\Base\Forms\FieldOptions\SelectFieldOption;
 use Botble\Base\Forms\Fields\MediaImageField;
 use Botble\Base\Forms\Fields\OnOffCheckboxField;
 use Botble\Base\Forms\Fields\RadioField;
+use Botble\Base\Forms\Fields\SelectField;
 use Botble\Base\Forms\FormAbstract;
 use Botble\Captcha\Facades\Captcha;
 use Botble\Setting\Forms\SettingForm;
@@ -64,6 +66,15 @@ class CommentSettingForm extends SettingForm
                     ->toArray()
             )
             ->add(
+                'fob_comment_email_optional',
+                OnOffCheckboxField::class,
+                OnOffFieldOption::make()
+                    ->label(trans('plugins/fob-comment::comment.settings.form.email_optional'))
+                    ->helperText(trans('plugins/fob-comment::comment.settings.form.email_optional_help'))
+                    ->value(setting('fob_comment_email_optional', false))
+                    ->toArray()
+            )
+            ->add(
                 'fob_comment_auto_fill_comment_form',
                 OnOffCheckboxField::class,
                 OnOffFieldOption::make()
@@ -100,6 +111,19 @@ class CommentSettingForm extends SettingForm
                     ->label(trans('plugins/fob-comment::comment.settings.form.show_admin_role_name_for_admin_badge'))
                     ->helperText(trans('plugins/fob-comment::comment.settings.form.show_admin_role_name_for_admin_badge_helper'))
                     ->value(setting('fob_comment_show_admin_role_name_for_admin_badge', 'true'))
+                    ->toArray()
+            )
+            ->add(
+                'fob_comment_avatar_provider',
+                SelectField::class,
+                SelectFieldOption::make()
+                    ->label(trans('plugins/fob-comment::comment.settings.form.avatar_provider'))
+                    ->helperText(trans('plugins/fob-comment::comment.settings.form.avatar_provider_help'))
+                    ->choices([
+                        'gravatar' => trans('plugins/fob-comment::comment.settings.form.avatar_provider_choices.gravatar'),
+                        'ui_avatars' => trans('plugins/fob-comment::comment.settings.form.avatar_provider_choices.ui_avatars'),
+                    ])
+                    ->selected(setting('fob_comment_avatar_provider', 'gravatar'))
                     ->toArray()
             )
             ->add(

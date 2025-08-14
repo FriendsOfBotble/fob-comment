@@ -49,6 +49,11 @@ class CommentHelper
         return setting('fob_comment_display_admin_badge', true);
     }
 
+    public static function isEmailOptional(): bool
+    {
+        return setting('fob_comment_email_optional', false);
+    }
+
     public static function getAuthorizedUser(): ?Authenticatable
     {
         $guard = match (true) {

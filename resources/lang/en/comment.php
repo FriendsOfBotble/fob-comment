@@ -41,6 +41,7 @@ return [
         'form' => [
             'title' => 'Leave a comment',
             'description' => 'Your email address will not be published. Required fields are marked *',
+            'description_email_optional' => 'Your email address will not be published. Email is optional. Required fields are marked *',
             'cookie_consent' => 'Save my name, email, and website in this browser for the next time I comment.',
             'submit' => 'Post Comment',
         ],
@@ -68,6 +69,8 @@ return [
             'comment_moderation' => 'Comments must be manually approved',
             'comment_moderation_help' => 'All comments must be manually approved by an admin before displaying on the frontend.',
             'show_comment_cookie_consent' => 'Show comments cookies checkbox, allowing visitors to save their information in the browser',
+            'email_optional' => 'Make email field optional',
+            'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
             'auto_fill_comment_form' => 'Auto-fill comment data for logged-in users',
             'auto_fill_comment_form_help' => 'The comment form will be automatically filled with user data such as full name, email, etc., if they are logged in.',
             'comment_order' => 'Sort comments by',
@@ -79,8 +82,14 @@ return [
             'display_admin_badge' => 'Display admin badge for admin comments',
             'show_admin_role_name_for_admin_badge' => 'Show admin role name for admin badge',
             'show_admin_role_name_for_admin_badge_helper' => 'If enabled, the admin badge will display the admin role name instead of the default "Admin" text. If the admin role name is empty, the default text will be used. If user has multiple roles, the first role will be used.',
+            'avatar_provider' => 'Avatar provider',
+            'avatar_provider_help' => 'Choose how to generate avatars for comments. Gravatar requires email, UI Avatars generates based on name.',
+            'avatar_provider_choices' => [
+                'gravatar' => 'Gravatar (Email-based)',
+                'ui_avatars' => 'UI Avatars (Name-based)',
+            ],
             'default_avatar' => 'Default avatar',
-            'default_avatar_helper' => 'Default avatar for author when they do not have an avatar. If you do not select any image, it will be generated using Gravatar. Image size should be 150x150px.',
+            'default_avatar_helper' => 'Default avatar for author when they do not have an avatar. If you do not select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
         ],
     ],
 ];

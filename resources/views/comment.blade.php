@@ -24,7 +24,7 @@
     <h4 class="fob-comment-title fob-comment-form-title">
         <span class="d-inline-block">{{ trans('plugins/fob-comment::comment.front.form.title') }}</span>
     </h4>
-    <p class="fob-comment-form-note">{{ trans('plugins/fob-comment::comment.front.form.description') }}</p>
+    <p class="fob-comment-form-note">{{ trans('plugins/fob-comment::comment.front.form.' . (\FriendsOfBotble\Comment\Support\CommentHelper::isEmailOptional() ? 'description_email_optional' : 'description')) }}</p>
 
     {!! CommentForm::createWithReference($model)->renderForm() !!}
 </div>

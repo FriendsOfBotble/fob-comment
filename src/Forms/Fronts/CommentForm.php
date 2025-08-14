@@ -72,7 +72,7 @@ class CommentForm extends FormFront
                     ->when(
                         Arr::get($preparedData, 'email'),
                         fn (EmailFieldOption $option, $value) => $option->defaultValue($value)->disabled(),
-                        fn (EmailFieldOption $option) => $option->required()
+                        fn (EmailFieldOption $option) => CommentHelper::isEmailOptional() ? $option : $option->required()
                     )
                     ->placeholder(trans('plugins/fob-comment::comment.common.email_placeholder'))
                     ->colspan(1)

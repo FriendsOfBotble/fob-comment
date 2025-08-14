@@ -65,6 +65,18 @@ class Comment extends BaseModel
                 return RvMedia::getImageUrl($defaultAvatar, 'thumb');
             }
 
+            $avatarProvider = setting('fob_comment_avatar_provider', 'gravatar');
+
+            // If email is not provided or using UI Avatars, generate avatar based on name
+            if (empty($this->email) || $avatarProvider === 'ui_avatars') {
+                // Use UI Avatars service for name-based avatars
+                $name = urlencode($this->name);
+                $background = substr(md5($this->name), 0, 6); // Generate color from name
+
+                return "https://ui-avatars.com/api/?name={$name}&size=128&background={$background}&color=fff&bold=true";
+            }
+
+            // Use Gravatar for email-based avatars
             $email = strtolower(trim($this->email));
             $hash = hash('sha256', $email);
 

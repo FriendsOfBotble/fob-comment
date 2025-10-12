@@ -39,6 +39,7 @@ return [
         ],
 
         'form' => [
+            'description_email_optional' => 'Your email address will not be published. Email is optional. Required fields are marked *',
             'title' => 'השאר תגובה',
             'description' => 'כתובת הדוא״ל שלך לא תפורסם. שדות חובה מסומנים ב-*',
             'cookie_consent' => 'שמור את השם, הדוא״ל והאתר שלי בדפדפן זה לתגובה הבאה.',
@@ -79,8 +80,16 @@ return [
             'display_admin_badge' => 'הצג תג מנהל לתגובות מנהלים',
             'show_admin_role_name_for_admin_badge' => 'הצג שם תפקיד מנהל עבור תג המנהל',
             'show_admin_role_name_for_admin_badge_helper' => 'אם מופעל, תג המנהל יציג את שם תפקיד המנהל במקום הטקסט הברירת מחדל "מנהל". אם שם תפקיד המנהל ריק, ייעשה שימוש בטקסט ברירת המחדל. אם למשתמש יש מספר תפקידים, ייעשה שימוש בתפקיד הראשון.',
+            'avatar_provider' => 'Avatar provider',
+            'avatar_provider_help' => 'Choose how to generate avatars for comments. Gravatar requires email, UI Avatars generates based on name.',
+            'avatar_provider_choices' => [
+                'gravatar' => 'Gravatar (Email-based)',
+                'ui_avatars' => 'UI Avatars (Name-based)',
+            ],
+            'email_optional' => 'Make email field optional',
+            'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
             'default_avatar' => 'אווטאר ברירת מחדל',
-            'default_avatar_helper' => 'אווטאר ברירת מחדל עבור הכותב כאשר אין לו אווטאר. אם לא תבחר תמונה כלשהי, היא תיווצר באמצעות Gravatar. גודל התמונה צריך להיות 150x150px.',
+            'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
         ],
     ],
 ];

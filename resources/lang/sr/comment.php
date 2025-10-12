@@ -39,6 +39,7 @@ return [
         ],
 
         'form' => [
+            'description_email_optional' => 'Your email address will not be published. Email is optional. Required fields are marked *',
             'title' => 'Оставите коментар',
             'description' => 'Ваша имејл адреса неће бити објављена. Обавезна поља су означена са *',
             'cookie_consent' => 'Сачувај моје име, имејл и веб сајт у овом прегледачу за следећи пут када коментаришем.',
@@ -79,8 +80,16 @@ return [
             'display_admin_badge' => 'Прикажи админ значку за коментаре администратора',
             'show_admin_role_name_for_admin_badge' => 'Прикажи назив админ улоге за админ значку',
             'show_admin_role_name_for_admin_badge_helper' => 'Ако је омогућено, админ значка ће приказати назив админ улоге уместо подразумеваног текста "Админ". Ако је назив админ улоге празан, користиће се подразумевани текст. Ако корисник има више улога, користиће се прва улога.',
+            'avatar_provider' => 'Avatar provider',
+            'avatar_provider_help' => 'Choose how to generate avatars for comments. Gravatar requires email, UI Avatars generates based on name.',
+            'avatar_provider_choices' => [
+                'gravatar' => 'Gravatar (Email-based)',
+                'ui_avatars' => 'UI Avatars (Name-based)',
+            ],
+            'email_optional' => 'Make email field optional',
+            'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
             'default_avatar' => 'Подразумевани аватар',
-            'default_avatar_helper' => 'Подразумевани аватар за аутора када нема аватар. Ако не изаберете слику, биће генерисана помоћу Gravatar-а. Величина слике треба да буде 150x150px.',
+            'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
         ],
     ],
 ];

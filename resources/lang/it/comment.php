@@ -39,6 +39,7 @@ return [
         ],
 
         'form' => [
+            'description_email_optional' => 'Your email address will not be published. Email is optional. Required fields are marked *',
             'title' => 'Lascia un commento',
             'description' => 'Il tuo indirizzo email non sarà pubblicato. I campi obbligatori sono contrassegnati con *',
             'cookie_consent' => 'Salva il mio nome, email e sito web in questo browser per il prossimo commento.',

@@ -39,6 +39,7 @@ return [
         ],
 
         'form' => [
+            'description_email_optional' => 'Your email address will not be published. Email is optional. Required fields are marked *',
             'title' => 'Оставете коментар',
             'description' => 'Вашият имейл адрес няма да бъде публикуван. Задължителните полета са отбелязани с *',
             'cookie_consent' => 'Запази моето име, имейл и уебсайт в този браузър за следващия път, когато коментирам.',
@@ -79,8 +80,16 @@ return [
             'display_admin_badge' => 'Показване на админ значка за коментари на администратори',
             'show_admin_role_name_for_admin_badge' => 'Показване на име на админ роля за админ значката',
             'show_admin_role_name_for_admin_badge_helper' => 'Ако е активирано, админ значката ще показва името на админ ролята вместо текста по подразбиране "Админ". Ако името на админ ролята е празно, ще се използва текстът по подразбиране. Ако потребителят има множество роли, ще се използва първата роля.',
+            'avatar_provider' => 'Avatar provider',
+            'avatar_provider_help' => 'Choose how to generate avatars for comments. Gravatar requires email, UI Avatars generates based on name.',
+            'avatar_provider_choices' => [
+                'gravatar' => 'Gravatar (Email-based)',
+                'ui_avatars' => 'UI Avatars (Name-based)',
+            ],
+            'email_optional' => 'Make email field optional',
+            'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
             'default_avatar' => 'Аватар по подразбиране',
-            'default_avatar_helper' => 'Аватар по подразбиране за автора, когато няма аватар. Ако не изберете изображение, то ще бъде генерирано с помощта на Gravatar. Размерът на изображението трябва да бъде 150x150px.',
+            'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
         ],
     ],
 ];

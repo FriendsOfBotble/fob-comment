@@ -39,6 +39,7 @@ return [
         ],
 
         'form' => [
+            'description_email_optional' => 'Your email address will not be published. Email is optional. Required fields are marked *',
             'title' => 'Jätke kommentaar',
             'description' => 'Teie e-posti aadressi ei avaldata. Kohustuslikud väljad on märgitud *',
             'cookie_consent' => 'Salvesta minu nimi, e-post ja veebileht selles brauseris järgmise kommentaari jaoks.',
@@ -79,8 +80,16 @@ return [
             'display_admin_badge' => 'Kuva administraatori märk administraatorite kommentaaride jaoks',
             'show_admin_role_name_for_admin_badge' => 'Näita administraatori rolli nime administraatori märgi jaoks',
             'show_admin_role_name_for_admin_badge_helper' => 'Kui lubatud, kuvab administraatori märk administraatori rolli nime vaikimisi teksti "Admin" asemel. Kui administraatori rolli nimi on tühi, kasutatakse vaikimisi teksti. Kui kasutajal on mitu rolli, kasutatakse esimest rolli.',
+            'avatar_provider' => 'Avatar provider',
+            'avatar_provider_help' => 'Choose how to generate avatars for comments. Gravatar requires email, UI Avatars generates based on name.',
+            'avatar_provider_choices' => [
+                'gravatar' => 'Gravatar (Email-based)',
+                'ui_avatars' => 'UI Avatars (Name-based)',
+            ],
+            'email_optional' => 'Make email field optional',
+            'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
             'default_avatar' => 'Vaikimisi avatar',
-            'default_avatar_helper' => 'Vaikimisi avatar autorile, kui tal ei ole avatari. Kui te ei vali ühtegi pilti, genereeritakse see Gravatari abil. Pildi suurus peaks olema 150x150px.',
+            'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
         ],
     ],
 ];

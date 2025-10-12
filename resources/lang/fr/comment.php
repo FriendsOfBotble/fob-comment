@@ -41,6 +41,7 @@ return [
         'form' => [
             'title' => 'Laisser un commentaire',
             'description' => 'Votre adresse e-mail ne sera pas publiée. Les champs obligatoires sont marqués *',
+            'description_email_optional' => 'Votre adresse email ne sera pas publiée. L\'email est facultatif. Les champs obligatoires sont marqués *',
             'cookie_consent' => 'Enregistrer mon nom, e-mail et site web dans ce navigateur pour mon prochain commentaire.',
             'submit' => 'Publier le commentaire',
         ],
@@ -60,7 +61,6 @@ return [
     'settings' => [
         'title' => 'FOB Comment',
         'description' => 'Configurer les paramètres pour FOB Comment',
-
         'form' => [
             'enable_recaptcha' => 'Activer reCAPTCHA',
             'enable_recaptcha_help' => 'Vous devez activer reCAPTCHA dans :url pour utiliser cette fonctionnalité.',

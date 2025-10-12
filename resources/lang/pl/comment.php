@@ -39,6 +39,7 @@ return [
         ],
 
         'form' => [
+            'description_email_optional' => 'Your email address will not be published. Email is optional. Required fields are marked *',
             'title' => 'Zostaw komentarz',
             'description' => 'Twój adres e-mail nie zostanie opublikowany. Wymagane pola są oznaczone *',
             'cookie_consent' => 'Zapisz moje imię, e-mail i stronę internetową w tej przeglądarce dla następnego komentarza.',
@@ -79,8 +80,16 @@ return [
             'display_admin_badge' => 'Wyświetl odznakę administratora dla komentarzy administratorów',
             'show_admin_role_name_for_admin_badge' => 'Pokaż nazwę roli administratora dla odznaki administratora',
             'show_admin_role_name_for_admin_badge_helper' => 'Jeśli włączone, odznaka administratora będzie wyświetlać nazwę roli administratora zamiast domyślnego tekstu "Administrator". Jeśli nazwa roli administratora jest pusta, zostanie użyty domyślny tekst. Jeśli użytkownik ma wiele ról, zostanie użyta pierwsza rola.',
+            'avatar_provider' => 'Avatar provider',
+            'avatar_provider_help' => 'Choose how to generate avatars for comments. Gravatar requires email, UI Avatars generates based on name.',
+            'avatar_provider_choices' => [
+                'gravatar' => 'Gravatar (Email-based)',
+                'ui_avatars' => 'UI Avatars (Name-based)',
+            ],
+            'email_optional' => 'Make email field optional',
+            'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
             'default_avatar' => 'Domyślny awatar',
-            'default_avatar_helper' => 'Domyślny awatar dla autora, gdy nie ma awatara. Jeśli nie wybierzesz żadnego obrazu, zostanie wygenerowany przy użyciu Gravatar. Rozmiar obrazu powinien wynosić 150x150px.',
+            'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
         ],
     ],
 ];

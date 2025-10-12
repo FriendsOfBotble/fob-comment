@@ -39,6 +39,7 @@ return [
         ],
 
         'form' => [
+            'description_email_optional' => 'Your email address will not be published. Email is optional. Required fields are marked *',
             'title' => 'Bir yorum bırakın',
             'description' => 'E-posta adresiniz yayınlanmayacaktır. Gerekli alanlar * ile işaretlenmiştir',
             'cookie_consent' => 'Bir sonraki yorumum için bu tarayıcıda adımı, e-posta adresimi ve web sitemi kaydet.',
@@ -79,8 +80,16 @@ return [
             'display_admin_badge' => 'Yönetici yorumları için yönetici rozetini göster',
             'show_admin_role_name_for_admin_badge' => 'Yönetici rozeti için yönetici rol adını göster',
             'show_admin_role_name_for_admin_badge_helper' => 'Etkinleştirilirse, yönetici rozeti varsayılan "Yönetici" metni yerine yönetici rol adını gösterecektir. Yönetici rol adı boşsa, varsayılan metin kullanılacaktır. Kullanıcının birden fazla rolü varsa, ilk rol kullanılacaktır.',
+            'avatar_provider' => 'Avatar provider',
+            'avatar_provider_help' => 'Choose how to generate avatars for comments. Gravatar requires email, UI Avatars generates based on name.',
+            'avatar_provider_choices' => [
+                'gravatar' => 'Gravatar (Email-based)',
+                'ui_avatars' => 'UI Avatars (Name-based)',
+            ],
+            'email_optional' => 'Make email field optional',
+            'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
             'default_avatar' => 'Varsayılan avatar',
-            'default_avatar_helper' => 'Yazarın avatarı olmadığında varsayılan avatar. Herhangi bir görüntü seçmezseniz, Gravatar kullanılarak oluşturulacaktır. Görüntü boyutu 150x150px olmalıdır.',
+            'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
         ],
     ],
 ];

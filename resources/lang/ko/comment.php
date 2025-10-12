@@ -39,6 +39,7 @@ return [
         ],
 
         'form' => [
+            'description_email_optional' => 'Your email address will not be published. Email is optional. Required fields are marked *',
             'title' => '댓글 남기기',
             'description' => '이메일 주소는 공개되지 않습니다. 필수 항목은 *로 표시됩니다',
             'cookie_consent' => '다음 댓글 작성을 위해 이 브라우저에 이름, 이메일, 웹사이트를 저장합니다.',
@@ -79,8 +80,16 @@ return [
             'display_admin_badge' => '관리자 댓글에 관리자 배지 표시',
             'show_admin_role_name_for_admin_badge' => '관리자 배지에 관리자 역할 이름 표시',
             'show_admin_role_name_for_admin_badge_helper' => '활성화하면 관리자 배지가 기본 "관리자" 텍스트 대신 관리자 역할 이름을 표시합니다. 관리자 역할 이름이 비어 있으면 기본 텍스트가 사용됩니다. 사용자가 여러 역할을 가진 경우 첫 번째 역할이 사용됩니다.',
+            'avatar_provider' => 'Avatar provider',
+            'avatar_provider_help' => 'Choose how to generate avatars for comments. Gravatar requires email, UI Avatars generates based on name.',
+            'avatar_provider_choices' => [
+                'gravatar' => 'Gravatar (Email-based)',
+                'ui_avatars' => 'UI Avatars (Name-based)',
+            ],
+            'email_optional' => 'Make email field optional',
+            'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
             'default_avatar' => '기본 아바타',
-            'default_avatar_helper' => '작성자가 아바타가 없을 때의 기본 아바타. 이미지를 선택하지 않으면 Gravatar를 사용하여 생성됩니다. 이미지 크기는 150x150px이어야 합니다.',
+            'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
         ],
     ],
 ];

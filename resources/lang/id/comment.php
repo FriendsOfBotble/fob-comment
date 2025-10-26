@@ -39,7 +39,7 @@ return [
         ],
 
         'form' => [
-            'description_email_optional' => 'Your email address will not be published. Email is optional. Required fields are marked *',
+            'description_email_optional' => 'Alamat email Anda tidak akan dipublikasikan. Email bersifat opsional. Kolom yang wajib diisi ditandai *',
             'title' => 'Tinggalkan komentar',
             'description' => 'Alamat email Anda tidak akan dipublikasikan. Kolom yang wajib diisi ditandai *',
             'cookie_consent' => 'Simpan nama, email, dan situs web saya di browser ini untuk komentar saya berikutnya.',
@@ -80,16 +80,16 @@ return [
             'display_admin_badge' => 'Tampilkan lencana admin untuk komentar admin',
             'show_admin_role_name_for_admin_badge' => 'Tampilkan nama peran admin untuk lencana admin',
             'show_admin_role_name_for_admin_badge_helper' => 'Jika diaktifkan, lencana admin akan menampilkan nama peran admin alih-alih teks default "Admin". Jika nama peran admin kosong, teks default akan digunakan. Jika pengguna memiliki beberapa peran, peran pertama akan digunakan.',
-            'avatar_provider' => 'Avatar provider',
-            'avatar_provider_help' => 'Choose how to generate avatars for comments. Gravatar requires email, UI Avatars generates based on name.',
+            'avatar_provider' => 'Penyedia avatar',
+            'avatar_provider_help' => 'Pilih cara menghasilkan avatar untuk komentar. Gravatar memerlukan email, UI Avatars menghasilkan berdasarkan nama.',
             'avatar_provider_choices' => [
-                'gravatar' => 'Gravatar (Email-based)',
-                'ui_avatars' => 'UI Avatars (Name-based)',
+                'gravatar' => 'Gravatar (Berbasis email)',
+                'ui_avatars' => 'UI Avatars (Berbasis nama)',
             ],
-            'email_optional' => 'Make email field optional',
-            'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
+            'email_optional' => 'Jadikan kolom email opsional',
+            'email_optional_help' => 'Jika diaktifkan, pengunjung dapat mengirim komentar tanpa memberikan alamat email.',
             'default_avatar' => 'Avatar default',
-            'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
+            'default_avatar_helper' => 'Avatar default untuk penulis ketika mereka tidak memiliki avatar. Jika Anda tidak memilih gambar apa pun, itu akan dibuat menggunakan penyedia avatar yang dipilih. Ukuran gambar harus 150x150px.',
         ],
     ],
 ];

@@ -39,7 +39,7 @@ return [
         ],
 
         'form' => [
-            'description_email_optional' => 'Your email address will not be published. Email is optional. Required fields are marked *',
+            'description_email_optional' => 'Adresa ta de email nu va fi publicată. Emailul este opțional. Câmpurile obligatorii sunt marcate cu *',
             'title' => 'Lasă un comentariu',
             'description' => 'Adresa ta de email nu va fi publicată. Câmpurile obligatorii sunt marcate cu *',
             'cookie_consent' => 'Salvează numele meu, emailul și website-ul în acest browser pentru data viitoare când comentez.',
@@ -80,16 +80,16 @@ return [
             'display_admin_badge' => 'Afișează insigna de administrator pentru comentariile administratorilor',
             'show_admin_role_name_for_admin_badge' => 'Arată numele rolului de administrator pentru insigna de administrator',
             'show_admin_role_name_for_admin_badge_helper' => 'Dacă este activat, insigna de administrator va afișa numele rolului de administrator în loc de textul implicit "Admin". Dacă numele rolului de administrator este gol, se va folosi textul implicit. Dacă utilizatorul are mai multe roluri, se va folosi primul rol.',
-            'avatar_provider' => 'Avatar provider',
-            'avatar_provider_help' => 'Choose how to generate avatars for comments. Gravatar requires email, UI Avatars generates based on name.',
+            'avatar_provider' => 'Furnizor avatar',
+            'avatar_provider_help' => 'Alege cum să generezi avatare pentru comentarii. Gravatar necesită email, UI Avatars generează pe baza numelui.',
             'avatar_provider_choices' => [
-                'gravatar' => 'Gravatar (Email-based)',
-                'ui_avatars' => 'UI Avatars (Name-based)',
+                'gravatar' => 'Gravatar (Bazat pe email)',
+                'ui_avatars' => 'UI Avatars (Bazat pe nume)',
             ],
-            'email_optional' => 'Make email field optional',
-            'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
+            'email_optional' => 'Fă câmpul email opțional',
+            'email_optional_help' => 'Când este activat, vizitatorii pot trimite comentarii fără a furniza o adresă de email.',
             'default_avatar' => 'Avatar implicit',
-            'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
+            'default_avatar_helper' => 'Avatar implicit pentru autor când nu au un avatar. Dacă nu selectezi nicio imagine, va fi generată folosind furnizorul de avatare selectat. Dimensiunea imaginii trebuie să fie 150x150px.',
         ],
     ],
 ];

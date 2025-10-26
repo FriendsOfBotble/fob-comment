@@ -39,7 +39,7 @@ return [
         ],
 
         'form' => [
-            'description_email_optional' => 'Your email address will not be published. Email is optional. Required fields are marked *',
+            'description_email_optional' => 'Je e-mailadres wordt niet gepubliceerd. E-mail is optioneel. Verplichte velden zijn gemarkeerd met *',
             'title' => 'Laat een reactie achter',
             'description' => 'Je e-mailadres wordt niet gepubliceerd. Verplichte velden zijn gemarkeerd met *',
             'cookie_consent' => 'Bewaar mijn naam, e-mail en website in deze browser voor de volgende keer wanneer ik een reactie plaats.',
@@ -80,16 +80,16 @@ return [
             'display_admin_badge' => 'Beheerderbadge weergeven voor beheerdersreacties',
             'show_admin_role_name_for_admin_badge' => 'Toon beheerdersrolnaam voor beheerderbadge',
             'show_admin_role_name_for_admin_badge_helper' => 'Indien ingeschakeld, zal de beheerderbadge de naam van de beheerdersrol weergeven in plaats van de standaardtekst "Beheerder". Als de beheerdersrolnaam leeg is, wordt de standaardtekst gebruikt. Als de gebruiker meerdere rollen heeft, wordt de eerste rol gebruikt.',
-            'avatar_provider' => 'Avatar provider',
-            'avatar_provider_help' => 'Choose how to generate avatars for comments. Gravatar requires email, UI Avatars generates based on name.',
+            'avatar_provider' => 'Avatar-provider',
+            'avatar_provider_help' => 'Kies hoe avatars voor reacties worden gegenereerd. Gravatar vereist e-mail, UI Avatars genereert op basis van naam.',
             'avatar_provider_choices' => [
-                'gravatar' => 'Gravatar (Email-based)',
-                'ui_avatars' => 'UI Avatars (Name-based)',
+                'gravatar' => 'Gravatar (Op basis van e-mail)',
+                'ui_avatars' => 'UI Avatars (Op basis van naam)',
             ],
-            'email_optional' => 'Make email field optional',
-            'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
+            'email_optional' => 'E-mailveld optioneel maken',
+            'email_optional_help' => 'Wanneer ingeschakeld, kunnen bezoekers reacties indienen zonder een e-mailadres op te geven.',
             'default_avatar' => 'Standaard avatar',
-            'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
+            'default_avatar_helper' => 'Standaard avatar voor de auteur wanneer ze geen avatar hebben. Als je geen afbeelding selecteert, wordt deze gegenereerd met behulp van de geselecteerde avatar-provider. Afbeeldingsgrootte moet 150x150px zijn.',
         ],
     ],
 ];

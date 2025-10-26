@@ -39,7 +39,7 @@ return [
         ],
 
         'form' => [
-            'description_email_optional' => 'Your email address will not be published. Email is optional. Required fields are marked *',
+            'description_email_optional' => 'Il tuo indirizzo email non sarà pubblicato. L\'email è opzionale. I campi obbligatori sono contrassegnati con *',
             'title' => 'Lascia un commento',
             'description' => 'Il tuo indirizzo email non sarà pubblicato. I campi obbligatori sono contrassegnati con *',
             'cookie_consent' => 'Salva il mio nome, email e sito web in questo browser per il prossimo commento.',
@@ -80,6 +80,14 @@ return [
             'display_admin_badge' => 'Mostra il badge admin per i commenti degli amministratori',
             'show_admin_role_name_for_admin_badge' => 'Mostra il nome del ruolo admin per il badge admin',
             'show_admin_role_name_for_admin_badge_helper' => 'Se abilitato, il badge admin mostrerà il nome del ruolo admin invece del testo predefinito "Admin". Se il nome del ruolo admin è vuoto, verrà utilizzato il testo predefinito. Se l\'utente ha più ruoli, verrà utilizzato il primo ruolo.',
+            'avatar_provider' => 'Provider avatar',
+            'avatar_provider_help' => 'Scegli come generare gli avatar per i commenti. Gravatar richiede l\'email, UI Avatars genera in base al nome.',
+            'avatar_provider_choices' => [
+                'gravatar' => 'Gravatar (Basato su email)',
+                'ui_avatars' => 'UI Avatars (Basato sul nome)',
+            ],
+            'email_optional' => 'Rendi il campo email opzionale',
+            'email_optional_help' => 'Quando abilitato, i visitatori possono inviare commenti senza fornire un indirizzo email.',
             'default_avatar' => 'Avatar predefinito',
             'default_avatar_helper' => 'Avatar predefinito per l\'autore quando non ha un avatar. Se non selezioni alcuna immagine, verrà generata utilizzando Gravatar. La dimensione dell\'immagine dovrebbe essere 150x150px.',
         ],

@@ -39,7 +39,7 @@ return [
         ],
 
         'form' => [
-            'description_email_optional' => 'Your email address will not be published. Email is optional. Required fields are marked *',
+            'description_email_optional' => 'Vaša e-mail adresa neće biti objavljena. E-mail je neobavezan. Obavezna polja su označena sa *',
             'title' => 'Ostavite komentar',
             'description' => 'Vaša e-mail adresa neće biti objavljena. Obavezna polja su označena sa *',
             'cookie_consent' => 'Spremi moje ime, e-mail i web stranicu u ovaj preglednik za sljedeći put kada komentiram.',
@@ -80,16 +80,16 @@ return [
             'display_admin_badge' => 'Prikaži admin značku za komentare administratora',
             'show_admin_role_name_for_admin_badge' => 'Prikaži naziv admin uloge za admin značku',
             'show_admin_role_name_for_admin_badge_helper' => 'Ako je omogućeno, admin značka će prikazati naziv admin uloge umjesto zadanog teksta "Admin". Ako je naziv admin uloge prazan, koristit će se zadani tekst. Ako korisnik ima više uloga, koristit će se prva uloga.',
-            'avatar_provider' => 'Avatar provider',
-            'avatar_provider_help' => 'Choose how to generate avatars for comments. Gravatar requires email, UI Avatars generates based on name.',
+            'avatar_provider' => 'Pružatelj avatara',
+            'avatar_provider_help' => 'Odaberite kako generirati avatare za komentare. Gravatar zahtijeva e-mail, UI Avatars generira na temelju imena.',
             'avatar_provider_choices' => [
-                'gravatar' => 'Gravatar (Email-based)',
-                'ui_avatars' => 'UI Avatars (Name-based)',
+                'gravatar' => 'Gravatar (Temeljeno na e-mailu)',
+                'ui_avatars' => 'UI Avatars (Temeljeno na imenu)',
             ],
-            'email_optional' => 'Make email field optional',
-            'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
+            'email_optional' => 'Učinite polje e-maila neobaveznim',
+            'email_optional_help' => 'Kada je omogućeno, posjetitelji mogu poslati komentare bez navođenja e-mail adrese.',
             'default_avatar' => 'Zadani avatar',
-            'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
+            'default_avatar_helper' => 'Zadani avatar za autora kada nemaju avatar. Ako ne odaberete sliku, bit će generirana pomoću odabranog pružatelja avatara. Veličina slike treba biti 150x150px.',
         ],
     ],
 ];

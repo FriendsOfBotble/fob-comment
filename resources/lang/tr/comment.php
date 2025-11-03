@@ -4,6 +4,7 @@ return [
     'common' => [
         'name' => 'İsim',
         'email' => 'E-posta',
+        'phone' => 'Telefon',
         'website' => 'Web sitesi',
         'comment' => 'Yorum',
         'email_placeholder' => 'E-posta adresiniz yayınlanmayacaktır.',
@@ -88,6 +89,8 @@ return [
             ],
             'email_optional' => 'Make email field optional',
             'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
+            'show_website_field' => 'Yorum formunda web sitesi alanını göster',
+            'show_website_field_help' => 'Devre dışı bırakıldığında web sitesi alanı, herkese açık yorum formundan gizlenecektir.',
             'default_avatar' => 'Varsayılan avatar',
             'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
         ],

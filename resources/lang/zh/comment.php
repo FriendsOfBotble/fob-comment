@@ -4,6 +4,7 @@ return [
     'common' => [
         'name' => '姓名',
         'email' => '电子邮箱',
+        'phone' => '电话',
         'website' => '网站',
         'comment' => '评论',
         'email_placeholder' => '您的电子邮箱地址不会被公开。',
@@ -88,6 +89,8 @@ return [
             ],
             'email_optional' => '将电子邮件字段设为可选',
             'email_optional_help' => '启用后，访客无需提供电子邮件地址即可提交评论。',
+            'show_website_field' => '在评论表单中显示网站字段',
+            'show_website_field_help' => '禁用时，网站字段将从公开的评论表单中隐藏。',
             'default_avatar' => '默认头像',
             'default_avatar_helper' => '作者没有头像时的默认头像。如果您不选择任何图片，将使用所选头像提供商生成。图片大小应为 150x150px。',
         ],

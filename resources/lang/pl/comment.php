@@ -4,6 +4,7 @@ return [
     'common' => [
         'name' => 'Imię',
         'email' => 'E-mail',
+        'phone' => 'Telefon',
         'website' => 'Strona internetowa',
         'comment' => 'Komentarz',
         'email_placeholder' => 'Twój adres e-mail nie zostanie opublikowany.',
@@ -88,6 +89,8 @@ return [
             ],
             'email_optional' => 'Make email field optional',
             'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
+            'show_website_field' => 'Pokaż pole strony internetowej w formularzu komentarza',
+            'show_website_field_help' => 'Po wyłączeniu pole strony internetowej zostanie ukryte w publicznym formularzu komentarzy.',
             'default_avatar' => 'Domyślny awatar',
             'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
         ],

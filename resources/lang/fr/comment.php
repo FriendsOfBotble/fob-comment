@@ -4,6 +4,7 @@ return [
     'common' => [
         'name' => 'Nom',
         'email' => 'E-mail',
+        'phone' => 'Téléphone',
         'website' => 'Site web',
         'comment' => 'Commentaire',
         'email_placeholder' => 'Votre adresse e-mail ne sera pas publiée.',
@@ -87,6 +88,8 @@ return [
             ],
             'email_optional' => 'Rendre le champ e-mail facultatif',
             'email_optional_help' => 'Lorsqu\'activé, les visiteurs peuvent soumettre des commentaires sans fournir une adresse e-mail.',
+            'show_website_field' => 'Afficher le champ site web dans le formulaire de commentaire',
+            'show_website_field_help' => 'Lorsque cette option est désactivée, le champ site web sera masqué du formulaire de commentaire public.',
             'default_avatar' => 'Avatar par défaut',
             'default_avatar_helper' => 'Avatar par défaut pour l\'auteur lorsqu\'il n\'a pas d\'avatar. Si vous ne sélectionnez aucune image, elle sera générée en utilisant Gravatar. La taille de l\'image doit être de 150x150px.',
         ],

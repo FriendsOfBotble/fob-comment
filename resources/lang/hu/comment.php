@@ -4,6 +4,7 @@ return [
     'common' => [
         'name' => 'Név',
         'email' => 'E-mail',
+        'phone' => 'Telefon',
         'website' => 'Weboldal',
         'comment' => 'Hozzászólás',
         'email_placeholder' => 'Az e-mail címed nem lesz nyilvános.',
@@ -88,6 +89,8 @@ return [
             ],
             'email_optional' => 'E-mail mező opcionálissá tétele',
             'email_optional_help' => 'Ha engedélyezve van, a látogatók e-mail cím megadása nélkül is beküldhetnek hozzászólásokat.',
+            'show_website_field' => 'Webhelymező megjelenítése a hozzászólás űrlapon',
+            'show_website_field_help' => 'Letiltáskor a webhelymező elrejtésre kerül a nyilvános hozzászólás űrlapról.',
             'default_avatar' => 'Alapértelmezett avatar',
             'default_avatar_helper' => 'Alapértelmezett avatar a szerzőnek, ha nincs avatarja. Ha nem választasz képet, a kiválasztott avatar szolgáltató segítségével lesz generálva. A kép mérete 150x150px kell legyen.',
         ],

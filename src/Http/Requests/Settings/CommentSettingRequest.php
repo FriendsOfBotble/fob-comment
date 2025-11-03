@@ -15,6 +15,7 @@ class CommentSettingRequest extends Request
             'fob_comment_comment_moderation' => [$onOffRule],
             'fob_comment_show_comment_cookie_consent' => [$onOffRule],
             'fob_comment_email_optional' => [$onOffRule],
+            'fob_comment_show_website_field' => [$onOffRule],
             'fob_comment_auto_fill_comment_form' => [$onOffRule],
             'fob_comment_comment_order' => ['required', 'in:asc,desc'],
             'fob_comment_display_admin_badge' => [$onOffRule],

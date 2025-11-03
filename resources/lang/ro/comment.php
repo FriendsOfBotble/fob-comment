@@ -4,6 +4,7 @@ return [
     'common' => [
         'name' => 'Nume',
         'email' => 'Email',
+        'phone' => 'Telefon',
         'website' => 'Website',
         'comment' => 'Comentariu',
         'email_placeholder' => 'Adresa ta de email nu va fi publicată.',
@@ -88,6 +89,8 @@ return [
             ],
             'email_optional' => 'Fă câmpul email opțional',
             'email_optional_help' => 'Când este activat, vizitatorii pot trimite comentarii fără a furniza o adresă de email.',
+            'show_website_field' => 'Afișează câmpul site web în formularul de comentarii',
+            'show_website_field_help' => 'Când este dezactivat, câmpul site web va fi ascuns din formularul public de comentarii.',
             'default_avatar' => 'Avatar implicit',
             'default_avatar_helper' => 'Avatar implicit pentru autor când nu au un avatar. Dacă nu selectezi nicio imagine, va fi generată folosind furnizorul de avatare selectat. Dimensiunea imaginii trebuie să fie 150x150px.',
         ],

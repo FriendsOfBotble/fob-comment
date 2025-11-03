@@ -4,6 +4,7 @@ return [
     'common' => [
         'name' => 'Navn',
         'email' => 'E-mail',
+        'phone' => 'Telefon',
         'website' => 'Hjemmeside',
         'comment' => 'Kommentar',
         'email_placeholder' => 'Din e-mailadresse vil ikke blive offentliggjort.',
@@ -88,6 +89,8 @@ return [
             ],
             'email_optional' => 'Gør e-mailfeltet valgfrit',
             'email_optional_help' => 'Når aktiveret, kan besøgende indsende kommentarer uden at angive en e-mailadresse.',
+            'show_website_field' => 'Vis website-felt i kommentarskemaet',
+            'show_website_field_help' => 'Når den er deaktiveret, skjules website-feltet i den offentlige kommentarsformular.',
             'default_avatar' => 'Standard avatar',
             'default_avatar_helper' => 'Standard avatar for forfatteren, når de ikke har en avatar. Hvis du ikke vælger et billede, genereres det ved hjælp af den valgte avatar-udbyder. Billedstørrelsen skal være 150x150px.',
         ],

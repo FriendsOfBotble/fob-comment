@@ -4,6 +4,7 @@ return [
     'common' => [
         'name' => 'Meno',
         'email' => 'E-mail',
+        'phone' => 'Telefón',
         'website' => 'Webová stránka',
         'comment' => 'Komentár',
         'email_placeholder' => 'Vaša e-mailová adresa nebude zverejnená.',
@@ -88,6 +89,8 @@ return [
             ],
             'email_optional' => 'Make email field optional',
             'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
+            'show_website_field' => 'Zobraziť pole webu vo formulári komentára',
+            'show_website_field_help' => 'Keď je vypnuté, pole webu bude skryté z verejného formulára komentárov.',
             'default_avatar' => 'Predvolený avatar',
             'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
         ],

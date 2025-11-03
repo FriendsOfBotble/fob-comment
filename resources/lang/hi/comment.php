@@ -4,6 +4,7 @@ return [
     'common' => [
         'name' => 'नाम',
         'email' => 'ईमेल',
+        'phone' => 'फ़ोन',
         'website' => 'वेबसाइट',
         'comment' => 'टिप्पणी',
         'email_placeholder' => 'आपका ईमेल पता प्रकाशित नहीं किया जाएगा।',
@@ -88,6 +89,8 @@ return [
             ],
             'email_optional' => 'Make email field optional',
             'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
+            'show_website_field' => 'टिप्पणी फ़ॉर्म में वेबसाइट फ़ील्ड दिखाएं',
+            'show_website_field_help' => 'अक्षम होने पर वेबसाइट फ़ील्ड सार्वजनिक टिप्पणी फ़ॉर्म से छिपा रहेगा।',
             'default_avatar' => 'डिफ़ॉल्ट अवतार',
             'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
         ],

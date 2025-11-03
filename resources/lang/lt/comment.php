@@ -4,6 +4,7 @@ return [
     'common' => [
         'name' => 'Vardas',
         'email' => 'El. paštas',
+        'phone' => 'Telefonas',
         'website' => 'Svetainė',
         'comment' => 'Komentaras',
         'email_placeholder' => 'Jūsų el. pašto adresas nebus skelbiamas.',
@@ -88,6 +89,8 @@ return [
             ],
             'email_optional' => 'Make email field optional',
             'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
+            'show_website_field' => 'Rodyti svetainės lauką komentaro formoje',
+            'show_website_field_help' => 'Kai išjungta, svetainės laukas bus paslėptas viešojoje komentaro formoje.',
             'default_avatar' => 'Numatytasis avataras',
             'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
         ],

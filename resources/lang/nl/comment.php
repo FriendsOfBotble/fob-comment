@@ -4,6 +4,7 @@ return [
     'common' => [
         'name' => 'Naam',
         'email' => 'E-mail',
+        'phone' => 'Telefoon',
         'website' => 'Website',
         'comment' => 'Reactie',
         'email_placeholder' => 'Je e-mailadres wordt niet gepubliceerd.',
@@ -88,6 +89,8 @@ return [
             ],
             'email_optional' => 'E-mailveld optioneel maken',
             'email_optional_help' => 'Wanneer ingeschakeld, kunnen bezoekers reacties indienen zonder een e-mailadres op te geven.',
+            'show_website_field' => 'Websiteveld weergeven in het reactieformulier',
+            'show_website_field_help' => 'Wanneer uitgeschakeld, wordt het websiteveld verborgen op het openbare reactieformulier.',
             'default_avatar' => 'Standaard avatar',
             'default_avatar_helper' => 'Standaard avatar voor de auteur wanneer ze geen avatar hebben. Als je geen afbeelding selecteert, wordt deze gegenereerd met behulp van de geselecteerde avatar-provider. Afbeeldingsgrootte moet 150x150px zijn.',
         ],

@@ -4,6 +4,7 @@ return [
     'common' => [
         'name' => 'Ime',
         'email' => 'E-pošta',
+        'phone' => 'Telefon',
         'website' => 'Spletna stran',
         'comment' => 'Komentar',
         'email_placeholder' => 'Vaš e-poštni naslov ne bo objavljen.',
@@ -88,6 +89,8 @@ return [
             ],
             'email_optional' => 'Make email field optional',
             'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
+            'show_website_field' => 'Prikaži polje za spletno stran v obrazcu za komentarje',
+            'show_website_field_help' => 'Ko je onemogočeno, bo polje za spletno stran skrito iz javnega obrazca za komentarje.',
             'default_avatar' => 'Privzeti avatar',
             'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
         ],

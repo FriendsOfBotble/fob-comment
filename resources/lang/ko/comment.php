@@ -4,6 +4,7 @@ return [
     'common' => [
         'name' => '이름',
         'email' => '이메일',
+        'phone' => '핸드폰',
         'website' => '웹사이트',
         'comment' => '댓글',
         'email_placeholder' => '이메일 주소는 공개되지 않습니다.',
@@ -88,6 +89,8 @@ return [
             ],
             'email_optional' => 'Make email field optional',
             'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
+            'show_website_field' => '댓글 양식에 웹사이트 필드 표시',
+            'show_website_field_help' => '비활성화하면 공개 댓글 양식에서 웹사이트 필드가 숨겨집니다.',
             'default_avatar' => '기본 아바타',
             'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
         ],

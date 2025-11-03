@@ -4,6 +4,7 @@ return [
     'common' => [
         'name' => 'Nimi',
         'email' => 'E-post',
+        'phone' => 'Telefon',
         'website' => 'Veebileht',
         'comment' => 'Kommentaar',
         'email_placeholder' => 'Teie e-posti aadressi ei avaldata.',
@@ -88,6 +89,8 @@ return [
             ],
             'email_optional' => 'Make email field optional',
             'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
+            'show_website_field' => 'Näita veebisaidi välja kommentaarivormis',
+            'show_website_field_help' => 'Kui see on keelatud, peidetakse veebisaidi väli avalikult kommentaarivormilt.',
             'default_avatar' => 'Vaikimisi avatar',
             'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
         ],

@@ -4,6 +4,7 @@ return [
     'common' => [
         'name' => 'Tên',
         'email' => 'Email',
+        'phone' => 'Điện thoại',
         'website' => 'Website',
         'comment' => 'Bình luận',
         'email_placeholder' => 'Địa chỉ email của bạn sẽ không được công khai.',
@@ -88,6 +89,8 @@ return [
             ],
             'email_optional' => 'Làm trường email tùy chọn',
             'email_optional_help' => 'Khi được bật, khách truy cập có thể gửi bình luận mà không cần cung cấp địa chỉ email.',
+            'show_website_field' => 'Hiển thị trường website trong biểu mẫu bình luận',
+            'show_website_field_help' => 'Khi tắt, trường website sẽ bị ẩn khỏi biểu mẫu bình luận công khai.',
             'default_avatar' => 'Ảnh đại diện mặc định',
             'default_avatar_helper' => 'Ảnh đại diện mặc định cho tác giả khi họ không có ảnh đại diện. Nếu bạn không chọn bất kỳ hình ảnh nào, nó sẽ được tạo bằng nhà cung cấp ảnh đại diện đã chọn. Kích thước hình ảnh nên là 150x150px.',
         ],

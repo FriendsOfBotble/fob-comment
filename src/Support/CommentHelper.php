@@ -4,7 +4,7 @@ namespace FriendsOfBotble\Comment\Support;
 
 use Botble\Base\Contracts\BaseModel;
 use Botble\Captcha\Facades\Captcha;
-use FontLib\TrueType\Collection;
+use Illuminate\Support\Collection;
 use FriendsOfBotble\Comment\Enums\CommentStatus;
 use FriendsOfBotble\Comment\Models\Comment;
 use Illuminate\Contracts\Auth\Authenticatable;
@@ -42,6 +42,11 @@ class CommentHelper
     public static function isAutoFillCommentForm(): bool
     {
         return setting('fob_comment_auto_fill_comment_form', true);
+    }
+
+    public static function isShowWebsiteField(): bool
+    {
+        return setting('fob_comment_show_website_field', true);
     }
 
     public static function isDisplayAdminBadge(): bool

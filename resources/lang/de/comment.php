@@ -4,6 +4,7 @@ return [
     'common' => [
         'name' => 'Name',
         'email' => 'E-Mail',
+        'phone' => 'Telefon',
         'website' => 'Website',
         'comment' => 'Kommentar',
         'email_placeholder' => 'Ihre E-Mail-Adresse wird nicht veröffentlicht.',
@@ -71,6 +72,8 @@ return [
             'show_comment_cookie_consent' => 'Kommentar-Cookie-Checkbox anzeigen, damit Besucher ihre Informationen im Browser speichern können',
             'email_optional' => 'E-Mail-Feld optional machen',
             'email_optional_help' => 'Wenn aktiviert, können Besucher Kommentare abgeben, ohne eine E-Mail-Adresse anzugeben.',
+            'show_website_field' => 'Website-Feld im Kommentarformular anzeigen',
+            'show_website_field_help' => 'Wenn deaktiviert, wird das Website-Feld im öffentlichen Kommentarformular ausgeblendet.',
             'auto_fill_comment_form' => 'Kommentardaten für angemeldete Benutzer automatisch ausfüllen',
             'auto_fill_comment_form_help' => 'Das Kommentarformular wird automatisch mit Benutzerdaten wie vollständigem Namen, E-Mail usw. ausgefüllt, wenn sie angemeldet sind.',
             'comment_order' => 'Kommentare sortieren nach',

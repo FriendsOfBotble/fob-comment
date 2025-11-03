@@ -4,6 +4,7 @@ return [
     'common' => [
         'name' => 'Nama',
         'email' => 'Email',
+        'phone' => 'Telepon',
         'website' => 'Situs web',
         'comment' => 'Komentar',
         'email_placeholder' => 'Alamat email Anda tidak akan dipublikasikan.',
@@ -88,6 +89,8 @@ return [
             ],
             'email_optional' => 'Jadikan kolom email opsional',
             'email_optional_help' => 'Jika diaktifkan, pengunjung dapat mengirim komentar tanpa memberikan alamat email.',
+            'show_website_field' => 'Tampilkan kolom situs web pada formulir komentar',
+            'show_website_field_help' => 'Saat dinonaktifkan, kolom situs web akan disembunyikan dari formulir komentar publik.',
             'default_avatar' => 'Avatar default',
             'default_avatar_helper' => 'Avatar default untuk penulis ketika mereka tidak memiliki avatar. Jika Anda tidak memilih gambar apa pun, itu akan dibuat menggunakan penyedia avatar yang dipilih. Ukuran gambar harus 150x150px.',
         ],

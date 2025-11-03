@@ -4,6 +4,7 @@ return [
     'common' => [
         'name' => 'שם',
         'email' => 'דוא״ל',
+        'phone' => 'טֵלֵפוֹן',
         'website' => 'אתר אינטרנט',
         'comment' => 'תגובה',
         'email_placeholder' => 'כתובת הדוא״ל שלך לא תפורסם.',
@@ -88,6 +89,8 @@ return [
             ],
             'email_optional' => 'Make email field optional',
             'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
+            'show_website_field' => 'הצג שדה אתר בטופס התגובות',
+            'show_website_field_help' => 'כאשר האפשרות מושבתת, שדה האתר יוסתר מטופס התגובות הציבורי.',
             'default_avatar' => 'אווטאר ברירת מחדל',
             'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
         ],

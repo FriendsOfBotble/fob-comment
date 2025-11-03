@@ -4,6 +4,7 @@ return [
     'common' => [
         'name' => 'Име',
         'email' => 'Имејл',
+        'phone' => 'Телефон',
         'website' => 'Веб сајт',
         'comment' => 'Коментар',
         'email_placeholder' => 'Ваша имејл адреса неће бити објављена.',
@@ -88,6 +89,8 @@ return [
             ],
             'email_optional' => 'Make email field optional',
             'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
+            'show_website_field' => 'Прикажи поље за веб-сајт у форми за коментаре',
+            'show_website_field_help' => 'Када је онемогућено, поље за веб-сајт биће сакривено са јавне форме за коментаре.',
             'default_avatar' => 'Подразумевани аватар',
             'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
         ],

@@ -4,6 +4,7 @@ return [
     'common' => [
         'name' => '名前',
         'email' => 'メールアドレス',
+        'phone' => '電話',
         'website' => 'ウェブサイト',
         'comment' => 'コメント',
         'email_placeholder' => 'メールアドレスは公開されません。',
@@ -88,6 +89,8 @@ return [
             ],
             'email_optional' => 'Make email field optional',
             'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
+            'show_website_field' => 'コメントフォームにウェブサイト欄を表示する',
+            'show_website_field_help' => '無効にすると、ウェブサイト欄は公開コメントフォームから非表示になります。',
             'default_avatar' => 'デフォルトアバター',
             'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
         ],

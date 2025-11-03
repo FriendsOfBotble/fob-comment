@@ -75,6 +75,15 @@ class CommentSettingForm extends SettingForm
                     ->toArray()
             )
             ->add(
+                'fob_comment_show_website_field',
+                OnOffCheckboxField::class,
+                OnOffFieldOption::make()
+                    ->label(trans('plugins/fob-comment::comment.settings.form.show_website_field'))
+                    ->helperText(trans('plugins/fob-comment::comment.settings.form.show_website_field_help'))
+                    ->value(CommentHelper::isShowWebsiteField())
+                    ->toArray()
+            )
+            ->add(
                 'fob_comment_auto_fill_comment_form',
                 OnOffCheckboxField::class,
                 OnOffFieldOption::make()
@@ -88,7 +97,7 @@ class CommentSettingForm extends SettingForm
                 RadioField::class,
                 RadioFieldOption::make()
                     ->label(trans('plugins/fob-comment::comment.settings.form.comment_order'))
-                    ->helperText('Choose the preferred order for displaying comments in the list.')
+                    ->helperText(trans('plugins/fob-comment::comment.settings.form.comment_order_help'))
                     ->choices([
                         'asc' => trans('plugins/fob-comment::comment.settings.form.comment_order_choices.asc'),
                         'desc' => trans('plugins/fob-comment::comment.settings.form.comment_order_choices.desc'),

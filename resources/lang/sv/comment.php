@@ -4,6 +4,7 @@ return [
     'common' => [
         'name' => 'Namn',
         'email' => 'E-post',
+        'phone' => 'Telefon',
         'website' => 'Webbplats',
         'comment' => 'Kommentar',
         'email_placeholder' => 'Din e-postadress publiceras inte.',
@@ -88,6 +89,8 @@ return [
             ],
             'email_optional' => 'Gör e-postfältet valfritt',
             'email_optional_help' => 'När aktiverat kan besökare skicka kommentarer utan att ange en e-postadress.',
+            'show_website_field' => 'Visa webbplatsfält i kommentarsformuläret',
+            'show_website_field_help' => 'När den är inaktiverad döljs webbplatsfältet i det offentliga kommentarsformuläret.',
             'default_avatar' => 'Standardavatar',
             'default_avatar_helper' => 'Standardavatar för författaren när de inte har en avatar. Om du inte väljer någon bild genereras den med den valda avatarleverantören. Bildstorleken bör vara 150x150px.',
         ],

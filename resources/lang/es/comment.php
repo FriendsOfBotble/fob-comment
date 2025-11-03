@@ -4,6 +4,7 @@ return [
     'common' => [
         'name' => 'Nombre',
         'email' => 'Correo electrónico',
+        'phone' => 'Teléfono',
         'website' => 'Sitio web',
         'comment' => 'Comentario',
         'email_placeholder' => 'Tu dirección de correo electrónico no será publicada.',
@@ -88,6 +89,8 @@ return [
             ],
             'email_optional' => 'Hacer que el campo de correo electrónico sea opcional',
             'email_optional_help' => 'Cuando está habilitado, los visitantes pueden enviar comentarios sin proporcionar una dirección de correo electrónico.',
+            'show_website_field' => 'Mostrar el campo de sitio web en el formulario de comentarios',
+            'show_website_field_help' => 'Cuando está deshabilitado, el campo de sitio web se ocultará del formulario de comentarios público.',
             'default_avatar' => 'Avatar predeterminado',
             'default_avatar_helper' => 'Avatar predeterminado para el autor cuando no tienen avatar. Si no selecciona ninguna imagen, se generará utilizando el proveedor de avatar seleccionado. El tamaño de la imagen debe ser 150x150px.',
         ],

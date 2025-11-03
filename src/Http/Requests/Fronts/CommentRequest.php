@@ -37,11 +37,11 @@ class CommentRequest extends Request
     public function attributes(): array
     {
         $attributes = [
-            'name' => __('Name'),
-            'email' => __('Email'),
-            'phone' => __('Phone'),
-            'content' => __('Comment'),
-            'website' => __('Website'),
+            'name' => trans('plugins/fob-comment::comment.common.name'),
+            'email' => trans('plugins/fob-comment::comment.common.email'),
+            'phone' => trans('plugins/fob-comment::comment.common.phone'),
+            'content' => trans('plugins/fob-comment::comment.common.comment'),
+            'website' => trans('plugins/fob-comment::comment.common.website'),
         ];
 
         if (CommentHelper::isEnableReCaptcha()) {

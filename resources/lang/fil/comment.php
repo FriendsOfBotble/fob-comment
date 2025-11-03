@@ -4,6 +4,7 @@ return [
     'common' => [
         'name' => 'Pangalan',
         'email' => 'Email',
+        'phone' => 'Telepono',
         'website' => 'Website',
         'comment' => 'Komento',
         'email_placeholder' => 'Ang iyong email address ay hindi ilalathala.',
@@ -88,6 +89,8 @@ return [
             ],
             'email_optional' => 'Gawing opsyonal ang email field',
             'email_optional_help' => 'Kapag pinagana, maaaring magsumite ng mga komento ang mga bisita nang hindi nagbibigay ng email address.',
+            'show_website_field' => 'Ipakita ang field ng website sa form ng komento',
+            'show_website_field_help' => 'Kapag naka-disable, itatago ang field ng website mula sa pampublikong form ng komento.',
             'default_avatar' => 'Default na avatar',
             'default_avatar_helper' => 'Default na avatar para sa may-akda kapag wala silang avatar. Kung hindi ka pumili ng anumang imahe, ito ay bubuin gamit ang napiling avatar provider. Ang sukat ng imahe ay dapat na 150x150px.',
         ],

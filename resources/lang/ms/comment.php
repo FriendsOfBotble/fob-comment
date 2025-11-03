@@ -4,6 +4,7 @@ return [
     'common' => [
         'name' => 'Nama',
         'email' => 'E-mel',
+        'phone' => 'Telefon',
         'website' => 'Laman web',
         'comment' => 'Komen',
         'email_placeholder' => 'Alamat e-mel anda tidak akan diterbitkan.',
@@ -88,6 +89,8 @@ return [
             ],
             'email_optional' => 'Jadikan medan e-mel pilihan',
             'email_optional_help' => 'Apabila didayakan, pelawat boleh menghantar komen tanpa memberikan alamat e-mel.',
+            'show_website_field' => 'Tunjukkan medan laman web dalam borang komen',
+            'show_website_field_help' => 'Apabila dinyahdayakan, medan laman web akan disembunyikan daripada borang komen awam.',
             'default_avatar' => 'Avatar lalai',
             'default_avatar_helper' => 'Avatar lalai untuk pengarang apabila mereka tidak mempunyai avatar. Jika anda tidak memilih sebarang imej, ia akan dijana menggunakan pembekal avatar yang dipilih. Saiz imej hendaklah 150x150px.',
         ],

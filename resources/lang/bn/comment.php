@@ -13,7 +13,7 @@ return [
 
     'title' => 'মন্তব্যসমূহ',
     'author' => 'লেখক',
-    'responsed_to' => 'প্রতিক্রিয়া',
+    'responded_to' => 'প্রতিক্রিয়া',
     'permalink' => 'পার্মালিংক',
     'url' => 'ইউআরএল',
     'submitted_on' => 'জমা দেওয়া হয়েছে',
@@ -33,6 +33,8 @@ return [
 
         'list' => [
             'title' => ':count টি মন্তব্য',
+            'title_singular' => ':count টি মন্তব্য',
+            'title_plural' => ':count টি মন্তব্য',
             'reply' => 'উত্তর',
             'reply_to' => ':name কে উত্তর দিন',
             'cancel_reply' => 'উত্তর বাতিল করুন',

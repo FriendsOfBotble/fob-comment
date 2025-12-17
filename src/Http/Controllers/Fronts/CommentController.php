@@ -53,7 +53,9 @@ class CommentController extends BaseController
         return $this
             ->httpResponse()
             ->setData([
-                'title' => trans_choice('plugins/fob-comment::comment.front.list.title', $count, ['count' => $count]),
+                'title' => $count === 1
+                    ? trans('plugins/fob-comment::comment.front.list.title_singular', ['count' => $count])
+                    : trans('plugins/fob-comment::comment.front.list.title_plural', ['count' => $count]),
                 'html' => view($view, compact('comments'))->render(),
                 'comments' => $comments,
             ]);

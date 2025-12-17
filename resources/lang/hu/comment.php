@@ -13,7 +13,7 @@ return [
 
     'title' => 'Hozzászólások',
     'author' => 'Szerző',
-    'responsed_to' => 'Válasz',
+    'responded_to' => 'Válasz',
     'permalink' => 'Állandó hivatkozás',
     'url' => 'URL',
     'submitted_on' => 'Beküldve',
@@ -33,6 +33,8 @@ return [
 
         'list' => [
             'title' => ':count hozzászólás',
+            'title_singular' => ':count hozzászólás',
+            'title_plural' => ':count hozzászólás',
             'reply' => 'Válasz',
             'reply_to' => 'Válasz :name részére',
             'cancel_reply' => 'Válasz törlése',

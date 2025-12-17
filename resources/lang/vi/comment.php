@@ -13,7 +13,7 @@ return [
 
     'title' => 'Bình luận',
     'author' => 'Tác giả',
-    'responsed_to' => 'Phản hồi tới',
+    'responded_to' => 'Phản hồi tới',
     'permalink' => 'Liên kết cố định',
     'url' => 'URL',
     'submitted_on' => 'Gửi lúc',
@@ -33,6 +33,8 @@ return [
 
         'list' => [
             'title' => ':count bình luận',
+            'title_singular' => ':count bình luận',
+            'title_plural' => ':count bình luận',
             'reply' => 'Trả lời',
             'reply_to' => 'Trả lời :name',
             'cancel_reply' => 'Hủy trả lời',
@@ -60,7 +62,7 @@ return [
     ],
 
     'settings' => [
-        'title' => 'FOB Comment',
+        'title' => 'Bình luận',
         'description' => 'Cấu hình cài đặt cho FOB Comment',
 
         'form' => [

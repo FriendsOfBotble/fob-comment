@@ -13,7 +13,7 @@ return [
 
     'title' => 'टिप्पणियाँ',
     'author' => 'लेखक',
-    'responsed_to' => 'के जवाब में',
+    'responded_to' => 'के जवाब में',
     'permalink' => 'परमालिंक',
     'url' => 'यूआरएल',
     'submitted_on' => 'प्रस्तुत किया गया',
@@ -33,6 +33,8 @@ return [
 
         'list' => [
             'title' => ':count टिप्पणी|:count टिप्पणियाँ',
+            'title_singular' => ':count टिप्पणी',
+            'title_plural' => ':count टिप्पणियाँ',
             'reply' => 'जवाब दें',
             'reply_to' => ':name को जवाब दें',
             'cancel_reply' => 'जवाब रद्द करें',

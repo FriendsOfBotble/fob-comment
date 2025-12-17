@@ -13,7 +13,7 @@ return [
 
     'title' => 'Kommentaarid',
     'author' => 'Autor',
-    'responsed_to' => 'Vastus',
+    'responded_to' => 'Vastus',
     'permalink' => 'Püsilink',
     'url' => 'URL',
     'submitted_on' => 'Esitatud',
@@ -33,6 +33,8 @@ return [
 
         'list' => [
             'title' => ':count kommentaar|:count kommentaari',
+            'title_singular' => ':count kommentaar',
+            'title_plural' => ':count kommentaari',
             'reply' => 'Vasta',
             'reply_to' => 'Vasta :name',
             'cancel_reply' => 'Tühista vastus',

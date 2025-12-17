@@ -13,7 +13,7 @@ return [
 
     'title' => 'Коментари',
     'author' => 'Автор',
-    'responsed_to' => 'Отговор на',
+    'responded_to' => 'Отговор на',
     'permalink' => 'Постоянна връзка',
     'url' => 'URL',
     'submitted_on' => 'Изпратено на',
@@ -33,6 +33,8 @@ return [
 
         'list' => [
             'title' => ':count коментар|:count коментара',
+            'title_singular' => ':count коментар',
+            'title_plural' => ':count коментара',
             'reply' => 'Отговор',
             'reply_to' => 'Отговор на :name',
             'cancel_reply' => 'Отказ от отговор',

@@ -13,7 +13,7 @@ return [
 
     'title' => 'コメント',
     'author' => '投稿者',
-    'responsed_to' => '返信先',
+    'responded_to' => '返信先',
     'permalink' => 'パーマリンク',
     'url' => 'URL',
     'submitted_on' => '投稿日',
@@ -33,6 +33,8 @@ return [
 
         'list' => [
             'title' => ':count 件のコメント',
+            'title_singular' => ':count 件のコメント',
+            'title_plural' => ':count 件のコメント',
             'reply' => '返信',
             'reply_to' => ':name に返信',
             'cancel_reply' => '返信をキャンセル',

@@ -13,7 +13,7 @@ return [
 
     'title' => 'Komentar',
     'author' => 'Penulis',
-    'responsed_to' => 'Tanggapan untuk',
+    'responded_to' => 'Tanggapan untuk',
     'permalink' => 'Permalink',
     'url' => 'URL',
     'submitted_on' => 'Dikirim pada',
@@ -33,6 +33,8 @@ return [
 
         'list' => [
             'title' => ':count komentar',
+            'title_singular' => ':count komentar',
+            'title_plural' => ':count komentar',
             'reply' => 'Balas',
             'reply_to' => 'Balas :name',
             'cancel_reply' => 'Batalkan balasan',

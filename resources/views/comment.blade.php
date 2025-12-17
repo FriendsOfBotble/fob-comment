@@ -1,6 +1,8 @@
 @php
     Theme::asset()->add('fob-comment-css', asset('vendor/core/plugins/fob-comment/css/comment.css'), version: '1.1.19');
-    Theme::asset()->container('footer')->add('fob-comment-js', asset('vendor/core/plugins/fob-comment/js/comment.js'), ['jquery'], version: '1.1.19');
+    Theme::asset()
+        ->container('footer')
+        ->add('fob-comment-js', asset('vendor/core/plugins/fob-comment/js/comment.js'), ['jquery'], version: '1.1.19');
 
     Theme::registerToastNotification();
 
@@ -15,7 +17,10 @@
     };
 </script>
 
-<div class="fob-comment-list-section" style="display: none">
+<div
+    class="fob-comment-list-section"
+    style="display: none"
+>
     <h4 class="fob-comment-title fob-comment-list-title"></h4>
     <div class="fob-comment-list-wrapper"></div>
 </div>
@@ -24,7 +29,13 @@
     <h4 class="fob-comment-title fob-comment-form-title">
         <span class="d-inline-block">{{ trans('plugins/fob-comment::comment.front.form.title') }}</span>
     </h4>
-    <p class="fob-comment-form-note">{{ trans('plugins/fob-comment::comment.front.form.' . (\FriendsOfBotble\Comment\Support\CommentHelper::isEmailOptional() ? 'description_email_optional' : 'description')) }}</p>
+    <p class="fob-comment-form-note">
+        @if (FriendsOfBotble\Comment\Support\CommentHelper::isEmailOptional())
+            {{ trans('plugins/fob-comment::comment.front.form.description_email_optional') }}
+        @else
+            {{ trans('plugins/fob-comment::comment.front.form.description') }}
+        @endif
+    </p>
 
     {!! CommentForm::createWithReference($model)->renderForm() !!}
 </div>

@@ -13,7 +13,7 @@ return [
 
     'title' => 'Comentarii',
     'author' => 'Autor',
-    'responsed_to' => 'Răspuns la',
+    'responded_to' => 'Răspuns la',
     'permalink' => 'Link permanent',
     'url' => 'URL',
     'submitted_on' => 'Trimis la',
@@ -33,6 +33,8 @@ return [
 
         'list' => [
             'title' => ':count comentariu|:count comentarii',
+            'title_singular' => ':count comentariu',
+            'title_plural' => ':count comentarii',
             'reply' => 'Răspunde',
             'reply_to' => 'Răspunde lui :name',
             'cancel_reply' => 'Anulează răspunsul',

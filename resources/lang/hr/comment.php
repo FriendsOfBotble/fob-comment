@@ -13,7 +13,7 @@ return [
 
     'title' => 'Komentari',
     'author' => 'Autor',
-    'responsed_to' => 'Odgovor na',
+    'responded_to' => 'Odgovor na',
     'permalink' => 'Trajna veza',
     'url' => 'URL',
     'submitted_on' => 'Poslano',
@@ -33,6 +33,8 @@ return [
 
         'list' => [
             'title' => ':count komentar|:count komentara|:count komentara',
+            'title_singular' => ':count komentar',
+            'title_plural' => ':count komentara',
             'reply' => 'Odgovori',
             'reply_to' => 'Odgovori :name',
             'cancel_reply' => 'Otkaži odgovor',

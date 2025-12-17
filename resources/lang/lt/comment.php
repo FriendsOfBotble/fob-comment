@@ -13,7 +13,7 @@ return [
 
     'title' => 'Komentarai',
     'author' => 'Autorius',
-    'responsed_to' => 'Atsakymas į',
+    'responded_to' => 'Atsakymas į',
     'permalink' => 'Nuolatinė nuoroda',
     'url' => 'URL',
     'submitted_on' => 'Pateikta',
@@ -33,6 +33,8 @@ return [
 
         'list' => [
             'title' => ':count komentaras|:count komentarai|:count komentarų',
+            'title_singular' => ':count komentaras',
+            'title_plural' => ':count komentarų',
             'reply' => 'Atsakyti',
             'reply_to' => 'Atsakyti :name',
             'cancel_reply' => 'Atšaukti atsakymą',

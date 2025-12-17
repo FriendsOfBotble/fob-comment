@@ -13,7 +13,7 @@ return [
 
     'title' => 'Komentáře',
     'author' => 'Autor',
-    'responsed_to' => 'Odpověď na',
+    'responded_to' => 'Odpověď na',
     'permalink' => 'Trvalý odkaz',
     'url' => 'URL',
     'submitted_on' => 'Odesláno',
@@ -33,6 +33,8 @@ return [
 
         'list' => [
             'title' => ':count komentář|:count komentáře|:count komentářů',
+            'title_singular' => ':count komentář',
+            'title_plural' => ':count komentářů',
             'reply' => 'Odpovědět',
             'reply_to' => 'Odpovědět :name',
             'cancel_reply' => 'Zrušit odpověď',

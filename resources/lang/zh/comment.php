@@ -13,7 +13,7 @@ return [
 
     'title' => '评论',
     'author' => '作者',
-    'responsed_to' => '回复',
+    'responded_to' => '回复',
     'permalink' => '永久链接',
     'url' => '网址',
     'submitted_on' => '提交于',
@@ -33,6 +33,8 @@ return [
 
         'list' => [
             'title' => ':count 条评论',
+            'title_singular' => ':count 条评论',
+            'title_plural' => ':count 条评论',
             'reply' => '回复',
             'reply_to' => '回复 :name',
             'cancel_reply' => '取消回复',

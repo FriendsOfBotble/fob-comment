@@ -60,7 +60,7 @@ $prefix: 'fob-';
         &-admin-badge {
             background-color: var(--primary-color);
             color: #ffffff;
-            padding: 0.20rem 0.5rem;
+            padding: 0.2rem 0.5rem;
             font-size: 12px;
             border-radius: 5px;
         }
@@ -118,7 +118,7 @@ $prefix: 'fob-';
     }
 }
 
-[data-bs-theme="dark"] {
+[data-bs-theme='dark'] {
     .fob-comment-item-pending {
         color: #c4c1c1;
     }

@@ -13,7 +13,7 @@ return [
 
     'title' => 'Comentários',
     'author' => 'Autor',
-    'responsed_to' => 'Resposta a',
+    'responded_to' => 'Resposta a',
     'permalink' => 'Link permanente',
     'url' => 'URL',
     'submitted_on' => 'Enviado em',
@@ -33,6 +33,8 @@ return [
 
         'list' => [
             'title' => ':count comentário|:count comentários',
+            'title_singular' => ':count comentário',
+            'title_plural' => ':count comentários',
             'reply' => 'Responder',
             'reply_to' => 'Responder a :name',
             'cancel_reply' => 'Cancelar resposta',

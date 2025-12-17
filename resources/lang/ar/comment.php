@@ -13,7 +13,7 @@ return [
 
     'title' => 'التعليقات',
     'author' => 'الكاتب',
-    'responsed_to' => 'رد على',
+    'responded_to' => 'رد على',
     'permalink' => 'رابط دائم',
     'url' => 'الرابط',
     'submitted_on' => 'تم الإرسال في',
@@ -33,6 +33,8 @@ return [
 
         'list' => [
             'title' => 'تعليق واحد|:count تعليق|:count تعليقات',
+            'title_singular' => 'تعليق واحد',
+            'title_plural' => ':count تعليقات',
             'reply' => 'رد',
             'reply_to' => 'الرد على :name',
             'cancel_reply' => 'إلغاء الرد',
@@ -60,7 +62,7 @@ return [
     ],
 
     'settings' => [
-        'title' => 'FOB Comment',
+    'title' => 'تعليقات FOB',
         'description' => 'تكوين إعدادات FOB Comment',
 
         'form' => [

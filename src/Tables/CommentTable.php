@@ -60,7 +60,7 @@ class CommentTable extends TableAbstract
                     })
                     ->limit(100),
                 LinkableColumn::make('reference')
-                    ->label(trans('plugins/fob-comment::comment.responsed_to'))
+                    ->label(trans('plugins/fob-comment::comment.responded_to'))
                     ->orderable(false)
                     ->searchable(false)
                     ->getValueUsing(function (LinkableColumn $column) {

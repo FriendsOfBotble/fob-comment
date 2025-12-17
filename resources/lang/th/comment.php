@@ -13,7 +13,7 @@ return [
 
     'title' => 'ความคิดเห็น',
     'author' => 'ผู้เขียน',
-    'responsed_to' => 'ตอบกลับถึง',
+    'responded_to' => 'ตอบกลับถึง',
     'permalink' => 'ลิงก์ถาวร',
     'url' => 'URL',
     'submitted_on' => 'ส่งเมื่อ',
@@ -33,6 +33,8 @@ return [
 
         'list' => [
             'title' => ':count ความคิดเห็น',
+            'title_singular' => ':count ความคิดเห็น',
+            'title_plural' => ':count ความคิดเห็น',
             'reply' => 'ตอบกลับ',
             'reply_to' => 'ตอบกลับถึง :name',
             'cancel_reply' => 'ยกเลิกการตอบกลับ',

@@ -13,7 +13,7 @@ return [
 
     'title' => 'Kommentit',
     'author' => 'Kirjoittaja',
-    'responsed_to' => 'Vastaus',
+    'responded_to' => 'Vastaus',
     'permalink' => 'Pysyvä linkki',
     'url' => 'URL',
     'submitted_on' => 'Lähetetty',
@@ -33,6 +33,8 @@ return [
 
         'list' => [
             'title' => ':count kommentti|:count kommenttia',
+            'title_singular' => ':count kommentti',
+            'title_plural' => ':count kommenttia',
             'reply' => 'Vastaa',
             'reply_to' => 'Vastaa käyttäjälle :name',
             'cancel_reply' => 'Peruuta vastaus',

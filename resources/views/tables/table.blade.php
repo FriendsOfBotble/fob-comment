@@ -11,10 +11,17 @@
         {!! \FriendsOfBotble\Comment\Forms\ReplyCommentForm::create()->renderForm() !!}
 
         <x-slot:footer>
-            <x-core::button type="submit" color="primary" form="reply-comment-form">
+            <x-core::button
+                type="submit"
+                color="primary"
+                form="reply-comment-form"
+            >
                 {{ trans('plugins/fob-comment::comment.reply') }}
             </x-core::button>
-            <x-core::button type="button" data-bs-dismiss="modal">
+            <x-core::button
+                type="button"
+                data-bs-dismiss="modal"
+            >
                 {{ trans('plugins/fob-comment::comment.reply_modal.cancel') }}
             </x-core::button>
         </x-slot:footer>
@@ -26,14 +33,14 @@
         'use strict';
 
         $(() => {
-            $('#reply-comment-modal').on('show.bs.modal', function (event) {
+            $('#reply-comment-modal').on('show.bs.modal', function(event) {
                 const relatedTarget = $(event.relatedTarget).parent()
 
                 $('form#reply-comment-form').prop('action', relatedTarget.data('url'))
                 $('#reply-comment-modal .modal-title').text(relatedTarget.data('modal-title'))
             })
 
-            $('form#reply-comment-form').on('submit', function (e) {
+            $('form#reply-comment-form').on('submit', function(e) {
                 e.preventDefault()
 
                 const dataTable = $('#fob-comment-table')

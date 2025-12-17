@@ -13,7 +13,7 @@ return [
 
     'title' => 'Mga Komento',
     'author' => 'May-akda',
-    'responsed_to' => 'Tugon sa',
+    'responded_to' => 'Tugon sa',
     'permalink' => 'Permalink',
     'url' => 'URL',
     'submitted_on' => 'Isinumite noong',
@@ -33,6 +33,8 @@ return [
 
         'list' => [
             'title' => ':count komento|:count mga komento',
+            'title_singular' => ':count komento',
+            'title_plural' => ':count mga komento',
             'reply' => 'Tumugon',
             'reply_to' => 'Tumugon kay :name',
             'cancel_reply' => 'Kanselahin ang tugon',

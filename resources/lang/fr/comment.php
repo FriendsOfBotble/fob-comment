@@ -13,7 +13,7 @@ return [
 
     'title' => 'Commentaires',
     'author' => 'Auteur',
-    'responsed_to' => 'Réponse à',
+    'responded_to' => 'Réponse à',
     'permalink' => 'Permalien',
     'url' => 'URL',
     'submitted_on' => 'Soumis le',
@@ -29,10 +29,12 @@ return [
     'allow_comments' => 'Autoriser les commentaires',
 
     'front' => [
-        'admin_badge' => 'Admin',
+        'admin_badge' => 'Administrateur',
 
         'list' => [
             'title' => ':count commentaire|:count commentaires',
+            'title_singular' => ':count commentaire',
+            'title_plural' => ':count commentaires',
             'reply' => 'Répondre',
             'reply_to' => 'Répondre à :name',
             'cancel_reply' => 'Annuler la réponse',
@@ -60,7 +62,7 @@ return [
     ],
 
     'settings' => [
-        'title' => 'FOB Comment',
+        'title' => 'Commentaires FOB',
         'description' => 'Configurer les paramètres pour FOB Comment',
         'form' => [
             'enable_recaptcha' => 'Activer reCAPTCHA',

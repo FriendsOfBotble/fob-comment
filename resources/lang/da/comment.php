@@ -13,7 +13,7 @@ return [
 
     'title' => 'Kommentarer',
     'author' => 'Forfatter',
-    'responsed_to' => 'Svar til',
+    'responded_to' => 'Svar til',
     'permalink' => 'Permalink',
     'url' => 'URL',
     'submitted_on' => 'Indsendt',
@@ -33,6 +33,8 @@ return [
 
         'list' => [
             'title' => ':count kommentar|:count kommentarer',
+            'title_singular' => ':count kommentar',
+            'title_plural' => ':count kommentarer',
             'reply' => 'Svar',
             'reply_to' => 'Svar til :name',
             'cancel_reply' => 'Annuller svar',

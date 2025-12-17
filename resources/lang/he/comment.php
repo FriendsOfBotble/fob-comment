@@ -13,7 +13,7 @@ return [
 
     'title' => 'תגובות',
     'author' => 'כותב',
-    'responsed_to' => 'תגובה ל',
+    'responded_to' => 'תגובה ל',
     'permalink' => 'קישור קבוע',
     'url' => 'כתובת',
     'submitted_on' => 'נשלח ב',
@@ -33,6 +33,8 @@ return [
 
         'list' => [
             'title' => 'תגובה אחת|:count תגובות',
+            'title_singular' => 'תגובה אחת',
+            'title_plural' => ':count תגובות',
             'reply' => 'הגב',
             'reply_to' => 'הגב ל-:name',
             'cancel_reply' => 'בטל תגובה',

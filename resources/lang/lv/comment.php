@@ -13,7 +13,7 @@ return [
 
     'title' => 'Komentāri',
     'author' => 'Autors',
-    'responsed_to' => 'Atbilde uz',
+    'responded_to' => 'Atbilde uz',
     'permalink' => 'Pastāvīgā saite',
     'url' => 'URL',
     'submitted_on' => 'Iesniegts',
@@ -33,6 +33,8 @@ return [
 
         'list' => [
             'title' => ':count komentārs|:count komentāri',
+            'title_singular' => ':count komentārs',
+            'title_plural' => ':count komentāri',
             'reply' => 'Atbildēt',
             'reply_to' => 'Atbildēt :name',
             'cancel_reply' => 'Atcelt atbildi',

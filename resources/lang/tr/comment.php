@@ -13,7 +13,7 @@ return [
 
     'title' => 'Yorumlar',
     'author' => 'Yazar',
-    'responsed_to' => 'Yanıt',
+    'responded_to' => 'Yanıt',
     'permalink' => 'Kalıcı bağlantı',
     'url' => 'URL',
     'submitted_on' => 'Gönderilme tarihi',
@@ -33,6 +33,8 @@ return [
 
         'list' => [
             'title' => ':count yorum',
+            'title_singular' => ':count yorum',
+            'title_plural' => ':count yorum',
             'reply' => 'Yanıtla',
             'reply_to' => ':name kişisine yanıt ver',
             'cancel_reply' => 'Yanıtı iptal et',

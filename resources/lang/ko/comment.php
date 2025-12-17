@@ -13,7 +13,7 @@ return [
 
     'title' => '댓글',
     'author' => '작성자',
-    'responsed_to' => '답변',
+    'responded_to' => '답변',
     'permalink' => '고유링크',
     'url' => 'URL',
     'submitted_on' => '작성일',
@@ -33,6 +33,8 @@ return [
 
         'list' => [
             'title' => '댓글 :count개',
+            'title_singular' => '댓글 :count개',
+            'title_plural' => '댓글 :count개',
             'reply' => '답글',
             'reply_to' => ':name님에게 답글',
             'cancel_reply' => '답글 취소',

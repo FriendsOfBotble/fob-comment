@@ -13,7 +13,7 @@ return [
 
     'title' => 'Σχόλια',
     'author' => 'Συγγραφέας',
-    'responsed_to' => 'Απάντηση σε',
+    'responded_to' => 'Απάντηση σε',
     'permalink' => 'Μόνιμος σύνδεσμος',
     'url' => 'URL',
     'submitted_on' => 'Υποβλήθηκε στις',
@@ -33,6 +33,8 @@ return [
 
         'list' => [
             'title' => ':count σχόλιο|:count σχόλια',
+            'title_singular' => ':count σχόλιο',
+            'title_plural' => ':count σχόλια',
             'reply' => 'Απάντηση',
             'reply_to' => 'Απάντηση στον :name',
             'cancel_reply' => 'Ακύρωση απάντησης',

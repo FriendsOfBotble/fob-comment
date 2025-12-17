@@ -13,7 +13,7 @@ return [
 
     'title' => 'Reacties',
     'author' => 'Auteur',
-    'responsed_to' => 'Reactie op',
+    'responded_to' => 'Reactie op',
     'permalink' => 'Permalink',
     'url' => 'URL',
     'submitted_on' => 'Ingediend op',
@@ -33,6 +33,8 @@ return [
 
         'list' => [
             'title' => ':count reactie|:count reacties',
+            'title_singular' => ':count reactie',
+            'title_plural' => ':count reacties',
             'reply' => 'Beantwoorden',
             'reply_to' => 'Antwoord aan :name',
             'cancel_reply' => 'Antwoord annuleren',

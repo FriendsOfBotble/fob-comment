@@ -4,6 +4,7 @@ namespace FriendsOfBotble\Comment\Database\Seeders;
 
 use Botble\Base\Supports\BaseSeeder;
 use Botble\Blog\Models\Post;
+use Carbon\Carbon;
 use FriendsOfBotble\Comment\Enums\CommentStatus;
 use FriendsOfBotble\Comment\Models\Comment;
 use Illuminate\Support\Str;
@@ -13,8 +14,6 @@ class CommentSeeder extends BaseSeeder
     public function run(): void
     {
         Comment::query()->truncate();
-
-        $fake = $this->fake();
 
         if (! is_plugin_active('blog')) {
             return;
@@ -26,23 +25,42 @@ class CommentSeeder extends BaseSeeder
             return;
         }
 
-        foreach ($this->getData() as $comment) {
+        $commenters = $this->getCommenters();
+
+        foreach ($this->getData() as $index => $comment) {
             $post = $posts->random();
+            $commenter = $commenters[$index % count($commenters)];
 
             Comment::query()->create([
                 ...$comment,
                 'reference_type' => Post::class,
                 'reference_id' => $post->id,
                 'reference_url' => route('public.single', Str::slug($post->name)),
-                'name' => $fake->name,
-                'email' => $fake->email,
+                'name' => $commenter['name'],
+                'email' => $commenter['email'],
                 'website' => 'https://friendsofbotble.com',
-                'ip_address' => $fake->ipv4,
-                'user_agent' => $fake->userAgent,
+                'ip_address' => '192.168.1.' . (($index % 254) + 1),
+                'user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
                 'status' => CommentStatus::APPROVED,
-                'created_at' => $fake->dateTimeBetween('-1 month'),
+                'created_at' => Carbon::now()->subDays(rand(1, 30)),
             ]);
         }
+    }
+
+    protected function getCommenters(): array
+    {
+        return [
+            ['name' => 'John Smith', 'email' => 'john.smith@example.com'],
+            ['name' => 'Emily Johnson', 'email' => 'emily.johnson@example.com'],
+            ['name' => 'Michael Brown', 'email' => 'michael.brown@example.com'],
+            ['name' => 'Sarah Davis', 'email' => 'sarah.davis@example.com'],
+            ['name' => 'James Wilson', 'email' => 'james.wilson@example.com'],
+            ['name' => 'Jennifer Taylor', 'email' => 'jennifer.taylor@example.com'],
+            ['name' => 'David Anderson', 'email' => 'david.anderson@example.com'],
+            ['name' => 'Lisa Martinez', 'email' => 'lisa.martinez@example.com'],
+            ['name' => 'Robert Garcia', 'email' => 'robert.garcia@example.com'],
+            ['name' => 'Jessica Rodriguez', 'email' => 'jessica.rodriguez@example.com'],
+        ];
     }
 
     protected function getData(): array

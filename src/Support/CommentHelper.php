@@ -4,11 +4,11 @@ namespace FriendsOfBotble\Comment\Support;
 
 use Botble\Base\Contracts\BaseModel;
 use Botble\Captcha\Facades\Captcha;
-use Illuminate\Support\Collection;
 use FriendsOfBotble\Comment\Enums\CommentStatus;
 use FriendsOfBotble\Comment\Models\Comment;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
 class CommentHelper

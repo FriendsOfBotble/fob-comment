@@ -8,7 +8,9 @@ return [
         'website' => 'Veebileht',
         'comment' => 'Kommentaar',
         'email_placeholder' => 'Teie e-posti aadressi ei avaldata.',
+        'name_placeholder' => 'Your name',
         'website_placeholder' => 'nt. https://example.com',
+        'comment_placeholder' => 'Write your comment here...',
     ],
 
     'title' => 'Kommentaarid',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'Teie kommentaar on edukalt saadetud.',
+        'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'Captcha sätted',
             'comment_moderation' => 'Kommentaarid tuleb käsitsi kinnitada',
             'comment_moderation_help' => 'Kõik kommentaarid peavad enne veebilehel kuvamist olema administraatori poolt käsitsi kinnitatud.',
+            'rate_limit_seconds' => 'Rate limit (seconds)',
+            'rate_limit_seconds_help' => 'Minimum time in seconds between comments from the same user. Set to 0 to disable rate limiting.',
             'show_comment_cookie_consent' => 'Näita kommentaaride küpsiste märkeruutu, võimaldades külastajatel salvestada oma andmed brauserisse',
+            'show_comment_cookie_consent_help' => 'When enabled, visitors can save their name, email, and website in their browser for future comments.',
             'auto_fill_comment_form' => 'Täida kommentaari andmed automaatselt sisselogitud kasutajatele',
             'auto_fill_comment_form_help' => 'Kommentaarivorm täidetakse automaatselt kasutaja andmetega nagu täisnimi, e-post jne, kui nad on sisse logitud.',
             'comment_order' => 'Sorteeri kommentaarid',
@@ -81,6 +87,7 @@ return [
                 'desc' => 'Uuemad',
             ],
             'display_admin_badge' => 'Kuva administraatori märk administraatorite kommentaaride jaoks',
+            'display_admin_badge_help' => 'When enabled, comments from admins will show an "Admin" badge next to their name.',
             'show_admin_role_name_for_admin_badge' => 'Näita administraatori rolli nime administraatori märgi jaoks',
             'show_admin_role_name_for_admin_badge_helper' => 'Kui lubatud, kuvab administraatori märk administraatori rolli nime vaikimisi teksti "Admin" asemel. Kui administraatori rolli nimi on tühi, kasutatakse vaikimisi teksti. Kui kasutajal on mitu rolli, kasutatakse esimest rolli.',
             'avatar_provider' => 'Avatar provider',

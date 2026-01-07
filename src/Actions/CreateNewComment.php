@@ -6,6 +6,7 @@ use Botble\Base\Contracts\BaseModel;
 use Botble\Base\Facades\AdminHelper;
 use Botble\Base\Supports\Helper;
 use FriendsOfBotble\Comment\Enums\CommentStatus;
+use FriendsOfBotble\Comment\Events\CommentWasCreated;
 use FriendsOfBotble\Comment\Models\Comment;
 use FriendsOfBotble\Comment\Support\CommentHelper;
 use Illuminate\Http\Request;
@@ -32,10 +33,12 @@ class CreateNewComment
             $data['author_type'] ??= $author::class;
         }
 
-        Comment::query()->create([
+        $comment = Comment::query()->create([
             ...$data,
             'reply_to' => $replyTo ? ($replyTo->reply_to ?: $replyTo->getKey()) : null,
         ]);
+
+        CommentWasCreated::dispatch($comment);
     }
 
     protected function getStatus(): string

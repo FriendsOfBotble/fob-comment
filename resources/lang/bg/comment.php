@@ -8,7 +8,9 @@ return [
         'website' => 'Уебсайт',
         'comment' => 'Коментар',
         'email_placeholder' => 'Вашият имейл адрес няма да бъде публикуван.',
+        'name_placeholder' => 'Your name',
         'website_placeholder' => 'напр. https://example.com',
+        'comment_placeholder' => 'Write your comment here...',
     ],
 
     'title' => 'Коментари',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'Вашият коментар беше изпратен успешно.',
+        'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'Настройки на Captcha',
             'comment_moderation' => 'Коментарите трябва да бъдат одобрени ръчно',
             'comment_moderation_help' => 'Всички коментари трябва да бъдат одобрени ръчно от администратор преди да се показват на сайта.',
+            'rate_limit_seconds' => 'Rate limit (seconds)',
+            'rate_limit_seconds_help' => 'Minimum time in seconds between comments from the same user. Set to 0 to disable rate limiting.',
             'show_comment_cookie_consent' => 'Показване на отметка за бисквитки на коментари, позволявайки на посетителите да запазят информацията си в браузъра',
+            'show_comment_cookie_consent_help' => 'When enabled, visitors can save their name, email, and website in their browser for future comments.',
             'auto_fill_comment_form' => 'Автоматично попълване на данни за коментар за влезли потребители',
             'auto_fill_comment_form_help' => 'Формулярът за коментари ще бъде автоматично попълнен с потребителски данни като пълно име, имейл и др., ако са влезли.',
             'comment_order' => 'Сортиране на коментарите по',
@@ -81,6 +87,7 @@ return [
                 'desc' => 'Най-нови',
             ],
             'display_admin_badge' => 'Показване на админ значка за коментари на администратори',
+            'display_admin_badge_help' => 'When enabled, comments from admins will show an "Admin" badge next to their name.',
             'show_admin_role_name_for_admin_badge' => 'Показване на име на админ роля за админ значката',
             'show_admin_role_name_for_admin_badge_helper' => 'Ако е активирано, админ значката ще показва името на админ ролята вместо текста по подразбиране "Админ". Ако името на админ ролята е празно, ще се използва текстът по подразбиране. Ако потребителят има множество роли, ще се използва първата роля.',
             'avatar_provider' => 'Avatar provider',

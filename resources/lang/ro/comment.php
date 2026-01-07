@@ -8,7 +8,9 @@ return [
         'website' => 'Website',
         'comment' => 'Comentariu',
         'email_placeholder' => 'Adresa ta de email nu va fi publicată.',
+        'name_placeholder' => 'Your name',
         'website_placeholder' => 'ex. https://example.com',
+        'comment_placeholder' => 'Write your comment here...',
     ],
 
     'title' => 'Comentarii',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'Comentariul tău a fost trimis cu succes.',
+        'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'Setări Captcha',
             'comment_moderation' => 'Comentariile trebuie aprobate manual',
             'comment_moderation_help' => 'Toate comentariile trebuie aprobate manual de un administrator înainte de a fi afișate pe site.',
+            'rate_limit_seconds' => 'Rate limit (seconds)',
+            'rate_limit_seconds_help' => 'Minimum time in seconds between comments from the same user. Set to 0 to disable rate limiting.',
             'show_comment_cookie_consent' => 'Arată caseta de bifat pentru cookie-urile comentariilor, permițând vizitatorilor să-și salveze informațiile în browser',
+            'show_comment_cookie_consent_help' => 'When enabled, visitors can save their name, email, and website in their browser for future comments.',
             'auto_fill_comment_form' => 'Completează automat datele comentariului pentru utilizatorii autentificați',
             'auto_fill_comment_form_help' => 'Formularul de comentariu va fi completat automat cu datele utilizatorului precum numele complet, emailul etc., dacă sunt autentificați.',
             'comment_order' => 'Sortează comentariile după',
@@ -81,6 +87,7 @@ return [
                 'desc' => 'Cele mai noi',
             ],
             'display_admin_badge' => 'Afișează insigna de administrator pentru comentariile administratorilor',
+            'display_admin_badge_help' => 'When enabled, comments from admins will show an "Admin" badge next to their name.',
             'show_admin_role_name_for_admin_badge' => 'Arată numele rolului de administrator pentru insigna de administrator',
             'show_admin_role_name_for_admin_badge_helper' => 'Dacă este activat, insigna de administrator va afișa numele rolului de administrator în loc de textul implicit "Admin". Dacă numele rolului de administrator este gol, se va folosi textul implicit. Dacă utilizatorul are mai multe roluri, se va folosi primul rol.',
             'avatar_provider' => 'Furnizor avatar',

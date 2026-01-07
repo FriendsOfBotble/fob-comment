@@ -8,7 +8,9 @@ return [
         'website' => 'ওয়েবসাইট',
         'comment' => 'মন্তব্য',
         'email_placeholder' => 'আপনার ইমেইল ঠিকানা প্রকাশিত হবে না।',
+        'name_placeholder' => 'Your name',
         'website_placeholder' => 'যেমন: https://example.com',
+        'comment_placeholder' => 'Write your comment here...',
     ],
 
     'title' => 'মন্তব্যসমূহ',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'আপনার মন্তব্য সফলভাবে পাঠানো হয়েছে।',
+        'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'ক্যাপচা সেটিংস',
             'comment_moderation' => 'মন্তব্যগুলি ম্যানুয়ালি অনুমোদিত হতে হবে',
             'comment_moderation_help' => 'ফ্রন্টএন্ডে প্রদর্শনের আগে সমস্ত মন্তব্য একজন অ্যাডমিন দ্বারা ম্যানুয়ালি অনুমোদিত হতে হবে।',
+            'rate_limit_seconds' => 'Rate limit (seconds)',
+            'rate_limit_seconds_help' => 'Minimum time in seconds between comments from the same user. Set to 0 to disable rate limiting.',
             'show_comment_cookie_consent' => 'মন্তব্য কুকিজ চেকবক্স দেখান, যা দর্শকদের ব্রাউজারে তাদের তথ্য সংরক্ষণ করতে দেয়',
+            'show_comment_cookie_consent_help' => 'When enabled, visitors can save their name, email, and website in their browser for future comments.',
             'auto_fill_comment_form' => 'লগ-ইন করা ব্যবহারকারীদের জন্য মন্তব্য ডেটা স্বয়ংক্রিয়ভাবে পূরণ করুন',
             'auto_fill_comment_form_help' => 'যদি তারা লগ ইন করা থাকে তবে মন্তব্য ফর্মটি স্বয়ংক্রিয়ভাবে ব্যবহারকারীর ডেটা যেমন পূর্ণ নাম, ইমেইল ইত্যাদি দিয়ে পূরণ হবে।',
             'comment_order' => 'মন্তব্যগুলি সাজান',
@@ -81,6 +87,7 @@ return [
                 'desc' => 'নতুন',
             ],
             'display_admin_badge' => 'অ্যাডমিন মন্তব্যের জন্য অ্যাডমিন ব্যাজ প্রদর্শন করুন',
+            'display_admin_badge_help' => 'When enabled, comments from admins will show an "Admin" badge next to their name.',
             'show_admin_role_name_for_admin_badge' => 'অ্যাডমিন ব্যাজের জন্য অ্যাডমিন ভূমিকার নাম দেখান',
             'show_admin_role_name_for_admin_badge_helper' => 'যদি সক্রিয় থাকে, অ্যাডমিন ব্যাজ ডিফল্ট "অ্যাডমিন" টেক্সটের পরিবর্তে অ্যাডমিন ভূমিকার নাম প্রদর্শন করবে। যদি অ্যাডমিন ভূমিকার নাম খালি থাকে, ডিফল্ট টেক্সট ব্যবহার করা হবে। যদি ব্যবহারকারীর একাধিক ভূমিকা থাকে, প্রথম ভূমিকা ব্যবহার করা হবে।',
             'avatar_provider' => 'Avatar provider',

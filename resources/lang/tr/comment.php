@@ -8,7 +8,9 @@ return [
         'website' => 'Web sitesi',
         'comment' => 'Yorum',
         'email_placeholder' => 'E-posta adresiniz yayınlanmayacaktır.',
+        'name_placeholder' => 'Adınız',
         'website_placeholder' => 'örn. https://example.com',
+        'comment_placeholder' => 'Yorumunuzu buraya yazın...',
     ],
 
     'title' => 'Yorumlar',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'Yorumunuz başarıyla gönderildi.',
+        'rate_limit_error' => 'Çok hızlı yorum yapıyorsunuz. Lütfen başka bir yorum göndermeden önce :seconds saniye bekleyin.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'Captcha Ayarları',
             'comment_moderation' => 'Yorumlar manuel olarak onaylanmalıdır',
             'comment_moderation_help' => 'Tüm yorumlar ön yüzde gösterilmeden önce bir yönetici tarafından manuel olarak onaylanmalıdır.',
+            'rate_limit_seconds' => 'Hız sınırı (saniye)',
+            'rate_limit_seconds_help' => 'Aynı kullanıcıdan gelen yorumlar arasındaki minimum süre (saniye). Hız sınırını devre dışı bırakmak için 0 olarak ayarlayın.',
             'show_comment_cookie_consent' => 'Ziyaretçilerin bilgilerini tarayıcıda kaydetmelerine izin veren yorum çerezleri onay kutusunu göster',
+            'show_comment_cookie_consent_help' => 'Etkinleştirildiğinde, ziyaretçiler gelecekteki yorumlar için adlarını, e-postalarını ve web sitelerini tarayıcılarına kaydedebilir.',
             'auto_fill_comment_form' => 'Giriş yapmış kullanıcılar için yorum verilerini otomatik doldur',
             'auto_fill_comment_form_help' => 'Giriş yapmışlarsa yorum formu otomatik olarak kullanıcı verileriyle (tam ad, e-posta vb.) doldurulacaktır.',
             'comment_order' => 'Yorumları sırala',
@@ -81,6 +87,7 @@ return [
                 'desc' => 'En yeni',
             ],
             'display_admin_badge' => 'Yönetici yorumları için yönetici rozetini göster',
+            'display_admin_badge_help' => 'Etkinleştirildiğinde, yönetici yorumları isimlerinin yanında "Admin" rozeti gösterecektir.',
             'show_admin_role_name_for_admin_badge' => 'Yönetici rozeti için yönetici rol adını göster',
             'show_admin_role_name_for_admin_badge_helper' => 'Etkinleştirilirse, yönetici rozeti varsayılan "Yönetici" metni yerine yönetici rol adını gösterecektir. Yönetici rol adı boşsa, varsayılan metin kullanılacaktır. Kullanıcının birden fazla rolü varsa, ilk rol kullanılacaktır.',
             'avatar_provider' => 'Avatar provider',

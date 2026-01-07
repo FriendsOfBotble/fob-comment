@@ -8,7 +8,9 @@ return [
         'website' => 'Site',
         'comment' => 'Comentário',
         'email_placeholder' => 'Seu endereço de e-mail não será publicado.',
+        'name_placeholder' => 'Seu nome',
         'website_placeholder' => 'ex. https://example.com',
+        'comment_placeholder' => 'Escreva seu comentário aqui...',
     ],
 
     'title' => 'Comentários',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'Seu comentário foi enviado com sucesso.',
+        'rate_limit_error' => 'Você está comentando muito rápido. Por favor, aguarde :seconds segundos antes de postar outro comentário.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'Configurações de Captcha',
             'comment_moderation' => 'Comentários devem ser aprovados manualmente',
             'comment_moderation_help' => 'Todos os comentários devem ser aprovados manualmente por um administrador antes de serem exibidos no frontend.',
+            'rate_limit_seconds' => 'Limite de taxa (segundos)',
+            'rate_limit_seconds_help' => 'Tempo mínimo em segundos entre comentários do mesmo usuário. Defina como 0 para desativar o limite de taxa.',
             'show_comment_cookie_consent' => 'Mostrar caixa de seleção de cookies de comentários, permitindo que visitantes salvem suas informações no navegador',
+            'show_comment_cookie_consent_help' => 'Quando ativado, os visitantes podem salvar seu nome, email e site no navegador para comentários futuros.',
             'auto_fill_comment_form' => 'Preencher automaticamente dados de comentário para usuários conectados',
             'auto_fill_comment_form_help' => 'O formulário de comentário será preenchido automaticamente com dados do usuário como nome completo, e-mail, etc., se estiverem conectados.',
             'comment_order' => 'Ordenar comentários por',
@@ -81,6 +87,7 @@ return [
                 'desc' => 'Mais recentes',
             ],
             'display_admin_badge' => 'Exibir distintivo de administrador para comentários de administradores',
+            'display_admin_badge_help' => 'Quando ativado, os comentários dos administradores exibirão um distintivo "Admin" ao lado do nome.',
             'show_admin_role_name_for_admin_badge' => 'Mostrar nome da função de administrador para o distintivo de administrador',
             'show_admin_role_name_for_admin_badge_helper' => 'Se ativado, o distintivo de administrador exibirá o nome da função de administrador em vez do texto padrão "Admin". Se o nome da função de administrador estiver vazio, o texto padrão será usado. Se o usuário tiver várias funções, a primeira função será usada.',
             'avatar_provider' => 'Provedor de avatar',

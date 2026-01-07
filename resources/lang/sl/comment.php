@@ -8,7 +8,9 @@ return [
         'website' => 'Spletna stran',
         'comment' => 'Komentar',
         'email_placeholder' => 'Vaš e-poštni naslov ne bo objavljen.',
+        'name_placeholder' => 'Your name',
         'website_placeholder' => 'npr. https://example.com',
+        'comment_placeholder' => 'Write your comment here...',
     ],
 
     'title' => 'Komentarji',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'Vaš komentar je bil uspešno poslan.',
+        'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'Nastavitve Captcha',
             'comment_moderation' => 'Komentarji morajo biti ročno odobreni',
             'comment_moderation_help' => 'Vse komentarje mora ročno odobriti skrbnik, preden se prikažejo na spletni strani.',
+            'rate_limit_seconds' => 'Rate limit (seconds)',
+            'rate_limit_seconds_help' => 'Minimum time in seconds between comments from the same user. Set to 0 to disable rate limiting.',
             'show_comment_cookie_consent' => 'Prikaži potrditveno polje za piškotke komentarjev, ki obiskovalcem omogoča shranjevanje podatkov v brskalnik',
+            'show_comment_cookie_consent_help' => 'When enabled, visitors can save their name, email, and website in their browser for future comments.',
             'auto_fill_comment_form' => 'Samodejno izpolni podatke komentarja za prijavljene uporabnike',
             'auto_fill_comment_form_help' => 'Obrazec za komentarje bo samodejno izpolnjen z uporabniškimi podatki, kot so polno ime, e-pošta itd., če so prijavljeni.',
             'comment_order' => 'Razvrsti komentarje po',
@@ -81,6 +87,7 @@ return [
                 'desc' => 'Najnovejši',
             ],
             'display_admin_badge' => 'Prikaži značko skrbnika za komentarje skrbnikov',
+            'display_admin_badge_help' => 'When enabled, comments from admins will show an "Admin" badge next to their name.',
             'show_admin_role_name_for_admin_badge' => 'Prikaži ime vloge skrbnika za značko skrbnika',
             'show_admin_role_name_for_admin_badge_helper' => 'Če je omogočeno, bo značka skrbnika prikazala ime vloge skrbnika namesto privzetega besedila "Skrbnik". Če je ime vloge skrbnika prazno, bo uporabljeno privzeto besedilo. Če ima uporabnik več vlog, bo uporabljena prva vloga.',
             'avatar_provider' => 'Avatar provider',

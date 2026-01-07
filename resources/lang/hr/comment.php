@@ -8,7 +8,9 @@ return [
         'website' => 'Web stranica',
         'comment' => 'Komentar',
         'email_placeholder' => 'Vaša e-mail adresa neće biti objavljena.',
+        'name_placeholder' => 'Your name',
         'website_placeholder' => 'npr. https://example.com',
+        'comment_placeholder' => 'Write your comment here...',
     ],
 
     'title' => 'Komentari',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'Vaš komentar je uspješno poslan.',
+        'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'Captcha postavke',
             'comment_moderation' => 'Komentari moraju biti ručno odobreni',
             'comment_moderation_help' => 'Svi komentari moraju biti ručno odobreni od strane administratora prije prikazivanja na web stranici.',
+            'rate_limit_seconds' => 'Rate limit (seconds)',
+            'rate_limit_seconds_help' => 'Minimum time in seconds between comments from the same user. Set to 0 to disable rate limiting.',
             'show_comment_cookie_consent' => 'Prikaži potvrdni okvir za kolačiće komentara, omogućavajući posjetiteljima da spreme svoje podatke u pregljednik',
+            'show_comment_cookie_consent_help' => 'When enabled, visitors can save their name, email, and website in their browser for future comments.',
             'auto_fill_comment_form' => 'Automatski ispuni podatke komentara za prijavljene korisnike',
             'auto_fill_comment_form_help' => 'Obrazac za komentare će biti automatski ispunjen korisničkim podacima kao što su puno ime, e-mail itd., ako su prijavljeni.',
             'comment_order' => 'Sortiraj komentare po',
@@ -81,6 +87,7 @@ return [
                 'desc' => 'Najnoviji',
             ],
             'display_admin_badge' => 'Prikaži admin značku za komentare administratora',
+            'display_admin_badge_help' => 'When enabled, comments from admins will show an "Admin" badge next to their name.',
             'show_admin_role_name_for_admin_badge' => 'Prikaži naziv admin uloge za admin značku',
             'show_admin_role_name_for_admin_badge_helper' => 'Ako je omogućeno, admin značka će prikazati naziv admin uloge umjesto zadanog teksta "Admin". Ako je naziv admin uloge prazan, koristit će se zadani tekst. Ako korisnik ima više uloga, koristit će se prva uloga.',
             'avatar_provider' => 'Pružatelj avatara',

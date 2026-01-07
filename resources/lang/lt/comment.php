@@ -8,7 +8,9 @@ return [
         'website' => 'Svetainė',
         'comment' => 'Komentaras',
         'email_placeholder' => 'Jūsų el. pašto adresas nebus skelbiamas.',
+        'name_placeholder' => 'Your name',
         'website_placeholder' => 'pvz. https://example.com',
+        'comment_placeholder' => 'Write your comment here...',
     ],
 
     'title' => 'Komentarai',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'Jūsų komentaras sėkmingai išsiųstas.',
+        'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'Captcha nustatymai',
             'comment_moderation' => 'Komentarai turi būti patvirtinti rankiniu būdu',
             'comment_moderation_help' => 'Visi komentarai turi būti rankiniu būdu patvirtinti administratoriaus prieš rodant svetainėje.',
+            'rate_limit_seconds' => 'Rate limit (seconds)',
+            'rate_limit_seconds_help' => 'Minimum time in seconds between comments from the same user. Set to 0 to disable rate limiting.',
             'show_comment_cookie_consent' => 'Rodyti komentarų slapukų žymimąjį laukelį, leidžiantį lankytojams išsaugoti savo informaciją naršyklėje',
+            'show_comment_cookie_consent_help' => 'When enabled, visitors can save their name, email, and website in their browser for future comments.',
             'auto_fill_comment_form' => 'Automatiškai užpildyti komentaro duomenis prisijungusiems vartotojams',
             'auto_fill_comment_form_help' => 'Komentaro forma bus automatiškai užpildyta vartotojo duomenimis, tokiais kaip vardas, el. paštas ir kt., jei jie yra prisijungę.',
             'comment_order' => 'Rūšiuoti komentarus pagal',
@@ -81,6 +87,7 @@ return [
                 'desc' => 'Naujausi',
             ],
             'display_admin_badge' => 'Rodyti administratoriaus ženklelį administratorių komentarams',
+            'display_admin_badge_help' => 'When enabled, comments from admins will show an "Admin" badge next to their name.',
             'show_admin_role_name_for_admin_badge' => 'Rodyti administratoriaus vaidmens pavadinimą administratoriaus ženklelyje',
             'show_admin_role_name_for_admin_badge_helper' => 'Jei įjungta, administratoriaus ženklelis rodys administratoriaus vaidmens pavadinimą vietoj numatytojo teksto "Administratorius". Jei administratoriaus vaidmens pavadinimas tuščias, bus naudojamas numatytasis tekstas. Jei vartotojas turi kelis vaidmenis, bus naudojamas pirmasis vaidmuo.',
             'avatar_provider' => 'Avatar provider',

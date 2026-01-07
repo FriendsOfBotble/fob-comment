@@ -8,7 +8,9 @@ return [
         'website' => 'वेबसाइट',
         'comment' => 'टिप्पणी',
         'email_placeholder' => 'आपका ईमेल पता प्रकाशित नहीं किया जाएगा।',
+        'name_placeholder' => 'Your name',
         'website_placeholder' => 'उदा. https://example.com',
+        'comment_placeholder' => 'Write your comment here...',
     ],
 
     'title' => 'टिप्पणियाँ',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'आपकी टिप्पणी सफलतापूर्वक भेजी गई है।',
+        'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'कैप्चा सेटिंग्स',
             'comment_moderation' => 'टिप्पणियों को मैन्युअल रूप से अनुमोदित किया जाना चाहिए',
             'comment_moderation_help' => 'फ्रंटएंड पर प्रदर्शित होने से पहले सभी टिप्पणियों को एक व्यवस्थापक द्वारा मैन्युअल रूप से अनुमोदित किया जाना चाहिए।',
+            'rate_limit_seconds' => 'Rate limit (seconds)',
+            'rate_limit_seconds_help' => 'Minimum time in seconds between comments from the same user. Set to 0 to disable rate limiting.',
             'show_comment_cookie_consent' => 'टिप्पणी कुकीज़ चेकबॉक्स दिखाएं, जो आगंतुकों को ब्राउज़र में अपनी जानकारी सहेजने की अनुमति देता है',
+            'show_comment_cookie_consent_help' => 'When enabled, visitors can save their name, email, and website in their browser for future comments.',
             'auto_fill_comment_form' => 'लॉग-इन उपयोगकर्ताओं के लिए टिप्पणी डेटा स्वतः भरें',
             'auto_fill_comment_form_help' => 'यदि वे लॉग इन हैं तो टिप्पणी फॉर्म स्वचालित रूप से उपयोगकर्ता डेटा जैसे पूरा नाम, ईमेल आदि से भर जाएगा।',
             'comment_order' => 'टिप्पणियों को इसके अनुसार क्रमबद्ध करें',
@@ -81,6 +87,7 @@ return [
                 'desc' => 'नवीनतम',
             ],
             'display_admin_badge' => 'व्यवस्थापक टिप्पणियों के लिए व्यवस्थापक बैज प्रदर्शित करें',
+            'display_admin_badge_help' => 'When enabled, comments from admins will show an "Admin" badge next to their name.',
             'show_admin_role_name_for_admin_badge' => 'व्यवस्थापक बैज के लिए व्यवस्थापक भूमिका नाम दिखाएं',
             'show_admin_role_name_for_admin_badge_helper' => 'यदि सक्षम है, तो व्यवस्थापक बैज डिफ़ॉल्ट "व्यवस्थापक" टेक्स्ट के बजाय व्यवस्थापक भूमिका नाम प्रदर्शित करेगा। यदि व्यवस्थापक भूमिका नाम खाली है, तो डिफ़ॉल्ट टेक्स्ट का उपयोग किया जाएगा। यदि उपयोगकर्ता के पास कई भूमिकाएं हैं, तो पहली भूमिका का उपयोग किया जाएगा।',
             'avatar_provider' => 'Avatar provider',

@@ -48,6 +48,7 @@ class CommentForm extends FormFront
                 TextareaField::class,
                 TextareaFieldOption::make()
                     ->label(trans('plugins/fob-comment::comment.common.comment'))
+                    ->placeholder(trans('plugins/fob-comment::comment.common.comment_placeholder'))
                     ->required()
                     ->colspan(2)
                     ->toArray()
@@ -57,6 +58,7 @@ class CommentForm extends FormFront
                 TextField::class,
                 TextFieldOption::make()
                     ->label(trans('plugins/fob-comment::comment.common.name'))
+                    ->placeholder(trans('plugins/fob-comment::comment.common.name_placeholder'))
                     ->when(
                         Arr::get($preparedData, 'name'),
                         fn (TextFieldOption $option, $value) => $option->defaultValue($value)->disabled(),

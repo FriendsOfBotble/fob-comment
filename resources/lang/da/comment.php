@@ -8,7 +8,9 @@ return [
         'website' => 'Hjemmeside',
         'comment' => 'Kommentar',
         'email_placeholder' => 'Din e-mailadresse vil ikke blive offentliggjort.',
+        'name_placeholder' => 'Your name',
         'website_placeholder' => 'f.eks. https://example.com',
+        'comment_placeholder' => 'Write your comment here...',
     ],
 
     'title' => 'Kommentarer',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'Din kommentar er blevet sendt.',
+        'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'Captcha-indstillinger',
             'comment_moderation' => 'Kommentarer skal godkendes manuelt',
             'comment_moderation_help' => 'Alle kommentarer skal godkendes manuelt af en administrator før de vises på hjemmesiden.',
+            'rate_limit_seconds' => 'Rate limit (seconds)',
+            'rate_limit_seconds_help' => 'Minimum time in seconds between comments from the same user. Set to 0 to disable rate limiting.',
             'show_comment_cookie_consent' => 'Vis afkrydsningsfelt for kommentar-cookies, som tillader besøgende at gemme deres oplysninger i browseren',
+            'show_comment_cookie_consent_help' => 'When enabled, visitors can save their name, email, and website in their browser for future comments.',
             'auto_fill_comment_form' => 'Udfyld automatisk kommentardata for indloggede brugere',
             'auto_fill_comment_form_help' => 'Kommentarformularen udfyldes automatisk med brugerdata som fuldt navn, e-mail osv., hvis de er logget ind.',
             'comment_order' => 'Sorter kommentarer efter',
@@ -81,6 +87,7 @@ return [
                 'desc' => 'Nyeste',
             ],
             'display_admin_badge' => 'Vis administratormærke for administratorkommentarer',
+            'display_admin_badge_help' => 'When enabled, comments from admins will show an "Admin" badge next to their name.',
             'show_admin_role_name_for_admin_badge' => 'Vis administratorrollenavn for administratormærket',
             'show_admin_role_name_for_admin_badge_helper' => 'Hvis aktiveret, vil administratormærket vise administratorrollenavnet i stedet for standardteksten "Admin". Hvis administratorrollenavnet er tomt, bruges standardteksten. Hvis brugeren har flere roller, bruges den første rolle.',
             'avatar_provider' => 'Avatar-udbyder',

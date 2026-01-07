@@ -7,8 +7,10 @@ return [
         'phone' => 'Điện thoại',
         'website' => 'Website',
         'comment' => 'Bình luận',
+        'name_placeholder' => 'Tên của bạn',
         'email_placeholder' => 'Địa chỉ email của bạn sẽ không được công khai.',
         'website_placeholder' => 'ví dụ: https://example.com',
+        'comment_placeholder' => 'Viết bình luận của bạn ở đây...',
     ],
 
     'title' => 'Bình luận',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'Bình luận của bạn đã được gửi thành công.',
+        'rate_limit_error' => 'Bạn đang bình luận quá nhanh. Vui lòng đợi :seconds giây trước khi đăng bình luận khác.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'Cài đặt Captcha',
             'comment_moderation' => 'Bình luận phải được phê duyệt thủ công',
             'comment_moderation_help' => 'Tất cả bình luận phải được quản trị viên phê duyệt thủ công trước khi hiển thị trên giao diện người dùng.',
-            'show_comment_cookie_consent' => 'Hiển thị hộp kiểm cookie bình luận, cho phép khách truy cập lưu thông tin của họ trong trình duyệt',
+            'rate_limit_seconds' => 'Giới hạn tốc độ (giây)',
+            'rate_limit_seconds_help' => 'Thời gian tối thiểu tính bằng giây giữa các bình luận từ cùng một người dùng. Đặt thành 0 để tắt giới hạn tốc độ.',
+            'show_comment_cookie_consent' => 'Hiển thị hộp kiểm cookie bình luận',
+            'show_comment_cookie_consent_help' => 'Khi bật, khách truy cập có thể lưu tên, email và website trong trình duyệt cho các bình luận sau.',
             'auto_fill_comment_form' => 'Tự động điền dữ liệu bình luận cho người dùng đã đăng nhập',
             'auto_fill_comment_form_help' => 'Biểu mẫu bình luận sẽ tự động được điền với dữ liệu người dùng như tên đầy đủ, email, v.v., nếu họ đã đăng nhập.',
             'comment_order' => 'Sắp xếp bình luận theo',
@@ -81,6 +87,7 @@ return [
                 'desc' => 'Mới nhất',
             ],
             'display_admin_badge' => 'Hiển thị huy hiệu quản trị viên cho bình luận của quản trị viên',
+            'display_admin_badge_help' => 'Khi bật, bình luận của quản trị viên sẽ hiển thị huy hiệu "Quản trị viên" bên cạnh tên của họ.',
             'show_admin_role_name_for_admin_badge' => 'Hiển thị tên vai trò quản trị viên cho huy hiệu quản trị viên',
             'show_admin_role_name_for_admin_badge_helper' => 'Nếu được bật, huy hiệu quản trị viên sẽ hiển thị tên vai trò quản trị viên thay vì văn bản mặc định "Quản trị viên". Nếu tên vai trò quản trị viên trống, văn bản mặc định sẽ được sử dụng. Nếu người dùng có nhiều vai trò, vai trò đầu tiên sẽ được sử dụng.',
             'avatar_provider' => 'Nhà cung cấp ảnh đại diện',

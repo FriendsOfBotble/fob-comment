@@ -8,7 +8,9 @@ return [
         'website' => 'Sito web',
         'comment' => 'Commento',
         'email_placeholder' => 'Il tuo indirizzo email non sarà pubblicato.',
+        'name_placeholder' => 'Il tuo nome',
         'website_placeholder' => 'es. https://example.com',
+        'comment_placeholder' => 'Scrivi il tuo commento qui...',
     ],
 
     'title' => 'Commenti',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'Il tuo commento è stato inviato con successo.',
+        'rate_limit_error' => 'Stai commentando troppo velocemente. Attendi :seconds secondi prima di pubblicare un altro commento.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'Impostazioni Captcha',
             'comment_moderation' => 'I commenti devono essere approvati manualmente',
             'comment_moderation_help' => 'Tutti i commenti devono essere approvati manualmente da un amministratore prima di essere visualizzati sul frontend.',
+            'rate_limit_seconds' => 'Limite di frequenza (secondi)',
+            'rate_limit_seconds_help' => 'Tempo minimo in secondi tra i commenti dello stesso utente. Imposta su 0 per disabilitare il limite di frequenza.',
             'show_comment_cookie_consent' => 'Mostra la casella di controllo dei cookie dei commenti, consentendo ai visitatori di salvare le loro informazioni nel browser',
+            'show_comment_cookie_consent_help' => 'Quando abilitato, i visitatori possono salvare il loro nome, email e sito web nel browser per i commenti futuri.',
             'auto_fill_comment_form' => 'Compila automaticamente i dati del commento per gli utenti connessi',
             'auto_fill_comment_form_help' => 'Il modulo dei commenti verrà compilato automaticamente con i dati dell\'utente come nome completo, email, ecc., se sono connessi.',
             'comment_order' => 'Ordina i commenti per',
@@ -81,6 +87,7 @@ return [
                 'desc' => 'Più recenti',
             ],
             'display_admin_badge' => 'Mostra il badge admin per i commenti degli amministratori',
+            'display_admin_badge_help' => 'Quando abilitato, i commenti degli amministratori mostreranno un badge "Admin" accanto al loro nome.',
             'show_admin_role_name_for_admin_badge' => 'Mostra il nome del ruolo admin per il badge admin',
             'show_admin_role_name_for_admin_badge_helper' => 'Se abilitato, il badge admin mostrerà il nome del ruolo admin invece del testo predefinito "Admin". Se il nome del ruolo admin è vuoto, verrà utilizzato il testo predefinito. Se l\'utente ha più ruoli, verrà utilizzato il primo ruolo.',
             'avatar_provider' => 'Provider avatar',

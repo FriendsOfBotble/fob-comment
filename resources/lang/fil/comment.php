@@ -8,7 +8,9 @@ return [
         'website' => 'Website',
         'comment' => 'Komento',
         'email_placeholder' => 'Ang iyong email address ay hindi ilalathala.',
+        'name_placeholder' => 'Your name',
         'website_placeholder' => 'hal. https://example.com',
+        'comment_placeholder' => 'Write your comment here...',
     ],
 
     'title' => 'Mga Komento',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'Ang iyong komento ay matagumpay na naipadala.',
+        'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'Mga setting ng Captcha',
             'comment_moderation' => 'Ang mga komento ay dapat manu-manong aprubahan',
             'comment_moderation_help' => 'Lahat ng komento ay dapat manu-manong aprubahan ng isang administrator bago ipakita sa frontend.',
+            'rate_limit_seconds' => 'Rate limit (seconds)',
+            'rate_limit_seconds_help' => 'Minimum time in seconds between comments from the same user. Set to 0 to disable rate limiting.',
             'show_comment_cookie_consent' => 'Ipakita ang checkbox ng mga comment cookies, pinapayagan ang mga bisita na i-save ang kanilang impormasyon sa browser',
+            'show_comment_cookie_consent_help' => 'When enabled, visitors can save their name, email, and website in their browser for future comments.',
             'auto_fill_comment_form' => 'Awtomatikong punan ang data ng komento para sa mga naka-log in na user',
             'auto_fill_comment_form_help' => 'Ang form ng komento ay awtomatikong mapupunan ng user data tulad ng buong pangalan, email atbp., kung sila ay naka-log in.',
             'comment_order' => 'Pagbukud-bukurin ang mga komento ayon sa',
@@ -81,6 +87,7 @@ return [
                 'desc' => 'Pinakabago',
             ],
             'display_admin_badge' => 'Ipakita ang admin badge para sa mga komento ng admin',
+            'display_admin_badge_help' => 'When enabled, comments from admins will show an "Admin" badge next to their name.',
             'show_admin_role_name_for_admin_badge' => 'Ipakita ang pangalan ng admin role para sa admin badge',
             'show_admin_role_name_for_admin_badge_helper' => 'Kung naka-enable, ang admin badge ay magpapakita ng pangalan ng admin role sa halip ng default na text na "Admin". Kung walang laman ang pangalan ng admin role, gagamitin ang default na text. Kung ang user ay may maraming role, gagamitin ang unang role.',
             'avatar_provider' => 'Tagapagbigay ng avatar',

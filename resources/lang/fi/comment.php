@@ -8,7 +8,9 @@ return [
         'website' => 'Verkkosivusto',
         'comment' => 'Kommentti',
         'email_placeholder' => 'Sähköpostiosoitettasi ei julkaista.',
+        'name_placeholder' => 'Your name',
         'website_placeholder' => 'esim. https://example.com',
+        'comment_placeholder' => 'Write your comment here...',
     ],
 
     'title' => 'Kommentit',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'Kommenttisi on lähetetty onnistuneesti.',
+        'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'Captcha-asetukset',
             'comment_moderation' => 'Kommentit on hyväksyttävä manuaalisesti',
             'comment_moderation_help' => 'Kaikki kommentit on hyväksyttävä manuaalisesti ylläpitäjän toimesta ennen niiden näyttämistä sivustolla.',
+            'rate_limit_seconds' => 'Rate limit (seconds)',
+            'rate_limit_seconds_help' => 'Minimum time in seconds between comments from the same user. Set to 0 to disable rate limiting.',
             'show_comment_cookie_consent' => 'Näytä kommenttievästeiden valintaruutu, joka sallii vierailijoiden tallentaa tietonsa selaimeen',
+            'show_comment_cookie_consent_help' => 'When enabled, visitors can save their name, email, and website in their browser for future comments.',
             'auto_fill_comment_form' => 'Täytä kommenttitiedot automaattisesti kirjautuneille käyttäjille',
             'auto_fill_comment_form_help' => 'Kommenttilomake täytetään automaattisesti käyttäjän tiedoilla, kuten koko nimi, sähköposti jne., jos he ovat kirjautuneet sisään.',
             'comment_order' => 'Lajittele kommentit',
@@ -81,6 +87,7 @@ return [
                 'desc' => 'Uusimmat',
             ],
             'display_admin_badge' => 'Näytä ylläpitäjämerkki ylläpitäjien kommenteissa',
+            'display_admin_badge_help' => 'When enabled, comments from admins will show an "Admin" badge next to their name.',
             'show_admin_role_name_for_admin_badge' => 'Näytä ylläpitäjäroolin nimi ylläpitäjämerkissä',
             'show_admin_role_name_for_admin_badge_helper' => 'Jos käytössä, ylläpitäjämerkki näyttää ylläpitäjäroolin nimen oletustekstin "Ylläpitäjä" sijaan. Jos ylläpitäjäroolin nimi on tyhjä, käytetään oletustekstiä. Jos käyttäjällä on useita rooleja, käytetään ensimmäistä roolia.',
             'avatar_provider' => 'Avatar provider',

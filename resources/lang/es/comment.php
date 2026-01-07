@@ -8,7 +8,9 @@ return [
         'website' => 'Sitio web',
         'comment' => 'Comentario',
         'email_placeholder' => 'Tu dirección de correo electrónico no será publicada.',
+        'name_placeholder' => 'Tu nombre',
         'website_placeholder' => 'ej. https://example.com',
+        'comment_placeholder' => 'Escribe tu comentario aquí...',
     ],
 
     'title' => 'Comentarios',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'Tu comentario ha sido enviado exitosamente.',
+        'rate_limit_error' => 'Estás comentando demasiado rápido. Por favor espera :seconds segundos antes de publicar otro comentario.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'Configuración de Captcha',
             'comment_moderation' => 'Los comentarios deben ser aprobados manualmente',
             'comment_moderation_help' => 'Todos los comentarios deben ser aprobados manualmente por un administrador antes de mostrarse en el frontend.',
+            'rate_limit_seconds' => 'Límite de velocidad (segundos)',
+            'rate_limit_seconds_help' => 'Tiempo mínimo en segundos entre comentarios del mismo usuario. Establezca en 0 para desactivar el límite de velocidad.',
             'show_comment_cookie_consent' => 'Mostrar casilla de cookies de comentarios, permitiendo a los visitantes guardar su información en el navegador',
+            'show_comment_cookie_consent_help' => 'Cuando está habilitado, los visitantes pueden guardar su nombre, correo electrónico y sitio web en su navegador para futuros comentarios.',
             'auto_fill_comment_form' => 'Autocompletar datos de comentario para usuarios conectados',
             'auto_fill_comment_form_help' => 'El formulario de comentario se completará automáticamente con datos del usuario como nombre completo, correo electrónico, etc., si han iniciado sesión.',
             'comment_order' => 'Ordenar comentarios por',
@@ -81,6 +87,7 @@ return [
                 'desc' => 'Más recientes',
             ],
             'display_admin_badge' => 'Mostrar insignia de administrador para comentarios de administradores',
+            'display_admin_badge_help' => 'Cuando está habilitado, los comentarios de los administradores mostrarán una insignia de "Admin" junto a su nombre.',
             'show_admin_role_name_for_admin_badge' => 'Mostrar nombre del rol de administrador para la insignia de administrador',
             'show_admin_role_name_for_admin_badge_helper' => 'Si está habilitado, la insignia de administrador mostrará el nombre del rol de administrador en lugar del texto predeterminado "Admin". Si el nombre del rol de administrador está vacío, se usará el texto predeterminado. Si el usuario tiene múltiples roles, se usará el primer rol.',
             'avatar_provider' => 'Proveedor de avatar',

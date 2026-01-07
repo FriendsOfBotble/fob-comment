@@ -7,8 +7,10 @@ return [
         'phone' => 'Phone',
         'website' => 'Website',
         'comment' => 'Comment',
+        'name_placeholder' => 'Your name',
         'email_placeholder' => 'Your email address will not be published.',
         'website_placeholder' => 'e.g. https://example.com',
+        'comment_placeholder' => 'Write your comment here...',
     ],
 
     'title' => 'Comments',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'Your comment has been sent successfully.',
+        'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'Captcha Settings',
             'comment_moderation' => 'Comments must be manually approved',
             'comment_moderation_help' => 'All comments must be manually approved by an admin before displaying on the frontend.',
-            'show_comment_cookie_consent' => 'Show comments cookies checkbox, allowing visitors to save their information in the browser',
+            'rate_limit_seconds' => 'Rate limit (seconds)',
+            'rate_limit_seconds_help' => 'Minimum time in seconds between comments from the same user. Set to 0 to disable rate limiting.',
+            'show_comment_cookie_consent' => 'Show comments cookies checkbox',
+            'show_comment_cookie_consent_help' => 'When enabled, visitors can save their name, email, and website in their browser for future comments.',
             'email_optional' => 'Make email field optional',
             'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
             'show_website_field' => 'Show website field in comment form',
@@ -85,6 +91,7 @@ return [
                 'desc' => 'Newest',
             ],
             'display_admin_badge' => 'Display admin badge for admin comments',
+            'display_admin_badge_help' => 'When enabled, comments from admins will show an "Admin" badge next to their name.',
             'show_admin_role_name_for_admin_badge' => 'Show admin role name for admin badge',
             'show_admin_role_name_for_admin_badge_helper' => 'If enabled, the admin badge will display the admin role name instead of the default "Admin" text. If the admin role name is empty, the default text will be used. If user has multiple roles, the first role will be used.',
             'avatar_provider' => 'Avatar provider',

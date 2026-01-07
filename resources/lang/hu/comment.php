@@ -8,7 +8,9 @@ return [
         'website' => 'Weboldal',
         'comment' => 'Hozzászólás',
         'email_placeholder' => 'Az e-mail címed nem lesz nyilvános.',
+        'name_placeholder' => 'Your name',
         'website_placeholder' => 'pl. https://example.com',
+        'comment_placeholder' => 'Write your comment here...',
     ],
 
     'title' => 'Hozzászólások',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'A hozzászólásod sikeresen elküldve.',
+        'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'Captcha beállítások',
             'comment_moderation' => 'A hozzászólásokat kézzel kell jóváhagyni',
             'comment_moderation_help' => 'Minden hozzászólást kézzel kell jóváhagynia egy adminisztrátornak, mielőtt megjelenne az oldalon.',
+            'rate_limit_seconds' => 'Rate limit (seconds)',
+            'rate_limit_seconds_help' => 'Minimum time in seconds between comments from the same user. Set to 0 to disable rate limiting.',
             'show_comment_cookie_consent' => 'Hozzászólás cookie jelölőnégyzet megjelenítése, amely lehetővé teszi a látogatóknak, hogy elmentsék adataikat a böngészőben',
+            'show_comment_cookie_consent_help' => 'When enabled, visitors can save their name, email, and website in their browser for future comments.',
             'auto_fill_comment_form' => 'Hozzászólási adatok automatikus kitöltése bejelentkezett felhasználók számára',
             'auto_fill_comment_form_help' => 'A hozzászólás űrlap automatikusan kitöltődik a felhasználó adataival, mint teljes név, e-mail stb., ha be vannak jelentkezve.',
             'comment_order' => 'Hozzászólások rendezése',
@@ -81,6 +87,7 @@ return [
                 'desc' => 'Legújabb',
             ],
             'display_admin_badge' => 'Admin jelvény megjelenítése az adminisztrátorok hozzászólásainál',
+            'display_admin_badge_help' => 'When enabled, comments from admins will show an "Admin" badge next to their name.',
             'show_admin_role_name_for_admin_badge' => 'Admin szerepkör név megjelenítése az admin jelvénynél',
             'show_admin_role_name_for_admin_badge_helper' => 'Ha engedélyezve van, az admin jelvény az admin szerepkör nevét jeleníti meg az alapértelmezett "Admin" szöveg helyett. Ha az admin szerepkör neve üres, az alapértelmezett szöveg kerül felhasználásra. Ha a felhasználónak több szerepköre van, az első szerepkör kerül felhasználásra.',
             'avatar_provider' => 'Avatar szolgáltató',

@@ -8,7 +8,9 @@ return [
         'website' => 'Vietne',
         'comment' => 'Komentārs',
         'email_placeholder' => 'Jūsu e-pasta adrese netiks publicēta.',
+        'name_placeholder' => 'Your name',
         'website_placeholder' => 'piem. https://example.com',
+        'comment_placeholder' => 'Write your comment here...',
     ],
 
     'title' => 'Komentāri',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'Jūsu komentārs ir veiksmīgi nosūtīts.',
+        'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'Captcha iestatījumi',
             'comment_moderation' => 'Komentāri jāapstiprina manuāli',
             'comment_moderation_help' => 'Visus komentārus administratoram jāapstiprina manuāli, pirms tie tiek parādīti vietnē.',
+            'rate_limit_seconds' => 'Rate limit (seconds)',
+            'rate_limit_seconds_help' => 'Minimum time in seconds between comments from the same user. Set to 0 to disable rate limiting.',
             'show_comment_cookie_consent' => 'Rādīt komentāru sīkdatņu izvēles rūtiņu, ļaujot apmeklētājiem saglabāt savu informāciju pārlūkprogrammā',
+            'show_comment_cookie_consent_help' => 'When enabled, visitors can save their name, email, and website in their browser for future comments.',
             'auto_fill_comment_form' => 'Automātiski aizpildīt komentāra datus pieteikušamies lietotājiem',
             'auto_fill_comment_form_help' => 'Komentāru veidlapa tiks automātiski aizpildīta ar lietotāja datiem, piemēram, pilnu vārdu, e-pastu utt., ja viņi ir pieteikušies.',
             'comment_order' => 'Kārtot komentārus pēc',
@@ -81,6 +87,7 @@ return [
                 'desc' => 'Jaunākie',
             ],
             'display_admin_badge' => 'Rādīt administratora nozīmīti administratoru komentāriem',
+            'display_admin_badge_help' => 'When enabled, comments from admins will show an "Admin" badge next to their name.',
             'show_admin_role_name_for_admin_badge' => 'Rādīt administratora lomas nosaukumu administratora nozīmītei',
             'show_admin_role_name_for_admin_badge_helper' => 'Ja iespējots, administratora nozīmīte rādīs administratora lomas nosaukumu, nevis noklusējuma tekstu "Administrators". Ja administratora lomas nosaukums ir tukšs, tiks izmantots noklusējuma teksts. Ja lietotājam ir vairākas lomas, tiks izmantota pirmā loma.',
             'avatar_provider' => 'Avatar provider',

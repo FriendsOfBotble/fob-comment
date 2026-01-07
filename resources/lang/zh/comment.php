@@ -8,7 +8,9 @@ return [
         'website' => '网站',
         'comment' => '评论',
         'email_placeholder' => '您的电子邮箱地址不会被公开。',
+        'name_placeholder' => '您的姓名',
         'website_placeholder' => '例如：https://example.com',
+        'comment_placeholder' => '在这里写下您的评论...',
     ],
 
     'title' => '评论',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => '您的评论已成功发送。',
+        'rate_limit_error' => '您评论太快了。请等待 :seconds 秒后再发表另一条评论。',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => '验证码设置',
             'comment_moderation' => '评论必须手动批准',
             'comment_moderation_help' => '所有评论在前端显示之前必须由管理员手动批准。',
+            'rate_limit_seconds' => '速率限制（秒）',
+            'rate_limit_seconds_help' => '同一用户评论之间的最小时间（秒）。设置为0以禁用速率限制。',
             'show_comment_cookie_consent' => '显示评论 cookie 复选框，允许访客在浏览器中保存其信息',
+            'show_comment_cookie_consent_help' => '启用后，访问者可以将姓名、电子邮件和网站保存在浏览器中以供将来评论使用。',
             'auto_fill_comment_form' => '为已登录用户自动填充评论数据',
             'auto_fill_comment_form_help' => '如果用户已登录，评论表单将自动填充用户数据，如全名、电子邮箱等。',
             'comment_order' => '评论排序方式',
@@ -81,6 +87,7 @@ return [
                 'desc' => '最新',
             ],
             'display_admin_badge' => '为管理员评论显示管理员徽章',
+            'display_admin_badge_help' => '启用后，管理员的评论将在其名称旁边显示"管理员"徽章。',
             'show_admin_role_name_for_admin_badge' => '为管理员徽章显示管理员角色名称',
             'show_admin_role_name_for_admin_badge_helper' => '如果启用，管理员徽章将显示管理员角色名称，而不是默认的"管理员"文本。如果管理员角色名称为空，将使用默认文本。如果用户有多个角色，将使用第一个角色。',
             'avatar_provider' => '头像提供商',

@@ -8,7 +8,9 @@ return [
         'website' => 'Strona internetowa',
         'comment' => 'Komentarz',
         'email_placeholder' => 'Twój adres e-mail nie zostanie opublikowany.',
+        'name_placeholder' => 'Twoje imię',
         'website_placeholder' => 'np. https://example.com',
+        'comment_placeholder' => 'Napisz swój komentarz tutaj...',
     ],
 
     'title' => 'Komentarze',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'Twój komentarz został pomyślnie wysłany.',
+        'rate_limit_error' => 'Komentujesz zbyt szybko. Poczekaj :seconds sekund przed opublikowaniem kolejnego komentarza.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'Ustawienia Captcha',
             'comment_moderation' => 'Komentarze muszą być ręcznie zatwierdzane',
             'comment_moderation_help' => 'Wszystkie komentarze muszą być ręcznie zatwierdzone przez administratora przed wyświetleniem na stronie.',
+            'rate_limit_seconds' => 'Limit szybkości (sekundy)',
+            'rate_limit_seconds_help' => 'Minimalny czas w sekundach między komentarzami tego samego użytkownika. Ustaw na 0, aby wyłączyć limit szybkości.',
             'show_comment_cookie_consent' => 'Pokaż pole wyboru plików cookie komentarzy, umożliwiając odwiedzającym zapisywanie informacji w przeglądarce',
+            'show_comment_cookie_consent_help' => 'Po włączeniu odwiedzający mogą zapisać swoje imię, email i stronę internetową w przeglądarce dla przyszłych komentarzy.',
             'auto_fill_comment_form' => 'Automatyczne wypełnianie danych komentarza dla zalogowanych użytkowników',
             'auto_fill_comment_form_help' => 'Formularz komentarza zostanie automatycznie wypełniony danymi użytkownika, takimi jak pełne imię i nazwisko, e-mail itp., jeśli są zalogowani.',
             'comment_order' => 'Sortuj komentarze według',
@@ -81,6 +87,7 @@ return [
                 'desc' => 'Najnowsze',
             ],
             'display_admin_badge' => 'Wyświetl odznakę administratora dla komentarzy administratorów',
+            'display_admin_badge_help' => 'Po włączeniu komentarze administratorów będą wyświetlać odznakę "Admin" obok ich nazwy.',
             'show_admin_role_name_for_admin_badge' => 'Pokaż nazwę roli administratora dla odznaki administratora',
             'show_admin_role_name_for_admin_badge_helper' => 'Jeśli włączone, odznaka administratora będzie wyświetlać nazwę roli administratora zamiast domyślnego tekstu "Administrator". Jeśli nazwa roli administratora jest pusta, zostanie użyty domyślny tekst. Jeśli użytkownik ma wiele ról, zostanie użyta pierwsza rola.',
             'avatar_provider' => 'Avatar provider',

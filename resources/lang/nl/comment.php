@@ -8,7 +8,9 @@ return [
         'website' => 'Website',
         'comment' => 'Reactie',
         'email_placeholder' => 'Je e-mailadres wordt niet gepubliceerd.',
+        'name_placeholder' => 'Uw naam',
         'website_placeholder' => 'bijv. https://example.com',
+        'comment_placeholder' => 'Schrijf hier uw opmerking...',
     ],
 
     'title' => 'Reacties',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'Je reactie is succesvol verzonden.',
+        'rate_limit_error' => 'U reageert te snel. Wacht :seconds seconden voordat u nog een reactie plaatst.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'Captcha-instellingen',
             'comment_moderation' => 'Reacties moeten handmatig worden goedgekeurd',
             'comment_moderation_help' => 'Alle reacties moeten handmatig door een beheerder worden goedgekeurd voordat ze op de frontend worden weergegeven.',
+            'rate_limit_seconds' => 'Snelheidslimiet (seconden)',
+            'rate_limit_seconds_help' => 'Minimale tijd in seconden tussen reacties van dezelfde gebruiker. Stel in op 0 om de snelheidslimiet uit te schakelen.',
             'show_comment_cookie_consent' => 'Toon cookie-checkbox voor reacties, zodat bezoekers hun informatie in de browser kunnen opslaan',
+            'show_comment_cookie_consent_help' => 'Indien ingeschakeld, kunnen bezoekers hun naam, e-mail en website opslaan in hun browser voor toekomstige reacties.',
             'auto_fill_comment_form' => 'Automatisch reactiegegevens invullen voor ingelogde gebruikers',
             'auto_fill_comment_form_help' => 'Het reactieformulier wordt automatisch ingevuld met gebruikersgegevens zoals volledige naam, e-mail, enz., als ze zijn ingelogd.',
             'comment_order' => 'Sorteer reacties op',
@@ -81,6 +87,7 @@ return [
                 'desc' => 'Nieuwste',
             ],
             'display_admin_badge' => 'Beheerderbadge weergeven voor beheerdersreacties',
+            'display_admin_badge_help' => 'Indien ingeschakeld, tonen reacties van beheerders een "Admin"-badge naast hun naam.',
             'show_admin_role_name_for_admin_badge' => 'Toon beheerdersrolnaam voor beheerderbadge',
             'show_admin_role_name_for_admin_badge_helper' => 'Indien ingeschakeld, zal de beheerderbadge de naam van de beheerdersrol weergeven in plaats van de standaardtekst "Beheerder". Als de beheerdersrolnaam leeg is, wordt de standaardtekst gebruikt. Als de gebruiker meerdere rollen heeft, wordt de eerste rol gebruikt.',
             'avatar_provider' => 'Avatar-provider',

@@ -8,7 +8,9 @@ return [
         'website' => '웹사이트',
         'comment' => '댓글',
         'email_placeholder' => '이메일 주소는 공개되지 않습니다.',
+        'name_placeholder' => '이름',
         'website_placeholder' => '예: https://example.com',
+        'comment_placeholder' => '여기에 댓글을 작성하세요...',
     ],
 
     'title' => '댓글',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => '댓글이 성공적으로 전송되었습니다.',
+        'rate_limit_error' => '댓글을 너무 빨리 작성하고 있습니다. 다른 댓글을 게시하기 전에 :seconds초 기다려 주세요.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'Captcha 설정',
             'comment_moderation' => '댓글은 수동으로 승인되어야 합니다',
             'comment_moderation_help' => '모든 댓글은 프론트엔드에 표시되기 전에 관리자가 수동으로 승인해야 합니다.',
+            'rate_limit_seconds' => '속도 제한 (초)',
+            'rate_limit_seconds_help' => '동일한 사용자의 댓글 사이의 최소 시간(초). 속도 제한을 비활성화하려면 0으로 설정하세요.',
             'show_comment_cookie_consent' => '방문자가 브라우저에 정보를 저장할 수 있도록 댓글 쿠키 체크박스 표시',
+            'show_comment_cookie_consent_help' => '활성화하면 방문자가 향후 댓글을 위해 이름, 이메일, 웹사이트를 브라우저에 저장할 수 있습니다.',
             'auto_fill_comment_form' => '로그인한 사용자의 댓글 데이터 자동 입력',
             'auto_fill_comment_form_help' => '로그인한 경우 댓글 양식이 사용자 데이터(전체 이름, 이메일 등)로 자동 입력됩니다.',
             'comment_order' => '댓글 정렬 기준',
@@ -81,6 +87,7 @@ return [
                 'desc' => '최신 순',
             ],
             'display_admin_badge' => '관리자 댓글에 관리자 배지 표시',
+            'display_admin_badge_help' => '활성화하면 관리자의 댓글에 이름 옆에 "관리자" 배지가 표시됩니다.',
             'show_admin_role_name_for_admin_badge' => '관리자 배지에 관리자 역할 이름 표시',
             'show_admin_role_name_for_admin_badge_helper' => '활성화하면 관리자 배지가 기본 "관리자" 텍스트 대신 관리자 역할 이름을 표시합니다. 관리자 역할 이름이 비어 있으면 기본 텍스트가 사용됩니다. 사용자가 여러 역할을 가진 경우 첫 번째 역할이 사용됩니다.',
             'avatar_provider' => 'Avatar provider',

@@ -8,7 +8,9 @@ return [
         'website' => 'Site web',
         'comment' => 'Commentaire',
         'email_placeholder' => 'Votre adresse e-mail ne sera pas publiée.',
+        'name_placeholder' => 'Votre nom',
         'website_placeholder' => 'ex. https://example.com',
+        'comment_placeholder' => 'Écrivez votre commentaire ici...',
     ],
 
     'title' => 'Commentaires',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'Votre commentaire a été envoyé avec succès.',
+        'rate_limit_error' => 'Vous commentez trop vite. Veuillez attendre :seconds secondes avant de publier un autre commentaire.',
     ],
 
     'enums' => [
@@ -71,6 +74,7 @@ return [
             'comment_moderation' => 'Les commentaires doivent être approuvés manuellement',
             'comment_moderation_help' => 'Tous les commentaires doivent être approuvés manuellement par un administrateur avant d\'être affichés sur le frontend.',
             'show_comment_cookie_consent' => 'Afficher la case à cocher des cookies de commentaires, permettant aux visiteurs de sauvegarder leurs informations dans le navigateur',
+            'show_comment_cookie_consent_help' => 'Lorsque activé, les visiteurs peuvent enregistrer leur nom, email et site web dans leur navigateur pour les commentaires futurs.',
             'auto_fill_comment_form' => 'Remplissage automatique des données de commentaire pour les utilisateurs connectés',
             'auto_fill_comment_form_help' => 'Le formulaire de commentaire sera automatiquement rempli avec les données de l\'utilisateur telles que le nom complet, l\'e-mail, etc., s\'ils sont connectés.',
             'comment_order' => 'Trier les commentaires par',
@@ -80,6 +84,7 @@ return [
                 'desc' => 'Plus récents',
             ],
             'display_admin_badge' => 'Afficher le badge administrateur pour les commentaires des administrateurs',
+            'display_admin_badge_help' => 'Lorsque activé, les commentaires des administrateurs afficheront un badge "Admin" à côté de leur nom.',
             'show_admin_role_name_for_admin_badge' => 'Afficher le nom du rôle d\'administrateur pour le badge administrateur',
             'show_admin_role_name_for_admin_badge_helper' => 'Si activé, le badge administrateur affichera le nom du rôle d\'administrateur au lieu du texte par défaut "Admin". Si le nom du rôle d\'administrateur est vide, le texte par défaut sera utilisé. Si l\'utilisateur a plusieurs rôles, le premier rôle sera utilisé.',
             'avatar_provider' => 'Fournisseur d\'avatar',

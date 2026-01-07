@@ -8,7 +8,9 @@ return [
         'website' => 'Webová stránka',
         'comment' => 'Komentář',
         'email_placeholder' => 'Vaše e-mailová adresa nebude zveřejněna.',
+        'name_placeholder' => 'Your name',
         'website_placeholder' => 'např. https://example.com',
+        'comment_placeholder' => 'Write your comment here...',
     ],
 
     'title' => 'Komentáře',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'Váš komentář byl úspěšně odeslán.',
+        'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'Nastavení Captcha',
             'comment_moderation' => 'Komentáře musí být schváleny ručně',
             'comment_moderation_help' => 'Všechny komentáře musí být ručně schváleny správcem před zobrazením na webu.',
+            'rate_limit_seconds' => 'Rate limit (seconds)',
+            'rate_limit_seconds_help' => 'Minimum time in seconds between comments from the same user. Set to 0 to disable rate limiting.',
             'show_comment_cookie_consent' => 'Zobrazit zaškrtávací políčko cookies komentářů, které umožňuje návštěvníkům uložit své informace v prohlížeči',
+            'show_comment_cookie_consent_help' => 'When enabled, visitors can save their name, email, and website in their browser for future comments.',
             'auto_fill_comment_form' => 'Automaticky vyplnit údaje komentáře pro přihlášené uživatele',
             'auto_fill_comment_form_help' => 'Formulář komentáře bude automaticky vyplněn uživatelskými údaji, jako je celé jméno, e-mail atd., pokud jsou přihlášeni.',
             'comment_order' => 'Řadit komentáře podle',
@@ -81,6 +87,7 @@ return [
                 'desc' => 'Nejnovější',
             ],
             'display_admin_badge' => 'Zobrazit odznak správce pro komentáře správců',
+            'display_admin_badge_help' => 'When enabled, comments from admins will show an "Admin" badge next to their name.',
             'show_admin_role_name_for_admin_badge' => 'Zobrazit název role správce pro odznak správce',
             'show_admin_role_name_for_admin_badge_helper' => 'Pokud je povoleno, odznak správce zobrazí název role správce místo výchozího textu "Správce". Pokud je název role správce prázdný, použije se výchozí text. Pokud má uživatel více rolí, použije se první role.',
             'avatar_provider' => 'Avatar provider',

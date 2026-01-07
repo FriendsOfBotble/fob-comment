@@ -13,6 +13,7 @@ use FriendsOfBotble\Comment\Http\Requests\Fronts\CommentRequest;
 use FriendsOfBotble\Comment\Models\Comment;
 use FriendsOfBotble\Comment\Support\CommentHelper;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\RateLimiter;
 
 class CommentController extends BaseController
 {
@@ -41,7 +42,7 @@ class CommentController extends BaseController
                     });
             })
             ->where('reply_to', null)
-            ->with(['replies'])
+            ->with(['author', 'replies', 'replies.author'])
             ->orderBy('created_at', CommentHelper::getCommentOrder());
 
         $comments = apply_filters('fob_comment_list_query', $query, $request)->paginate(10);
@@ -66,6 +67,23 @@ class CommentController extends BaseController
         CreateNewComment $createNewComment,
         GetCommentReference $getCommentReference
     ) {
+        $rateLimitSeconds = CommentHelper::getRateLimitSeconds();
+
+        if ($rateLimitSeconds > 0) {
+            $key = 'fob-comment:' . Helper::getIpFromThirdParty();
+
+            if (RateLimiter::tooManyAttempts($key, 1)) {
+                $seconds = RateLimiter::availableIn($key);
+
+                return $this
+                    ->httpResponse()
+                    ->setError()
+                    ->setMessage(trans('plugins/fob-comment::comment.front.rate_limit_error', ['seconds' => $seconds]));
+            }
+
+            RateLimiter::hit($key, $rateLimitSeconds);
+        }
+
         $data = [
             ...$request->validated(),
             'reference_url' => $request->input('reference_url') ?? url()->previous(),

@@ -108,6 +108,76 @@ $prefix: 'fob-';
     }
 }
 
+// Skeleton loading animation
+@keyframes #{$prefix}skeleton-pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.4;
+    }
+}
+
+.#{$prefix}comment-skeleton {
+    &-title {
+        height: 30px;
+        width: 200px;
+        background: linear-gradient(90deg, #e8e8e8 25%, #f5f5f5 50%, #e8e8e8 75%);
+        background-size: 200% 100%;
+        border-radius: 4px;
+        margin-bottom: 1.5rem;
+        animation: #{$prefix}skeleton-pulse 1.5s ease-in-out infinite;
+    }
+
+    &-item {
+        display: flex;
+        margin-bottom: 2rem;
+    }
+
+    &-avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(90deg, #e8e8e8 25%, #f5f5f5 50%, #e8e8e8 75%);
+        background-size: 200% 100%;
+        margin-inline-end: 20px;
+        flex-shrink: 0;
+        animation: #{$prefix}skeleton-pulse 1.5s ease-in-out infinite;
+    }
+
+    &-content {
+        flex: 1;
+    }
+
+    &-name {
+        height: 18px;
+        width: 120px;
+        background: linear-gradient(90deg, #e8e8e8 25%, #f5f5f5 50%, #e8e8e8 75%);
+        background-size: 200% 100%;
+        border-radius: 4px;
+        margin-bottom: 0.75rem;
+        animation: #{$prefix}skeleton-pulse 1.5s ease-in-out infinite;
+    }
+
+    &-text {
+        height: 14px;
+        width: 100%;
+        background: linear-gradient(90deg, #e8e8e8 25%, #f5f5f5 50%, #e8e8e8 75%);
+        background-size: 200% 100%;
+        border-radius: 4px;
+        margin-bottom: 0.5rem;
+        animation: #{$prefix}skeleton-pulse 1.5s ease-in-out infinite;
+
+        &.short {
+            width: 60%;
+        }
+    }
+}
+
+.#{$prefix}comment-list-loading {
+    padding: 1rem 0;
+}
+
 .cancel-comment-reply-link {
     font-size: 14px;
     margin-inline-start: 1rem;
@@ -121,5 +191,13 @@ $prefix: 'fob-';
 [data-bs-theme='dark'] {
     .fob-comment-item-pending {
         color: #c4c1c1;
+    }
+
+    .fob-comment-skeleton-title,
+    .fob-comment-skeleton-avatar,
+    .fob-comment-skeleton-name,
+    .fob-comment-skeleton-text {
+        background: linear-gradient(90deg, #3a3a3a 25%, #4a4a4a 50%, #3a3a3a 75%);
+        background-size: 200% 100%;
     }
 }

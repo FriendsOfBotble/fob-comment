@@ -1,8 +1,8 @@
 @php
-    Theme::asset()->add('fob-comment-css', asset('vendor/core/plugins/fob-comment/css/comment.css'), version: '1.1.19');
+    Theme::asset()->add('fob-comment-css', asset('vendor/core/plugins/fob-comment/css/comment.css'), version: '1.1.21');
     Theme::asset()
         ->container('footer')
-        ->add('fob-comment-js', asset('vendor/core/plugins/fob-comment/js/comment.js'), ['jquery'], version: '1.1.19');
+        ->add('fob-comment-js', asset('vendor/core/plugins/fob-comment/js/comment.js'), ['jquery'], version: '1.1.21');
 
     Theme::registerToastNotification();
 
@@ -17,12 +17,24 @@
     };
 </script>
 
-<div
-    class="fob-comment-list-section"
-    style="display: none"
->
-    <h4 class="fob-comment-title fob-comment-list-title"></h4>
-    <div class="fob-comment-list-wrapper"></div>
+<div class="fob-comment-list-section">
+    <div class="fob-comment-list-loading">
+        <div class="fob-comment-skeleton-title"></div>
+        @for ($i = 0; $i < 2; $i++)
+            <div class="fob-comment-skeleton-item">
+                <div class="fob-comment-skeleton-avatar"></div>
+                <div class="fob-comment-skeleton-content">
+                    <div class="fob-comment-skeleton-name"></div>
+                    <div class="fob-comment-skeleton-text"></div>
+                    <div class="fob-comment-skeleton-text short"></div>
+                </div>
+            </div>
+        @endfor
+    </div>
+    <div class="fob-comment-list-content" style="display: none">
+        <h4 class="fob-comment-title fob-comment-list-title"></h4>
+        <div class="fob-comment-list-wrapper"></div>
+    </div>
 </div>
 
 <div class="fob-comment-form-section">

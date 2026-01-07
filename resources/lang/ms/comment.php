@@ -8,7 +8,9 @@ return [
         'website' => 'Laman web',
         'comment' => 'Komen',
         'email_placeholder' => 'Alamat e-mel anda tidak akan diterbitkan.',
+        'name_placeholder' => 'Your name',
         'website_placeholder' => 'cth. https://example.com',
+        'comment_placeholder' => 'Write your comment here...',
     ],
 
     'title' => 'Komen',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'Komen anda telah berjaya dihantar.',
+        'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'Tetapan Captcha',
             'comment_moderation' => 'Komen mesti diluluskan secara manual',
             'comment_moderation_help' => 'Semua komen mesti diluluskan secara manual oleh pentadbir sebelum dipaparkan di laman web.',
+            'rate_limit_seconds' => 'Rate limit (seconds)',
+            'rate_limit_seconds_help' => 'Minimum time in seconds between comments from the same user. Set to 0 to disable rate limiting.',
             'show_comment_cookie_consent' => 'Tunjukkan kotak semak kuki komen, membenarkan pelawat menyimpan maklumat mereka dalam pelayar',
+            'show_comment_cookie_consent_help' => 'When enabled, visitors can save their name, email, and website in their browser for future comments.',
             'auto_fill_comment_form' => 'Isi data komen secara automatik untuk pengguna yang log masuk',
             'auto_fill_comment_form_help' => 'Borang komen akan diisi secara automatik dengan data pengguna seperti nama penuh, e-mel dll., jika mereka telah log masuk.',
             'comment_order' => 'Susun komen mengikut',
@@ -81,6 +87,7 @@ return [
                 'desc' => 'Paling baru',
             ],
             'display_admin_badge' => 'Paparkan lencana admin untuk komen pentadbir',
+            'display_admin_badge_help' => 'When enabled, comments from admins will show an "Admin" badge next to their name.',
             'show_admin_role_name_for_admin_badge' => 'Tunjukkan nama peranan admin untuk lencana admin',
             'show_admin_role_name_for_admin_badge_helper' => 'Jika didayakan, lencana admin akan memaparkan nama peranan admin dan bukannya teks lalai "Admin". Jika nama peranan admin kosong, teks lalai akan digunakan. Jika pengguna mempunyai berbilang peranan, peranan pertama akan digunakan.',
             'avatar_provider' => 'Pembekal avatar',

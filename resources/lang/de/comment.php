@@ -8,7 +8,9 @@ return [
         'website' => 'Website',
         'comment' => 'Kommentar',
         'email_placeholder' => 'Ihre E-Mail-Adresse wird nicht veröffentlicht.',
+        'name_placeholder' => 'Ihr Name',
         'website_placeholder' => 'z.B. https://example.com',
+        'comment_placeholder' => 'Schreiben Sie hier Ihren Kommentar...',
     ],
 
     'title' => 'Kommentare',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'Ihr Kommentar wurde erfolgreich gesendet.',
+        'rate_limit_error' => 'Sie kommentieren zu schnell. Bitte warten Sie :seconds Sekunden, bevor Sie einen weiteren Kommentar posten.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'Captcha-Einstellungen',
             'comment_moderation' => 'Kommentare müssen manuell genehmigt werden',
             'comment_moderation_help' => 'Alle Kommentare müssen von einem Administrator manuell genehmigt werden, bevor sie im Frontend angezeigt werden.',
+            'rate_limit_seconds' => 'Ratenlimit (Sekunden)',
+            'rate_limit_seconds_help' => 'Mindestzeit in Sekunden zwischen Kommentaren desselben Benutzers. Auf 0 setzen, um das Ratenlimit zu deaktivieren.',
             'show_comment_cookie_consent' => 'Kommentar-Cookie-Checkbox anzeigen, damit Besucher ihre Informationen im Browser speichern können',
+            'show_comment_cookie_consent_help' => 'Wenn aktiviert, können Besucher ihren Namen, ihre E-Mail-Adresse und ihre Website für zukünftige Kommentare in ihrem Browser speichern.',
             'email_optional' => 'E-Mail-Feld optional machen',
             'email_optional_help' => 'Wenn aktiviert, können Besucher Kommentare abgeben, ohne eine E-Mail-Adresse anzugeben.',
             'show_website_field' => 'Website-Feld im Kommentarformular anzeigen',
@@ -85,6 +91,7 @@ return [
                 'desc' => 'Neueste',
             ],
             'display_admin_badge' => 'Admin-Badge für Admin-Kommentare anzeigen',
+            'display_admin_badge_help' => 'Wenn aktiviert, werden bei Kommentaren von Administratoren ein "Admin"-Badge neben ihrem Namen angezeigt.',
             'show_admin_role_name_for_admin_badge' => 'Admin-Rollenname für Admin-Badge anzeigen',
             'show_admin_role_name_for_admin_badge_helper' => 'Wenn aktiviert, zeigt das Admin-Badge den Namen der Admin-Rolle anstelle des Standard-Texts "Admin" an. Wenn der Admin-Rollenname leer ist, wird der Standardtext verwendet. Wenn der Benutzer mehrere Rollen hat, wird die erste Rolle verwendet.',
             'avatar_provider' => 'Avatar-Anbieter',

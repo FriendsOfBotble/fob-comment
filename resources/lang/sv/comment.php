@@ -8,7 +8,9 @@ return [
         'website' => 'Webbplats',
         'comment' => 'Kommentar',
         'email_placeholder' => 'Din e-postadress publiceras inte.',
+        'name_placeholder' => 'Your name',
         'website_placeholder' => 't.ex. https://example.com',
+        'comment_placeholder' => 'Write your comment here...',
     ],
 
     'title' => 'Kommentarer',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'Din kommentar har skickats.',
+        'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'Captcha-inställningar',
             'comment_moderation' => 'Kommentarer måste godkännas manuellt',
             'comment_moderation_help' => 'Alla kommentarer måste godkännas manuellt av en administratör innan de visas på webbplatsen.',
+            'rate_limit_seconds' => 'Rate limit (seconds)',
+            'rate_limit_seconds_help' => 'Minimum time in seconds between comments from the same user. Set to 0 to disable rate limiting.',
             'show_comment_cookie_consent' => 'Visa kryssruta för kommentarscookies, vilket låter besökare spara sin information i webbläsaren',
+            'show_comment_cookie_consent_help' => 'When enabled, visitors can save their name, email, and website in their browser for future comments.',
             'auto_fill_comment_form' => 'Fyll i kommentarsdata automatiskt för inloggade användare',
             'auto_fill_comment_form_help' => 'Kommentarsformuläret fylls i automatiskt med användardata som fullständigt namn, e-post etc. om de är inloggade.',
             'comment_order' => 'Sortera kommentarer efter',
@@ -81,6 +87,7 @@ return [
                 'desc' => 'Nyaste',
             ],
             'display_admin_badge' => 'Visa administratörsmärke för administratörskommentarer',
+            'display_admin_badge_help' => 'When enabled, comments from admins will show an "Admin" badge next to their name.',
             'show_admin_role_name_for_admin_badge' => 'Visa administratörsrollnamn för administratörsmärket',
             'show_admin_role_name_for_admin_badge_helper' => 'Om aktiverat kommer administratörsmärket att visa administratörsrollnamnet istället för standardtexten "Admin". Om administratörsrollnamnet är tomt används standardtexten. Om användaren har flera roller används den första rollen.',
             'avatar_provider' => 'Avatarleverantör',

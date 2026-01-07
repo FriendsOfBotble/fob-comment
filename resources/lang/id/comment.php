@@ -8,7 +8,9 @@ return [
         'website' => 'Situs web',
         'comment' => 'Komentar',
         'email_placeholder' => 'Alamat email Anda tidak akan dipublikasikan.',
+        'name_placeholder' => 'Nama Anda',
         'website_placeholder' => 'contoh: https://example.com',
+        'comment_placeholder' => 'Tulis komentar Anda di sini...',
     ],
 
     'title' => 'Komentar',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'Komentar Anda telah berhasil dikirim.',
+        'rate_limit_error' => 'Anda berkomentar terlalu cepat. Harap tunggu :seconds detik sebelum memposting komentar lain.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'Pengaturan Captcha',
             'comment_moderation' => 'Komentar harus disetujui secara manual',
             'comment_moderation_help' => 'Semua komentar harus disetujui secara manual oleh admin sebelum ditampilkan di frontend.',
+            'rate_limit_seconds' => 'Batas kecepatan (detik)',
+            'rate_limit_seconds_help' => 'Waktu minimum dalam detik antara komentar dari pengguna yang sama. Atur ke 0 untuk menonaktifkan batas kecepatan.',
             'show_comment_cookie_consent' => 'Tampilkan kotak centang cookie komentar, yang memungkinkan pengunjung menyimpan informasi mereka di browser',
+            'show_comment_cookie_consent_help' => 'Ketika diaktifkan, pengunjung dapat menyimpan nama, email, dan situs web mereka di browser untuk komentar di masa mendatang.',
             'auto_fill_comment_form' => 'Isi otomatis data komentar untuk pengguna yang sudah login',
             'auto_fill_comment_form_help' => 'Formulir komentar akan diisi otomatis dengan data pengguna seperti nama lengkap, email, dll., jika mereka sudah login.',
             'comment_order' => 'Urutkan komentar berdasarkan',
@@ -81,6 +87,7 @@ return [
                 'desc' => 'Terbaru',
             ],
             'display_admin_badge' => 'Tampilkan lencana admin untuk komentar admin',
+            'display_admin_badge_help' => 'Ketika diaktifkan, komentar dari admin akan menampilkan lencana "Admin" di samping nama mereka.',
             'show_admin_role_name_for_admin_badge' => 'Tampilkan nama peran admin untuk lencana admin',
             'show_admin_role_name_for_admin_badge_helper' => 'Jika diaktifkan, lencana admin akan menampilkan nama peran admin alih-alih teks default "Admin". Jika nama peran admin kosong, teks default akan digunakan. Jika pengguna memiliki beberapa peran, peran pertama akan digunakan.',
             'avatar_provider' => 'Penyedia avatar',

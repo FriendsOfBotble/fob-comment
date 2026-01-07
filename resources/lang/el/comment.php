@@ -8,7 +8,9 @@ return [
         'website' => 'Ιστοσελίδα',
         'comment' => 'Σχόλιο',
         'email_placeholder' => 'Η διεύθυνση email σας δεν θα δημοσιευθεί.',
+        'name_placeholder' => 'Your name',
         'website_placeholder' => 'π.χ. https://example.com',
+        'comment_placeholder' => 'Write your comment here...',
     ],
 
     'title' => 'Σχόλια',
@@ -50,6 +52,7 @@ return [
         ],
 
         'comment_success_message' => 'Το σχόλιό σας υποβλήθηκε επιτυχώς.',
+        'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
     ],
 
     'enums' => [
@@ -71,7 +74,10 @@ return [
             'captcha_setting_label' => 'Ρυθμίσεις Captcha',
             'comment_moderation' => 'Τα σχόλια πρέπει να εγκριθούν χειροκίνητα',
             'comment_moderation_help' => 'Όλα τα σχόλια πρέπει να εγκριθούν χειροκίνητα από έναν διαχειριστή πριν εμφανιστούν στο frontend.',
+            'rate_limit_seconds' => 'Rate limit (seconds)',
+            'rate_limit_seconds_help' => 'Minimum time in seconds between comments from the same user. Set to 0 to disable rate limiting.',
             'show_comment_cookie_consent' => 'Εμφάνιση πλαισίου ελέγχου cookies σχολίων, επιτρέποντας στους επισκέπτες να αποθηκεύσουν τις πληροφορίες τους στον φυλλομετρητή',
+            'show_comment_cookie_consent_help' => 'When enabled, visitors can save their name, email, and website in their browser for future comments.',
             'auto_fill_comment_form' => 'Αυτόματη συμπλήρωση δεδομένων σχολίου για συνδεδεμένους χρήστες',
             'auto_fill_comment_form_help' => 'Η φόρμα σχολίου θα συμπληρωθεί αυτόματα με δεδομένα χρήστη όπως πλήρες όνομα, email κλπ., εάν είναι συνδεδεμένοι.',
             'comment_order' => 'Ταξινόμηση σχολίων κατά',
@@ -81,6 +87,7 @@ return [
                 'desc' => 'Νεότερα',
             ],
             'display_admin_badge' => 'Εμφάνιση σήματος διαχειριστή για σχόλια διαχειριστών',
+            'display_admin_badge_help' => 'When enabled, comments from admins will show an "Admin" badge next to their name.',
             'show_admin_role_name_for_admin_badge' => 'Εμφάνιση ονόματος ρόλου διαχειριστή για το σήμα διαχειριστή',
             'show_admin_role_name_for_admin_badge_helper' => 'Εάν ενεργοποιηθεί, το σήμα διαχειριστή θα εμφανίζει το όνομα ρόλου διαχειριστή αντί του προεπιλεγμένου κειμένου "Διαχειριστής". Εάν το όνομα ρόλου διαχειριστή είναι κενό, θα χρησιμοποιηθεί το προεπιλεγμένο κείμενο. Εάν ο χρήστης έχει πολλούς ρόλους, θα χρησιμοποιηθεί ο πρώτος ρόλος.',
             'avatar_provider' => 'Avatar provider',

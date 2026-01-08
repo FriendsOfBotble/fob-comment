@@ -103,4 +103,24 @@ class CommentController extends BaseController
             ->httpResponse()
             ->setMessage(trans('plugins/fob-comment::comment.front.comment_success_message'));
     }
+
+    public function destroy(Comment $comment)
+    {
+        abort_unless(CommentHelper::isAllowAuthorDelete(), 404);
+
+        $user = CommentHelper::getAuthorizedUser();
+
+        abort_unless($user, 403);
+        abort_unless(
+            $comment->author_type === $user::class && $comment->author_id === $user->getKey(),
+            403,
+            trans('plugins/fob-comment::comment.front.delete_not_authorized')
+        );
+
+        $comment->delete();
+
+        return $this
+            ->httpResponse()
+            ->setMessage(trans('plugins/fob-comment::comment.front.comment_deleted_message'));
+    }
 }

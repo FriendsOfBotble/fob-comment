@@ -64,6 +64,11 @@ class CommentHelper
         return (int) setting('fob_comment_rate_limit_seconds', 15);
     }
 
+    public static function isAllowAuthorDelete(): bool
+    {
+        return setting('fob_comment_allow_author_delete', false);
+    }
+
     public static function getAuthorizedUser(): ?Authenticatable
     {
         // Get all configured guards except web and api

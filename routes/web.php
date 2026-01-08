@@ -28,6 +28,7 @@ Route::name('fob-comment.')->group(function (): void {
             Route::get('comments', [FrontCommentController::class, 'index'])->name('index');
             Route::post('comments', [FrontCommentController::class, 'store'])->name('store');
             Route::post('comments/{comment}/reply', FrontReplyCommentController::class)->name('reply');
+            Route::delete('comments/{comment}', [FrontCommentController::class, 'destroy'])->name('destroy');
         });
     });
 });

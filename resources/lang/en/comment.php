@@ -40,6 +40,8 @@ return [
             'reply' => 'Reply',
             'reply_to' => 'Reply to :name',
             'cancel_reply' => 'Cancel reply',
+            'delete' => 'Delete',
+            'delete_confirm' => 'Are you sure you want to delete this comment?',
             'waiting_for_approval_message' => 'Your comment is awaiting moderation. This is a preview, your comment will be visible after it has been approved.',
         ],
 
@@ -52,6 +54,8 @@ return [
         ],
 
         'comment_success_message' => 'Your comment has been sent successfully.',
+        'comment_deleted_message' => 'Your comment has been deleted successfully.',
+        'delete_not_authorized' => 'You are not authorized to delete this comment.',
         'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
     ],
 
@@ -102,6 +106,12 @@ return [
             ],
             'default_avatar' => 'Default avatar',
             'default_avatar_helper' => 'Default avatar for author when they do not have an avatar. If you do not select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
+            'allow_author_delete' => 'Allow authors to delete their comments',
+            'allow_author_delete_help' => 'When enabled, logged-in users can delete their own comments.',
+            'primary_color' => 'Primary color',
+            'primary_color_helper' => 'Primary color for buttons, checkboxes and badges. Leave empty to use theme\'s primary color.',
+            'primary_color_hover' => 'Primary hover color',
+            'primary_color_hover_helper' => 'Hover color for buttons. Leave empty to use a darker shade of the primary color.',
         ],
     ],
 ];

@@ -6,6 +6,8 @@
     }
 
     $currentIp = \Botble\Base\Supports\Helper::getIpFromThirdParty();
+    $allowAuthorDelete = \FriendsOfBotble\Comment\Support\CommentHelper::isAllowAuthorDelete();
+    $currentUser = $allowAuthorDelete ? \FriendsOfBotble\Comment\Support\CommentHelper::getAuthorizedUser() : null;
 @endphp
 
 <div class="fob-comment-list">
@@ -74,18 +76,30 @@
                             <span class="fob-comment-item-date">{{ $comment->created_at->diffForHumans() }}</span>
                         </div>
 
-                        @if ($comment->is_approved)
-                            <a
-                                href="{{ route('fob-comment.public.comments.reply', $comment) }}"
-                                class="fob-comment-item-reply"
-                                data-comment-id="{{ $comment->getKey() }}"
-                                data-reply-to="{{ $replyLabel = trans('plugins/fob-comment::comment.front.list.reply_to', ['name' => $comment->name]) }}"
-                                data-cancel-reply="{{ trans('plugins/fob-comment::comment.front.list.cancel_reply') }}"
-                                aria-label="{{ $replyLabel }}"
-                            >
-                                {{ trans('plugins/fob-comment::comment.front.list.reply') }}
-                            </a>
-                        @endif
+                        <div class="fob-comment-item-actions">
+                            @if ($comment->is_approved)
+                                <a
+                                    href="{{ route('fob-comment.public.comments.reply', $comment) }}"
+                                    class="fob-comment-item-reply"
+                                    data-comment-id="{{ $comment->getKey() }}"
+                                    data-reply-to="{{ $replyLabel = trans('plugins/fob-comment::comment.front.list.reply_to', ['name' => $comment->name]) }}"
+                                    data-cancel-reply="{{ trans('plugins/fob-comment::comment.front.list.cancel_reply') }}"
+                                    aria-label="{{ $replyLabel }}"
+                                >
+                                    {{ trans('plugins/fob-comment::comment.front.list.reply') }}
+                                </a>
+                            @endif
+
+                            @if ($currentUser && $comment->author_type === $currentUser::class && $comment->author_id === $currentUser->getKey())
+                                <a
+                                    href="{{ route('fob-comment.public.comments.destroy', $comment) }}"
+                                    class="fob-comment-item-delete"
+                                    data-confirm="{{ trans('plugins/fob-comment::comment.front.list.delete_confirm') }}"
+                                >
+                                    {{ trans('plugins/fob-comment::comment.front.list.delete') }}
+                                </a>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>

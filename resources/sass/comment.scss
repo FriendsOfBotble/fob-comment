@@ -1,5 +1,24 @@
 $prefix: 'fob-';
 
+// Loading spinner animation
+@keyframes #{$prefix}spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.#{$prefix}spinner {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+    display: inline-block;
+    vertical-align: middle;
+    animation: #{$prefix}spin 1s linear infinite;
+}
+
 .#{$prefix}comment {
     &-title {
         font-size: 30px;
@@ -58,7 +77,6 @@ $prefix: 'fob-';
         }
 
         &-admin-badge {
-            background-color: var(--primary-color);
             color: #ffffff;
             padding: 0.2rem 0.5rem;
             font-size: 12px;
@@ -71,6 +89,12 @@ $prefix: 'fob-';
             margin-bottom: 0;
         }
 
+        &-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
         &-reply {
             background-color: transparent;
             color: #888888;
@@ -79,6 +103,21 @@ $prefix: 'fob-';
             font-weight: 400;
             border-bottom: 1px solid rgb(225, 225, 225);
             font-style: italic;
+        }
+
+        &-delete {
+            background-color: transparent;
+            color: #dc3545;
+            font-size: 14px;
+            display: block;
+            font-weight: 400;
+            border-bottom: 1px solid #dc3545;
+            font-style: italic;
+
+            &:hover {
+                color: #bb2d3b;
+                border-color: #bb2d3b;
+            }
         }
 
         .#{$prefix}comment-list {
@@ -176,6 +215,23 @@ $prefix: 'fob-';
 
 .#{$prefix}comment-list-loading {
     padding: 1rem 0;
+}
+
+// Form checkbox and elements primary color
+.#{$prefix}comment-form .form-check-input:checked {
+    background-color: var(--fob-primary-color, var(--primary-color));
+    border-color: var(--fob-primary-color, var(--primary-color));
+}
+
+.#{$prefix}comment-item-admin-badge {
+    background-color: var(--fob-primary-color, var(--primary-color));
+}
+
+// Button loading state
+.#{$prefix}btn-loading {
+    cursor: not-allowed;
+    background-color: var(--fob-primary-color-hover, var(--fob-primary-color, var(--primary-color))) !important;
+    opacity: 0.85;
 }
 
 .cancel-comment-reply-link {

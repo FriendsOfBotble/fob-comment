@@ -1,19 +1,34 @@
 @php
-    Theme::asset()->add('fob-comment-css', asset('vendor/core/plugins/fob-comment/css/comment.css'), version: '1.1.21');
+    Theme::asset()->add('fob-comment-css', asset('vendor/core/plugins/fob-comment/css/comment.css'), version: '1.2.3');
     Theme::asset()
         ->container('footer')
-        ->add('fob-comment-js', asset('vendor/core/plugins/fob-comment/js/comment.js'), ['jquery'], version: '1.1.21');
+        ->add('fob-comment-js', asset('vendor/core/plugins/fob-comment/js/comment.js'), ['jquery'], version: '1.2.3');
 
     Theme::registerToastNotification();
 
     use FriendsOfBotble\Comment\Forms\Fronts\CommentForm;
+
+    $fobPrimaryColor = setting('fob_comment_primary_color');
+    $fobPrimaryColorHover = setting('fob_comment_primary_color_hover');
 @endphp
 
-<script>
-    window.fobComment = {};
+@if ($fobPrimaryColor || $fobPrimaryColorHover)
+    <style>
+        :root {
+            @if ($fobPrimaryColor)
+                --fob-primary-color: {{ $fobPrimaryColor }};
+            @endif
+            @if ($fobPrimaryColorHover)
+                --fob-primary-color-hover: {{ $fobPrimaryColorHover }};
+            @endif
+        }
+    </style>
+@endif
 
+<script>
     window.fobComment = {
         listUrl: {{ Js::from(route('fob-comment.public.comments.index', isset($model) ? ['reference_type' => $model::class, 'reference_id' => $model->id] : url()->current())) }},
+        csrfToken: {{ Js::from(csrf_token()) }},
     };
 </script>
 

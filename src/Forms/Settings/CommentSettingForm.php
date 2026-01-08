@@ -3,11 +3,13 @@
 namespace FriendsOfBotble\Comment\Forms\Settings;
 
 use Botble\Base\Facades\Html;
+use Botble\Base\Forms\FieldOptions\ColorFieldOption;
 use Botble\Base\Forms\FieldOptions\MediaImageFieldOption;
 use Botble\Base\Forms\FieldOptions\NumberFieldOption;
 use Botble\Base\Forms\FieldOptions\OnOffFieldOption;
 use Botble\Base\Forms\FieldOptions\RadioFieldOption;
 use Botble\Base\Forms\FieldOptions\SelectFieldOption;
+use Botble\Base\Forms\Fields\ColorField;
 use Botble\Base\Forms\Fields\MediaImageField;
 use Botble\Base\Forms\Fields\NumberField;
 use Botble\Base\Forms\Fields\OnOffCheckboxField;
@@ -155,6 +157,33 @@ class CommentSettingForm extends SettingForm
                     ->label(trans('plugins/fob-comment::comment.settings.form.default_avatar'))
                     ->helperText(trans('plugins/fob-comment::comment.settings.form.default_avatar_helper'))
                     ->value(setting('fob_comment_default_avatar'))
+                    ->toArray()
+            )
+            ->add(
+                'fob_comment_allow_author_delete',
+                OnOffCheckboxField::class,
+                OnOffFieldOption::make()
+                    ->label(trans('plugins/fob-comment::comment.settings.form.allow_author_delete'))
+                    ->helperText(trans('plugins/fob-comment::comment.settings.form.allow_author_delete_help'))
+                    ->value(CommentHelper::isAllowAuthorDelete())
+                    ->toArray()
+            )
+            ->add(
+                'fob_comment_primary_color',
+                ColorField::class,
+                ColorFieldOption::make()
+                    ->label(trans('plugins/fob-comment::comment.settings.form.primary_color'))
+                    ->helperText(trans('plugins/fob-comment::comment.settings.form.primary_color_helper'))
+                    ->value(setting('fob_comment_primary_color'))
+                    ->toArray()
+            )
+            ->add(
+                'fob_comment_primary_color_hover',
+                ColorField::class,
+                ColorFieldOption::make()
+                    ->label(trans('plugins/fob-comment::comment.settings.form.primary_color_hover'))
+                    ->helperText(trans('plugins/fob-comment::comment.settings.form.primary_color_hover_helper'))
+                    ->value(setting('fob_comment_primary_color_hover'))
                     ->toArray()
             );
     }

@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (comments.total < 1) {
                     $commentListSection.hide()
                 } else {
+                    $commentListSection.show()
                     $content.show()
                     $(document).find('.fob-comment-list-title').text(title)
                     $(document).find('.fob-comment-list-wrapper').html(html)
@@ -110,15 +111,15 @@ document.addEventListener('DOMContentLoaded', () => {
             // Set loading state
             form.data('submitting', true)
             const originalButtonText = submitButton.text() || submitButton.val()
-            submitButton.prop('disabled', true).addClass('opacity-75 cursor-not-allowed')
+            submitButton.prop('disabled', true).addClass('fob-btn-loading')
 
             if (submitButton.is('button')) {
-                submitButton.html('<svg class="animate-spin -ml-1 mr-2 h-4 w-4 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>' + originalButtonText)
+                submitButton.html('<svg class="fob-spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle style="opacity: 0.25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path style="opacity: 0.75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>' + originalButtonText)
             }
 
             const resetButton = () => {
                 form.data('submitting', false)
-                submitButton.prop('disabled', false).removeClass('opacity-75 cursor-not-allowed')
+                submitButton.prop('disabled', false).removeClass('fob-btn-loading')
                 if (submitButton.is('button')) {
                     submitButton.text(originalButtonText)
                 }
@@ -230,6 +231,40 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             $(document).find('.fob-comment-list-section').after(originalForm)
+        })
+        .on('click', '.fob-comment-item-delete', (e) => {
+            e.preventDefault()
+
+            const currentTarget = $(e.currentTarget)
+            const confirmMessage = currentTarget.data('confirm')
+
+            if (!confirm(confirmMessage)) {
+                return
+            }
+
+            $.ajax({
+                url: currentTarget.attr('href'),
+                type: 'DELETE',
+                headers: {
+                    'X-CSRF-TOKEN': fobComment.csrfToken,
+                },
+                dataType: 'json',
+                success: ({ error, message }) => {
+                    if (window?.Theme !== undefined) {
+                        if (error) {
+                            Theme.showError(message)
+                            return
+                        }
+                        Theme.showSuccess(message)
+                    }
+                    fetchComments()
+                },
+                error: (error) => {
+                    if (window?.Theme !== undefined) {
+                        Theme.handleError(error)
+                    }
+                },
+            })
         })
 
     fetchComments()

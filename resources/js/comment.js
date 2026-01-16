@@ -35,12 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
         .find('.fob-comment-form input')
         .each((index, input) => {
             const name = $(input).prop('name')
+            const cookieValue = getCookie(name)
 
-            if (getCookie(name)) {
+            if (cookieValue && cookieValue !== 'null') {
                 if (name === 'cookie_consent') {
                     $(input).prop('checked', true)
                 } else {
-                    $(input).val($(input).val() || getCookie(name))
+                    $(input).val($(input).val() || cookieValue)
                 }
             }
         })

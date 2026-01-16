@@ -47,7 +47,7 @@
                         @if ($comment->is_admin)
                             {!! BaseHelper::clean($comment->formatted_content) !!}
                         @else
-                            <p>{{ $comment->formatted_content }}</p>
+                            <p>{!! $comment->formatted_content !!}</p>
                         @endif
                     </div>
 

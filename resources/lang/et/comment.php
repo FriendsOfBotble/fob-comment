@@ -49,6 +49,8 @@ return [
             'description' => 'Teie e-posti aadressi ei avaldata. Kohustuslikud väljad on märgitud *',
             'cookie_consent' => 'Salvesta minu nimi, e-post ja veebileht selles brauseris järgmise kommentaari jaoks.',
             'submit' => 'Postita kommentaar',
+            'login_required' => 'Kommentaari postitamiseks peate sisse logima.',
+            'login_to_comment' => 'Logi sisse kommenteerimiseks',
         ],
 
         'comment_success_message' => 'Teie kommentaar on edukalt saadetud.',
@@ -72,6 +74,8 @@ return [
             'enable_recaptcha' => 'Luba reCAPTCHA',
             'enable_recaptcha_help' => 'Selle funktsiooni kasutamiseks peate lubama reCAPTCHA aadressil :url.',
             'captcha_setting_label' => 'Captcha sätted',
+            'disable_guest_comment' => 'Keela külaliste kommentaarid',
+            'disable_guest_comment_help' => 'Kui lubatud, peavad kasutajad kommentaaride postitamiseks sisse logima. See aitab vähendada rämpsposti kommentaare.',
             'comment_moderation' => 'Kommentaarid tuleb käsitsi kinnitada',
             'comment_moderation_help' => 'Kõik kommentaarid peavad enne veebilehel kuvamist olema administraatori poolt käsitsi kinnitatud.',
             'rate_limit_seconds' => 'Rate limit (seconds)',

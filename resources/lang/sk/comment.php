@@ -49,6 +49,8 @@ return [
             'description' => 'Vaša e-mailová adresa nebude zverejnená. Povinné polia sú označené *',
             'cookie_consent' => 'Uložiť moje meno, e-mail a webovú stránku v tomto prehliadači pre ďalší komentár.',
             'submit' => 'Odoslať komentár',
+            'login_required' => 'Musíte byť prihlásení, aby ste mohli pridať komentár.',
+            'login_to_comment' => 'Prihlásiť sa na komentár',
         ],
 
         'comment_success_message' => 'Váš komentár bol úspešne odoslaný.',
@@ -72,6 +74,8 @@ return [
             'enable_recaptcha' => 'Povoliť reCAPTCHA',
             'enable_recaptcha_help' => 'Pre použitie tejto funkcie musíte povoliť reCAPTCHA na :url.',
             'captcha_setting_label' => 'Nastavenia Captcha',
+            'disable_guest_comment' => 'Zakázať komentáre hostí',
+            'disable_guest_comment_help' => 'Ak je povolené, používatelia musia byť prihlásení, aby mohli pridávať komentáre. To pomáha znižovať spam komentáre.',
             'comment_moderation' => 'Komentáre musia byť schválené manuálne',
             'comment_moderation_help' => 'Všetky komentáre musia byť manuálne schválené správcom pred zobrazením na webe.',
             'rate_limit_seconds' => 'Rate limit (seconds)',

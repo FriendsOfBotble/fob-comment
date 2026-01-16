@@ -49,6 +49,8 @@ return [
             'description' => 'Alamat email Anda tidak akan dipublikasikan. Kolom yang wajib diisi ditandai *',
             'cookie_consent' => 'Simpan nama, email, dan situs web saya di browser ini untuk komentar saya berikutnya.',
             'submit' => 'Kirim Komentar',
+            'login_required' => 'Anda harus masuk untuk memposting komentar.',
+            'login_to_comment' => 'Masuk untuk berkomentar',
         ],
 
         'comment_success_message' => 'Komentar Anda telah berhasil dikirim.',
@@ -72,6 +74,8 @@ return [
             'enable_recaptcha' => 'Aktifkan reCAPTCHA',
             'enable_recaptcha_help' => 'Anda perlu mengaktifkan reCAPTCHA di :url untuk menggunakan fitur ini.',
             'captcha_setting_label' => 'Pengaturan Captcha',
+            'disable_guest_comment' => 'Nonaktifkan komentar tamu',
+            'disable_guest_comment_help' => 'Jika diaktifkan, pengguna harus masuk untuk memposting komentar. Ini membantu mengurangi komentar spam.',
             'comment_moderation' => 'Komentar harus disetujui secara manual',
             'comment_moderation_help' => 'Semua komentar harus disetujui secara manual oleh admin sebelum ditampilkan di frontend.',
             'rate_limit_seconds' => 'Batas kecepatan (detik)',

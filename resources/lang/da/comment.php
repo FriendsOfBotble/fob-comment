@@ -49,6 +49,8 @@ return [
             'description' => 'Din e-mailadresse vil ikke blive offentliggjort. Obligatoriske felter er markeret *',
             'cookie_consent' => 'Gem mit navn, e-mail og hjemmeside i denne browser til næste gang jeg kommenterer.',
             'submit' => 'Send kommentar',
+            'login_required' => 'Du skal være logget ind for at skrive en kommentar.',
+            'login_to_comment' => 'Log ind for at kommentere',
         ],
 
         'comment_success_message' => 'Din kommentar er blevet sendt.',
@@ -72,6 +74,8 @@ return [
             'enable_recaptcha' => 'Aktiver reCAPTCHA',
             'enable_recaptcha_help' => 'Du skal aktivere reCAPTCHA i :url for at bruge denne funktion.',
             'captcha_setting_label' => 'Captcha-indstillinger',
+            'disable_guest_comment' => 'Deaktiver gæstekommentarer',
+            'disable_guest_comment_help' => 'Når aktiveret skal brugere være logget ind for at skrive kommentarer. Dette hjælper med at reducere spam-kommentarer.',
             'comment_moderation' => 'Kommentarer skal godkendes manuelt',
             'comment_moderation_help' => 'Alle kommentarer skal godkendes manuelt af en administrator før de vises på hjemmesiden.',
             'rate_limit_seconds' => 'Rate limit (seconds)',

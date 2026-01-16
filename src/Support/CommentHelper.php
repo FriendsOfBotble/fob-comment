@@ -69,6 +69,24 @@ class CommentHelper
         return setting('fob_comment_allow_author_delete', false);
     }
 
+    public static function isGuestCommentDisabled(): bool
+    {
+        return setting('fob_comment_disable_guest_comment', false);
+    }
+
+    public static function getAvailableAuthGuards(): array
+    {
+        $guards = array_keys(config('auth.guards', []));
+        $excludedGuards = ['web', 'api', 'sanctum'];
+
+        return array_values(array_filter($guards, fn ($guard) => ! in_array($guard, $excludedGuards)));
+    }
+
+    public static function hasMultipleAuthGuards(): bool
+    {
+        return count(self::getAvailableAuthGuards()) > 0;
+    }
+
     public static function getAuthorizedUser(): ?Authenticatable
     {
         // Get all configured guards except web and api

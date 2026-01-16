@@ -49,6 +49,8 @@ return [
             'description_email_optional' => 'Địa chỉ email của bạn sẽ không được công khai. Email là tùy chọn. Các trường bắt buộc được đánh dấu *',
             'cookie_consent' => 'Lưu tên, email và website của tôi trong trình duyệt này cho lần bình luận tiếp theo.',
             'submit' => 'Gửi bình luận',
+            'login_required' => 'Bạn phải đăng nhập để đăng bình luận.',
+            'login_to_comment' => 'Đăng nhập để bình luận',
         ],
 
         'comment_success_message' => 'Bình luận của bạn đã được gửi thành công.',
@@ -72,6 +74,8 @@ return [
             'enable_recaptcha' => 'Bật reCAPTCHA',
             'enable_recaptcha_help' => 'Bạn cần bật reCAPTCHA trong :url để sử dụng tính năng này.',
             'captcha_setting_label' => 'Cài đặt Captcha',
+            'disable_guest_comment' => 'Vô hiệu hóa bình luận của khách',
+            'disable_guest_comment_help' => 'Khi được bật, người dùng phải đăng nhập để đăng bình luận. Điều này giúp giảm bình luận rác.',
             'comment_moderation' => 'Bình luận phải được phê duyệt thủ công',
             'comment_moderation_help' => 'Tất cả bình luận phải được quản trị viên phê duyệt thủ công trước khi hiển thị trên giao diện người dùng.',
             'rate_limit_seconds' => 'Giới hạn tốc độ (giây)',

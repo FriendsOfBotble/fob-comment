@@ -49,6 +49,8 @@ return [
             'description' => 'Jūsu e-pasta adrese netiks publicēta. Obligātie lauki ir atzīmēti ar *',
             'cookie_consent' => 'Saglabāt manu vārdu, e-pastu un vietni šajā pārlūkprogrammā nākamreiz, kad komentēšu.',
             'submit' => 'Publicēt komentāru',
+            'login_required' => 'Jums ir jāpiesakās, lai publicētu komentāru.',
+            'login_to_comment' => 'Piesakieties, lai komentētu',
         ],
 
         'comment_success_message' => 'Jūsu komentārs ir veiksmīgi nosūtīts.',
@@ -72,6 +74,8 @@ return [
             'enable_recaptcha' => 'Iespējot reCAPTCHA',
             'enable_recaptcha_help' => 'Jums jāiespējo reCAPTCHA :url, lai izmantotu šo funkciju.',
             'captcha_setting_label' => 'Captcha iestatījumi',
+            'disable_guest_comment' => 'Atspējot viešņu komentārus',
+            'disable_guest_comment_help' => 'Ja iespējots, lietotājiem ir jāpiesakās, lai publicētu komentārus. Tas palīdz samazināt surogātpasta komentārus.',
             'comment_moderation' => 'Komentāri jāapstiprina manuāli',
             'comment_moderation_help' => 'Visus komentārus administratoram jāapstiprina manuāli, pirms tie tiek parādīti vietnē.',
             'rate_limit_seconds' => 'Rate limit (seconds)',

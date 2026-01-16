@@ -12,6 +12,7 @@ class CommentSettingRequest extends Request
     {
         return [
             'fob_comment_enable_recaptcha' => [$onOffRule = new OnOffRule()],
+            'fob_comment_disable_guest_comment' => [$onOffRule],
             'fob_comment_comment_moderation' => [$onOffRule],
             'fob_comment_rate_limit_seconds' => ['nullable', 'integer', 'min:0'],
             'fob_comment_show_comment_cookie_consent' => [$onOffRule],

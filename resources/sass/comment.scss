@@ -136,6 +136,56 @@ $prefix: 'fob-';
             margin-bottom: 1.5rem;
         }
 
+        &-login-required {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            text-align: center;
+
+            .#{$prefix}comment-login-icon {
+                width: 48px;
+                height: 48px;
+                margin-bottom: 1rem;
+                color: #6c757d;
+            }
+
+            .#{$prefix}comment-login-message {
+                font-size: 16px;
+                color: #495057;
+                margin-bottom: 1rem;
+            }
+
+            .#{$prefix}comment-login-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.5rem 1.5rem;
+                font-size: 14px;
+                font-weight: 500;
+                color: #fff;
+                background-color: var(--fob-primary-color, var(--primary-color, #0d6efd));
+                border: none;
+                border-radius: 6px;
+                text-decoration: none;
+                transition: background-color 0.2s ease;
+
+                &:hover {
+                    background-color: var(--fob-primary-color-hover, var(--primary-color-hover, #0b5ed7));
+                    color: #fff;
+                }
+
+                svg {
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+        }
+
         label {
             &.required {
                 &:after {
@@ -255,5 +305,18 @@ $prefix: 'fob-';
     .fob-comment-skeleton-text {
         background: linear-gradient(90deg, #3a3a3a 25%, #4a4a4a 50%, #3a3a3a 75%);
         background-size: 200% 100%;
+    }
+
+    .fob-comment-form-login-required {
+        background-color: #2d3748;
+        border-color: #4a5568;
+
+        .fob-comment-login-icon {
+            color: #a0aec0;
+        }
+
+        .fob-comment-login-message {
+            color: #e2e8f0;
+        }
     }
 }

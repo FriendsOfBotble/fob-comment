@@ -49,6 +49,8 @@ return [
             'description' => 'E-posta adresiniz yayınlanmayacaktır. Gerekli alanlar * ile işaretlenmiştir',
             'cookie_consent' => 'Bir sonraki yorumum için bu tarayıcıda adımı, e-posta adresimi ve web sitemi kaydet.',
             'submit' => 'Yorumu Gönder',
+            'login_required' => 'Yorum göndermek için giriş yapmalısınız.',
+            'login_to_comment' => 'Yorum yapmak için giriş yap',
         ],
 
         'comment_success_message' => 'Yorumunuz başarıyla gönderildi.',
@@ -72,6 +74,8 @@ return [
             'enable_recaptcha' => 'reCAPTCHA\'yı etkinleştir',
             'enable_recaptcha_help' => 'Bu özelliği kullanmak için :url adresinde reCAPTCHA\'yı etkinleştirmeniz gerekir.',
             'captcha_setting_label' => 'Captcha Ayarları',
+            'disable_guest_comment' => 'Misafir yorumlarını devre dışı bırak',
+            'disable_guest_comment_help' => 'Etkinleştirildiğinde, kullanıcıların yorum göndermek için giriş yapması gerekir. Bu, spam yorumları azaltmaya yardımcı olur.',
             'comment_moderation' => 'Yorumlar manuel olarak onaylanmalıdır',
             'comment_moderation_help' => 'Tüm yorumlar ön yüzde gösterilmeden önce bir yönetici tarafından manuel olarak onaylanmalıdır.',
             'rate_limit_seconds' => 'Hız sınırı (saniye)',

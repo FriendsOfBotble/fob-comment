@@ -49,6 +49,8 @@ return [
             'description' => 'Je e-mailadres wordt niet gepubliceerd. Verplichte velden zijn gemarkeerd met *',
             'cookie_consent' => 'Bewaar mijn naam, e-mail en website in deze browser voor de volgende keer wanneer ik een reactie plaats.',
             'submit' => 'Reactie plaatsen',
+            'login_required' => 'U moet ingelogd zijn om een reactie te plaatsen.',
+            'login_to_comment' => 'Inloggen om te reageren',
         ],
 
         'comment_success_message' => 'Je reactie is succesvol verzonden.',
@@ -72,6 +74,8 @@ return [
             'enable_recaptcha' => 'reCAPTCHA inschakelen',
             'enable_recaptcha_help' => 'Je moet reCAPTCHA inschakelen in :url om deze functie te gebruiken.',
             'captcha_setting_label' => 'Captcha-instellingen',
+            'disable_guest_comment' => 'Gastreacties uitschakelen',
+            'disable_guest_comment_help' => 'Wanneer ingeschakeld, moeten gebruikers ingelogd zijn om reacties te plaatsen. Dit helpt om spam reacties te verminderen.',
             'comment_moderation' => 'Reacties moeten handmatig worden goedgekeurd',
             'comment_moderation_help' => 'Alle reacties moeten handmatig door een beheerder worden goedgekeurd voordat ze op de frontend worden weergegeven.',
             'rate_limit_seconds' => 'Snelheidslimiet (seconden)',

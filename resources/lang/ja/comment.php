@@ -49,6 +49,8 @@ return [
             'description' => 'メールアドレスは公開されません。必須項目は * でマークされています',
             'cookie_consent' => '次回のコメント時のために、名前、メールアドレス、ウェブサイトをこのブラウザに保存する。',
             'submit' => 'コメントを送信',
+            'login_required' => 'コメントを投稿するにはログインする必要があります。',
+            'login_to_comment' => 'コメントするにはログイン',
         ],
 
         'comment_success_message' => 'コメントが正常に送信されました。',
@@ -72,6 +74,8 @@ return [
             'enable_recaptcha' => 'reCAPTCHA を有効化',
             'enable_recaptcha_help' => 'この機能を使用するには、:url で reCAPTCHA を有効にする必要があります。',
             'captcha_setting_label' => 'キャプチャ設定',
+            'disable_guest_comment' => 'ゲストコメントを無効にする',
+            'disable_guest_comment_help' => '有効にすると、ユーザーはコメントを投稿するためにログインする必要があります。これはスパムコメントを減らすのに役立ちます。',
             'comment_moderation' => 'コメントは手動で承認する必要があります',
             'comment_moderation_help' => 'すべてのコメントはフロントエンドに表示される前に管理者による手動承認が必要です。',
             'rate_limit_seconds' => 'レート制限（秒）',

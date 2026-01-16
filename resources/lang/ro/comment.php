@@ -49,6 +49,8 @@ return [
             'description' => 'Adresa ta de email nu va fi publicată. Câmpurile obligatorii sunt marcate cu *',
             'cookie_consent' => 'Salvează numele meu, emailul și website-ul în acest browser pentru data viitoare când comentez.',
             'submit' => 'Trimite comentariu',
+            'login_required' => 'Trebuie să fii autentificat pentru a posta un comentariu.',
+            'login_to_comment' => 'Autentifică-te pentru a comenta',
         ],
 
         'comment_success_message' => 'Comentariul tău a fost trimis cu succes.',
@@ -72,6 +74,8 @@ return [
             'enable_recaptcha' => 'Activează reCAPTCHA',
             'enable_recaptcha_help' => 'Trebuie să activezi reCAPTCHA în :url pentru a folosi această funcție.',
             'captcha_setting_label' => 'Setări Captcha',
+            'disable_guest_comment' => 'Dezactivează comentariile vizitatorilor',
+            'disable_guest_comment_help' => 'Când este activat, utilizatorii trebuie să fie autentificați pentru a posta comentarii. Acest lucru ajută la reducerea comentariilor spam.',
             'comment_moderation' => 'Comentariile trebuie aprobate manual',
             'comment_moderation_help' => 'Toate comentariile trebuie aprobate manual de un administrator înainte de a fi afișate pe site.',
             'rate_limit_seconds' => 'Rate limit (seconds)',

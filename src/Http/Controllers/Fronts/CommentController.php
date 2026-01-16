@@ -67,6 +67,13 @@ class CommentController extends BaseController
         CreateNewComment $createNewComment,
         GetCommentReference $getCommentReference
     ) {
+        if (CommentHelper::isGuestCommentDisabled() && ! CommentHelper::getAuthorizedUser()) {
+            return $this
+                ->httpResponse()
+                ->setError()
+                ->setMessage(trans('plugins/fob-comment::comment.front.form.login_required'));
+        }
+
         $rateLimitSeconds = CommentHelper::getRateLimitSeconds();
 
         if ($rateLimitSeconds > 0) {

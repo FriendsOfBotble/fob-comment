@@ -49,6 +49,8 @@ return [
             'description' => 'Vaš e-poštni naslov ne bo objavljen. Obvezna polja so označena z *',
             'cookie_consent' => 'Shrani moje ime, e-pošto in spletno stran v ta brskalnik za naslednji komentar.',
             'submit' => 'Pošlji komentar',
+            'login_required' => 'Za objavo komentarja morate biti prijavljeni.',
+            'login_to_comment' => 'Prijavite se za komentiranje',
         ],
 
         'comment_success_message' => 'Vaš komentar je bil uspešno poslan.',
@@ -72,6 +74,8 @@ return [
             'enable_recaptcha' => 'Omogoči reCAPTCHA',
             'enable_recaptcha_help' => 'Za uporabo te funkcije morate omogočiti reCAPTCHA na :url.',
             'captcha_setting_label' => 'Nastavitve Captcha',
+            'disable_guest_comment' => 'Onemogoči komentarje gostov',
+            'disable_guest_comment_help' => 'Ko je omogočeno, morajo biti uporabniki prijavljeni za objavo komentarjev. To pomaga zmanjšati neželene komentarje.',
             'comment_moderation' => 'Komentarji morajo biti ročno odobreni',
             'comment_moderation_help' => 'Vse komentarje mora ročno odobriti skrbnik, preden se prikažejo na spletni strani.',
             'rate_limit_seconds' => 'Rate limit (seconds)',

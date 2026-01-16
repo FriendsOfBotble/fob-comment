@@ -52,6 +52,17 @@ class CommentSettingForm extends SettingForm
                         ->toArray()
                 );
             })
+            ->when(CommentHelper::hasMultipleAuthGuards(), function (FormAbstract $form): void {
+                $form->add(
+                    'fob_comment_disable_guest_comment',
+                    OnOffCheckboxField::class,
+                    OnOffFieldOption::make()
+                        ->label(trans('plugins/fob-comment::comment.settings.form.disable_guest_comment'))
+                        ->helperText(trans('plugins/fob-comment::comment.settings.form.disable_guest_comment_help'))
+                        ->value(CommentHelper::isGuestCommentDisabled())
+                        ->toArray()
+                );
+            })
             ->add(
                 'fob_comment_comment_moderation',
                 OnOffCheckboxField::class,

@@ -49,6 +49,8 @@ return [
             'description' => '이메일 주소는 공개되지 않습니다. 필수 항목은 *로 표시됩니다',
             'cookie_consent' => '다음 댓글 작성을 위해 이 브라우저에 이름, 이메일, 웹사이트를 저장합니다.',
             'submit' => '댓글 작성',
+            'login_required' => '댓글을 게시하려면 로그인해야 합니다.',
+            'login_to_comment' => '댓글 작성을 위해 로그인',
         ],
 
         'comment_success_message' => '댓글이 성공적으로 전송되었습니다.',
@@ -72,6 +74,8 @@ return [
             'enable_recaptcha' => 'reCAPTCHA 활성화',
             'enable_recaptcha_help' => '이 기능을 사용하려면 :url에서 reCAPTCHA를 활성화해야 합니다.',
             'captcha_setting_label' => 'Captcha 설정',
+            'disable_guest_comment' => '게스트 댓글 비활성화',
+            'disable_guest_comment_help' => '활성화하면 사용자가 댓글을 게시하려면 로그인해야 합니다. 이는 스팸 댓글을 줄이는 데 도움이 됩니다.',
             'comment_moderation' => '댓글은 수동으로 승인되어야 합니다',
             'comment_moderation_help' => '모든 댓글은 프론트엔드에 표시되기 전에 관리자가 수동으로 승인해야 합니다.',
             'rate_limit_seconds' => '속도 제한 (초)',

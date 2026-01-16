@@ -49,6 +49,8 @@ return [
             'description' => 'Ang iyong email address ay hindi ilalathala. Ang mga kinakailangang field ay minarkahan ng *',
             'cookie_consent' => 'I-save ang aking pangalan, email, at website sa browser na ito para sa susunod na aking pagkomento.',
             'submit' => 'I-post ang komento',
+            'login_required' => 'Kailangan mong mag-login upang mag-post ng komento.',
+            'login_to_comment' => 'Mag-login upang mag-komento',
         ],
 
         'comment_success_message' => 'Ang iyong komento ay matagumpay na naipadala.',
@@ -72,6 +74,8 @@ return [
             'enable_recaptcha' => 'I-enable ang reCAPTCHA',
             'enable_recaptcha_help' => 'Kailangan mong i-enable ang reCAPTCHA sa :url para magamit ang feature na ito.',
             'captcha_setting_label' => 'Mga setting ng Captcha',
+            'disable_guest_comment' => 'Huwag payagan ang mga komento ng bisita',
+            'disable_guest_comment_help' => 'Kapag naka-enable, kailangan naka-login ang mga user upang mag-post ng komento. Nakakatulong ito na mabawasan ang spam na mga komento.',
             'comment_moderation' => 'Ang mga komento ay dapat manu-manong aprubahan',
             'comment_moderation_help' => 'Lahat ng komento ay dapat manu-manong aprubahan ng isang administrator bago ipakita sa frontend.',
             'rate_limit_seconds' => 'Rate limit (seconds)',

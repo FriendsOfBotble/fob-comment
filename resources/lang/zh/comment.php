@@ -49,6 +49,8 @@ return [
             'description_email_optional' => '您的电子邮箱地址不会被公开。电子邮箱为可选项。必填项已用 * 标注',
             'cookie_consent' => '在此浏览器中保存我的姓名、电子邮箱和网站，以便下次评论时使用。',
             'submit' => '提交评论',
+            'login_required' => '您必须登录才能发表评论。',
+            'login_to_comment' => '登录以评论',
         ],
 
         'comment_success_message' => '您的评论已成功发送。',
@@ -72,6 +74,8 @@ return [
             'enable_recaptcha' => '启用 reCAPTCHA',
             'enable_recaptcha_help' => '您需要在 :url 中启用 reCAPTCHA 才能使用此功能。',
             'captcha_setting_label' => '验证码设置',
+            'disable_guest_comment' => '禁用访客评论',
+            'disable_guest_comment_help' => '启用后,用户必须登录才能发表评论。这有助于减少垃圾评论。',
             'comment_moderation' => '评论必须手动批准',
             'comment_moderation_help' => '所有评论在前端显示之前必须由管理员手动批准。',
             'rate_limit_seconds' => '速率限制（秒）',

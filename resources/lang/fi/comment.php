@@ -49,6 +49,8 @@ return [
             'description' => 'Sähköpostiosoitettasi ei julkaista. Pakolliset kentät on merkitty *',
             'cookie_consent' => 'Tallenna nimeni, sähköpostini ja verkkosivustoni tähän selaimeen seuraavaa kommenttiani varten.',
             'submit' => 'Lähetä kommentti',
+            'login_required' => 'Sinun on kirjauduttava sisään lähettääksesi kommentin.',
+            'login_to_comment' => 'Kirjaudu sisään kommentoidaksesi',
         ],
 
         'comment_success_message' => 'Kommenttisi on lähetetty onnistuneesti.',
@@ -72,6 +74,8 @@ return [
             'enable_recaptcha' => 'Ota käyttöön reCAPTCHA',
             'enable_recaptcha_help' => 'Sinun täytyy ottaa käyttöön reCAPTCHA osoitteessa :url käyttääksesi tätä ominaisuutta.',
             'captcha_setting_label' => 'Captcha-asetukset',
+            'disable_guest_comment' => 'Poista vieraskommentit käytöstä',
+            'disable_guest_comment_help' => 'Kun tämä on käytössä, käyttäjien on oltava kirjautuneina kommentoidakseen. Tämä auttaa vähentämään roskapostikommentteja.',
             'comment_moderation' => 'Kommentit on hyväksyttävä manuaalisesti',
             'comment_moderation_help' => 'Kaikki kommentit on hyväksyttävä manuaalisesti ylläpitäjän toimesta ennen niiden näyttämistä sivustolla.',
             'rate_limit_seconds' => 'Rate limit (seconds)',

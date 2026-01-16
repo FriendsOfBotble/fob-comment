@@ -49,6 +49,8 @@ return [
             'description' => 'Jūsų el. pašto adresas nebus skelbiamas. Privalomi laukai pažymėti *',
             'cookie_consent' => 'Išsaugoti mano vardą, el. paštą ir svetainę šioje naršyklėje kitam kartui, kai komentuosiu.',
             'submit' => 'Paskelbti komentarą',
+            'login_required' => 'Turite būti prisijungę, kad galėtumėte skelbti komentarą.',
+            'login_to_comment' => 'Prisijunkite, kad komentuotumėte',
         ],
 
         'comment_success_message' => 'Jūsų komentaras sėkmingai išsiųstas.',
@@ -72,6 +74,8 @@ return [
             'enable_recaptcha' => 'Įjungti reCAPTCHA',
             'enable_recaptcha_help' => 'Turite įjungti reCAPTCHA :url, kad galėtumėte naudoti šią funkciją.',
             'captcha_setting_label' => 'Captcha nustatymai',
+            'disable_guest_comment' => 'Išjungti svečių komentarus',
+            'disable_guest_comment_help' => 'Kai įjungta, vartotojai turi būti prisijungę, kad galėtų skelbti komentarus. Tai padeda sumažinti šlamšto komentarus.',
             'comment_moderation' => 'Komentarai turi būti patvirtinti rankiniu būdu',
             'comment_moderation_help' => 'Visi komentarai turi būti rankiniu būdu patvirtinti administratoriaus prieš rodant svetainėje.',
             'rate_limit_seconds' => 'Rate limit (seconds)',

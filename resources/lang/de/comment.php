@@ -49,6 +49,8 @@ return [
             'description' => 'Ihre E-Mail-Adresse wird nicht veröffentlicht. Erforderliche Felder sind mit * markiert',
             'cookie_consent' => 'Meinen Namen, E-Mail und Website in diesem Browser für den nächsten Kommentar speichern.',
             'submit' => 'Kommentar abschicken',
+            'login_required' => 'Sie müssen angemeldet sein, um einen Kommentar zu posten.',
+            'login_to_comment' => 'Anmelden zum Kommentieren',
         ],
 
         'comment_success_message' => 'Ihr Kommentar wurde erfolgreich gesendet.',
@@ -72,6 +74,8 @@ return [
             'enable_recaptcha' => 'reCAPTCHA aktivieren',
             'enable_recaptcha_help' => 'Sie müssen reCAPTCHA in :url aktivieren, um diese Funktion zu nutzen.',
             'captcha_setting_label' => 'Captcha-Einstellungen',
+            'disable_guest_comment' => 'Gast-Kommentare deaktivieren',
+            'disable_guest_comment_help' => 'Wenn aktiviert, müssen Benutzer angemeldet sein, um Kommentare zu posten. Dies hilft, Spam-Kommentare zu reduzieren.',
             'comment_moderation' => 'Kommentare müssen manuell genehmigt werden',
             'comment_moderation_help' => 'Alle Kommentare müssen von einem Administrator manuell genehmigt werden, bevor sie im Frontend angezeigt werden.',
             'rate_limit_seconds' => 'Ratenlimit (Sekunden)',

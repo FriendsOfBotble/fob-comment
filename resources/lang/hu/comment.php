@@ -49,6 +49,8 @@ return [
             'description' => 'Az e-mail címed nem lesz nyilvános. A kötelező mezőket * jellel jelöltük',
             'cookie_consent' => 'Mentsd el a nevem, e-mail címem és weboldalam ebben a böngészőben a következő hozzászólásomhoz.',
             'submit' => 'Hozzászólás elküldése',
+            'login_required' => 'Be kell jelentkezned a hozzászólás közzétételéhez.',
+            'login_to_comment' => 'Jelentkezz be a hozzászóláshoz',
         ],
 
         'comment_success_message' => 'A hozzászólásod sikeresen elküldve.',
@@ -72,6 +74,8 @@ return [
             'enable_recaptcha' => 'reCAPTCHA engedélyezése',
             'enable_recaptcha_help' => 'Engedélyezned kell a reCAPTCHA-t itt: :url a funkció használatához.',
             'captcha_setting_label' => 'Captcha beállítások',
+            'disable_guest_comment' => 'Vendég hozzászólások letiltása',
+            'disable_guest_comment_help' => 'Ha engedélyezve van, a felhasználóknak be kell jelentkezniük a hozzászólás közzétételéhez. Ez segít csökkenteni a spam hozzászólásokat.',
             'comment_moderation' => 'A hozzászólásokat kézzel kell jóváhagyni',
             'comment_moderation_help' => 'Minden hozzászólást kézzel kell jóváhagynia egy adminisztrátornak, mielőtt megjelenne az oldalon.',
             'rate_limit_seconds' => 'Rate limit (seconds)',

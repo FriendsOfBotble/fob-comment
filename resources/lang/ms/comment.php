@@ -49,6 +49,8 @@ return [
             'description' => 'Alamat e-mel anda tidak akan diterbitkan. Medan yang diperlukan ditandai dengan *',
             'cookie_consent' => 'Simpan nama, e-mel dan laman web saya dalam pelayar ini untuk komen saya yang seterusnya.',
             'submit' => 'Hantar komen',
+            'login_required' => 'Anda mesti log masuk untuk menghantar komen.',
+            'login_to_comment' => 'Log masuk untuk komen',
         ],
 
         'comment_success_message' => 'Komen anda telah berjaya dihantar.',
@@ -72,6 +74,8 @@ return [
             'enable_recaptcha' => 'Dayakan reCAPTCHA',
             'enable_recaptcha_help' => 'Anda perlu mendayakan reCAPTCHA di :url untuk menggunakan ciri ini.',
             'captcha_setting_label' => 'Tetapan Captcha',
+            'disable_guest_comment' => 'Lumpuhkan komen tetamu',
+            'disable_guest_comment_help' => 'Apabila diaktifkan, pengguna mesti log masuk untuk menghantar komen. Ini membantu mengurangkan komen spam.',
             'comment_moderation' => 'Komen mesti diluluskan secara manual',
             'comment_moderation_help' => 'Semua komen mesti diluluskan secara manual oleh pentadbir sebelum dipaparkan di laman web.',
             'rate_limit_seconds' => 'Rate limit (seconds)',

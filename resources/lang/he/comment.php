@@ -49,6 +49,8 @@ return [
             'description' => 'כתובת הדוא״ל שלך לא תפורסם. שדות חובה מסומנים ב-*',
             'cookie_consent' => 'שמור את השם, הדוא״ל והאתר שלי בדפדפן זה לתגובה הבאה.',
             'submit' => 'שלח תגובה',
+            'login_required' => 'עליך להיות מחובר כדי לפרסם תגובה.',
+            'login_to_comment' => 'התחבר כדי להגיב',
         ],
 
         'comment_success_message' => 'התגובה שלך נשלחה בהצלחה.',
@@ -72,6 +74,8 @@ return [
             'enable_recaptcha' => 'הפעל reCAPTCHA',
             'enable_recaptcha_help' => 'עליך להפעיל את reCAPTCHA ב-:url כדי להשתמש בתכונה זו.',
             'captcha_setting_label' => 'הגדרות Captcha',
+            'disable_guest_comment' => 'השבת תגובות אורחים',
+            'disable_guest_comment_help' => 'כאשר מופעל, משתמשים חייבים להיות מחוברים כדי לפרסם תגובות. זה עוזר להפחית תגובות ספאם.',
             'comment_moderation' => 'תגובות חייבות באישור ידני',
             'comment_moderation_help' => 'כל התגובות חייבות להיות מאושרות ידנית על ידי מנהל לפני הצגתן בחזית האתר.',
             'rate_limit_seconds' => 'Rate limit (seconds)',

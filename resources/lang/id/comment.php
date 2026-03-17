@@ -41,6 +41,8 @@ return [
             'reply_to' => 'Balas :name',
             'cancel_reply' => 'Batalkan balasan',
             'waiting_for_approval_message' => 'Komentar Anda menunggu moderasi. Ini adalah pratinjau, komentar Anda akan terlihat setelah disetujui.',
+            'delete' => 'Hapus',
+            'delete_confirm' => 'Apakah Anda yakin ingin menghapus komentar ini?',
         ],
 
         'form' => [
@@ -55,6 +57,8 @@ return [
 
         'comment_success_message' => 'Komentar Anda telah berhasil dikirim.',
         'rate_limit_error' => 'Anda berkomentar terlalu cepat. Harap tunggu :seconds detik sebelum memposting komentar lain.',
+        'comment_deleted_message' => 'Komentar Anda telah berhasil dihapus.',
+        'delete_not_authorized' => 'Anda tidak memiliki izin untuk menghapus komentar ini.',
     ],
 
     'enums' => [
@@ -66,9 +70,45 @@ return [
         ],
     ],
 
+    'email_templates' => [
+        'admin_new_comment_title' => 'Komentar Baru Diterima',
+        'admin_new_comment_message' => ':comment_name meninggalkan komentar baru',
+        'comment_reply_title' => 'Balasan Baru untuk Komentar Anda',
+        'comment_reply_message' => ':reply_name membalas komentar Anda',
+        'commented_on' => 'Berkomentar pada',
+        'view_comment' => 'Lihat Komentar',
+    ],
+
     'settings' => [
         'title' => 'FOB Comment',
         'description' => 'Konfigurasi pengaturan untuk FOB Comment',
+
+        'email' => [
+            'templates' => [
+                'title' => 'Komentar',
+                'description' => 'Template email untuk notifikasi komentar',
+                'admin_new_comment' => [
+                    'title' => 'Notifikasi admin untuk komentar baru',
+                    'description' => 'Kirim email ke admin ketika komentar baru diposting',
+                    'subject' => 'Komentar baru di {{ site_title }}',
+                    'comment_name_description' => 'Nama pengirim komentar',
+                    'comment_email_description' => 'Email pengirim komentar',
+                    'comment_content_description' => 'Isi komentar',
+                    'comment_reference_description' => 'Halaman/artikel yang dikomentari',
+                    'comment_url_description' => 'URL untuk melihat komentar',
+                ],
+                'comment_reply' => [
+                    'title' => 'Beri tahu pengirim komentar tentang balasan',
+                    'description' => 'Kirim email ke pengirim komentar ketika seseorang membalas komentar mereka',
+                    'subject' => 'Balasan baru untuk komentar Anda di {{ site_title }}',
+                    'comment_name_description' => 'Nama pengirim komentar asli',
+                    'reply_name_description' => 'Nama pengirim balasan',
+                    'reply_content_description' => 'Isi balasan',
+                    'comment_reference_description' => 'Halaman/artikel yang dikomentari',
+                    'comment_url_description' => 'URL untuk melihat komentar',
+                ],
+            ],
+        ],
 
         'form' => [
             'enable_recaptcha' => 'Aktifkan reCAPTCHA',
@@ -106,6 +146,12 @@ return [
             'show_website_field_help' => 'Saat dinonaktifkan, kolom situs web akan disembunyikan dari formulir komentar publik.',
             'default_avatar' => 'Avatar default',
             'default_avatar_helper' => 'Avatar default untuk penulis ketika mereka tidak memiliki avatar. Jika Anda tidak memilih gambar apa pun, itu akan dibuat menggunakan penyedia avatar yang dipilih. Ukuran gambar harus 150x150px.',
+            'allow_author_delete' => 'Izinkan penulis menghapus komentar mereka',
+            'allow_author_delete_help' => 'Jika diaktifkan, pengguna yang sudah login dapat menghapus komentar mereka sendiri.',
+            'primary_color' => 'Warna utama',
+            'primary_color_helper' => 'Warna utama untuk tombol, kotak centang, dan lencana. Kosongkan untuk menggunakan warna utama tema.',
+            'primary_color_hover' => 'Warna hover utama',
+            'primary_color_hover_helper' => 'Warna hover untuk tombol. Kosongkan untuk menggunakan warna yang lebih gelap dari warna utama.',
         ],
     ],
 ];

@@ -40,6 +40,8 @@ return [
             'reply' => 'Rispondi',
             'reply_to' => 'Rispondi a :name',
             'cancel_reply' => 'Annulla risposta',
+            'delete' => 'Elimina',
+            'delete_confirm' => 'Sei sicuro di voler eliminare questo commento?',
             'waiting_for_approval_message' => 'Il tuo commento è in attesa di moderazione. Questa è un\'anteprima, il tuo commento sarà visibile dopo l\'approvazione.',
         ],
 
@@ -55,6 +57,8 @@ return [
 
         'comment_success_message' => 'Il tuo commento è stato inviato con successo.',
         'rate_limit_error' => 'Stai commentando troppo velocemente. Attendi :seconds secondi prima di pubblicare un altro commento.',
+        'comment_deleted_message' => 'Il tuo commento è stato eliminato con successo.',
+        'delete_not_authorized' => 'Non sei autorizzato a eliminare questo commento.',
     ],
 
     'enums' => [
@@ -66,9 +70,45 @@ return [
         ],
     ],
 
+    'email_templates' => [
+        'admin_new_comment_title' => 'Nuovo commento ricevuto',
+        'admin_new_comment_message' => ':comment_name ha lasciato un nuovo commento',
+        'comment_reply_title' => 'Nuova risposta al tuo commento',
+        'comment_reply_message' => ':reply_name ha risposto al tuo commento',
+        'commented_on' => 'Commentato su',
+        'view_comment' => 'Visualizza commento',
+    ],
+
     'settings' => [
         'title' => 'FOB Comment',
         'description' => 'Configura le impostazioni per FOB Comment',
+
+        'email' => [
+            'templates' => [
+                'title' => 'Commento',
+                'description' => 'Modelli email per le notifiche di commenti',
+                'admin_new_comment' => [
+                    'title' => 'Notifica amministratore per nuovo commento',
+                    'description' => 'Invia email all\'amministratore quando viene pubblicato un nuovo commento',
+                    'subject' => 'Nuovo commento su {{ site_title }}',
+                    'comment_name_description' => 'Nome dell\'autore del commento',
+                    'comment_email_description' => 'Email dell\'autore del commento',
+                    'comment_content_description' => 'Contenuto del commento',
+                    'comment_reference_description' => 'La pagina/post commentata',
+                    'comment_url_description' => 'URL per visualizzare il commento',
+                ],
+                'comment_reply' => [
+                    'title' => 'Notifica al commentatore della risposta',
+                    'description' => 'Invia email al commentatore quando qualcuno risponde al suo commento',
+                    'subject' => 'Nuova risposta al tuo commento su {{ site_title }}',
+                    'comment_name_description' => 'Nome del commentatore originale',
+                    'reply_name_description' => 'Nome dell\'autore della risposta',
+                    'reply_content_description' => 'Contenuto della risposta',
+                    'comment_reference_description' => 'La pagina/post commentata',
+                    'comment_url_description' => 'URL per visualizzare il commento',
+                ],
+            ],
+        ],
 
         'form' => [
             'enable_recaptcha' => 'Abilita reCAPTCHA',
@@ -106,6 +146,12 @@ return [
             'show_website_field_help' => 'Quando è disabilitato, il campo sito web verrà nascosto dal modulo dei commenti pubblico.',
             'default_avatar' => 'Avatar predefinito',
             'default_avatar_helper' => 'Avatar predefinito per l\'autore quando non ha un avatar. Se non selezioni alcuna immagine, verrà generata utilizzando Gravatar. La dimensione dell\'immagine dovrebbe essere 150x150px.',
+            'allow_author_delete' => 'Consenti agli autori di eliminare i propri commenti',
+            'allow_author_delete_help' => 'Quando abilitato, gli utenti connessi possono eliminare i propri commenti.',
+            'primary_color' => 'Colore principale',
+            'primary_color_helper' => 'Colore principale per pulsanti, caselle di controllo e badge. Lascia vuoto per usare il colore principale del tema.',
+            'primary_color_hover' => 'Colore principale al passaggio del mouse',
+            'primary_color_hover_helper' => 'Colore al passaggio del mouse per i pulsanti. Lascia vuoto per usare una tonalità più scura del colore principale.',
         ],
     ],
 ];

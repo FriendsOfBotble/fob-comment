@@ -41,6 +41,8 @@ return [
             'reply_to' => ':name kişisine yanıt ver',
             'cancel_reply' => 'Yanıtı iptal et',
             'waiting_for_approval_message' => 'Yorumunuz moderasyon bekliyor. Bu bir önizlemedir, yorumunuz onaylandıktan sonra görünür olacaktır.',
+            'delete' => 'Sil',
+            'delete_confirm' => 'Bu yorumu silmek istediğinizden emin misiniz?',
         ],
 
         'form' => [
@@ -55,6 +57,8 @@ return [
 
         'comment_success_message' => 'Yorumunuz başarıyla gönderildi.',
         'rate_limit_error' => 'Çok hızlı yorum yapıyorsunuz. Lütfen başka bir yorum göndermeden önce :seconds saniye bekleyin.',
+        'comment_deleted_message' => 'Yorumunuz başarıyla silindi.',
+        'delete_not_authorized' => 'Bu yorumu silme yetkiniz bulunmamaktadır.',
     ],
 
     'enums' => [
@@ -66,9 +70,45 @@ return [
         ],
     ],
 
+    'email_templates' => [
+        'admin_new_comment_title' => 'Yeni Yorum Alındı',
+        'admin_new_comment_message' => ':comment_name yeni bir yorum bıraktı',
+        'comment_reply_title' => 'Yorumunuza Yeni Yanıt',
+        'comment_reply_message' => ':reply_name yorumunuzu yanıtladı',
+        'commented_on' => 'Yorum yapılan',
+        'view_comment' => 'Yorumu Görüntüle',
+    ],
+
     'settings' => [
         'title' => 'FOB Comment',
         'description' => 'FOB Comment için ayarları yapılandırın',
+
+        'email' => [
+            'templates' => [
+                'title' => 'Yorum',
+                'description' => 'Yorum bildirimleri için e-posta şablonları',
+                'admin_new_comment' => [
+                    'title' => 'Yeni yorum için yönetici bildirimi',
+                    'description' => 'Yeni bir yorum yayınlandığında yöneticiye e-posta gönder',
+                    'subject' => '{{ site_title }} üzerinde yeni yorum',
+                    'comment_name_description' => 'Yorum yazarının adı',
+                    'comment_email_description' => 'Yorum yazarının e-postası',
+                    'comment_content_description' => 'Yorum içeriği',
+                    'comment_reference_description' => 'Yorum yapılan sayfa/gönderi',
+                    'comment_url_description' => 'Yorumu görüntülemek için URL',
+                ],
+                'comment_reply' => [
+                    'title' => 'Yorumcuyu yanıt hakkında bilgilendir',
+                    'description' => 'Biri yorumuna yanıt verdiğinde yorumcuya e-posta gönder',
+                    'subject' => '{{ site_title }} üzerindeki yorumunuza yeni yanıt',
+                    'comment_name_description' => 'Orijinal yorumcunun adı',
+                    'reply_name_description' => 'Yanıt yazarının adı',
+                    'reply_content_description' => 'Yanıt içeriği',
+                    'comment_reference_description' => 'Yorum yapılan sayfa/gönderi',
+                    'comment_url_description' => 'Yorumu görüntülemek için URL',
+                ],
+            ],
+        ],
 
         'form' => [
             'enable_recaptcha' => 'reCAPTCHA\'yı etkinleştir',
@@ -94,18 +134,24 @@ return [
             'display_admin_badge_help' => 'Etkinleştirildiğinde, yönetici yorumları isimlerinin yanında "Admin" rozeti gösterecektir.',
             'show_admin_role_name_for_admin_badge' => 'Yönetici rozeti için yönetici rol adını göster',
             'show_admin_role_name_for_admin_badge_helper' => 'Etkinleştirilirse, yönetici rozeti varsayılan "Yönetici" metni yerine yönetici rol adını gösterecektir. Yönetici rol adı boşsa, varsayılan metin kullanılacaktır. Kullanıcının birden fazla rolü varsa, ilk rol kullanılacaktır.',
-            'avatar_provider' => 'Avatar provider',
-            'avatar_provider_help' => 'Choose how to generate avatars for comments. Gravatar requires email, UI Avatars generates based on name.',
+            'avatar_provider' => 'Avatar sağlayıcısı',
+            'avatar_provider_help' => 'Yorumlar için avatar oluşturma yöntemini seçin. Gravatar e-posta gerektirir, UI Avatars isme göre oluşturur.',
             'avatar_provider_choices' => [
-                'gravatar' => 'Gravatar (Email-based)',
-                'ui_avatars' => 'UI Avatars (Name-based)',
+                'gravatar' => 'Gravatar (E-posta tabanlı)',
+                'ui_avatars' => 'UI Avatars (İsim tabanlı)',
             ],
-            'email_optional' => 'Make email field optional',
-            'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
+            'email_optional' => 'E-posta alanını isteğe bağlı yap',
+            'email_optional_help' => 'Etkinleştirildiğinde, ziyaretçiler e-posta adresi vermeden yorum gönderebilir.',
             'show_website_field' => 'Yorum formunda web sitesi alanını göster',
             'show_website_field_help' => 'Devre dışı bırakıldığında web sitesi alanı, herkese açık yorum formundan gizlenecektir.',
             'default_avatar' => 'Varsayılan avatar',
-            'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
+            'default_avatar_helper' => 'Yazarın avatarı olmadığında kullanılacak varsayılan avatar. Herhangi bir resim seçmezseniz, seçilen avatar sağlayıcısı kullanılarak oluşturulacaktır. Resim boyutu 150x150px olmalıdır.',
+            'allow_author_delete' => 'Yazarların kendi yorumlarını silmesine izin ver',
+            'allow_author_delete_help' => 'Etkinleştirildiğinde, giriş yapmış kullanıcılar kendi yorumlarını silebilir.',
+            'primary_color' => 'Birincil renk',
+            'primary_color_helper' => 'Düğmeler, onay kutuları ve rozetler için birincil renk. Temanın birincil rengini kullanmak için boş bırakın.',
+            'primary_color_hover' => 'Birincil vurgu rengi',
+            'primary_color_hover_helper' => 'Düğmeler için vurgu rengi. Birincil rengin daha koyu bir tonunu kullanmak için boş bırakın.',
         ],
     ],
 ];

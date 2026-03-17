@@ -41,6 +41,8 @@ return [
             'reply_to' => 'Atsakyti :name',
             'cancel_reply' => 'Atšaukti atsakymą',
             'waiting_for_approval_message' => 'Jūsų komentaras laukia patvirtinimo. Tai peržiūra, jūsų komentaras bus matomas po patvirtinimo.',
+            'delete' => 'Ištrinti',
+            'delete_confirm' => 'Ar tikrai norite ištrinti šį komentarą?',
         ],
 
         'form' => [
@@ -55,6 +57,8 @@ return [
 
         'comment_success_message' => 'Jūsų komentaras sėkmingai išsiųstas.',
         'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
+        'comment_deleted_message' => 'Jūsų komentaras sėkmingai ištrintas.',
+        'delete_not_authorized' => 'Jūs neturite leidimo ištrinti šio komentaro.',
     ],
 
     'enums' => [
@@ -66,9 +70,45 @@ return [
         ],
     ],
 
+    'email_templates' => [
+        'admin_new_comment_title' => 'Gautas naujas komentaras',
+        'admin_new_comment_message' => ':comment_name paliko naują komentarą',
+        'comment_reply_title' => 'Naujas atsakymas į jūsų komentarą',
+        'comment_reply_message' => ':reply_name atsakė į jūsų komentarą',
+        'commented_on' => 'Komentuota',
+        'view_comment' => 'Peržiūrėti komentarą',
+    ],
+
     'settings' => [
         'title' => 'FOB Comment',
         'description' => 'Konfigūruoti FOB Comment nustatymus',
+
+        'email' => [
+            'templates' => [
+                'title' => 'Komentaras',
+                'description' => 'El. pašto šablonai komentarų pranešimams',
+                'admin_new_comment' => [
+                    'title' => 'Administratoriaus pranešimas apie naują komentarą',
+                    'description' => 'Siųsti el. laišką administratoriui, kai paskelbtas naujas komentaras',
+                    'subject' => 'Naujas komentaras {{ site_title }}',
+                    'comment_name_description' => 'Komentaro autoriaus vardas',
+                    'comment_email_description' => 'Komentaro autoriaus el. paštas',
+                    'comment_content_description' => 'Komentaro turinys',
+                    'comment_reference_description' => 'Puslapis/įrašas, kurį komentuojama',
+                    'comment_url_description' => 'URL komentarui peržiūrėti',
+                ],
+                'comment_reply' => [
+                    'title' => 'Pranešti komentuotojui apie atsakymą',
+                    'description' => 'Siųsti el. laišką komentuotojui, kai kas nors atsako į jo komentarą',
+                    'subject' => 'Naujas atsakymas į jūsų komentarą {{ site_title }}',
+                    'comment_name_description' => 'Pradinio komentuotojo vardas',
+                    'reply_name_description' => 'Atsakymo autoriaus vardas',
+                    'reply_content_description' => 'Atsakymo turinys',
+                    'comment_reference_description' => 'Puslapis/įrašas, kurį komentuojama',
+                    'comment_url_description' => 'URL komentarui peržiūrėti',
+                ],
+            ],
+        ],
 
         'form' => [
             'enable_recaptcha' => 'Įjungti reCAPTCHA',
@@ -106,6 +146,12 @@ return [
             'show_website_field_help' => 'Kai išjungta, svetainės laukas bus paslėptas viešojoje komentaro formoje.',
             'default_avatar' => 'Numatytasis avataras',
             'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
+            'allow_author_delete' => 'Leisti autoriams ištrinti savo komentarus',
+            'allow_author_delete_help' => 'Kai įjungta, prisijungę vartotojai gali ištrinti savo komentarus.',
+            'primary_color' => 'Pagrindinė spalva',
+            'primary_color_helper' => 'Pagrindinė spalva mygtukams, žymimąjams laukeliams ir ženkleliams. Palikite tuščią, kad naudotumėte temos pagrindinę spalvą.',
+            'primary_color_hover' => 'Pagrindinė „hover" spalva',
+            'primary_color_hover_helper' => '„Hover" spalva mygtukams. Palikite tuščią, kad naudotumėte tamsesnį pagrindinės spalvos atspalvį.',
         ],
     ],
 ];

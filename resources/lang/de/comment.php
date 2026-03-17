@@ -40,6 +40,8 @@ return [
             'reply' => 'Antworten',
             'reply_to' => 'Antwort an :name',
             'cancel_reply' => 'Antwort abbrechen',
+            'delete' => 'Löschen',
+            'delete_confirm' => 'Sind Sie sicher, dass Sie diesen Kommentar löschen möchten?',
             'waiting_for_approval_message' => 'Ihr Kommentar wartet auf Moderation. Dies ist eine Vorschau, Ihr Kommentar wird nach der Genehmigung sichtbar.',
         ],
 
@@ -55,6 +57,8 @@ return [
 
         'comment_success_message' => 'Ihr Kommentar wurde erfolgreich gesendet.',
         'rate_limit_error' => 'Sie kommentieren zu schnell. Bitte warten Sie :seconds Sekunden, bevor Sie einen weiteren Kommentar posten.',
+        'comment_deleted_message' => 'Ihr Kommentar wurde erfolgreich gelöscht.',
+        'delete_not_authorized' => 'Sie sind nicht berechtigt, diesen Kommentar zu löschen.',
     ],
 
     'enums' => [
@@ -66,9 +70,45 @@ return [
         ],
     ],
 
+    'email_templates' => [
+        'admin_new_comment_title' => 'Neuer Kommentar eingegangen',
+        'admin_new_comment_message' => ':comment_name hat einen neuen Kommentar hinterlassen',
+        'comment_reply_title' => 'Neue Antwort auf Ihren Kommentar',
+        'comment_reply_message' => ':reply_name hat auf Ihren Kommentar geantwortet',
+        'commented_on' => 'Kommentiert auf',
+        'view_comment' => 'Kommentar anzeigen',
+    ],
+
     'settings' => [
         'title' => 'FOB Comment',
         'description' => 'Einstellungen für FOB Comment konfigurieren',
+
+        'email' => [
+            'templates' => [
+                'title' => 'Kommentar',
+                'description' => 'E-Mail-Vorlagen für Kommentar-Benachrichtigungen',
+                'admin_new_comment' => [
+                    'title' => 'Admin-Benachrichtigung für neuen Kommentar',
+                    'description' => 'E-Mail an Admin senden, wenn ein neuer Kommentar gepostet wird',
+                    'subject' => 'Neuer Kommentar auf {{ site_title }}',
+                    'comment_name_description' => 'Name des Kommentarautors',
+                    'comment_email_description' => 'E-Mail des Kommentarautors',
+                    'comment_content_description' => 'Kommentarinhalt',
+                    'comment_reference_description' => 'Die kommentierte Seite/der Beitrag',
+                    'comment_url_description' => 'URL zum Anzeigen des Kommentars',
+                ],
+                'comment_reply' => [
+                    'title' => 'Kommentator über Antwort benachrichtigen',
+                    'description' => 'E-Mail an Kommentator senden, wenn jemand auf seinen Kommentar antwortet',
+                    'subject' => 'Neue Antwort auf Ihren Kommentar auf {{ site_title }}',
+                    'comment_name_description' => 'Name des ursprünglichen Kommentators',
+                    'reply_name_description' => 'Name des Antwortautors',
+                    'reply_content_description' => 'Inhalt der Antwort',
+                    'comment_reference_description' => 'Die kommentierte Seite/der Beitrag',
+                    'comment_url_description' => 'URL zum Anzeigen des Kommentars',
+                ],
+            ],
+        ],
 
         'form' => [
             'enable_recaptcha' => 'reCAPTCHA aktivieren',
@@ -106,6 +146,12 @@ return [
             ],
             'default_avatar' => 'Standard-Avatar',
             'default_avatar_helper' => 'Standard-Avatar für den Autor, wenn er keinen Avatar hat. Wenn Sie kein Bild auswählen, wird es mit dem ausgewählten Avatar-Anbieter generiert. Die Bildgröße sollte 150x150px betragen.',
+            'allow_author_delete' => 'Autoren erlauben, ihre Kommentare zu löschen',
+            'allow_author_delete_help' => 'Wenn aktiviert, können angemeldete Benutzer ihre eigenen Kommentare löschen.',
+            'primary_color' => 'Primärfarbe',
+            'primary_color_helper' => 'Primärfarbe für Schaltflächen, Kontrollkästchen und Abzeichen. Leer lassen, um die Primärfarbe des Themes zu verwenden.',
+            'primary_color_hover' => 'Primäre Hover-Farbe',
+            'primary_color_hover_helper' => 'Hover-Farbe für Schaltflächen. Leer lassen, um einen dunkleren Ton der Primärfarbe zu verwenden.',
         ],
     ],
 ];

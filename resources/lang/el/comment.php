@@ -41,6 +41,8 @@ return [
             'reply_to' => 'Απάντηση στον :name',
             'cancel_reply' => 'Ακύρωση απάντησης',
             'waiting_for_approval_message' => 'Το σχόλιό σας αναμένει έγκριση. Αυτή είναι μια προεπισκόπηση, το σχόλιό σας θα είναι ορατό μετά την έγκριση.',
+            'delete' => 'Διαγραφή',
+            'delete_confirm' => 'Είστε σίγουροι ότι θέλετε να διαγράψετε αυτό το σχόλιο;',
         ],
 
         'form' => [
@@ -54,7 +56,9 @@ return [
         ],
 
         'comment_success_message' => 'Το σχόλιό σας υποβλήθηκε επιτυχώς.',
-        'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
+        'rate_limit_error' => 'Σχολιάζετε πολύ γρήγορα. Περιμένετε :seconds δευτερόλεπτα πριν δημοσιεύσετε άλλο σχόλιο.',
+        'comment_deleted_message' => 'Το σχόλιό σας διαγράφηκε επιτυχώς.',
+        'delete_not_authorized' => 'Δεν έχετε εξουσιοδότηση να διαγράψετε αυτό το σχόλιο.',
     ],
 
     'enums' => [
@@ -66,9 +70,45 @@ return [
         ],
     ],
 
+    'email_templates' => [
+        'admin_new_comment_title' => 'Ελήφθη νέο σχόλιο',
+        'admin_new_comment_message' => 'Ο :comment_name άφησε ένα νέο σχόλιο',
+        'comment_reply_title' => 'Νέα απάντηση στο σχόλιό σας',
+        'comment_reply_message' => 'Ο :reply_name απάντησε στο σχόλιό σας',
+        'commented_on' => 'Σχολίασε στο',
+        'view_comment' => 'Προβολή σχολίου',
+    ],
+
     'settings' => [
         'title' => 'FOB Comment',
         'description' => 'Διαμόρφωση ρυθμίσεων για το FOB Comment',
+
+        'email' => [
+            'templates' => [
+                'title' => 'Σχόλιο',
+                'description' => 'Πρότυπα email για ειδοποιήσεις σχολίων',
+                'admin_new_comment' => [
+                    'title' => 'Ειδοποίηση διαχειριστή για νέο σχόλιο',
+                    'description' => 'Αποστολή email στον διαχειριστή όταν δημοσιευτεί νέο σχόλιο',
+                    'subject' => 'Νέο σχόλιο στο {{ site_title }}',
+                    'comment_name_description' => 'Όνομα συγγραφέα σχολίου',
+                    'comment_email_description' => 'Email συγγραφέα σχολίου',
+                    'comment_content_description' => 'Περιεχόμενο σχολίου',
+                    'comment_reference_description' => 'Η σελίδα/ανάρτηση στην οποία σχολιάστηκε',
+                    'comment_url_description' => 'URL για προβολή του σχολίου',
+                ],
+                'comment_reply' => [
+                    'title' => 'Ειδοποίηση σχολιαστή για απάντηση',
+                    'description' => 'Αποστολή email στον σχολιαστή όταν κάποιος απαντήσει στο σχόλιό του',
+                    'subject' => 'Νέα απάντηση στο σχόλιό σας στο {{ site_title }}',
+                    'comment_name_description' => 'Όνομα αρχικού σχολιαστή',
+                    'reply_name_description' => 'Όνομα συγγραφέα απάντησης',
+                    'reply_content_description' => 'Περιεχόμενο απάντησης',
+                    'comment_reference_description' => 'Η σελίδα/ανάρτηση στην οποία σχολιάστηκε',
+                    'comment_url_description' => 'URL για προβολή του σχολίου',
+                ],
+            ],
+        ],
 
         'form' => [
             'enable_recaptcha' => 'Ενεργοποίηση reCAPTCHA',
@@ -78,10 +118,10 @@ return [
             'disable_guest_comment_help' => 'Όταν είναι ενεργοποιημένο, οι χρήστες πρέπει να είναι συνδεδεμένοι για να δημοσιεύσουν σχόλια. Αυτό βοηθά στη μείωση των ανεπιθύμητων σχολίων.',
             'comment_moderation' => 'Τα σχόλια πρέπει να εγκριθούν χειροκίνητα',
             'comment_moderation_help' => 'Όλα τα σχόλια πρέπει να εγκριθούν χειροκίνητα από έναν διαχειριστή πριν εμφανιστούν στο frontend.',
-            'rate_limit_seconds' => 'Rate limit (seconds)',
-            'rate_limit_seconds_help' => 'Minimum time in seconds between comments from the same user. Set to 0 to disable rate limiting.',
+            'rate_limit_seconds' => 'Όριο ρυθμού (δευτερόλεπτα)',
+            'rate_limit_seconds_help' => 'Ελάχιστος χρόνος σε δευτερόλεπτα μεταξύ σχολίων από τον ίδιο χρήστη. Ορίστε σε 0 για απενεργοποίηση του ορίου ρυθμού.',
             'show_comment_cookie_consent' => 'Εμφάνιση πλαισίου ελέγχου cookies σχολίων, επιτρέποντας στους επισκέπτες να αποθηκεύσουν τις πληροφορίες τους στον φυλλομετρητή',
-            'show_comment_cookie_consent_help' => 'When enabled, visitors can save their name, email, and website in their browser for future comments.',
+            'show_comment_cookie_consent_help' => 'Όταν είναι ενεργοποιημένο, οι επισκέπτες μπορούν να αποθηκεύσουν το όνομα, το email και τον ιστότοπό τους στον φυλλομετρητή για μελλοντικά σχόλια.',
             'auto_fill_comment_form' => 'Αυτόματη συμπλήρωση δεδομένων σχολίου για συνδεδεμένους χρήστες',
             'auto_fill_comment_form_help' => 'Η φόρμα σχολίου θα συμπληρωθεί αυτόματα με δεδομένα χρήστη όπως πλήρες όνομα, email κλπ., εάν είναι συνδεδεμένοι.',
             'comment_order' => 'Ταξινόμηση σχολίων κατά',
@@ -91,21 +131,27 @@ return [
                 'desc' => 'Νεότερα',
             ],
             'display_admin_badge' => 'Εμφάνιση σήματος διαχειριστή για σχόλια διαχειριστών',
-            'display_admin_badge_help' => 'When enabled, comments from admins will show an "Admin" badge next to their name.',
+            'display_admin_badge_help' => 'Όταν είναι ενεργοποιημένο, τα σχόλια από διαχειριστές θα εμφανίζουν σήμα "Διαχειριστής" δίπλα στο όνομά τους.',
             'show_admin_role_name_for_admin_badge' => 'Εμφάνιση ονόματος ρόλου διαχειριστή για το σήμα διαχειριστή',
             'show_admin_role_name_for_admin_badge_helper' => 'Εάν ενεργοποιηθεί, το σήμα διαχειριστή θα εμφανίζει το όνομα ρόλου διαχειριστή αντί του προεπιλεγμένου κειμένου "Διαχειριστής". Εάν το όνομα ρόλου διαχειριστή είναι κενό, θα χρησιμοποιηθεί το προεπιλεγμένο κείμενο. Εάν ο χρήστης έχει πολλούς ρόλους, θα χρησιμοποιηθεί ο πρώτος ρόλος.',
-            'avatar_provider' => 'Avatar provider',
-            'avatar_provider_help' => 'Choose how to generate avatars for comments. Gravatar requires email, UI Avatars generates based on name.',
+            'avatar_provider' => 'Πάροχος avatar',
+            'avatar_provider_help' => 'Επιλέξτε τον τρόπο δημιουργίας avatar για σχόλια. Το Gravatar απαιτεί email, το UI Avatars δημιουργεί βάσει ονόματος.',
             'avatar_provider_choices' => [
-                'gravatar' => 'Gravatar (Email-based)',
-                'ui_avatars' => 'UI Avatars (Name-based)',
+                'gravatar' => 'Gravatar (βάσει email)',
+                'ui_avatars' => 'UI Avatars (βάσει ονόματος)',
             ],
-            'email_optional' => 'Make email field optional',
-            'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
+            'email_optional' => 'Κάντε το πεδίο email προαιρετικό',
+            'email_optional_help' => 'Όταν είναι ενεργοποιημένο, οι επισκέπτες μπορούν να υποβάλουν σχόλια χωρίς να παρέχουν διεύθυνση email.',
             'show_website_field' => 'Εμφάνιση πεδίου ιστοσελίδας στη φόρμα σχολίων',
             'show_website_field_help' => 'Όταν απενεργοποιηθεί, το πεδίο ιστοσελίδας θα κρυφτεί από τη δημόσια φόρμα σχολίων.',
             'default_avatar' => 'Προεπιλεγμένο avatar',
-            'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
+            'default_avatar_helper' => 'Προεπιλεγμένο avatar για τον συγγραφέα όταν δεν έχει avatar. Εάν δεν επιλέξετε εικόνα, θα δημιουργηθεί χρησιμοποιώντας τον επιλεγμένο πάροχο avatar. Το μέγεθος εικόνας πρέπει να είναι 150x150px.',
+            'allow_author_delete' => 'Επιτρέψτε στους συγγραφείς να διαγράφουν τα σχόλιά τους',
+            'allow_author_delete_help' => 'Όταν είναι ενεργοποιημένο, οι συνδεδεμένοι χρήστες μπορούν να διαγράφουν τα δικά τους σχόλια.',
+            'primary_color' => 'Κύριο χρώμα',
+            'primary_color_helper' => 'Κύριο χρώμα για κουμπιά, πλαίσια ελέγχου και σήματα. Αφήστε κενό για χρήση του κύριου χρώματος θέματος.',
+            'primary_color_hover' => 'Κύριο χρώμα εναλλαγής',
+            'primary_color_hover_helper' => 'Χρώμα εναλλαγής για κουμπιά. Αφήστε κενό για χρήση πιο σκούρας απόχρωσης του κύριου χρώματος.',
         ],
     ],
 ];

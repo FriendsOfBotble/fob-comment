@@ -2,6 +2,7 @@
 
 namespace FriendsOfBotble\Comment\Http\Requests\Settings;
 
+use Botble\Base\Rules\ColorRule;
 use Botble\Base\Rules\MediaImageRule;
 use Botble\Base\Rules\OnOffRule;
 use Botble\Support\Http\Requests\Request;
@@ -25,8 +26,8 @@ class CommentSettingRequest extends Request
             'fob_comment_avatar_provider' => ['required', 'in:gravatar,ui_avatars'],
             'fob_comment_default_avatar' => ['nullable', new MediaImageRule()],
             'fob_comment_allow_author_delete' => [$onOffRule],
-            'fob_comment_primary_color' => ['nullable', 'string', 'max:20'],
-            'fob_comment_primary_color_hover' => ['nullable', 'string', 'max:20'],
+            'fob_comment_primary_color' => ['nullable', new ColorRule()],
+            'fob_comment_primary_color_hover' => ['nullable', new ColorRule()],
         ];
     }
 }

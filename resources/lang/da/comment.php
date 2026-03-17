@@ -41,6 +41,8 @@ return [
             'reply_to' => 'Svar til :name',
             'cancel_reply' => 'Annuller svar',
             'waiting_for_approval_message' => 'Din kommentar afventer godkendelse. Dette er en forhåndsvisning, din kommentar vil være synlig efter godkendelse.',
+            'delete' => 'Slet',
+            'delete_confirm' => 'Er du sikker på, at du vil slette denne kommentar?',
         ],
 
         'form' => [
@@ -54,7 +56,9 @@ return [
         ],
 
         'comment_success_message' => 'Din kommentar er blevet sendt.',
-        'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
+        'rate_limit_error' => 'Du kommenterer for hurtigt. Vent venligst :seconds sekunder, inden du poster endnu en kommentar.',
+        'comment_deleted_message' => 'Din kommentar er blevet slettet.',
+        'delete_not_authorized' => 'Du har ikke tilladelse til at slette denne kommentar.',
     ],
 
     'enums' => [
@@ -66,9 +70,45 @@ return [
         ],
     ],
 
+    'email_templates' => [
+        'admin_new_comment_title' => 'Ny kommentar modtaget',
+        'admin_new_comment_message' => ':comment_name har skrevet en ny kommentar',
+        'comment_reply_title' => 'Nyt svar på din kommentar',
+        'comment_reply_message' => ':reply_name svarede på din kommentar',
+        'commented_on' => 'Kommenterede på',
+        'view_comment' => 'Se kommentar',
+    ],
+
     'settings' => [
         'title' => 'FOB Comment',
         'description' => 'Konfigurer indstillinger for FOB Comment',
+
+        'email' => [
+            'templates' => [
+                'title' => 'Kommentar',
+                'description' => 'E-mailskabeloner til kommentarnotifikationer',
+                'admin_new_comment' => [
+                    'title' => 'Administratornotifikation for ny kommentar',
+                    'description' => 'Send e-mail til administrator, når en ny kommentar er oprettet',
+                    'subject' => 'Ny kommentar på {{ site_title }}',
+                    'comment_name_description' => 'Kommentarforfatterens navn',
+                    'comment_email_description' => 'Kommentarforfatterens e-mail',
+                    'comment_content_description' => 'Kommentarens indhold',
+                    'comment_reference_description' => 'Den side/indlæg der er kommenteret på',
+                    'comment_url_description' => 'URL til visning af kommentaren',
+                ],
+                'comment_reply' => [
+                    'title' => 'Notificer kommentator om svar',
+                    'description' => 'Send e-mail til kommentator, når nogen svarer på deres kommentar',
+                    'subject' => 'Nyt svar på din kommentar på {{ site_title }}',
+                    'comment_name_description' => 'Oprindelig kommentators navn',
+                    'reply_name_description' => 'Svarforfatterens navn',
+                    'reply_content_description' => 'Svarets indhold',
+                    'comment_reference_description' => 'Den side/indlæg der er kommenteret på',
+                    'comment_url_description' => 'URL til visning af kommentaren',
+                ],
+            ],
+        ],
 
         'form' => [
             'enable_recaptcha' => 'Aktiver reCAPTCHA',
@@ -78,10 +118,10 @@ return [
             'disable_guest_comment_help' => 'Når aktiveret skal brugere være logget ind for at skrive kommentarer. Dette hjælper med at reducere spam-kommentarer.',
             'comment_moderation' => 'Kommentarer skal godkendes manuelt',
             'comment_moderation_help' => 'Alle kommentarer skal godkendes manuelt af en administrator før de vises på hjemmesiden.',
-            'rate_limit_seconds' => 'Rate limit (seconds)',
-            'rate_limit_seconds_help' => 'Minimum time in seconds between comments from the same user. Set to 0 to disable rate limiting.',
+            'rate_limit_seconds' => 'Hastighedsbegrænsning (sekunder)',
+            'rate_limit_seconds_help' => 'Minimum tid i sekunder mellem kommentarer fra samme bruger. Indstil til 0 for at deaktivere hastighedsbegrænsning.',
             'show_comment_cookie_consent' => 'Vis afkrydsningsfelt for kommentar-cookies, som tillader besøgende at gemme deres oplysninger i browseren',
-            'show_comment_cookie_consent_help' => 'When enabled, visitors can save their name, email, and website in their browser for future comments.',
+            'show_comment_cookie_consent_help' => 'Når aktiveret kan besøgende gemme deres navn, e-mail og hjemmeside i browseren til fremtidige kommentarer.',
             'auto_fill_comment_form' => 'Udfyld automatisk kommentardata for indloggede brugere',
             'auto_fill_comment_form_help' => 'Kommentarformularen udfyldes automatisk med brugerdata som fuldt navn, e-mail osv., hvis de er logget ind.',
             'comment_order' => 'Sorter kommentarer efter',
@@ -91,7 +131,7 @@ return [
                 'desc' => 'Nyeste',
             ],
             'display_admin_badge' => 'Vis administratormærke for administratorkommentarer',
-            'display_admin_badge_help' => 'When enabled, comments from admins will show an "Admin" badge next to their name.',
+            'display_admin_badge_help' => 'Når aktiveret vil kommentarer fra administratorer vise et "Admin"-mærke ved siden af deres navn.',
             'show_admin_role_name_for_admin_badge' => 'Vis administratorrollenavn for administratormærket',
             'show_admin_role_name_for_admin_badge_helper' => 'Hvis aktiveret, vil administratormærket vise administratorrollenavnet i stedet for standardteksten "Admin". Hvis administratorrollenavnet er tomt, bruges standardteksten. Hvis brugeren har flere roller, bruges den første rolle.',
             'avatar_provider' => 'Avatar-udbyder',
@@ -106,6 +146,12 @@ return [
             'show_website_field_help' => 'Når den er deaktiveret, skjules website-feltet i den offentlige kommentarsformular.',
             'default_avatar' => 'Standard avatar',
             'default_avatar_helper' => 'Standard avatar for forfatteren, når de ikke har en avatar. Hvis du ikke vælger et billede, genereres det ved hjælp af den valgte avatar-udbyder. Billedstørrelsen skal være 150x150px.',
+            'allow_author_delete' => 'Tillad forfattere at slette deres kommentarer',
+            'allow_author_delete_help' => 'Når aktiveret, kan indloggede brugere slette deres egne kommentarer.',
+            'primary_color' => 'Primærfarve',
+            'primary_color_helper' => 'Primærfarve til knapper, afkrydsningsfelter og mærker. Lad feltet være tomt for at bruge temaets primærfarve.',
+            'primary_color_hover' => 'Primær hoverfarve',
+            'primary_color_hover_helper' => 'Hoverfarve til knapper. Lad feltet være tomt for at bruge en mørkere nuance af primærfarven.',
         ],
     ],
 ];

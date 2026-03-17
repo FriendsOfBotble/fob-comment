@@ -41,6 +41,8 @@ return [
             'reply_to' => 'Odpovedať :name',
             'cancel_reply' => 'Zrušiť odpoveď',
             'waiting_for_approval_message' => 'Váš komentár čaká na schválenie. Toto je náhľad, váš komentár bude viditeľný po schválení.',
+            'delete' => 'Vymazať',
+            'delete_confirm' => 'Naozaj chcete vymazať tento komentár?',
         ],
 
         'form' => [
@@ -55,6 +57,8 @@ return [
 
         'comment_success_message' => 'Váš komentár bol úspešne odoslaný.',
         'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
+        'comment_deleted_message' => 'Váš komentár bol úspešne vymazaný.',
+        'delete_not_authorized' => 'Nemáte oprávnenie vymazať tento komentár.',
     ],
 
     'enums' => [
@@ -66,9 +70,45 @@ return [
         ],
     ],
 
+    'email_templates' => [
+        'admin_new_comment_title' => 'Prijatý nový komentár',
+        'admin_new_comment_message' => ':comment_name zanechal nový komentár',
+        'comment_reply_title' => 'Nová odpoveď na váš komentár',
+        'comment_reply_message' => ':reply_name odpovedal na váš komentár',
+        'commented_on' => 'Komentoval na',
+        'view_comment' => 'Zobraziť komentár',
+    ],
+
     'settings' => [
         'title' => 'FOB Comment',
         'description' => 'Konfigurácia nastavení pre FOB Comment',
+
+        'email' => [
+            'templates' => [
+                'title' => 'Komentár',
+                'description' => 'E-mailové šablóny pre oznámenia o komentároch',
+                'admin_new_comment' => [
+                    'title' => 'Oznámenie správcu o novom komentári',
+                    'description' => 'Odoslať e-mail správcovi, keď je pridaný nový komentár',
+                    'subject' => 'Nový komentár na {{ site_title }}',
+                    'comment_name_description' => 'Meno autora komentára',
+                    'comment_email_description' => 'E-mail autora komentára',
+                    'comment_content_description' => 'Obsah komentára',
+                    'comment_reference_description' => 'Stránka/príspevok, ku ktorému bol komentár pridaný',
+                    'comment_url_description' => 'URL na zobrazenie komentára',
+                ],
+                'comment_reply' => [
+                    'title' => 'Notifikovať komentujúceho o odpovedi',
+                    'description' => 'Odoslať e-mail komentujúcemu, keď niekto odpovie na jeho komentár',
+                    'subject' => 'Nová odpoveď na váš komentár na {{ site_title }}',
+                    'comment_name_description' => 'Meno pôvodného komentujúceho',
+                    'reply_name_description' => 'Meno autora odpovede',
+                    'reply_content_description' => 'Obsah odpovede',
+                    'comment_reference_description' => 'Stránka/príspevok, ku ktorému bol komentár pridaný',
+                    'comment_url_description' => 'URL na zobrazenie komentára',
+                ],
+            ],
+        ],
 
         'form' => [
             'enable_recaptcha' => 'Povoliť reCAPTCHA',
@@ -106,6 +146,12 @@ return [
             'show_website_field_help' => 'Keď je vypnuté, pole webu bude skryté z verejného formulára komentárov.',
             'default_avatar' => 'Predvolený avatar',
             'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
+            'allow_author_delete' => 'Povoliť autorom vymazávať svoje komentáre',
+            'allow_author_delete_help' => 'Keď je povolené, prihlásení používatelia môžu vymazávať svoje vlastné komentáre.',
+            'primary_color' => 'Primárna farba',
+            'primary_color_helper' => 'Primárna farba pre tlačidlá, zaškrtávacie políčka a odznaky. Nechajte prázdne, aby ste použili primárnu farbu témy.',
+            'primary_color_hover' => 'Primárna farba pri prechode',
+            'primary_color_hover_helper' => 'Farba pri prechode pre tlačidlá. Nechajte prázdne, aby ste použili tmavší odtieň primárnej farby.',
         ],
     ],
 ];

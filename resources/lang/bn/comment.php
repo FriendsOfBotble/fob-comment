@@ -41,6 +41,8 @@ return [
             'reply_to' => ':name কে উত্তর দিন',
             'cancel_reply' => 'উত্তর বাতিল করুন',
             'waiting_for_approval_message' => 'আপনার মন্তব্য অনুমোদনের অপেক্ষায় রয়েছে। এটি একটি পূর্বরূপ, অনুমোদনের পরে আপনার মন্তব্য দৃশ্যমান হবে।',
+            'delete' => 'মুছুন',
+            'delete_confirm' => 'আপনি কি নিশ্চিত যে এই মন্তব্যটি মুছতে চান?',
         ],
 
         'form' => [
@@ -54,7 +56,9 @@ return [
         ],
 
         'comment_success_message' => 'আপনার মন্তব্য সফলভাবে পাঠানো হয়েছে।',
-        'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
+        'rate_limit_error' => 'আপনি খুব দ্রুত মন্তব্য করছেন। আরেকটি মন্তব্য পোস্ট করার আগে :seconds সেকেন্ড অপেক্ষা করুন।',
+        'comment_deleted_message' => 'আপনার মন্তব্য সফলভাবে মুছে ফেলা হয়েছে।',
+        'delete_not_authorized' => 'এই মন্তব্যটি মুছতে আপনি অনুমোদিত নন।',
     ],
 
     'enums' => [
@@ -66,9 +70,45 @@ return [
         ],
     ],
 
+    'email_templates' => [
+        'admin_new_comment_title' => 'নতুন মন্তব্য পাওয়া গেছে',
+        'admin_new_comment_message' => ':comment_name একটি নতুন মন্তব্য করেছেন',
+        'comment_reply_title' => 'আপনার মন্তব্যে নতুন উত্তর',
+        'comment_reply_message' => ':reply_name আপনার মন্তব্যে উত্তর দিয়েছেন',
+        'commented_on' => 'মন্তব্য করেছেন',
+        'view_comment' => 'মন্তব্য দেখুন',
+    ],
+
     'settings' => [
         'title' => 'FOB Comment',
         'description' => 'FOB Comment এর জন্য সেটিংস কনফিগার করুন',
+
+        'email' => [
+            'templates' => [
+                'title' => 'মন্তব্য',
+                'description' => 'মন্তব্য বিজ্ঞপ্তির জন্য ইমেইল টেমপ্লেট',
+                'admin_new_comment' => [
+                    'title' => 'নতুন মন্তব্যের জন্য অ্যাডমিন বিজ্ঞপ্তি',
+                    'description' => 'নতুন মন্তব্য পোস্ট হলে অ্যাডমিনকে ইমেইল পাঠান',
+                    'subject' => '{{ site_title }}-এ নতুন মন্তব্য',
+                    'comment_name_description' => 'মন্তব্যকারীর নাম',
+                    'comment_email_description' => 'মন্তব্যকারীর ইমেইল',
+                    'comment_content_description' => 'মন্তব্যের বিষয়বস্তু',
+                    'comment_reference_description' => 'যে পেজ/পোস্টে মন্তব্য করা হয়েছে',
+                    'comment_url_description' => 'মন্তব্য দেখার URL',
+                ],
+                'comment_reply' => [
+                    'title' => 'উত্তরের জন্য মন্তব্যকারীকে বিজ্ঞপ্তি',
+                    'description' => 'কেউ উত্তর দিলে মন্তব্যকারীকে ইমেইল পাঠান',
+                    'subject' => '{{ site_title }}-এ আপনার মন্তব্যে নতুন উত্তর',
+                    'comment_name_description' => 'মূল মন্তব্যকারীর নাম',
+                    'reply_name_description' => 'উত্তরদাতার নাম',
+                    'reply_content_description' => 'উত্তরের বিষয়বস্তু',
+                    'comment_reference_description' => 'যে পেজ/পোস্টে মন্তব্য করা হয়েছে',
+                    'comment_url_description' => 'মন্তব্য দেখার URL',
+                ],
+            ],
+        ],
 
         'form' => [
             'enable_recaptcha' => 'reCAPTCHA সক্রিয় করুন',
@@ -78,10 +118,10 @@ return [
             'disable_guest_comment_help' => 'সক্রিয় করা হলে, ব্যবহারকারীদের মন্তব্য পোস্ট করতে লগ ইন করতে হবে। এটি স্প্যাম মন্তব্য কমাতে সাহায্য করে।',
             'comment_moderation' => 'মন্তব্যগুলি ম্যানুয়ালি অনুমোদিত হতে হবে',
             'comment_moderation_help' => 'ফ্রন্টএন্ডে প্রদর্শনের আগে সমস্ত মন্তব্য একজন অ্যাডমিন দ্বারা ম্যানুয়ালি অনুমোদিত হতে হবে।',
-            'rate_limit_seconds' => 'Rate limit (seconds)',
-            'rate_limit_seconds_help' => 'Minimum time in seconds between comments from the same user. Set to 0 to disable rate limiting.',
+            'rate_limit_seconds' => 'রেট সীমা (সেকেন্ড)',
+            'rate_limit_seconds_help' => 'একই ব্যবহারকারীর মন্তব্যের মধ্যে ন্যূনতম সময় সেকেন্ডে। রেট সীমা নিষ্ক্রিয় করতে 0 সেট করুন।',
             'show_comment_cookie_consent' => 'মন্তব্য কুকিজ চেকবক্স দেখান, যা দর্শকদের ব্রাউজারে তাদের তথ্য সংরক্ষণ করতে দেয়',
-            'show_comment_cookie_consent_help' => 'When enabled, visitors can save their name, email, and website in their browser for future comments.',
+            'show_comment_cookie_consent_help' => 'সক্রিয় করা হলে, দর্শকরা ভবিষ্যতের মন্তব্যের জন্য তাদের নাম, ইমেইল এবং ওয়েবসাইট ব্রাউজারে সংরক্ষণ করতে পারবেন।',
             'auto_fill_comment_form' => 'লগ-ইন করা ব্যবহারকারীদের জন্য মন্তব্য ডেটা স্বয়ংক্রিয়ভাবে পূরণ করুন',
             'auto_fill_comment_form_help' => 'যদি তারা লগ ইন করা থাকে তবে মন্তব্য ফর্মটি স্বয়ংক্রিয়ভাবে ব্যবহারকারীর ডেটা যেমন পূর্ণ নাম, ইমেইল ইত্যাদি দিয়ে পূরণ হবে।',
             'comment_order' => 'মন্তব্যগুলি সাজান',
@@ -91,21 +131,27 @@ return [
                 'desc' => 'নতুন',
             ],
             'display_admin_badge' => 'অ্যাডমিন মন্তব্যের জন্য অ্যাডমিন ব্যাজ প্রদর্শন করুন',
-            'display_admin_badge_help' => 'When enabled, comments from admins will show an "Admin" badge next to their name.',
+            'display_admin_badge_help' => 'সক্রিয় করা হলে, অ্যাডমিনদের মন্তব্যে তাদের নামের পাশে "অ্যাডমিন" ব্যাজ দেখানো হবে।',
             'show_admin_role_name_for_admin_badge' => 'অ্যাডমিন ব্যাজের জন্য অ্যাডমিন ভূমিকার নাম দেখান',
             'show_admin_role_name_for_admin_badge_helper' => 'যদি সক্রিয় থাকে, অ্যাডমিন ব্যাজ ডিফল্ট "অ্যাডমিন" টেক্সটের পরিবর্তে অ্যাডমিন ভূমিকার নাম প্রদর্শন করবে। যদি অ্যাডমিন ভূমিকার নাম খালি থাকে, ডিফল্ট টেক্সট ব্যবহার করা হবে। যদি ব্যবহারকারীর একাধিক ভূমিকা থাকে, প্রথম ভূমিকা ব্যবহার করা হবে।',
-            'avatar_provider' => 'Avatar provider',
-            'avatar_provider_help' => 'Choose how to generate avatars for comments. Gravatar requires email, UI Avatars generates based on name.',
+            'avatar_provider' => 'অবতার প্রদানকারী',
+            'avatar_provider_help' => 'মন্তব্যের জন্য অবতার তৈরির পদ্ধতি নির্বাচন করুন। Gravatar ইমেইল প্রয়োজন, UI Avatars নাম ভিত্তিক তৈরি করে।',
             'avatar_provider_choices' => [
-                'gravatar' => 'Gravatar (Email-based)',
-                'ui_avatars' => 'UI Avatars (Name-based)',
+                'gravatar' => 'Gravatar (ইমেইল ভিত্তিক)',
+                'ui_avatars' => 'UI Avatars (নাম ভিত্তিক)',
             ],
-            'email_optional' => 'Make email field optional',
-            'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
+            'email_optional' => 'ইমেইল ফিল্ড ঐচ্ছিক করুন',
+            'email_optional_help' => 'সক্রিয় করা হলে, দর্শকরা ইমেইল ঠিকানা না দিয়েও মন্তব্য জমা দিতে পারবেন।',
             'show_website_field' => 'মন্তব্য ফর্মে ওয়েবসাইট ফিল্ড দেখান',
             'show_website_field_help' => 'নিষ্ক্রিয় করলে, ওয়েবসাইট ফিল্ডটি পাবলিক মন্তব্য ফর্ম থেকে লুকানো থাকবে।',
             'default_avatar' => 'ডিফল্ট অবতার',
-            'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
+            'default_avatar_helper' => 'লেখকের ডিফল্ট অবতার যখন তাদের কোনো অবতার নেই। যদি কোনো ছবি না বেছে নেন, তাহলে নির্বাচিত অবতার প্রদানকারী ব্যবহার করে তৈরি হবে। ছবির আকার 150x150px হওয়া উচিত।',
+            'allow_author_delete' => 'লেখকদের তাদের মন্তব্য মুছতে দিন',
+            'allow_author_delete_help' => 'সক্রিয় করা হলে, লগ-ইন করা ব্যবহারকারীরা তাদের নিজস্ব মন্তব্য মুছতে পারবেন।',
+            'primary_color' => 'প্রাথমিক রঙ',
+            'primary_color_helper' => 'বোতাম, চেকবক্স এবং ব্যাজের জন্য প্রাথমিক রঙ। থিমের প্রাথমিক রঙ ব্যবহার করতে খালি রাখুন।',
+            'primary_color_hover' => 'প্রাথমিক হোভার রঙ',
+            'primary_color_hover_helper' => 'বোতামের জন্য হোভার রঙ। প্রাথমিক রঙের গাঢ় ছায়া ব্যবহার করতে খালি রাখুন।',
         ],
     ],
 ];

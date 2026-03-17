@@ -41,6 +41,8 @@ return [
             'reply_to' => 'ตอบกลับถึง :name',
             'cancel_reply' => 'ยกเลิกการตอบกลับ',
             'waiting_for_approval_message' => 'ความคิดเห็นของคุณรอการอนุมัติ นี่คือตัวอย่าง ความคิดเห็นของคุณจะแสดงหลังจากได้รับการอนุมัติ',
+            'delete' => 'ลบ',
+            'delete_confirm' => 'คุณแน่ใจหรือไม่ว่าต้องการลบความคิดเห็นนี้?',
         ],
 
         'form' => [
@@ -55,6 +57,8 @@ return [
 
         'comment_success_message' => 'ความคิดเห็นของคุณถูกส่งเรียบร้อยแล้ว',
         'rate_limit_error' => 'คุณแสดงความคิดเห็นเร็วเกินไป กรุณารอ :seconds วินาทีก่อนโพสต์ความคิดเห็นอื่น',
+        'comment_deleted_message' => 'ความคิดเห็นของคุณถูกลบเรียบร้อยแล้ว',
+        'delete_not_authorized' => 'คุณไม่ได้รับอนุญาตให้ลบความคิดเห็นนี้',
     ],
 
     'enums' => [
@@ -66,9 +70,45 @@ return [
         ],
     ],
 
+    'email_templates' => [
+        'admin_new_comment_title' => 'ได้รับความคิดเห็นใหม่',
+        'admin_new_comment_message' => ':comment_name ได้แสดงความคิดเห็นใหม่',
+        'comment_reply_title' => 'มีการตอบกลับความคิดเห็นของคุณ',
+        'comment_reply_message' => ':reply_name ได้ตอบกลับความคิดเห็นของคุณ',
+        'commented_on' => 'แสดงความคิดเห็นบน',
+        'view_comment' => 'ดูความคิดเห็น',
+    ],
+
     'settings' => [
         'title' => 'FOB Comment',
         'description' => 'กำหนดค่าการตั้งค่าสำหรับ FOB Comment',
+
+        'email' => [
+            'templates' => [
+                'title' => 'ความคิดเห็น',
+                'description' => 'แม่แบบอีเมลสำหรับการแจ้งเตือนความคิดเห็น',
+                'admin_new_comment' => [
+                    'title' => 'การแจ้งเตือนแอดมินสำหรับความคิดเห็นใหม่',
+                    'description' => 'ส่งอีเมลไปยังแอดมินเมื่อมีความคิดเห็นใหม่ถูกโพสต์',
+                    'subject' => 'ความคิดเห็นใหม่บน {{ site_title }}',
+                    'comment_name_description' => 'ชื่อผู้แสดงความคิดเห็น',
+                    'comment_email_description' => 'อีเมลผู้แสดงความคิดเห็น',
+                    'comment_content_description' => 'เนื้อหาความคิดเห็น',
+                    'comment_reference_description' => 'หน้า/โพสต์ที่ถูกแสดงความคิดเห็น',
+                    'comment_url_description' => 'URL สำหรับดูความคิดเห็น',
+                ],
+                'comment_reply' => [
+                    'title' => 'แจ้งเตือนผู้แสดงความคิดเห็นเมื่อมีการตอบกลับ',
+                    'description' => 'ส่งอีเมลไปยังผู้แสดงความคิดเห็นเมื่อมีคนตอบกลับ',
+                    'subject' => 'มีการตอบกลับความคิดเห็นของคุณบน {{ site_title }}',
+                    'comment_name_description' => 'ชื่อผู้แสดงความคิดเห็นเดิม',
+                    'reply_name_description' => 'ชื่อผู้ตอบกลับ',
+                    'reply_content_description' => 'เนื้อหาการตอบกลับ',
+                    'comment_reference_description' => 'หน้า/โพสต์ที่ถูกแสดงความคิดเห็น',
+                    'comment_url_description' => 'URL สำหรับดูความคิดเห็น',
+                ],
+            ],
+        ],
 
         'form' => [
             'enable_recaptcha' => 'เปิดใช้งาน reCAPTCHA',
@@ -106,6 +146,12 @@ return [
             'show_website_field_help' => 'เมื่อปิดใช้งาน ช่องเว็บไซต์จะถูกซ่อนจากแบบฟอร์มแสดงความคิดเห็นสาธารณะ',
             'default_avatar' => 'รูปประจำตัวเริ่มต้น',
             'default_avatar_helper' => 'รูปประจำตัวเริ่มต้นสำหรับผู้เขียนเมื่อไม่มีรูปประจำตัว หากคุณไม่เลือกรูปภาพใด ๆ จะถูกสร้างโดยใช้ผู้ให้บริการรูปประจำตัวที่เลือก ขนาดรูปภาพควรเป็น 150x150px',
+            'allow_author_delete' => 'อนุญาตให้ผู้เขียนลบความคิดเห็นของตนเอง',
+            'allow_author_delete_help' => 'เมื่อเปิดใช้งาน ผู้ใช้ที่เข้าสู่ระบบสามารถลบความคิดเห็นของตนเองได้',
+            'primary_color' => 'สีหลัก',
+            'primary_color_helper' => 'สีหลักสำหรับปุ่ม ช่องทำเครื่องหมาย และป้าย ปล่อยว่างเพื่อใช้สีหลักของธีม',
+            'primary_color_hover' => 'สีหลักเมื่อชี้เมาส์',
+            'primary_color_hover_helper' => 'สีเมื่อชี้เมาส์สำหรับปุ่ม ปล่อยว่างเพื่อใช้โทนสีที่เข้มกว่าของสีหลัก',
         ],
     ],
 ];

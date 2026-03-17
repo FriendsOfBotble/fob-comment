@@ -41,6 +41,8 @@ return [
             'reply_to' => 'Svar til :name',
             'cancel_reply' => 'Avbryt svar',
             'waiting_for_approval_message' => 'Kommentaren din venter på godkjenning. Dette er en forhåndsvisning, kommentaren din vil være synlig etter godkjenning.',
+            'delete' => 'Slett',
+            'delete_confirm' => 'Er du sikker på at du vil slette denne kommentaren?',
         ],
 
         'form' => [
@@ -55,6 +57,8 @@ return [
 
         'comment_success_message' => 'Kommentaren din har blitt sendt.',
         'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
+        'comment_deleted_message' => 'Kommentaren din har blitt slettet.',
+        'delete_not_authorized' => 'Du er ikke autorisert til å slette denne kommentaren.',
     ],
 
     'enums' => [
@@ -66,9 +70,45 @@ return [
         ],
     ],
 
+    'email_templates' => [
+        'admin_new_comment_title' => 'Ny kommentar mottatt',
+        'admin_new_comment_message' => ':comment_name la igjen en ny kommentar',
+        'comment_reply_title' => 'Nytt svar på kommentaren din',
+        'comment_reply_message' => ':reply_name svarte på kommentaren din',
+        'commented_on' => 'Kommenterte på',
+        'view_comment' => 'Se kommentar',
+    ],
+
     'settings' => [
         'title' => 'FOB Comment',
         'description' => 'Konfigurer innstillinger for FOB Comment',
+
+        'email' => [
+            'templates' => [
+                'title' => 'Kommentar',
+                'description' => 'E-postmaler for kommentarvarsler',
+                'admin_new_comment' => [
+                    'title' => 'Adminvarsel for ny kommentar',
+                    'description' => 'Send e-post til admin når en ny kommentar er publisert',
+                    'subject' => 'Ny kommentar på {{ site_title }}',
+                    'comment_name_description' => 'Navn på kommentarforfatter',
+                    'comment_email_description' => 'E-post til kommentarforfatter',
+                    'comment_content_description' => 'Kommentarinnhold',
+                    'comment_reference_description' => 'Siden/innlegget som kommenteres',
+                    'comment_url_description' => 'URL for å se kommentaren',
+                ],
+                'comment_reply' => [
+                    'title' => 'Varsle kommentator om svar',
+                    'description' => 'Send e-post til kommentator når noen svarer på kommentaren deres',
+                    'subject' => 'Nytt svar på kommentaren din på {{ site_title }}',
+                    'comment_name_description' => 'Navn på opprinnelig kommentator',
+                    'reply_name_description' => 'Navn på svarforfatter',
+                    'reply_content_description' => 'Svarinnhold',
+                    'comment_reference_description' => 'Siden/innlegget som kommenteres',
+                    'comment_url_description' => 'URL for å se kommentaren',
+                ],
+            ],
+        ],
 
         'form' => [
             'enable_recaptcha' => 'Aktiver reCAPTCHA',
@@ -106,6 +146,12 @@ return [
             'show_website_field_help' => 'Når den er deaktivert, skjules nettsted-feltet fra det offentlige kommentarskjemaet.',
             'default_avatar' => 'Standard avatar',
             'default_avatar_helper' => 'Standard avatar for forfatteren når de ikke har en avatar. Hvis du ikke velger noe bilde, genereres det ved hjelp av den valgte avatarleverandøren. Bildestørrelsen bør være 150x150px.',
+            'allow_author_delete' => 'La forfattere slette sine kommentarer',
+            'allow_author_delete_help' => 'Når aktivert, kan innloggede brukere slette sine egne kommentarer.',
+            'primary_color' => 'Primærfarge',
+            'primary_color_helper' => 'Primærfarge for knapper, avkrysningsbokser og merker. La stå tom for å bruke temaets primærfarge.',
+            'primary_color_hover' => 'Primær hoverfarger',
+            'primary_color_hover_helper' => 'Hoverfarge for knapper. La stå tom for å bruke en mørkere nyanse av primærfargen.',
         ],
     ],
 ];

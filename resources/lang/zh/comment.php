@@ -40,6 +40,8 @@ return [
             'reply' => '回复',
             'reply_to' => '回复 :name',
             'cancel_reply' => '取消回复',
+            'delete' => '删除',
+            'delete_confirm' => '您确定要删除此评论吗？',
             'waiting_for_approval_message' => '您的评论正在等待审核。这是预览，您的评论将在批准后显示。',
         ],
 
@@ -55,6 +57,8 @@ return [
 
         'comment_success_message' => '您的评论已成功发送。',
         'rate_limit_error' => '您评论太快了。请等待 :seconds 秒后再发表另一条评论。',
+        'comment_deleted_message' => '您的评论已成功删除。',
+        'delete_not_authorized' => '您无权删除此评论。',
     ],
 
     'enums' => [
@@ -66,9 +70,45 @@ return [
         ],
     ],
 
+    'email_templates' => [
+        'admin_new_comment_title' => '收到新评论',
+        'admin_new_comment_message' => ':comment_name 留下了一条新评论',
+        'comment_reply_title' => '您的评论有新回复',
+        'comment_reply_message' => ':reply_name 回复了您的评论',
+        'commented_on' => '评论于',
+        'view_comment' => '查看评论',
+    ],
+
     'settings' => [
         'title' => 'FOB Comment',
         'description' => '配置 FOB Comment 设置',
+
+        'email' => [
+            'templates' => [
+                'title' => '评论',
+                'description' => '评论通知的电子邮件模板',
+                'admin_new_comment' => [
+                    'title' => '新评论的管理员通知',
+                    'description' => '发布新评论时向管理员发送电子邮件',
+                    'subject' => '{{ site_title }} 上有新评论',
+                    'comment_name_description' => '评论作者姓名',
+                    'comment_email_description' => '评论作者电子邮箱',
+                    'comment_content_description' => '评论内容',
+                    'comment_reference_description' => '被评论的页面/文章',
+                    'comment_url_description' => '查看评论的链接',
+                ],
+                'comment_reply' => [
+                    'title' => '回复时通知评论者',
+                    'description' => '有人回复评论时向评论者发送电子邮件',
+                    'subject' => '{{ site_title }} 上您的评论有新回复',
+                    'comment_name_description' => '原始评论者姓名',
+                    'reply_name_description' => '回复作者姓名',
+                    'reply_content_description' => '回复内容',
+                    'comment_reference_description' => '被评论的页面/文章',
+                    'comment_url_description' => '查看评论的链接',
+                ],
+            ],
+        ],
 
         'form' => [
             'enable_recaptcha' => '启用 reCAPTCHA',
@@ -106,6 +146,12 @@ return [
             'show_website_field_help' => '禁用时，网站字段将从公开的评论表单中隐藏。',
             'default_avatar' => '默认头像',
             'default_avatar_helper' => '作者没有头像时的默认头像。如果您不选择任何图片，将使用所选头像提供商生成。图片大小应为 150x150px。',
+            'allow_author_delete' => '允许作者删除自己的评论',
+            'allow_author_delete_help' => '启用后，已登录的用户可以删除自己的评论。',
+            'primary_color' => '主色调',
+            'primary_color_helper' => '按钮、复选框和徽章的主色调。留空以使用主题的主色调。',
+            'primary_color_hover' => '主悬停色',
+            'primary_color_hover_helper' => '按钮的悬停色。留空以使用主色调的较深色调。',
         ],
     ],
 ];

@@ -40,6 +40,8 @@ return [
             'reply' => 'Répondre',
             'reply_to' => 'Répondre à :name',
             'cancel_reply' => 'Annuler la réponse',
+            'delete' => 'Supprimer',
+            'delete_confirm' => 'Êtes-vous sûr de vouloir supprimer ce commentaire ?',
             'waiting_for_approval_message' => 'Votre commentaire est en attente de modération. Ceci est un aperçu, votre commentaire sera visible après son approbation.',
         ],
 
@@ -55,6 +57,8 @@ return [
 
         'comment_success_message' => 'Votre commentaire a été envoyé avec succès.',
         'rate_limit_error' => 'Vous commentez trop vite. Veuillez attendre :seconds secondes avant de publier un autre commentaire.',
+        'comment_deleted_message' => 'Votre commentaire a été supprimé avec succès.',
+        'delete_not_authorized' => 'Vous n\'êtes pas autorisé à supprimer ce commentaire.',
     ],
 
     'enums' => [
@@ -66,9 +70,46 @@ return [
         ],
     ],
 
+    'email_templates' => [
+        'admin_new_comment_title' => 'Nouveau commentaire reçu',
+        'admin_new_comment_message' => ':comment_name a laissé un nouveau commentaire',
+        'comment_reply_title' => 'Nouvelle réponse à votre commentaire',
+        'comment_reply_message' => ':reply_name a répondu à votre commentaire',
+        'commented_on' => 'A commenté sur',
+        'view_comment' => 'Voir le commentaire',
+    ],
+
     'settings' => [
         'title' => 'Commentaires FOB',
         'description' => 'Configurer les paramètres pour FOB Comment',
+
+        'email' => [
+            'templates' => [
+                'title' => 'Commentaire',
+                'description' => 'Modèles d\'email pour les notifications de commentaires',
+                'admin_new_comment' => [
+                    'title' => 'Notification administrateur pour un nouveau commentaire',
+                    'description' => 'Envoyer un email à l\'administrateur lorsqu\'un nouveau commentaire est publié',
+                    'subject' => 'Nouveau commentaire sur {{ site_title }}',
+                    'comment_name_description' => 'Nom de l\'auteur du commentaire',
+                    'comment_email_description' => 'Email de l\'auteur du commentaire',
+                    'comment_content_description' => 'Contenu du commentaire',
+                    'comment_reference_description' => 'La page/publication commentée',
+                    'comment_url_description' => 'URL pour voir le commentaire',
+                ],
+                'comment_reply' => [
+                    'title' => 'Notifier le commentateur d\'une réponse',
+                    'description' => 'Envoyer un email au commentateur lorsque quelqu\'un répond à son commentaire',
+                    'subject' => 'Nouvelle réponse à votre commentaire sur {{ site_title }}',
+                    'comment_name_description' => 'Nom du commentateur original',
+                    'reply_name_description' => 'Nom de l\'auteur de la réponse',
+                    'reply_content_description' => 'Contenu de la réponse',
+                    'comment_reference_description' => 'La page/publication commentée',
+                    'comment_url_description' => 'URL pour voir le commentaire',
+                ],
+            ],
+        ],
+
         'form' => [
             'enable_recaptcha' => 'Activer reCAPTCHA',
             'enable_recaptcha_help' => 'Vous devez activer reCAPTCHA dans :url pour utiliser cette fonctionnalité.',
@@ -77,6 +118,8 @@ return [
             'disable_guest_comment_help' => 'Lorsque cette option est activée, les utilisateurs doivent être connectés pour publier des commentaires. Cela aide à réduire les commentaires indésirables.',
             'comment_moderation' => 'Les commentaires doivent être approuvés manuellement',
             'comment_moderation_help' => 'Tous les commentaires doivent être approuvés manuellement par un administrateur avant d\'être affichés sur le frontend.',
+            'rate_limit_seconds' => 'Limite de taux (secondes)',
+            'rate_limit_seconds_help' => 'Temps minimum en secondes entre les commentaires du même utilisateur. Réglez sur 0 pour désactiver la limite de taux.',
             'show_comment_cookie_consent' => 'Afficher la case à cocher des cookies de commentaires, permettant aux visiteurs de sauvegarder leurs informations dans le navigateur',
             'show_comment_cookie_consent_help' => 'Lorsque activé, les visiteurs peuvent enregistrer leur nom, email et site web dans leur navigateur pour les commentaires futurs.',
             'auto_fill_comment_form' => 'Remplissage automatique des données de commentaire pour les utilisateurs connectés',
@@ -103,6 +146,12 @@ return [
             'show_website_field_help' => 'Lorsque cette option est désactivée, le champ site web sera masqué du formulaire de commentaire public.',
             'default_avatar' => 'Avatar par défaut',
             'default_avatar_helper' => 'Avatar par défaut pour l\'auteur lorsqu\'il n\'a pas d\'avatar. Si vous ne sélectionnez aucune image, elle sera générée en utilisant Gravatar. La taille de l\'image doit être de 150x150px.',
+            'allow_author_delete' => 'Autoriser les auteurs à supprimer leurs commentaires',
+            'allow_author_delete_help' => 'Lorsque activé, les utilisateurs connectés peuvent supprimer leurs propres commentaires.',
+            'primary_color' => 'Couleur principale',
+            'primary_color_helper' => 'Couleur principale pour les boutons, cases à cocher et badges. Laissez vide pour utiliser la couleur principale du thème.',
+            'primary_color_hover' => 'Couleur principale au survol',
+            'primary_color_hover_helper' => 'Couleur au survol pour les boutons. Laissez vide pour utiliser une teinte plus foncée de la couleur principale.',
         ],
     ],
 ];

@@ -41,6 +41,8 @@ return [
             'reply_to' => 'الرد على :name',
             'cancel_reply' => 'إلغاء الرد',
             'waiting_for_approval_message' => 'تعليقك في انتظار الموافقة. هذه معاينة، سيظهر تعليقك بعد الموافقة عليه.',
+            'delete' => 'حذف',
+            'delete_confirm' => 'هل أنت متأكد أنك تريد حذف هذا التعليق؟',
         ],
 
         'form' => [
@@ -55,6 +57,8 @@ return [
 
         'comment_success_message' => 'تم إرسال تعليقك بنجاح.',
         'rate_limit_error' => 'أنت تعلق بسرعة كبيرة. يرجى الانتظار :seconds ثانية قبل نشر تعليق آخر.',
+        'comment_deleted_message' => 'تم حذف تعليقك بنجاح.',
+        'delete_not_authorized' => 'غير مصرح لك بحذف هذا التعليق.',
     ],
 
     'enums' => [
@@ -66,9 +70,45 @@ return [
         ],
     ],
 
+    'email_templates' => [
+        'admin_new_comment_title' => 'تم استلام تعليق جديد',
+        'admin_new_comment_message' => ':comment_name ترك تعليقاً جديداً',
+        'comment_reply_title' => 'رد جديد على تعليقك',
+        'comment_reply_message' => ':reply_name رد على تعليقك',
+        'commented_on' => 'علّق على',
+        'view_comment' => 'عرض التعليق',
+    ],
+
     'settings' => [
-    'title' => 'تعليقات FOB',
+        'title' => 'تعليقات FOB',
         'description' => 'تكوين إعدادات FOB Comment',
+
+        'email' => [
+            'templates' => [
+                'title' => 'التعليق',
+                'description' => 'قوالب البريد الإلكتروني لإشعارات التعليقات',
+                'admin_new_comment' => [
+                    'title' => 'إشعار المسؤول بتعليق جديد',
+                    'description' => 'إرسال بريد إلكتروني إلى المسؤول عند نشر تعليق جديد',
+                    'subject' => 'تعليق جديد على {{ site_title }}',
+                    'comment_name_description' => 'اسم صاحب التعليق',
+                    'comment_email_description' => 'بريد صاحب التعليق الإلكتروني',
+                    'comment_content_description' => 'محتوى التعليق',
+                    'comment_reference_description' => 'الصفحة أو المقال الذي تم التعليق عليه',
+                    'comment_url_description' => 'رابط عرض التعليق',
+                ],
+                'comment_reply' => [
+                    'title' => 'إشعار صاحب التعليق بالرد',
+                    'description' => 'إرسال بريد إلكتروني إلى صاحب التعليق عند الرد على تعليقه',
+                    'subject' => 'رد جديد على تعليقك في {{ site_title }}',
+                    'comment_name_description' => 'اسم صاحب التعليق الأصلي',
+                    'reply_name_description' => 'اسم كاتب الرد',
+                    'reply_content_description' => 'محتوى الرد',
+                    'comment_reference_description' => 'الصفحة أو المقال الذي تم التعليق عليه',
+                    'comment_url_description' => 'رابط عرض التعليق',
+                ],
+            ],
+        ],
 
         'form' => [
             'enable_recaptcha' => 'تفعيل reCAPTCHA',
@@ -106,6 +146,12 @@ return [
             'show_website_field_help' => 'عند التعطيل، سيتم إخفاء حقل الموقع من نموذج التعليقات العام.',
             'default_avatar' => 'الصورة الرمزية الافتراضية',
             'default_avatar_helper' => 'الصورة الرمزية الافتراضية للمؤلف عندما لا يكون لديهم صورة رمزية. إذا لم تحدد أي صورة، فسيتم إنشاؤها باستخدام مزود الصورة الرمزية المحدد. يجب أن يكون حجم الصورة 150x150 بكسل.',
+            'allow_author_delete' => 'السماح للمؤلفين بحذف تعليقاتهم',
+            'allow_author_delete_help' => 'عند التمكين، يمكن للمستخدمين المسجلين حذف تعليقاتهم الخاصة.',
+            'primary_color' => 'اللون الأساسي',
+            'primary_color_helper' => 'اللون الأساسي للأزرار وخانات الاختيار والشارات. اتركه فارغاً لاستخدام اللون الأساسي للقالب.',
+            'primary_color_hover' => 'لون التمرير الأساسي',
+            'primary_color_hover_helper' => 'لون التمرير للأزرار. اتركه فارغاً لاستخدام ظل أغمق من اللون الأساسي.',
         ],
     ],
 ];

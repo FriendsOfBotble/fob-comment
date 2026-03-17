@@ -41,6 +41,8 @@ return [
             'reply_to' => 'Odgovori :name',
             'cancel_reply' => 'Prekliči odgovor',
             'waiting_for_approval_message' => 'Vaš komentar čaka na odobritev. To je predogled, vaš komentar bo viden po odobritvi.',
+            'delete' => 'Izbriši',
+            'delete_confirm' => 'Ste prepričani, da želite izbrisati ta komentar?',
         ],
 
         'form' => [
@@ -55,6 +57,8 @@ return [
 
         'comment_success_message' => 'Vaš komentar je bil uspešno poslan.',
         'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
+        'comment_deleted_message' => 'Vaš komentar je bil uspešno izbrisan.',
+        'delete_not_authorized' => 'Nimate dovoljenja za brisanje tega komentarja.',
     ],
 
     'enums' => [
@@ -66,9 +70,45 @@ return [
         ],
     ],
 
+    'email_templates' => [
+        'admin_new_comment_title' => 'Prejeli ste nov komentar',
+        'admin_new_comment_message' => ':comment_name je pustil nov komentar',
+        'comment_reply_title' => 'Nov odgovor na vaš komentar',
+        'comment_reply_message' => ':reply_name je odgovoril na vaš komentar',
+        'commented_on' => 'Komentiral na',
+        'view_comment' => 'Oglej si komentar',
+    ],
+
     'settings' => [
         'title' => 'FOB Comment',
         'description' => 'Konfigurirajte nastavitve za FOB Comment',
+
+        'email' => [
+            'templates' => [
+                'title' => 'Komentar',
+                'description' => 'E-poštne predloge za obvestila o komentarjih',
+                'admin_new_comment' => [
+                    'title' => 'Obvestilo skrbniku o novem komentarju',
+                    'description' => 'Pošlji e-pošto skrbniku, ko je objavljen nov komentar',
+                    'subject' => 'Nov komentar na {{ site_title }}',
+                    'comment_name_description' => 'Ime avtorja komentarja',
+                    'comment_email_description' => 'E-pošta avtorja komentarja',
+                    'comment_content_description' => 'Vsebina komentarja',
+                    'comment_reference_description' => 'Stran/objava, ki je bila komentirana',
+                    'comment_url_description' => 'URL za ogled komentarja',
+                ],
+                'comment_reply' => [
+                    'title' => 'Obvesti komentatorja o odgovoru',
+                    'description' => 'Pošlji e-pošto komentatorju, ko nekdo odgovori na njegov komentar',
+                    'subject' => 'Nov odgovor na vaš komentar na {{ site_title }}',
+                    'comment_name_description' => 'Ime izvirnega komentatorja',
+                    'reply_name_description' => 'Ime avtorja odgovora',
+                    'reply_content_description' => 'Vsebina odgovora',
+                    'comment_reference_description' => 'Stran/objava, ki je bila komentirana',
+                    'comment_url_description' => 'URL za ogled komentarja',
+                ],
+            ],
+        ],
 
         'form' => [
             'enable_recaptcha' => 'Omogoči reCAPTCHA',
@@ -106,6 +146,12 @@ return [
             'show_website_field_help' => 'Ko je onemogočeno, bo polje za spletno stran skrito iz javnega obrazca za komentarje.',
             'default_avatar' => 'Privzeti avatar',
             'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
+            'allow_author_delete' => 'Dovoli avtorjem brisanje svojih komentarjev',
+            'allow_author_delete_help' => 'Ko je omogočeno, lahko prijavljeni uporabniki brišejo svoje lastne komentarje.',
+            'primary_color' => 'Primarna barva',
+            'primary_color_helper' => 'Primarna barva za gumbe, potrditvena polja in značke. Pustite prazno za uporabo primarne barve teme.',
+            'primary_color_hover' => 'Primarna barva ob lebdenju',
+            'primary_color_hover_helper' => 'Barva ob lebdenju za gumbe. Pustite prazno za temnejši odtenek primarne barve.',
         ],
     ],
 ];

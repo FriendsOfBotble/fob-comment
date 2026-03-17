@@ -40,11 +40,13 @@ return [
             'reply' => 'Odpowiedz',
             'reply_to' => 'Odpowiedz :name',
             'cancel_reply' => 'Anuluj odpowiedź',
+            'delete' => 'Usuń',
+            'delete_confirm' => 'Czy na pewno chcesz usunąć ten komentarz?',
             'waiting_for_approval_message' => 'Twój komentarz oczekuje na moderację. To jest podgląd, Twój komentarz będzie widoczny po zatwierdzeniu.',
         ],
 
         'form' => [
-            'description_email_optional' => 'Your email address will not be published. Email is optional. Required fields are marked *',
+            'description_email_optional' => 'Twój adres e-mail nie zostanie opublikowany. E-mail jest opcjonalny. Wymagane pola są oznaczone *',
             'title' => 'Zostaw komentarz',
             'description' => 'Twój adres e-mail nie zostanie opublikowany. Wymagane pola są oznaczone *',
             'cookie_consent' => 'Zapisz moje imię, e-mail i stronę internetową w tej przeglądarce dla następnego komentarza.',
@@ -55,6 +57,8 @@ return [
 
         'comment_success_message' => 'Twój komentarz został pomyślnie wysłany.',
         'rate_limit_error' => 'Komentujesz zbyt szybko. Poczekaj :seconds sekund przed opublikowaniem kolejnego komentarza.',
+        'comment_deleted_message' => 'Twój komentarz został pomyślnie usunięty.',
+        'delete_not_authorized' => 'Nie masz uprawnień do usunięcia tego komentarza.',
     ],
 
     'enums' => [
@@ -66,9 +70,45 @@ return [
         ],
     ],
 
+    'email_templates' => [
+        'admin_new_comment_title' => 'Otrzymano nowy komentarz',
+        'admin_new_comment_message' => ':comment_name dodał nowy komentarz',
+        'comment_reply_title' => 'Nowa odpowiedź na Twój komentarz',
+        'comment_reply_message' => ':reply_name odpowiedział na Twój komentarz',
+        'commented_on' => 'Skomentował na',
+        'view_comment' => 'Zobacz komentarz',
+    ],
+
     'settings' => [
         'title' => 'FOB Comment',
         'description' => 'Skonfiguruj ustawienia dla FOB Comment',
+
+        'email' => [
+            'templates' => [
+                'title' => 'Komentarz',
+                'description' => 'Szablony e-mail dla powiadomień o komentarzach',
+                'admin_new_comment' => [
+                    'title' => 'Powiadomienie administratora o nowym komentarzu',
+                    'description' => 'Wyślij e-mail do administratora po opublikowaniu nowego komentarza',
+                    'subject' => 'Nowy komentarz na {{ site_title }}',
+                    'comment_name_description' => 'Imię autora komentarza',
+                    'comment_email_description' => 'E-mail autora komentarza',
+                    'comment_content_description' => 'Treść komentarza',
+                    'comment_reference_description' => 'Strona/wpis, który jest komentowany',
+                    'comment_url_description' => 'URL do wyświetlenia komentarza',
+                ],
+                'comment_reply' => [
+                    'title' => 'Powiadom komentującego o odpowiedzi',
+                    'description' => 'Wyślij e-mail do komentującego, gdy ktoś odpowie na jego komentarz',
+                    'subject' => 'Nowa odpowiedź na Twój komentarz na {{ site_title }}',
+                    'comment_name_description' => 'Imię oryginalnego komentującego',
+                    'reply_name_description' => 'Imię autora odpowiedzi',
+                    'reply_content_description' => 'Treść odpowiedzi',
+                    'comment_reference_description' => 'Strona/wpis, który jest komentowany',
+                    'comment_url_description' => 'URL do wyświetlenia komentarza',
+                ],
+            ],
+        ],
 
         'form' => [
             'enable_recaptcha' => 'Włącz reCAPTCHA',
@@ -94,18 +134,24 @@ return [
             'display_admin_badge_help' => 'Po włączeniu komentarze administratorów będą wyświetlać odznakę "Admin" obok ich nazwy.',
             'show_admin_role_name_for_admin_badge' => 'Pokaż nazwę roli administratora dla odznaki administratora',
             'show_admin_role_name_for_admin_badge_helper' => 'Jeśli włączone, odznaka administratora będzie wyświetlać nazwę roli administratora zamiast domyślnego tekstu "Administrator". Jeśli nazwa roli administratora jest pusta, zostanie użyty domyślny tekst. Jeśli użytkownik ma wiele ról, zostanie użyta pierwsza rola.',
-            'avatar_provider' => 'Avatar provider',
-            'avatar_provider_help' => 'Choose how to generate avatars for comments. Gravatar requires email, UI Avatars generates based on name.',
+            'avatar_provider' => 'Dostawca awatara',
+            'avatar_provider_help' => 'Wybierz, jak generować awatary dla komentarzy. Gravatar wymaga adresu e-mail, UI Avatars generuje na podstawie imienia.',
             'avatar_provider_choices' => [
-                'gravatar' => 'Gravatar (Email-based)',
-                'ui_avatars' => 'UI Avatars (Name-based)',
+                'gravatar' => 'Gravatar (Oparty na e-mailu)',
+                'ui_avatars' => 'UI Avatars (Oparty na imieniu)',
             ],
-            'email_optional' => 'Make email field optional',
-            'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
+            'email_optional' => 'Ustaw pole e-mail jako opcjonalne',
+            'email_optional_help' => 'Gdy włączone, odwiedzający mogą przesyłać komentarze bez podawania adresu e-mail.',
             'show_website_field' => 'Pokaż pole strony internetowej w formularzu komentarza',
             'show_website_field_help' => 'Po wyłączeniu pole strony internetowej zostanie ukryte w publicznym formularzu komentarzy.',
             'default_avatar' => 'Domyślny awatar',
-            'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
+            'default_avatar_helper' => 'Domyślny awatar dla autora, gdy nie ma awatara. Jeśli nie wybierzesz żadnego obrazu, zostanie wygenerowany przy użyciu wybranego dostawcy awatarów. Rozmiar obrazu powinien wynosić 150x150px.',
+            'allow_author_delete' => 'Zezwól autorom na usuwanie swoich komentarzy',
+            'allow_author_delete_help' => 'Gdy włączone, zalogowani użytkownicy mogą usuwać własne komentarze.',
+            'primary_color' => 'Kolor podstawowy',
+            'primary_color_helper' => 'Kolor podstawowy dla przycisków, pól wyboru i odznak. Pozostaw puste, aby użyć koloru podstawowego motywu.',
+            'primary_color_hover' => 'Podstawowy kolor najechania',
+            'primary_color_hover_helper' => 'Kolor najechania dla przycisków. Pozostaw puste, aby użyć ciemniejszego odcienia koloru podstawowego.',
         ],
     ],
 ];

@@ -41,6 +41,8 @@ return [
             'reply_to' => 'Balas kepada :name',
             'cancel_reply' => 'Batal balasan',
             'waiting_for_approval_message' => 'Komen anda sedang menunggu kelulusan. Ini adalah pratonton, komen anda akan kelihatan setelah diluluskan.',
+            'delete' => 'Padam',
+            'delete_confirm' => 'Adakah anda pasti mahu memadam komen ini?',
         ],
 
         'form' => [
@@ -55,6 +57,8 @@ return [
 
         'comment_success_message' => 'Komen anda telah berjaya dihantar.',
         'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
+        'comment_deleted_message' => 'Komen anda telah berjaya dipadamkan.',
+        'delete_not_authorized' => 'Anda tidak diberi kuasa untuk memadam komen ini.',
     ],
 
     'enums' => [
@@ -66,9 +70,45 @@ return [
         ],
     ],
 
+    'email_templates' => [
+        'admin_new_comment_title' => 'Komen Baru Diterima',
+        'admin_new_comment_message' => ':comment_name meninggalkan komen baru',
+        'comment_reply_title' => 'Balasan Baru untuk Komen Anda',
+        'comment_reply_message' => ':reply_name membalas komen anda',
+        'commented_on' => 'Dikomen pada',
+        'view_comment' => 'Lihat Komen',
+    ],
+
     'settings' => [
         'title' => 'FOB Comment',
         'description' => 'Konfigurasikan tetapan untuk FOB Comment',
+
+        'email' => [
+            'templates' => [
+                'title' => 'Komen',
+                'description' => 'Templat e-mel untuk pemberitahuan komen',
+                'admin_new_comment' => [
+                    'title' => 'Pemberitahuan admin untuk komen baru',
+                    'description' => 'Hantar e-mel kepada admin apabila komen baru disiarkan',
+                    'subject' => 'Komen baru di {{ site_title }}',
+                    'comment_name_description' => 'Nama pengarang komen',
+                    'comment_email_description' => 'E-mel pengarang komen',
+                    'comment_content_description' => 'Kandungan komen',
+                    'comment_reference_description' => 'Halaman/catatan yang dikomentari',
+                    'comment_url_description' => 'URL untuk melihat komen',
+                ],
+                'comment_reply' => [
+                    'title' => 'Maklumkan pengomen tentang balasan',
+                    'description' => 'Hantar e-mel kepada pengomen apabila seseorang membalas komen mereka',
+                    'subject' => 'Balasan baru untuk komen anda di {{ site_title }}',
+                    'comment_name_description' => 'Nama pengomen asal',
+                    'reply_name_description' => 'Nama pengarang balasan',
+                    'reply_content_description' => 'Kandungan balasan',
+                    'comment_reference_description' => 'Halaman/catatan yang dikomentari',
+                    'comment_url_description' => 'URL untuk melihat komen',
+                ],
+            ],
+        ],
 
         'form' => [
             'enable_recaptcha' => 'Dayakan reCAPTCHA',
@@ -106,6 +146,12 @@ return [
             'show_website_field_help' => 'Apabila dinyahdayakan, medan laman web akan disembunyikan daripada borang komen awam.',
             'default_avatar' => 'Avatar lalai',
             'default_avatar_helper' => 'Avatar lalai untuk pengarang apabila mereka tidak mempunyai avatar. Jika anda tidak memilih sebarang imej, ia akan dijana menggunakan pembekal avatar yang dipilih. Saiz imej hendaklah 150x150px.',
+            'allow_author_delete' => 'Benarkan pengarang memadam komen mereka',
+            'allow_author_delete_help' => 'Apabila didayakan, pengguna yang log masuk boleh memadam komen mereka sendiri.',
+            'primary_color' => 'Warna utama',
+            'primary_color_helper' => 'Warna utama untuk butang, kotak semak dan lencana. Biarkan kosong untuk menggunakan warna utama tema.',
+            'primary_color_hover' => 'Warna hover utama',
+            'primary_color_hover_helper' => 'Warna hover untuk butang. Biarkan kosong untuk menggunakan warna yang lebih gelap daripada warna utama.',
         ],
     ],
 ];

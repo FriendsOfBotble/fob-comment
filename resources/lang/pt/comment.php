@@ -40,6 +40,8 @@ return [
             'reply' => 'Responder',
             'reply_to' => 'Responder a :name',
             'cancel_reply' => 'Cancelar resposta',
+            'delete' => 'Excluir',
+            'delete_confirm' => 'Tem certeza de que deseja excluir este comentário?',
             'waiting_for_approval_message' => 'Seu comentário está aguardando moderação. Esta é uma pré-visualização, seu comentário será visível após ser aprovado.',
         ],
 
@@ -55,6 +57,8 @@ return [
 
         'comment_success_message' => 'Seu comentário foi enviado com sucesso.',
         'rate_limit_error' => 'Você está comentando muito rápido. Por favor, aguarde :seconds segundos antes de postar outro comentário.',
+        'comment_deleted_message' => 'Seu comentário foi excluído com sucesso.',
+        'delete_not_authorized' => 'Você não está autorizado a excluir este comentário.',
     ],
 
     'enums' => [
@@ -66,9 +70,45 @@ return [
         ],
     ],
 
+    'email_templates' => [
+        'admin_new_comment_title' => 'Novo comentário recebido',
+        'admin_new_comment_message' => ':comment_name deixou um novo comentário',
+        'comment_reply_title' => 'Nova resposta ao seu comentário',
+        'comment_reply_message' => ':reply_name respondeu ao seu comentário',
+        'commented_on' => 'Comentou em',
+        'view_comment' => 'Ver comentário',
+    ],
+
     'settings' => [
         'title' => 'FOB Comment',
         'description' => 'Configurar definições para FOB Comment',
+
+        'email' => [
+            'templates' => [
+                'title' => 'Comentário',
+                'description' => 'Modelos de email para notificações de comentários',
+                'admin_new_comment' => [
+                    'title' => 'Notificação ao administrador para novo comentário',
+                    'description' => 'Enviar email ao administrador quando um novo comentário for publicado',
+                    'subject' => 'Novo comentário em {{ site_title }}',
+                    'comment_name_description' => 'Nome do autor do comentário',
+                    'comment_email_description' => 'Email do autor do comentário',
+                    'comment_content_description' => 'Conteúdo do comentário',
+                    'comment_reference_description' => 'A página/publicação comentada',
+                    'comment_url_description' => 'URL para ver o comentário',
+                ],
+                'comment_reply' => [
+                    'title' => 'Notificar comentarista sobre resposta',
+                    'description' => 'Enviar email ao comentarista quando alguém responder ao seu comentário',
+                    'subject' => 'Nova resposta ao seu comentário em {{ site_title }}',
+                    'comment_name_description' => 'Nome do comentarista original',
+                    'reply_name_description' => 'Nome do autor da resposta',
+                    'reply_content_description' => 'Conteúdo da resposta',
+                    'comment_reference_description' => 'A página/publicação comentada',
+                    'comment_url_description' => 'URL para ver o comentário',
+                ],
+            ],
+        ],
 
         'form' => [
             'enable_recaptcha' => 'Ativar reCAPTCHA',
@@ -106,6 +146,12 @@ return [
             'show_website_field_help' => 'Quando desativado, o campo de site será ocultado do formulário de comentários público.',
             'default_avatar' => 'Avatar padrão',
             'default_avatar_helper' => 'Avatar padrão para o autor quando não tem avatar. Se você não selecionar nenhuma imagem, ela será gerada usando o provedor de avatar selecionado. O tamanho da imagem deve ser 150x150px.',
+            'allow_author_delete' => 'Permitir que autores excluam seus comentários',
+            'allow_author_delete_help' => 'Quando ativado, usuários conectados podem excluir seus próprios comentários.',
+            'primary_color' => 'Cor primária',
+            'primary_color_helper' => 'Cor primária para botões, caixas de seleção e distintivos. Deixe em branco para usar a cor primária do tema.',
+            'primary_color_hover' => 'Cor primária ao passar o mouse',
+            'primary_color_hover_helper' => 'Cor ao passar o mouse para os botões. Deixe em branco para usar um tom mais escuro da cor primária.',
         ],
     ],
 ];

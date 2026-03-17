@@ -40,11 +40,13 @@ return [
             'reply' => '返信',
             'reply_to' => ':name に返信',
             'cancel_reply' => '返信をキャンセル',
+            'delete' => '削除',
+            'delete_confirm' => 'このコメントを削除してもよろしいですか？',
             'waiting_for_approval_message' => 'あなたのコメントは承認待ちです。これはプレビューで、承認後に表示されます。',
         ],
 
         'form' => [
-            'description_email_optional' => 'Your email address will not be published. Email is optional. Required fields are marked *',
+            'description_email_optional' => 'メールアドレスは公開されません。メールは任意です。必須項目は * でマークされています',
             'title' => 'コメントを残す',
             'description' => 'メールアドレスは公開されません。必須項目は * でマークされています',
             'cookie_consent' => '次回のコメント時のために、名前、メールアドレス、ウェブサイトをこのブラウザに保存する。',
@@ -55,6 +57,8 @@ return [
 
         'comment_success_message' => 'コメントが正常に送信されました。',
         'rate_limit_error' => 'コメントが速すぎます。次のコメントを投稿する前に :seconds 秒お待ちください。',
+        'comment_deleted_message' => 'コメントが正常に削除されました。',
+        'delete_not_authorized' => 'このコメントを削除する権限がありません。',
     ],
 
     'enums' => [
@@ -66,9 +70,45 @@ return [
         ],
     ],
 
+    'email_templates' => [
+        'admin_new_comment_title' => '新しいコメントが届きました',
+        'admin_new_comment_message' => ':comment_name が新しいコメントを残しました',
+        'comment_reply_title' => 'コメントへの新しい返信',
+        'comment_reply_message' => ':reply_name があなたのコメントに返信しました',
+        'commented_on' => 'コメント先',
+        'view_comment' => 'コメントを表示',
+    ],
+
     'settings' => [
         'title' => 'FOB Comment',
         'description' => 'FOB Comment の設定を構成',
+
+        'email' => [
+            'templates' => [
+                'title' => 'コメント',
+                'description' => 'コメント通知用のメールテンプレート',
+                'admin_new_comment' => [
+                    'title' => '新しいコメントの管理者通知',
+                    'description' => '新しいコメントが投稿されたときに管理者にメールを送信',
+                    'subject' => '{{ site_title }} に新しいコメント',
+                    'comment_name_description' => 'コメント投稿者の名前',
+                    'comment_email_description' => 'コメント投稿者のメールアドレス',
+                    'comment_content_description' => 'コメントの内容',
+                    'comment_reference_description' => 'コメントされたページ/投稿',
+                    'comment_url_description' => 'コメントを表示するURL',
+                ],
+                'comment_reply' => [
+                    'title' => '返信をコメント投稿者に通知',
+                    'description' => '誰かが返信したときにコメント投稿者にメールを送信',
+                    'subject' => '{{ site_title }} であなたのコメントへの新しい返信',
+                    'comment_name_description' => '元のコメント投稿者の名前',
+                    'reply_name_description' => '返信者の名前',
+                    'reply_content_description' => '返信の内容',
+                    'comment_reference_description' => 'コメントされたページ/投稿',
+                    'comment_url_description' => 'コメントを表示するURL',
+                ],
+            ],
+        ],
 
         'form' => [
             'enable_recaptcha' => 'reCAPTCHA を有効化',
@@ -94,18 +134,24 @@ return [
             'display_admin_badge_help' => '有効にすると、管理者のコメントには名前の横に「管理者」バッジが表示されます。',
             'show_admin_role_name_for_admin_badge' => '管理者バッジに管理者ロール名を表示',
             'show_admin_role_name_for_admin_badge_helper' => '有効にすると、管理者バッジはデフォルトの「管理者」テキストの代わりに管理者ロール名を表示します。管理者ロール名が空の場合、デフォルトテキストが使用されます。ユーザーが複数のロールを持つ場合、最初のロールが使用されます。',
-            'avatar_provider' => 'Avatar provider',
-            'avatar_provider_help' => 'Choose how to generate avatars for comments. Gravatar requires email, UI Avatars generates based on name.',
+            'avatar_provider' => 'アバタープロバイダー',
+            'avatar_provider_help' => 'コメントのアバター生成方法を選択してください。Gravatar はメールが必要で、UI Avatars は名前に基づいて生成します。',
             'avatar_provider_choices' => [
-                'gravatar' => 'Gravatar (Email-based)',
-                'ui_avatars' => 'UI Avatars (Name-based)',
+                'gravatar' => 'Gravatar（メールベース）',
+                'ui_avatars' => 'UI Avatars（名前ベース）',
             ],
-            'email_optional' => 'Make email field optional',
-            'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
+            'email_optional' => 'メールフィールドを任意にする',
+            'email_optional_help' => '有効にすると、訪問者はメールアドレスを提供せずにコメントを送信できます。',
             'show_website_field' => 'コメントフォームにウェブサイト欄を表示する',
             'show_website_field_help' => '無効にすると、ウェブサイト欄は公開コメントフォームから非表示になります。',
             'default_avatar' => 'デフォルトアバター',
-            'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
+            'default_avatar_helper' => '著者にアバターがない場合のデフォルトアバター。画像を選択しない場合、選択したアバタープロバイダーを使用して生成されます。画像サイズは150x150pxである必要があります。',
+            'allow_author_delete' => '投稿者が自分のコメントを削除することを許可する',
+            'allow_author_delete_help' => '有効にすると、ログインしているユーザーは自分のコメントを削除できます。',
+            'primary_color' => 'プライマリカラー',
+            'primary_color_helper' => 'ボタン、チェックボックス、バッジのプライマリカラー。空白のままにするとテーマのプライマリカラーが使用されます。',
+            'primary_color_hover' => 'プライマリホバーカラー',
+            'primary_color_hover_helper' => 'ボタンのホバーカラー。空白のままにするとプライマリカラーの暗い色調が使用されます。',
         ],
     ],
 ];

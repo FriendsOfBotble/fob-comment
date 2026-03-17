@@ -70,9 +70,45 @@ return [
         ],
     ],
 
+    'email_templates' => [
+        'admin_new_comment_title' => 'New Comment Received',
+        'admin_new_comment_message' => ':comment_name left a new comment',
+        'comment_reply_title' => 'New Reply to Your Comment',
+        'comment_reply_message' => ':reply_name replied to your comment',
+        'commented_on' => 'Commented on',
+        'view_comment' => 'View Comment',
+    ],
+
     'settings' => [
         'title' => 'FOB Comment',
         'description' => 'Configure settings for FOB Comment',
+
+        'email' => [
+            'templates' => [
+                'title' => 'Comment',
+                'description' => 'Email templates for comment notifications',
+                'admin_new_comment' => [
+                    'title' => 'Admin notification for new comment',
+                    'description' => 'Send email to admin when a new comment is posted',
+                    'subject' => 'New comment on {{ site_title }}',
+                    'comment_name_description' => 'Comment author name',
+                    'comment_email_description' => 'Comment author email',
+                    'comment_content_description' => 'Comment content',
+                    'comment_reference_description' => 'The page/post being commented on',
+                    'comment_url_description' => 'URL to view the comment',
+                ],
+                'comment_reply' => [
+                    'title' => 'Notify commenter of reply',
+                    'description' => 'Send email to commenter when someone replies to their comment',
+                    'subject' => 'New reply to your comment on {{ site_title }}',
+                    'comment_name_description' => 'Original commenter name',
+                    'reply_name_description' => 'Reply author name',
+                    'reply_content_description' => 'Reply content',
+                    'comment_reference_description' => 'The page/post being commented on',
+                    'comment_url_description' => 'URL to view the comment',
+                ],
+            ],
+        ],
 
         'form' => [
             'enable_recaptcha' => 'Enable reCAPTCHA',

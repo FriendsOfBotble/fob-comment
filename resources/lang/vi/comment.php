@@ -40,6 +40,8 @@ return [
             'reply' => 'Trả lời',
             'reply_to' => 'Trả lời :name',
             'cancel_reply' => 'Hủy trả lời',
+            'delete' => 'Xóa',
+            'delete_confirm' => 'Bạn có chắc chắn muốn xóa bình luận này không?',
             'waiting_for_approval_message' => 'Bình luận của bạn đang chờ kiểm duyệt. Đây là bản xem trước, bình luận của bạn sẽ hiển thị sau khi được phê duyệt.',
         ],
 
@@ -55,6 +57,8 @@ return [
 
         'comment_success_message' => 'Bình luận của bạn đã được gửi thành công.',
         'rate_limit_error' => 'Bạn đang bình luận quá nhanh. Vui lòng đợi :seconds giây trước khi đăng bình luận khác.',
+        'comment_deleted_message' => 'Bình luận của bạn đã được xóa thành công.',
+        'delete_not_authorized' => 'Bạn không có quyền xóa bình luận này.',
     ],
 
     'enums' => [
@@ -66,9 +70,45 @@ return [
         ],
     ],
 
+    'email_templates' => [
+        'admin_new_comment_title' => 'Nhận được bình luận mới',
+        'admin_new_comment_message' => ':comment_name đã để lại một bình luận mới',
+        'comment_reply_title' => 'Có người trả lời bình luận của bạn',
+        'comment_reply_message' => ':reply_name đã trả lời bình luận của bạn',
+        'commented_on' => 'Đã bình luận về',
+        'view_comment' => 'Xem bình luận',
+    ],
+
     'settings' => [
         'title' => 'Bình luận',
         'description' => 'Cấu hình cài đặt cho FOB Comment',
+
+        'email' => [
+            'templates' => [
+                'title' => 'Bình luận',
+                'description' => 'Mẫu email thông báo bình luận',
+                'admin_new_comment' => [
+                    'title' => 'Thông báo quản trị viên về bình luận mới',
+                    'description' => 'Gửi email cho quản trị viên khi có bình luận mới',
+                    'subject' => 'Bình luận mới trên {{ site_title }}',
+                    'comment_name_description' => 'Tên tác giả bình luận',
+                    'comment_email_description' => 'Email tác giả bình luận',
+                    'comment_content_description' => 'Nội dung bình luận',
+                    'comment_reference_description' => 'Trang/bài viết được bình luận',
+                    'comment_url_description' => 'URL để xem bình luận',
+                ],
+                'comment_reply' => [
+                    'title' => 'Thông báo người bình luận khi có phản hồi',
+                    'description' => 'Gửi email cho người bình luận khi có người trả lời bình luận của họ',
+                    'subject' => 'Có người trả lời bình luận của bạn trên {{ site_title }}',
+                    'comment_name_description' => 'Tên người bình luận gốc',
+                    'reply_name_description' => 'Tên tác giả trả lời',
+                    'reply_content_description' => 'Nội dung trả lời',
+                    'comment_reference_description' => 'Trang/bài viết được bình luận',
+                    'comment_url_description' => 'URL để xem bình luận',
+                ],
+            ],
+        ],
 
         'form' => [
             'enable_recaptcha' => 'Bật reCAPTCHA',
@@ -106,6 +146,12 @@ return [
             'show_website_field_help' => 'Khi tắt, trường website sẽ bị ẩn khỏi biểu mẫu bình luận công khai.',
             'default_avatar' => 'Ảnh đại diện mặc định',
             'default_avatar_helper' => 'Ảnh đại diện mặc định cho tác giả khi họ không có ảnh đại diện. Nếu bạn không chọn bất kỳ hình ảnh nào, nó sẽ được tạo bằng nhà cung cấp ảnh đại diện đã chọn. Kích thước hình ảnh nên là 150x150px.',
+            'allow_author_delete' => 'Cho phép tác giả xóa bình luận của họ',
+            'allow_author_delete_help' => 'Khi được bật, người dùng đã đăng nhập có thể xóa bình luận của chính họ.',
+            'primary_color' => 'Màu chủ đạo',
+            'primary_color_helper' => 'Màu chủ đạo cho các nút, hộp kiểm và huy hiệu. Để trống để sử dụng màu chủ đạo của giao diện.',
+            'primary_color_hover' => 'Màu hover chủ đạo',
+            'primary_color_hover_helper' => 'Màu hover cho các nút. Để trống để sử dụng màu tối hơn của màu chủ đạo.',
         ],
     ],
 ];

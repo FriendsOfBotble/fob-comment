@@ -3,6 +3,7 @@
 namespace FriendsOfBotble\Comment\Providers;
 
 use Botble\Base\Facades\DashboardMenu;
+use Botble\Base\Facades\EmailHandler;
 use Botble\Base\Facades\PanelSectionManager;
 use Botble\Base\Forms\FieldOptions\CheckboxFieldOption;
 use Botble\Base\Forms\Fields\OnOffCheckboxField;
@@ -30,6 +31,7 @@ class CommentServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->instance('fob.comments.counter', []);
+        $this->app->register(EventServiceProvider::class);
     }
 
     public function boot(): void
@@ -39,7 +41,7 @@ class CommentServiceProvider extends ServiceProvider
             ->publishAssets()
             ->loadAndPublishViews()
             ->loadRoutes()
-            ->loadAndPublishConfigurations(['permissions'])
+            ->loadAndPublishConfigurations(['permissions', 'email'])
             ->loadAndPublishTranslations()
             ->loadMigrations();
 
@@ -67,6 +69,8 @@ class CommentServiceProvider extends ServiceProvider
         });
 
         $this->app->booted(function (): void {
+            EmailHandler::addTemplateSettings('fob-comment', config('plugins.fob-comment.email', []));
+
             add_filter(BASE_FILTER_PUBLIC_COMMENT_AREA, function (string $html, ?BaseModel $model) {
                 if (! $model) {
                     return $html;

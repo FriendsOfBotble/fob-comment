@@ -41,6 +41,8 @@ return [
             'reply_to' => 'Отговор на :name',
             'cancel_reply' => 'Отказ от отговор',
             'waiting_for_approval_message' => 'Вашият коментар чака одобрение. Това е предварителен преглед, вашият коментар ще бъде видим след одобрение.',
+            'delete' => 'Изтриване',
+            'delete_confirm' => 'Сигурни ли сте, че искате да изтриете този коментар?',
         ],
 
         'form' => [
@@ -54,7 +56,9 @@ return [
         ],
 
         'comment_success_message' => 'Вашият коментар беше изпратен успешно.',
-        'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
+        'rate_limit_error' => 'Коментирате твърде бързо. Моля, изчакайте :seconds секунди преди да публикувате следващ коментар.',
+        'comment_deleted_message' => 'Вашият коментар беше изтрит успешно.',
+        'delete_not_authorized' => 'Нямате разрешение да изтриете този коментар.',
     ],
 
     'enums' => [
@@ -66,9 +70,45 @@ return [
         ],
     ],
 
+    'email_templates' => [
+        'admin_new_comment_title' => 'Получен нов коментар',
+        'admin_new_comment_message' => ':comment_name остави нов коментар',
+        'comment_reply_title' => 'Нов отговор на вашия коментар',
+        'comment_reply_message' => ':reply_name отговори на вашия коментар',
+        'commented_on' => 'Коментира в',
+        'view_comment' => 'Виж коментара',
+    ],
+
     'settings' => [
         'title' => 'FOB Comment',
         'description' => 'Конфигуриране на настройките за FOB Comment',
+
+        'email' => [
+            'templates' => [
+                'title' => 'Коментар',
+                'description' => 'Имейл шаблони за известия за коментари',
+                'admin_new_comment' => [
+                    'title' => 'Известие до администратора за нов коментар',
+                    'description' => 'Изпращане на имейл до администратора при публикуване на нов коментар',
+                    'subject' => 'Нов коментар в {{ site_title }}',
+                    'comment_name_description' => 'Име на автора на коментара',
+                    'comment_email_description' => 'Имейл на автора на коментара',
+                    'comment_content_description' => 'Съдържание на коментара',
+                    'comment_reference_description' => 'Страницата/публикацията, върху която е коментирано',
+                    'comment_url_description' => 'URL за преглед на коментара',
+                ],
+                'comment_reply' => [
+                    'title' => 'Известие до коментатора за отговор',
+                    'description' => 'Изпращане на имейл до коментатора, когато някой отговори на коментара му',
+                    'subject' => 'Нов отговор на вашия коментар в {{ site_title }}',
+                    'comment_name_description' => 'Име на оригиналния коментатор',
+                    'reply_name_description' => 'Име на автора на отговора',
+                    'reply_content_description' => 'Съдържание на отговора',
+                    'comment_reference_description' => 'Страницата/публикацията, върху която е коментирано',
+                    'comment_url_description' => 'URL за преглед на коментара',
+                ],
+            ],
+        ],
 
         'form' => [
             'enable_recaptcha' => 'Активиране на reCAPTCHA',
@@ -78,10 +118,10 @@ return [
             'disable_guest_comment_help' => 'Когато е активирано, потребителите трябва да влязат в профила си, за да публикуват коментари. Това помага за намаляване на спам коментарите.',
             'comment_moderation' => 'Коментарите трябва да бъдат одобрени ръчно',
             'comment_moderation_help' => 'Всички коментари трябва да бъдат одобрени ръчно от администратор преди да се показват на сайта.',
-            'rate_limit_seconds' => 'Rate limit (seconds)',
-            'rate_limit_seconds_help' => 'Minimum time in seconds between comments from the same user. Set to 0 to disable rate limiting.',
+            'rate_limit_seconds' => 'Ограничение на честотата (секунди)',
+            'rate_limit_seconds_help' => 'Минимално време в секунди между коментари от един и същ потребител. Задайте 0 за деактивиране на ограничението.',
             'show_comment_cookie_consent' => 'Показване на отметка за бисквитки на коментари, позволявайки на посетителите да запазят информацията си в браузъра',
-            'show_comment_cookie_consent_help' => 'When enabled, visitors can save their name, email, and website in their browser for future comments.',
+            'show_comment_cookie_consent_help' => 'Когато е активирано, посетителите могат да запазят своето име, имейл и уебсайт в браузъра си за бъдещи коментари.',
             'auto_fill_comment_form' => 'Автоматично попълване на данни за коментар за влезли потребители',
             'auto_fill_comment_form_help' => 'Формулярът за коментари ще бъде автоматично попълнен с потребителски данни като пълно име, имейл и др., ако са влезли.',
             'comment_order' => 'Сортиране на коментарите по',
@@ -91,21 +131,27 @@ return [
                 'desc' => 'Най-нови',
             ],
             'display_admin_badge' => 'Показване на админ значка за коментари на администратори',
-            'display_admin_badge_help' => 'When enabled, comments from admins will show an "Admin" badge next to their name.',
+            'display_admin_badge_help' => 'Когато е активирано, коментарите от администратори ще показват значка "Админ" до тяхното име.',
             'show_admin_role_name_for_admin_badge' => 'Показване на име на админ роля за админ значката',
             'show_admin_role_name_for_admin_badge_helper' => 'Ако е активирано, админ значката ще показва името на админ ролята вместо текста по подразбиране "Админ". Ако името на админ ролята е празно, ще се използва текстът по подразбиране. Ако потребителят има множество роли, ще се използва първата роля.',
-            'avatar_provider' => 'Avatar provider',
-            'avatar_provider_help' => 'Choose how to generate avatars for comments. Gravatar requires email, UI Avatars generates based on name.',
+            'avatar_provider' => 'Доставчик на аватар',
+            'avatar_provider_help' => 'Изберете как да се генерират аватари за коментари. Gravatar изисква имейл, UI Avatars генерира въз основа на името.',
             'avatar_provider_choices' => [
-                'gravatar' => 'Gravatar (Email-based)',
-                'ui_avatars' => 'UI Avatars (Name-based)',
+                'gravatar' => 'Gravatar (Базирано на имейл)',
+                'ui_avatars' => 'UI Avatars (Базирано на име)',
             ],
-            'email_optional' => 'Make email field optional',
-            'email_optional_help' => 'When enabled, visitors can submit comments without providing an email address.',
+            'email_optional' => 'Направете полето за имейл незадължително',
+            'email_optional_help' => 'Когато е активирано, посетителите могат да изпращат коментари без да предоставят имейл адрес.',
             'show_website_field' => 'Показване на полето за уебсайт във формата за коментари',
             'show_website_field_help' => 'Когато е изключено, полето за уебсайт ще бъде скрито от публичната форма за коментари.',
             'default_avatar' => 'Аватар по подразбиране',
-            'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
+            'default_avatar_helper' => 'Аватар по подразбиране за автора, когато няма аватар. Ако не изберете изображение, то ще бъде генерирано с помощта на избрания доставчик на аватар. Размерът на изображението трябва да бъде 150x150px.',
+            'allow_author_delete' => 'Позволете на авторите да изтриват коментарите си',
+            'allow_author_delete_help' => 'Когато е активирано, влезлите потребители могат да изтриват собствените си коментари.',
+            'primary_color' => 'Основен цвят',
+            'primary_color_helper' => 'Основен цвят за бутони, отметки и значки. Оставете празно, за да използвате основния цвят на темата.',
+            'primary_color_hover' => 'Основен цвят при задържане',
+            'primary_color_hover_helper' => 'Цвят при задържане на курсора за бутони. Оставете празно, за да използвате по-тъмен нюанс на основния цвят.',
         ],
     ],
 ];

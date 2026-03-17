@@ -41,6 +41,8 @@ return [
             'reply_to' => 'Atbildēt :name',
             'cancel_reply' => 'Atcelt atbildi',
             'waiting_for_approval_message' => 'Jūsu komentārs gaida apstiprināšanu. Šis ir priekšskatījums, jūsu komentārs būs redzams pēc apstiprināšanas.',
+            'delete' => 'Dzēst',
+            'delete_confirm' => 'Vai tiešām vēlaties dzēst šo komentāru?',
         ],
 
         'form' => [
@@ -55,6 +57,8 @@ return [
 
         'comment_success_message' => 'Jūsu komentārs ir veiksmīgi nosūtīts.',
         'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
+        'comment_deleted_message' => 'Jūsu komentārs ir veiksmīgi dzēsts.',
+        'delete_not_authorized' => 'Jums nav atļaujas dzēst šo komentāru.',
     ],
 
     'enums' => [
@@ -66,9 +70,45 @@ return [
         ],
     ],
 
+    'email_templates' => [
+        'admin_new_comment_title' => 'Saņemts jauns komentārs',
+        'admin_new_comment_message' => ':comment_name atstāja jaunu komentāru',
+        'comment_reply_title' => 'Jauna atbilde uz jūsu komentāru',
+        'comment_reply_message' => ':reply_name atbildēja uz jūsu komentāru',
+        'commented_on' => 'Komentēts par',
+        'view_comment' => 'Skatīt komentāru',
+    ],
+
     'settings' => [
         'title' => 'FOB Comment',
         'description' => 'Konfigurēt iestatījumus FOB Comment',
+
+        'email' => [
+            'templates' => [
+                'title' => 'Komentārs',
+                'description' => 'E-pasta veidnes komentāru paziņojumiem',
+                'admin_new_comment' => [
+                    'title' => 'Administratora paziņojums par jaunu komentāru',
+                    'description' => 'Sūtīt e-pastu administratoram, kad ir publicēts jauns komentārs',
+                    'subject' => 'Jauns komentārs vietnē {{ site_title }}',
+                    'comment_name_description' => 'Komentāra autora vārds',
+                    'comment_email_description' => 'Komentāra autora e-pasts',
+                    'comment_content_description' => 'Komentāra saturs',
+                    'comment_reference_description' => 'Lapa/ieraksts, par ko komentē',
+                    'comment_url_description' => 'URL, lai skatītu komentāru',
+                ],
+                'comment_reply' => [
+                    'title' => 'Paziņot komentētājam par atbildi',
+                    'description' => 'Sūtīt e-pastu komentētājam, kad kāds atbild uz viņa komentāru',
+                    'subject' => 'Jauna atbilde uz jūsu komentāru vietnē {{ site_title }}',
+                    'comment_name_description' => 'Sākotnējā komentētāja vārds',
+                    'reply_name_description' => 'Atbildes autora vārds',
+                    'reply_content_description' => 'Atbildes saturs',
+                    'comment_reference_description' => 'Lapa/ieraksts, par ko komentē',
+                    'comment_url_description' => 'URL, lai skatītu komentāru',
+                ],
+            ],
+        ],
 
         'form' => [
             'enable_recaptcha' => 'Iespējot reCAPTCHA',
@@ -106,6 +146,12 @@ return [
             'show_website_field_help' => 'Kad atspējots, tīmekļa vietnes lauks tiks paslēpts no publiskās komentāru formas.',
             'default_avatar' => 'Noklusējuma avatars',
             'default_avatar_helper' => 'Default avatar for the author when they don\'t have an avatar. If you don\'t select any image, it will be generated using the selected avatar provider. Image size should be 150x150px.',
+            'allow_author_delete' => 'Ļaut autoriem dzēst savus komentārus',
+            'allow_author_delete_help' => 'Ja iespējots, pieteikušies lietotāji var dzēst savus komentārus.',
+            'primary_color' => 'Primārā krāsa',
+            'primary_color_helper' => 'Primārā krāsa pogām, izvēles rūtiņām un nozīmītēm. Atstājiet tukšu, lai izmantotu tēmas primāro krāsu.',
+            'primary_color_hover' => 'Primārā virzīšanas krāsa',
+            'primary_color_hover_helper' => 'Virzīšanas krāsa pogām. Atstājiet tukšu, lai izmantotu tumšāku primārās krāsas toni.',
         ],
     ],
 ];

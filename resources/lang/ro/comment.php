@@ -41,6 +41,8 @@ return [
             'reply_to' => 'Răspunde lui :name',
             'cancel_reply' => 'Anulează răspunsul',
             'waiting_for_approval_message' => 'Comentariul tău așteaptă moderarea. Aceasta este o previzualizare, comentariul tău va fi vizibil după aprobare.',
+            'delete' => 'Șterge',
+            'delete_confirm' => 'Ești sigur că vrei să ștergi acest comentariu?',
         ],
 
         'form' => [
@@ -55,6 +57,8 @@ return [
 
         'comment_success_message' => 'Comentariul tău a fost trimis cu succes.',
         'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
+        'comment_deleted_message' => 'Comentariul tău a fost șters cu succes.',
+        'delete_not_authorized' => 'Nu ești autorizat să ștergi acest comentariu.',
     ],
 
     'enums' => [
@@ -66,9 +70,45 @@ return [
         ],
     ],
 
+    'email_templates' => [
+        'admin_new_comment_title' => 'Comentariu nou primit',
+        'admin_new_comment_message' => ':comment_name a lăsat un comentariu nou',
+        'comment_reply_title' => 'Răspuns nou la comentariul tău',
+        'comment_reply_message' => ':reply_name a răspuns la comentariul tău',
+        'commented_on' => 'Comentat pe',
+        'view_comment' => 'Vezi comentariul',
+    ],
+
     'settings' => [
         'title' => 'FOB Comment',
         'description' => 'Configurează setările pentru FOB Comment',
+
+        'email' => [
+            'templates' => [
+                'title' => 'Comentariu',
+                'description' => 'Șabloane email pentru notificări comentarii',
+                'admin_new_comment' => [
+                    'title' => 'Notificare admin pentru comentariu nou',
+                    'description' => 'Trimite email adminului când este postat un comentariu nou',
+                    'subject' => 'Comentariu nou pe {{ site_title }}',
+                    'comment_name_description' => 'Numele autorului comentariului',
+                    'comment_email_description' => 'Emailul autorului comentariului',
+                    'comment_content_description' => 'Conținutul comentariului',
+                    'comment_reference_description' => 'Pagina/postarea comentată',
+                    'comment_url_description' => 'URL pentru a vizualiza comentariul',
+                ],
+                'comment_reply' => [
+                    'title' => 'Notifică comentatorul despre răspuns',
+                    'description' => 'Trimite email comentatorului când cineva răspunde la comentariul său',
+                    'subject' => 'Răspuns nou la comentariul tău pe {{ site_title }}',
+                    'comment_name_description' => 'Numele comentatorului original',
+                    'reply_name_description' => 'Numele autorului răspunsului',
+                    'reply_content_description' => 'Conținutul răspunsului',
+                    'comment_reference_description' => 'Pagina/postarea comentată',
+                    'comment_url_description' => 'URL pentru a vizualiza comentariul',
+                ],
+            ],
+        ],
 
         'form' => [
             'enable_recaptcha' => 'Activează reCAPTCHA',
@@ -106,6 +146,12 @@ return [
             'show_website_field_help' => 'Când este dezactivat, câmpul site web va fi ascuns din formularul public de comentarii.',
             'default_avatar' => 'Avatar implicit',
             'default_avatar_helper' => 'Avatar implicit pentru autor când nu au un avatar. Dacă nu selectezi nicio imagine, va fi generată folosind furnizorul de avatare selectat. Dimensiunea imaginii trebuie să fie 150x150px.',
+            'allow_author_delete' => 'Permite autorilor să-și șteargă comentariile',
+            'allow_author_delete_help' => 'Când este activat, utilizatorii autentificați pot șterge propriile comentarii.',
+            'primary_color' => 'Culoare primară',
+            'primary_color_helper' => 'Culoarea primară pentru butoane, casete de bifare și insigne. Lasă gol pentru a folosi culoarea primară a temei.',
+            'primary_color_hover' => 'Culoare primară hover',
+            'primary_color_hover_helper' => 'Culoarea hover pentru butoane. Lasă gol pentru a folosi o nuanță mai închisă a culorii primare.',
         ],
     ],
 ];

@@ -30,6 +30,12 @@ class SendCommentEmailNotificationListener implements ShouldQueue
 
     protected function sendNewCommentNotification(Comment $comment, string $referenceTitle, string $commentUrl): void
     {
+        $args = [];
+
+        if ($comment->email) {
+            $args['replyTo'] = $comment->email;
+        }
+
         EmailHandler::setModule('fob-comment')
             ->setVariableValues([
                 'comment_name' => $comment->name,
@@ -38,7 +44,7 @@ class SendCommentEmailNotificationListener implements ShouldQueue
                 'comment_reference' => $referenceTitle,
                 'comment_url' => $commentUrl,
             ])
-            ->sendUsingTemplate('admin_new_comment');
+            ->sendUsingTemplate('admin_new_comment', null, $args);
     }
 
     protected function sendReplyNotification(Comment $comment, string $referenceTitle, string $commentUrl): void
@@ -49,6 +55,12 @@ class SendCommentEmailNotificationListener implements ShouldQueue
             return;
         }
 
+        $args = [];
+
+        if ($comment->email) {
+            $args['replyTo'] = $comment->email;
+        }
+
         EmailHandler::setModule('fob-comment')
             ->setVariableValues([
                 'comment_name' => $parentComment->name,
@@ -57,7 +69,7 @@ class SendCommentEmailNotificationListener implements ShouldQueue
                 'comment_reference' => $referenceTitle,
                 'comment_url' => $commentUrl,
             ])
-            ->sendUsingTemplate('comment_reply', $parentComment->email);
+            ->sendUsingTemplate('comment_reply', $parentComment->email, $args);
     }
 
     protected function getReferenceTitle(Comment $comment): string
@@ -73,20 +85,26 @@ class SendCommentEmailNotificationListener implements ShouldQueue
 
     protected function getCommentUrl(Comment $comment): string
     {
+        $baseUrl = '';
+
         $reference = $comment->reference;
 
-        if (! $reference) {
-            return $comment->reference_url ?: '';
+        if ($reference) {
+            if (method_exists($reference, 'url')) {
+                $baseUrl = $reference->url;
+            } elseif (isset($reference->url)) {
+                $baseUrl = $reference->url;
+            }
         }
 
-        if (method_exists($reference, 'url')) {
-            return $reference->url;
+        if (! $baseUrl) {
+            $baseUrl = $comment->reference_url ?: '';
         }
 
-        if (isset($reference->url)) {
-            return $reference->url;
+        if ($baseUrl) {
+            return $baseUrl . '#comment-' . $comment->getKey();
         }
 
-        return $comment->reference_url ?: '';
+        return '';
     }
 }

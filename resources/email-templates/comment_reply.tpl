@@ -4,46 +4,51 @@
     <table class="bb-box" cellpadding="0" cellspacing="0">
         <tbody>
             <tr>
+                <td class="bb-content bb-pb-0" align="center">
+                    <table class="bb-icon bb-icon-lg bb-bg-blue" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td valign="middle" align="center">
+                                    <img src="{{ 'message' | icon_url }}" class="bb-va-middle" width="40" height="40" alt="Icon">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h1 class="bb-text-center bb-m-0 bb-mt-md">{{ 'plugins/fob-comment::comment.email_templates.comment_reply_title' | trans }}</h1>
+                    <p class="bb-text-center bb-mt-sm bb-mb-0 bb-text-muted">
+                        {{ 'plugins/fob-comment::comment.email_templates.comment_reply_message' | trans({'reply_name': reply_name}) }}
+                    </p>
+                </td>
+            </tr>
+            <tr>
                 <td>
                     <table cellpadding="0" cellspacing="0">
                         <tbody>
                             <tr>
-                                <td class="bb-content" align="center">
-                                    <h1 class="bb-text-center bb-m-0">{{ 'plugins/fob-comment::comment.email_templates.comment_reply_title' | trans }}</h1>
-
-                                    <p class="bb-text-center bb-mt-sm bb-mb-0 bb-text-muted">
-                                        {{ 'plugins/fob-comment::comment.email_templates.comment_reply_message' | trans({'reply_name': reply_name}) }}
-                                    </p>
-                                </td>
-                            </tr>
-
-                            <tr>
                                 <td class="bb-content">
-                                    <table cellpadding="0" cellspacing="0" style="width: 100%; background-color: #f8f9fa; border-radius: 8px;">
+                                    <table cellpadding="0" cellspacing="0" style="width: 100%; background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid #206bc4;">
                                         <tbody>
                                             <tr>
-                                                <td style="padding: 16px;">
-                                                    <p style="margin: 0 0 8px 0; font-weight: 600;">{{ reply_name }}</p>
-                                                    <p style="margin: 0; color: #6c757d;">{{ reply_content }}</p>
+                                                <td style="padding: 16px 20px;">
+                                                    <p style="margin: 0 0 12px 0; font-weight: 600; font-size: 15px; color: #1e293b;">{{ reply_name }}</p>
+                                                    <p style="margin: 0; color: #475569; line-height: 1.6;">{{ reply_content }}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
-                                </td>
-                            </tr>
 
-                            {% if comment_reference %}
-                            <tr>
-                                <td class="bb-content bb-text-muted bb-text-center">
-                                    {{ 'plugins/fob-comment::comment.email_templates.commented_on' | trans }}: <strong>{{ comment_reference }}</strong>
+                                    {% if comment_reference %}
+                                    <p style="margin: 16px 0 0 0; color: #64748b; font-size: 13px; text-align: center;">
+                                        {{ 'plugins/fob-comment::comment.email_templates.commented_on' | trans }}: <strong style="color: #1e293b;">{{ comment_reference }}</strong>
+                                    </p>
+                                    {% endif %}
                                 </td>
                             </tr>
-                            {% endif %}
 
                             {% if comment_url %}
                             <tr>
-                                <td class="bb-content" align="center">
-                                    <a href="{{ comment_url }}" class="bb-btn bb-btn-primary" style="display: inline-block; padding: 10px 24px; text-decoration: none;">
+                                <td class="bb-content bb-text-center bb-pt-0 bb-pb-xl" align="center">
+                                    <a href="{{ comment_url }}" class="bb-btn bb-bg-blue bb-border-blue">
                                         {{ 'plugins/fob-comment::comment.email_templates.view_comment' | trans }}
                                     </a>
                                 </td>

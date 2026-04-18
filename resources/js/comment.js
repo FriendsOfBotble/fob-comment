@@ -1,14 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Wait for jQuery to be available
-    if (typeof $ === 'undefined' && typeof jQuery === 'undefined') {
+    const $ = window.jQuery || window.$
+
+    if (!$) {
         console.error('fob-comment: jQuery is required')
         return
     }
 
-    const $ = window.jQuery || window.$
-
     let isReplying = false
-    let originalForm = ''
+    let originalFormParent = null
+    let originalFormNextSibling = null
+    let originalFormTitle = ''
+    let originalFormAction = ''
 
     const setCookie = (name, value, expiresDate) => {
         const currentDate = new Date()
@@ -46,7 +48,66 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         })
 
+    const resetRecaptcha = () => {
+        if (typeof window.grecaptcha === 'undefined' || typeof window.grecaptcha.render !== 'function') {
+            return
+        }
+
+        $(document).find('.fob-comment-form .g-recaptcha').each((_, el) => {
+            if (!el.id) {
+                return
+            }
+
+            try {
+                el.innerHTML = ''
+                window.grecaptcha.render(el.id)
+            } catch (error) {
+                try {
+                    window.grecaptcha.reset()
+                } catch (resetError) {
+                    // silently ignore — captcha may not be ready yet
+                }
+            }
+        })
+    }
+
+    const storeOriginalFormState = (form) => {
+        originalFormParent = form[0].parentNode
+        originalFormNextSibling = form[0].nextSibling
+        originalFormTitle = form.find('.fob-comment-form-title span').text()
+        originalFormAction = form.find('form').prop('action')
+    }
+
+    const restoreFormToOriginalPosition = () => {
+        const form = $(document).find('.fob-comment-form-section')
+
+        if (!form.length || !originalFormParent) {
+            return
+        }
+
+        if (originalFormNextSibling && originalFormNextSibling.parentNode === originalFormParent) {
+            originalFormParent.insertBefore(form[0], originalFormNextSibling)
+        } else {
+            originalFormParent.appendChild(form[0])
+        }
+
+        form.find('.fob-comment-form-title span').text(originalFormTitle)
+        form.find('.fob-comment-form-title .cancel-comment-reply-link').remove()
+        form.find('form').prop('action', originalFormAction)
+
+        resetRecaptcha()
+
+        isReplying = false
+    }
+
     const fetchComments = (url = fobComment.listUrl) => {
+        // Guard: if a reply form is currently docked inside the list, move it back
+        // to its original position before the list HTML is replaced — otherwise the
+        // form DOM (and its reCAPTCHA iframe) gets destroyed by the innerHTML swap.
+        if (isReplying) {
+            restoreFormToOriginalPosition()
+        }
+
         const $commentListSection = $(document).find('.fob-comment-list-section')
         const $loading = $commentListSection.find('.fob-comment-list-loading')
         const $content = $commentListSection.find('.fob-comment-list-content')
@@ -162,15 +223,15 @@ document.addEventListener('DOMContentLoaded', () => {
                         deleteCookie('cookie_consent')
                     }
 
-                    fetchComments()
-
+                    // Move form back to its original position BEFORE fetchComments() re-renders
+                    // the list (which would otherwise destroy the form DOM sitting inside the list).
                     if (isReplying) {
-                        isReplying = false
-
-                        $(document).find('.fob-comment-form-section').remove(originalForm)
-
-                        $(document).find('.fob-comment-list-section').after(originalForm)
+                        restoreFormToOriginalPosition()
+                    } else {
+                        resetRecaptcha()
                     }
+
+                    fetchComments()
                 },
                 error: (error) => {
                     resetButton()
@@ -178,6 +239,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (window?.Theme !== undefined) {
                         Theme.handleError(error)
                     }
+
+                    resetRecaptcha()
                 },
             })
         })
@@ -198,40 +261,35 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault()
 
             const currentTarget = $(e.currentTarget)
-
             const form = $(document).find('.fob-comment-form-section')
 
-            if (form) {
-                form.remove()
+            if (!form.length) {
+                return
             }
 
             if (!isReplying) {
-                originalForm = form.clone()
+                storeOriginalFormState(form)
             }
 
+            // jQuery .after() moves the element if it already exists in the DOM,
+            // preserving data/events and the reCAPTCHA iframe inside.
             currentTarget.closest('.fob-comment-item').after(form)
 
             form.find('.fob-comment-form-title span').text(currentTarget.data('reply-to'))
             form.find('.fob-comment-form-title .cancel-comment-reply-link').remove()
             form.find('.fob-comment-form-title').append(
-                `<a href="#" class="cancel-comment-reply-link" rel="nofollow">${currentTarget.data('cancel-reply')}</a`
+                `<a href="#" class="cancel-comment-reply-link" rel="nofollow">${currentTarget.data('cancel-reply')}</a>`
             )
             form.find('form').prop('action', currentTarget.prop('href'))
+
+            resetRecaptcha()
 
             isReplying = true
         })
         .on('click', '.cancel-comment-reply-link', (e) => {
             e.preventDefault()
 
-            isReplying = false
-
-            const form = $(document).find('.fob-comment-form-section')
-
-            if (form) {
-                form.remove()
-            }
-
-            $(document).find('.fob-comment-list-section').after(originalForm)
+            restoreFormToOriginalPosition()
         })
         .on('click', '.fob-comment-item-delete', (e) => {
             e.preventDefault()

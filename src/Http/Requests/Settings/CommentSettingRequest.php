@@ -2,10 +2,10 @@
 
 namespace FriendsOfBotble\Comment\Http\Requests\Settings;
 
-use Botble\Base\Rules\ColorRule;
 use Botble\Base\Rules\MediaImageRule;
 use Botble\Base\Rules\OnOffRule;
 use Botble\Support\Http\Requests\Request;
+use FriendsOfBotble\Comment\Rules\ColorRule;
 
 class CommentSettingRequest extends Request
 {

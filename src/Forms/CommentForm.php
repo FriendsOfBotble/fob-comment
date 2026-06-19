@@ -14,7 +14,7 @@ use Botble\Base\Forms\Fields\SelectField;
 use Botble\Base\Forms\Fields\TextField;
 use Botble\Base\Forms\FormAbstract;
 use FriendsOfBotble\Comment\Enums\CommentStatus;
-use FriendsOfBotble\Comment\Http\Requests\CommentRequest;
+use FriendsOfBotble\Comment\Http\Requests\AdminCommentRequest;
 use FriendsOfBotble\Comment\Models\Comment;
 
 class CommentForm extends FormAbstract
@@ -25,7 +25,7 @@ class CommentForm extends FormAbstract
 
         $this
             ->model(Comment::class)
-            ->setValidatorClass(CommentRequest::class)
+            ->setValidatorClass(AdminCommentRequest::class)
             ->setBreakFieldPoint('status')
             ->add(
                 'permalink',

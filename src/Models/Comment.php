@@ -90,7 +90,7 @@ class Comment extends BaseModel
 
     protected function isApproved(): Attribute
     {
-        return Attribute::get(fn () => $this->status == CommentStatus::APPROVED);
+        return Attribute::get(fn () => $this->status?->getValue() === CommentStatus::APPROVED);
     }
 
     protected function isAdmin(): Attribute
@@ -106,6 +106,7 @@ class Comment extends BaseModel
     protected function formattedContent(): Attribute
     {
         return Attribute::get(function () {
+            // Admin authors are trusted to post HTML; only collapse empty paragraphs.
             if ($this->is_admin) {
                 return preg_replace('/<p[^>]*><\\/p[^>]*>/', '', $this->content);
             }
@@ -120,7 +121,13 @@ class Comment extends BaseModel
                 $allowedDomains = Config::get('marketplace.allowed_external_links.domains', ['prnt.sc']);
                 foreach ($allowedDomains as $domain) {
                     if (str_ends_with($host, $domain)) {
-                        return '<a href="' . $url . '" target="_blank" rel="nofollow noindex" class="text-primary-600 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-300">' . $url . '</a>';
+                        $safeUrl = htmlspecialchars($url, ENT_QUOTES, 'UTF-8');
+
+                        return sprintf(
+                            '<a href="%s" target="_blank" rel="nofollow noindex" class="text-primary-600 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-300">%s</a>',
+                            $safeUrl,
+                            $safeUrl
+                        );
                     }
                 }
 

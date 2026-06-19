@@ -5,7 +5,7 @@ namespace FriendsOfBotble\Comment\Rules;
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 
-class ColorRule implements ValidationRule
+final class ColorRule implements ValidationRule
 {
     protected const HEX_PATTERN = '/^#([0-9a-fA-F]{3}|[0-9a-fA-F]{4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/';
 

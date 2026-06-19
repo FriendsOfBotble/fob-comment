@@ -56,6 +56,7 @@ return [
         ],
 
         'comment_success_message' => 'Il tuo commento è stato inviato con successo.',
+        'comment_pending_approval_message' => 'Grazie! Il tuo commento è stato inviato ed è in attesa di moderazione. Sarà visibile pubblicamente una volta approvato da un amministratore, quindi potrebbe non apparire immediatamente dopo l’invio.',
         'rate_limit_error' => 'Stai commentando troppo velocemente. Attendi :seconds secondi prima di pubblicare un altro commento.',
         'comment_deleted_message' => 'Il tuo commento è stato eliminato con successo.',
         'delete_not_authorized' => 'Non sei autorizzato a eliminare questo commento.',

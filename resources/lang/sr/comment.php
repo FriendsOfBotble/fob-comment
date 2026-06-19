@@ -56,6 +56,7 @@ return [
         ],
 
         'comment_success_message' => 'Ваш коментар је успешно послат.',
+        'comment_pending_approval_message' => 'Hvala! Vaš komentar je poslat i čeka moderaciju. Pojaviće se javno čim ga administrator odobri, pa se možda neće prikazati odmah nakon objavljivanja.',
         'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
         'comment_deleted_message' => 'Ваш коментар је успешно обрисан.',
         'delete_not_authorized' => 'Нисте овлашћени да обришете овај коментар.',

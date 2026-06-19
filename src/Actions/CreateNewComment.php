@@ -17,7 +17,7 @@ class CreateNewComment
     {
     }
 
-    public function __invoke(BaseModel $reference, array $data, ?Comment $replyTo = null): void
+    public function __invoke(BaseModel $reference, array $data, ?Comment $replyTo = null): Comment
     {
         $data = [
             ...$data,
@@ -39,6 +39,8 @@ class CreateNewComment
         ]);
 
         CommentWasCreated::dispatch($comment);
+
+        return $comment;
     }
 
     protected function getStatus(): string

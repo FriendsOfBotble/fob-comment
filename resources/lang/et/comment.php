@@ -56,6 +56,7 @@ return [
         ],
 
         'comment_success_message' => 'Teie kommentaar on edukalt saadetud.',
+        'comment_pending_approval_message' => 'Aitäh! Teie kommentaar on saadetud ja ootab modereerimist. See ilmub avalikult pärast administraatori heakskiitu, mistõttu see ei pruugi kohe pärast postitamist ilmuda.',
         'rate_limit_error' => 'Te kommenteerite liiga kiiresti. Palun oodake :seconds sekundit enne järgmise kommentaari postitamist.',
         'comment_deleted_message' => 'Teie kommentaar on edukalt kustutatud.',
         'delete_not_authorized' => 'Teil pole luba seda kommentaari kustutada.',

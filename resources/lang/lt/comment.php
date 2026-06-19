@@ -56,6 +56,7 @@ return [
         ],
 
         'comment_success_message' => 'Jūsų komentaras sėkmingai išsiųstas.',
+        'comment_pending_approval_message' => 'Ačiū! Jūsų komentaras buvo pateiktas ir laukia moderavimo. Jis bus matomas viešai, kai administratorius jį patvirtins, todėl gali nepasirodyti iškart po paskelbimo.',
         'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
         'comment_deleted_message' => 'Jūsų komentaras sėkmingai ištrintas.',
         'delete_not_authorized' => 'Jūs neturite leidimo ištrinti šio komentaro.',

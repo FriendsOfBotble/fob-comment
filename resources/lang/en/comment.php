@@ -56,6 +56,7 @@ return [
         ],
 
         'comment_success_message' => 'Your comment has been sent successfully.',
+        'comment_pending_approval_message' => 'Thank you! Your comment has been submitted and is awaiting moderation. It will appear publicly once an administrator approves it, so it may not show up immediately after you post it.',
         'comment_deleted_message' => 'Your comment has been deleted successfully.',
         'delete_not_authorized' => 'You are not authorized to delete this comment.',
         'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',

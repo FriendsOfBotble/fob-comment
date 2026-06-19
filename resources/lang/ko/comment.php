@@ -56,6 +56,7 @@ return [
         ],
 
         'comment_success_message' => '댓글이 성공적으로 전송되었습니다.',
+        'comment_pending_approval_message' => '감사합니다! 댓글이 제출되었으며 검토를 기다리고 있습니다. 관리자가 승인한 후에 공개적으로 표시되므로 게시 직후에는 보이지 않을 수 있습니다.',
         'rate_limit_error' => '댓글을 너무 빨리 작성하고 있습니다. 다른 댓글을 게시하기 전에 :seconds초 기다려 주세요.',
         'comment_deleted_message' => '댓글이 성공적으로 삭제되었습니다.',
         'delete_not_authorized' => '이 댓글을 삭제할 권한이 없습니다.',

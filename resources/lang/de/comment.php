@@ -56,6 +56,7 @@ return [
         ],
 
         'comment_success_message' => 'Ihr Kommentar wurde erfolgreich gesendet.',
+        'comment_pending_approval_message' => 'Danke! Ihr Kommentar wurde gesendet und wartet auf die Moderation. Er wird öffentlich angezeigt, sobald ein Administrator ihn freigegeben hat, und erscheint daher möglicherweise nicht sofort nach dem Absenden.',
         'rate_limit_error' => 'Sie kommentieren zu schnell. Bitte warten Sie :seconds Sekunden, bevor Sie einen weiteren Kommentar posten.',
         'comment_deleted_message' => 'Ihr Kommentar wurde erfolgreich gelöscht.',
         'delete_not_authorized' => 'Sie sind nicht berechtigt, diesen Kommentar zu löschen.',

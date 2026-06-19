@@ -56,6 +56,7 @@ return [
         ],
 
         'comment_success_message' => 'Bình luận của bạn đã được gửi thành công.',
+        'comment_pending_approval_message' => 'Cảm ơn bạn! Bình luận của bạn đã được gửi và đang chờ kiểm duyệt. Bình luận sẽ hiển thị công khai sau khi quản trị viên phê duyệt, vì vậy có thể chưa xuất hiện ngay sau khi bạn đăng.',
         'rate_limit_error' => 'Bạn đang bình luận quá nhanh. Vui lòng đợi :seconds giây trước khi đăng bình luận khác.',
         'comment_deleted_message' => 'Bình luận của bạn đã được xóa thành công.',
         'delete_not_authorized' => 'Bạn không có quyền xóa bình luận này.',

@@ -56,6 +56,7 @@ return [
         ],
 
         'comment_success_message' => 'Váš komentář byl úspěšně odeslán.',
+        'comment_pending_approval_message' => 'Děkujeme! Váš komentář byl odeslán a čeká na schválení. Bude veřejně viditelný, jakmile jej správce schválí, takže se nemusí zobrazit ihned po odeslání.',
         'rate_limit_error' => 'Komentujete příliš rychle. Před odesláním dalšího komentáře počkejte :seconds sekund.',
         'comment_deleted_message' => 'Váš komentář byl úspěšně smazán.',
         'delete_not_authorized' => 'Nemáte oprávnění smazat tento komentář.',

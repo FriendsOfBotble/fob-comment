@@ -2,6 +2,7 @@
 
 namespace FriendsOfBotble\Comment\Http\Controllers;
 
+use Botble\Base\Contracts\BaseModel;
 use Botble\Base\Http\Controllers\BaseController;
 use FriendsOfBotble\Comment\Actions\CreateNewComment;
 use FriendsOfBotble\Comment\Enums\CommentStatus;
@@ -15,7 +16,11 @@ class ReplyCommentController extends BaseController
         $comment->loadMissing('reference');
         $user = $request->user();
 
-        $createNewComment($comment->reference, [
+        $reference = $comment->reference;
+
+        abort_unless($reference instanceof BaseModel, 404);
+
+        $createNewComment($reference, [
             ...$request->validated(),
             'status' => CommentStatus::APPROVED,
             'author_type' => $user::class,

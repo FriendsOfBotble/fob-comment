@@ -5,7 +5,7 @@
     "provider": "FriendsOfBotble\\Comment\\Providers\\CommentServiceProvider",
     "author": "Friends of Botble",
     "url": "https://friendsofbotble.com",
-    "version": "1.2.10",
+    "version": "1.2.11",
     "description": "Enable threaded comments on posts, pages, and other content.",
     "minimum_core_version": "7.4.0"
 }

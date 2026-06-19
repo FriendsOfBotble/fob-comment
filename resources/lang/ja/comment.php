@@ -56,6 +56,7 @@ return [
         ],
 
         'comment_success_message' => 'コメントが正常に送信されました。',
+        'comment_pending_approval_message' => 'ありがとうございます！コメントは送信され、承認待ちです。管理者が承認すると一般に公開されますので、投稿後すぐには表示されない場合があります。',
         'rate_limit_error' => 'コメントが速すぎます。次のコメントを投稿する前に :seconds 秒お待ちください。',
         'comment_deleted_message' => 'コメントが正常に削除されました。',
         'delete_not_authorized' => 'このコメントを削除する権限がありません。',

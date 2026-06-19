@@ -56,6 +56,7 @@ return [
         ],
 
         'comment_success_message' => 'Jūsu komentārs ir veiksmīgi nosūtīts.',
+        'comment_pending_approval_message' => 'Paldies! Jūsu komentārs ir nosūtīts un gaida moderēšanu. Tas tiks publiski parādīts, tiklīdz administrators to apstiprinās, tāpēc tas var neparādīties uzreiz pēc publicēšanas.',
         'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
         'comment_deleted_message' => 'Jūsu komentārs ir veiksmīgi dzēsts.',
         'delete_not_authorized' => 'Jums nav atļaujas dzēst šo komentāru.',

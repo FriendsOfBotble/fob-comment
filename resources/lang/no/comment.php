@@ -56,6 +56,7 @@ return [
         ],
 
         'comment_success_message' => 'Kommentaren din har blitt sendt.',
+        'comment_pending_approval_message' => 'Takk! Kommentaren din er sendt inn og venter på moderering. Den vises offentlig når en administrator har godkjent den, så den vises kanskje ikke umiddelbart etter at du har lagt den ut.',
         'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
         'comment_deleted_message' => 'Kommentaren din har blitt slettet.',
         'delete_not_authorized' => 'Du er ikke autorisert til å slette denne kommentaren.',

@@ -56,6 +56,7 @@ return [
         ],
 
         'comment_success_message' => 'Kommenttisi on lähetetty onnistuneesti.',
+        'comment_pending_approval_message' => 'Kiitos! Kommenttisi on lähetetty ja odottaa moderointia. Se näkyy julkisesti, kun ylläpitäjä on hyväksynyt sen, joten se ei välttämättä näy heti lähettämisen jälkeen.',
         'rate_limit_error' => 'Kommentoit liian nopeasti. Odota :seconds sekuntia ennen seuraavan kommentin lähettämistä.',
         'comment_deleted_message' => 'Kommenttisi on poistettu onnistuneesti.',
         'delete_not_authorized' => 'Sinulla ei ole oikeutta poistaa tätä kommenttia.',

@@ -6,7 +6,6 @@ use Botble\Captcha\Facades\Captcha;
 use Botble\Support\Http\Requests\Request;
 use FriendsOfBotble\Comment\Http\Requests\CommentRequest as BaseCommentRequest;
 use FriendsOfBotble\Comment\Support\CommentHelper;
-use Illuminate\Support\Arr;
 use Illuminate\Validation\Rule;
 
 class CommentRequest extends Request
@@ -24,7 +23,7 @@ class CommentRequest extends Request
             'reference_id' => [Rule::when($this->has('reference_type'), 'required', 'nullable'), 'string'],
             'reference_type' => [Rule::when($this->has('reference_id'), 'required', 'nullable'), 'string'],
             'reference_url' => [Rule::when(! $this->has('reference_id') && ! $this->has('reference_type'), 'required', 'nullable'), 'string'],
-            ...Arr::except((new BaseCommentRequest())->rules(), 'status'),
+            ...(new BaseCommentRequest())->rules(),
         ];
 
         if (CommentHelper::isEnableReCaptcha()) {

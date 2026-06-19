@@ -16,12 +16,12 @@ use Botble\PluginManagement\Events\DeactivatedPlugin;
 use Botble\PluginManagement\Events\RemovedPlugin;
 use Botble\Setting\PanelSections\SettingOthersPanelSection;
 use Botble\Theme\FormFrontManager;
-use FriendsOfBotble\Comment\Enums\CommentStatus;
 use FriendsOfBotble\Comment\Forms\Fronts\CommentForm;
 use FriendsOfBotble\Comment\Forms\ReplyCommentForm;
 use FriendsOfBotble\Comment\Http\Requests\Fronts\CommentRequest;
 use FriendsOfBotble\Comment\Http\Requests\Fronts\ReplyCommentRequest;
 use FriendsOfBotble\Comment\Models\Comment;
+use FriendsOfBotble\Comment\Support\CommentHelper;
 use Illuminate\Support\Facades\Auth;
 
 class CommentServiceProvider extends ServiceProvider
@@ -98,11 +98,14 @@ class CommentServiceProvider extends ServiceProvider
 
                 $data[] = [
                     'key' => 'unapproved-comments-count',
-                    'value' => Comment::query()->where('status', CommentStatus::PENDING)->count(),
+                    'value' => CommentHelper::getPendingCount(),
                 ];
 
                 return $data;
             }, 1, 2);
+
+            Comment::saved(fn () => CommentHelper::forgetPendingCount());
+            Comment::deleted(fn () => CommentHelper::forgetPendingCount());
 
             if (is_plugin_active('blog')) {
                 PostForm::extend(function (PostForm $form): void {

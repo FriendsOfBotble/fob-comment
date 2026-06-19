@@ -27,7 +27,7 @@
 
 <script>
     window.fobComment = {
-        listUrl: {{ Js::from(route('fob-comment.public.comments.index', isset($model) ? ['reference_type' => $model::class, 'reference_id' => $model->id] : url()->current())) }},
+        listUrl: {{ Js::from(route('fob-comment.public.comments.index', isset($model) ? ['reference_type' => $model::class, 'reference_id' => $model->id] : ['reference_url' => url()->current()])) }},
         csrfToken: {{ Js::from(csrf_token()) }},
     };
 </script>

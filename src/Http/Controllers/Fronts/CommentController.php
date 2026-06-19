@@ -104,11 +104,15 @@ class CommentController extends BaseController
             abort_if($reference->getMetaData('allow_comments', true) == '0', 404);
         }
 
-        $createNewComment($reference, $data);
+        $comment = $createNewComment($reference, $data);
+
+        $messageKey = $comment->status?->getValue() === CommentStatus::PENDING
+            ? 'plugins/fob-comment::comment.front.comment_pending_approval_message'
+            : 'plugins/fob-comment::comment.front.comment_success_message';
 
         return $this
             ->httpResponse()
-            ->setMessage(trans('plugins/fob-comment::comment.front.comment_success_message'));
+            ->setMessage(trans($messageKey));
     }
 
     public function destroy(Comment $comment)
@@ -117,7 +121,7 @@ class CommentController extends BaseController
 
         $user = CommentHelper::getAuthorizedUser();
 
-        abort_unless($user, 403);
+        abort_unless($user !== null, 403);
         abort_unless(
             $comment->author_type === $user::class && $comment->author_id === $user->getKey(),
             403,

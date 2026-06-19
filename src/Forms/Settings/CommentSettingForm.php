@@ -30,7 +30,19 @@ class CommentSettingForm extends SettingForm
         $this
             ->setValidatorClass(CommentSettingRequest::class)
             ->setSectionTitle(trans('plugins/fob-comment::comment.settings.title'))
-            ->setSectionDescription(trans('plugins/fob-comment::comment.settings.description'))
+            ->setSectionDescription(trans('plugins/fob-comment::comment.settings.description'));
+
+        $this->registerAccessFields();
+        $this->registerModerationFields();
+        $this->registerFormFields();
+        $this->registerDisplayFields();
+        $this->registerAvatarFields();
+        $this->registerAppearanceFields();
+    }
+
+    protected function registerAccessFields(): void
+    {
+        $this
             ->when(is_plugin_active('captcha'), function (FormAbstract $form): void {
                 $form->add(
                     'fob_comment_enable_recaptcha',
@@ -62,7 +74,12 @@ class CommentSettingForm extends SettingForm
                         ->value(CommentHelper::isGuestCommentDisabled())
                         ->toArray()
                 );
-            })
+            });
+    }
+
+    protected function registerModerationFields(): void
+    {
+        $this
             ->add(
                 'fob_comment_comment_moderation',
                 OnOffCheckboxField::class,
@@ -80,7 +97,12 @@ class CommentSettingForm extends SettingForm
                     ->helperText(trans('plugins/fob-comment::comment.settings.form.rate_limit_seconds_help'))
                     ->value(CommentHelper::getRateLimitSeconds())
                     ->toArray()
-            )
+            );
+    }
+
+    protected function registerFormFields(): void
+    {
+        $this
             ->add(
                 'fob_comment_show_comment_cookie_consent',
                 OnOffCheckboxField::class,
@@ -118,6 +140,20 @@ class CommentSettingForm extends SettingForm
                     ->toArray()
             )
             ->add(
+                'fob_comment_allow_author_delete',
+                OnOffCheckboxField::class,
+                OnOffFieldOption::make()
+                    ->label(trans('plugins/fob-comment::comment.settings.form.allow_author_delete'))
+                    ->helperText(trans('plugins/fob-comment::comment.settings.form.allow_author_delete_help'))
+                    ->value(CommentHelper::isAllowAuthorDelete())
+                    ->toArray()
+            );
+    }
+
+    protected function registerDisplayFields(): void
+    {
+        $this
+            ->add(
                 'fob_comment_comment_order',
                 RadioField::class,
                 RadioFieldOption::make()
@@ -147,7 +183,12 @@ class CommentSettingForm extends SettingForm
                     ->helperText(trans('plugins/fob-comment::comment.settings.form.show_admin_role_name_for_admin_badge_helper'))
                     ->value(setting('fob_comment_show_admin_role_name_for_admin_badge', 'true'))
                     ->toArray()
-            )
+            );
+    }
+
+    protected function registerAvatarFields(): void
+    {
+        $this
             ->add(
                 'fob_comment_avatar_provider',
                 SelectField::class,
@@ -169,16 +210,12 @@ class CommentSettingForm extends SettingForm
                     ->helperText(trans('plugins/fob-comment::comment.settings.form.default_avatar_helper'))
                     ->value(setting('fob_comment_default_avatar'))
                     ->toArray()
-            )
-            ->add(
-                'fob_comment_allow_author_delete',
-                OnOffCheckboxField::class,
-                OnOffFieldOption::make()
-                    ->label(trans('plugins/fob-comment::comment.settings.form.allow_author_delete'))
-                    ->helperText(trans('plugins/fob-comment::comment.settings.form.allow_author_delete_help'))
-                    ->value(CommentHelper::isAllowAuthorDelete())
-                    ->toArray()
-            )
+            );
+    }
+
+    protected function registerAppearanceFields(): void
+    {
+        $this
             ->add(
                 'fob_comment_primary_color',
                 ColorField::class,

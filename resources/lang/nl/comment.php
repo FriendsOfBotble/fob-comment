@@ -56,6 +56,7 @@ return [
         ],
 
         'comment_success_message' => 'Je reactie is succesvol verzonden.',
+        'comment_pending_approval_message' => 'Bedankt! Je reactie is verzonden en wacht op moderatie. Hij wordt openbaar weergegeven zodra een beheerder hem heeft goedgekeurd, dus mogelijk verschijnt hij niet direct na het plaatsen.',
         'rate_limit_error' => 'U reageert te snel. Wacht :seconds seconden voordat u nog een reactie plaatst.',
         'comment_deleted_message' => 'Uw reactie is succesvol verwijderd.',
         'delete_not_authorized' => 'U bent niet gemachtigd om deze reactie te verwijderen.',

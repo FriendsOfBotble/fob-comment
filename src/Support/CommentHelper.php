@@ -8,11 +8,31 @@ use FriendsOfBotble\Comment\Enums\CommentStatus;
 use FriendsOfBotble\Comment\Models\Comment;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 class CommentHelper
 {
+    public const PENDING_COUNT_CACHE_KEY = 'fob_comment.pending_count';
+
+    public const PENDING_COUNT_CACHE_TTL = 60;
+
+    public static function getPendingCount(): int
+    {
+        return (int) Cache::remember(
+            self::PENDING_COUNT_CACHE_KEY,
+            self::PENDING_COUNT_CACHE_TTL,
+            fn () => Comment::query()->where('status', CommentStatus::PENDING)->count()
+        );
+    }
+
+    public static function forgetPendingCount(): void
+    {
+        Cache::forget(self::PENDING_COUNT_CACHE_KEY);
+    }
+
     public static function isEnableReCaptcha(): bool
     {
         return is_plugin_active('captcha') && setting('fob_comment_enable_recaptcha', false) && Captcha::isEnabled();
@@ -116,7 +136,7 @@ class CommentHelper
 
         $user = self::getAuthorizedUser();
 
-        if ($user) {
+        if ($user instanceof Model) {
             $data['name'] = $user->name;
             $data['email'] = $user->email;
         }

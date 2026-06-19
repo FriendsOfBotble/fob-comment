@@ -56,6 +56,7 @@ return [
         ],
 
         'comment_success_message' => 'Din kommentar har skickats.',
+        'comment_pending_approval_message' => 'Tack! Din kommentar har skickats och väntar på moderering. Den visas offentligt när en administratör har godkänt den, så den syns kanske inte direkt efter att du har postat den.',
         'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
         'comment_deleted_message' => 'Din kommentar har raderats.',
         'delete_not_authorized' => 'Du är inte behörig att radera denna kommentar.',

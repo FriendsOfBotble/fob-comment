@@ -56,6 +56,7 @@ return [
         ],
 
         'comment_success_message' => 'Twój komentarz został pomyślnie wysłany.',
+        'comment_pending_approval_message' => 'Dziękujemy! Twój komentarz został wysłany i oczekuje na moderację. Pojawi się publicznie po zatwierdzeniu przez administratora, więc może nie być widoczny natychmiast po opublikowaniu.',
         'rate_limit_error' => 'Komentujesz zbyt szybko. Poczekaj :seconds sekund przed opublikowaniem kolejnego komentarza.',
         'comment_deleted_message' => 'Twój komentarz został pomyślnie usunięty.',
         'delete_not_authorized' => 'Nie masz uprawnień do usunięcia tego komentarza.',

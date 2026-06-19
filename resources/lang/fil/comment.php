@@ -56,6 +56,7 @@ return [
         ],
 
         'comment_success_message' => 'Ang iyong komento ay matagumpay na naipadala.',
+        'comment_pending_approval_message' => 'Salamat! Naipasa na ang iyong komento at naghihintay ng moderasyon. Lalabas ito sa publiko kapag inaprubahan ng administrator, kaya maaaring hindi ito agad lumitaw pagkatapos mong i-post.',
         'rate_limit_error' => 'Nagko-komento ka nang masyadong mabilis. Mangyaring maghintay ng :seconds segundo bago mag-post ng isa pang komento.',
         'comment_deleted_message' => 'Ang iyong komento ay matagumpay na nabura.',
         'delete_not_authorized' => 'Wala kang pahintulot na burahin ang komentong ito.',

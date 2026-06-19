@@ -56,6 +56,7 @@ return [
         ],
 
         'comment_success_message' => 'A hozzászólásod sikeresen elküldve.',
+        'comment_pending_approval_message' => 'Köszönjük! A hozzászólását elküldtük, jelenleg moderálásra vár. Akkor jelenik meg nyilvánosan, amikor egy adminisztrátor jóváhagyja, ezért elképzelhető, hogy nem jelenik meg azonnal a beküldés után.',
         'rate_limit_error' => 'Túl gyorsan hozzászólsz. Kérjük, várj :seconds másodpercet a következő hozzászólás előtt.',
         'comment_deleted_message' => 'A hozzászólásod sikeresen törölve.',
         'delete_not_authorized' => 'Nincs jogosultságod törölni ezt a hozzászólást.',

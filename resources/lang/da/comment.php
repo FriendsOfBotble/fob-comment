@@ -56,6 +56,7 @@ return [
         ],
 
         'comment_success_message' => 'Din kommentar er blevet sendt.',
+        'comment_pending_approval_message' => 'Tak! Din kommentar er sendt og afventer moderation. Den vil blive vist offentligt, når en administrator har godkendt den, så den vises muligvis ikke med det samme.',
         'rate_limit_error' => 'Du kommenterer for hurtigt. Vent venligst :seconds sekunder, inden du poster endnu en kommentar.',
         'comment_deleted_message' => 'Din kommentar er blevet slettet.',
         'delete_not_authorized' => 'Du har ikke tilladelse til at slette denne kommentar.',

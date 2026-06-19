@@ -56,6 +56,7 @@ return [
         ],
 
         'comment_success_message' => '您的评论已成功发送。',
+        'comment_pending_approval_message' => '感谢您！您的评论已提交，正在等待审核。管理员审核通过后将公开显示，因此发布后可能不会立即显示。',
         'rate_limit_error' => '您评论太快了。请等待 :seconds 秒后再发表另一条评论。',
         'comment_deleted_message' => '您的评论已成功删除。',
         'delete_not_authorized' => '您无权删除此评论。',

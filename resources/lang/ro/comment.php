@@ -56,6 +56,7 @@ return [
         ],
 
         'comment_success_message' => 'Comentariul tău a fost trimis cu succes.',
+        'comment_pending_approval_message' => 'Mulțumim! Comentariul dvs. a fost trimis și așteaptă moderare. Va apărea public după ce un administrator îl aprobă, deci este posibil să nu fie afișat imediat după publicare.',
         'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
         'comment_deleted_message' => 'Comentariul tău a fost șters cu succes.',
         'delete_not_authorized' => 'Nu ești autorizat să ștergi acest comentariu.',

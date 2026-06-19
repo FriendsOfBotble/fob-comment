@@ -56,6 +56,7 @@ return [
         ],
 
         'comment_success_message' => 'Yorumunuz başarıyla gönderildi.',
+        'comment_pending_approval_message' => 'Teşekkürler! Yorumunuz gönderildi ve onay bekliyor. Bir yönetici onayladıktan sonra herkese görünür olacak, bu yüzden gönderdikten hemen sonra görünmeyebilir.',
         'rate_limit_error' => 'Çok hızlı yorum yapıyorsunuz. Lütfen başka bir yorum göndermeden önce :seconds saniye bekleyin.',
         'comment_deleted_message' => 'Yorumunuz başarıyla silindi.',
         'delete_not_authorized' => 'Bu yorumu silme yetkiniz bulunmamaktadır.',

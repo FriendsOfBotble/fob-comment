@@ -5,6 +5,8 @@
         $paginationView = 'pagination::bootstrap-5';
     }
 
+    // IP-based pending preview: matches WordPress behavior. Users behind shared NAT/proxy may
+    // see each other's pending comments. Wrap in a setting if strict invisibility is required.
     $currentIp = \Botble\Base\Supports\Helper::getIpFromThirdParty();
     $allowAuthorDelete = \FriendsOfBotble\Comment\Support\CommentHelper::isAllowAuthorDelete();
     $currentUser = $allowAuthorDelete ? \FriendsOfBotble\Comment\Support\CommentHelper::getAuthorizedUser() : null;
@@ -19,88 +21,13 @@
             class="fob-comment-item"
         >
             <div class="fob-comment-item-inner">
-                <div class="fob-comment-item-avatar">
-                    @if ($comment->website)
-                        <a
-                            href="{{ $comment->website }}"
-                            target="_blank"
-                        >
-                            <img
-                                src="{{ $comment->avatar_url }}"
-                                alt="{{ $comment->name }}"
-                            >
-                        </a>
-                    @else
-                        <img
-                            src="{{ $comment->avatar_url }}"
-                            alt="{{ $comment->name }}"
-                        >
-                    @endif
-                </div>
+                @include('plugins/fob-comment::partials.list-item.avatar', compact('comment'))
                 <div class="fob-comment-item-content">
                     <div class="fob-comment-item-body">
-                        @if (!$comment->is_approved)
-                            <em class="fob-comment-item-pending">
-                                {{ trans('plugins/fob-comment::comment.front.list.waiting_for_approval_message') }}
-                            </em>
-                        @endif
-                        @if ($comment->is_admin)
-                            {!! BaseHelper::clean($comment->formatted_content) !!}
-                        @else
-                            <p>{!! $comment->formatted_content !!}</p>
-                        @endif
+                        @include('plugins/fob-comment::partials.list-item.body', compact('comment'))
                     </div>
 
-                    <div class="fob-comment-item-footer">
-                        <div class="fob-comment-item-info">
-                            @if (\FriendsOfBotble\Comment\Support\CommentHelper::isDisplayAdminBadge() && $comment->is_admin)
-                                <span class="fob-comment-item-admin-badge">
-                                    @if (setting('fob_comment_show_admin_role_name_for_admin_badge', true) && $comment->author?->roles?->value('name'))
-                                        {{ $comment->author?->roles?->value('name') }}
-                                    @else
-                                        {{ trans('plugins/fob-comment::comment.front.admin_badge') }}
-                                    @endif
-                                </span>
-                            @endif
-                            @if ($comment->website)
-                                <a
-                                    href="{{ $comment->website }}"
-                                    class="fob-comment-item-author"
-                                    target="_blank"
-                                >
-                                    <h4 class="fob-comment-item-author">{{ $comment->name }}</h4>
-                                </a>
-                            @else
-                                <h4 class="fob-comment-item-author">{{ $comment->name }}</h4>
-                            @endif
-                            <span class="fob-comment-item-date">{{ $comment->created_at->diffForHumans() }}</span>
-                        </div>
-
-                        <div class="fob-comment-item-actions">
-                            @if ($comment->is_approved)
-                                <a
-                                    href="{{ route('fob-comment.public.comments.reply', $comment) }}"
-                                    class="fob-comment-item-reply"
-                                    data-comment-id="{{ $comment->getKey() }}"
-                                    data-reply-to="{{ $replyLabel = trans('plugins/fob-comment::comment.front.list.reply_to', ['name' => $comment->name]) }}"
-                                    data-cancel-reply="{{ trans('plugins/fob-comment::comment.front.list.cancel_reply') }}"
-                                    aria-label="{{ $replyLabel }}"
-                                >
-                                    {{ trans('plugins/fob-comment::comment.front.list.reply') }}
-                                </a>
-                            @endif
-
-                            @if ($currentUser && $comment->author_type === $currentUser::class && $comment->author_id === $currentUser->getKey())
-                                <a
-                                    href="{{ route('fob-comment.public.comments.destroy', $comment) }}"
-                                    class="fob-comment-item-delete"
-                                    data-confirm="{{ trans('plugins/fob-comment::comment.front.list.delete_confirm') }}"
-                                >
-                                    {{ trans('plugins/fob-comment::comment.front.list.delete') }}
-                                </a>
-                            @endif
-                        </div>
-                    </div>
+                    @include('plugins/fob-comment::partials.list-item.footer', compact('comment', 'currentUser'))
                 </div>
             </div>
 

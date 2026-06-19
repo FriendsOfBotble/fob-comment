@@ -5,7 +5,7 @@ namespace FriendsOfBotble\Comment\Http\Controllers;
 use Botble\Base\Http\Actions\DeleteResourceAction;
 use Botble\Base\Http\Controllers\BaseController;
 use FriendsOfBotble\Comment\Forms\CommentForm;
-use FriendsOfBotble\Comment\Http\Requests\CommentRequest;
+use FriendsOfBotble\Comment\Http\Requests\AdminCommentRequest;
 use FriendsOfBotble\Comment\Models\Comment;
 use FriendsOfBotble\Comment\Tables\CommentTable;
 
@@ -25,7 +25,7 @@ class CommentController extends BaseController
         return CommentForm::createFromModel($comment)->renderForm();
     }
 
-    public function update(Comment $comment, CommentRequest $request)
+    public function update(Comment $comment, AdminCommentRequest $request)
     {
         CommentForm::createFromModel($comment)
             ->onlyValidatedData()

@@ -56,6 +56,7 @@ return [
         ],
 
         'comment_success_message' => 'Komentar Anda telah berhasil dikirim.',
+        'comment_pending_approval_message' => 'Terima kasih! Komentar Anda telah dikirim dan sedang menunggu moderasi. Komentar akan muncul untuk publik setelah disetujui oleh administrator, jadi mungkin tidak langsung muncul setelah Anda mengirimnya.',
         'rate_limit_error' => 'Anda berkomentar terlalu cepat. Harap tunggu :seconds detik sebelum memposting komentar lain.',
         'comment_deleted_message' => 'Komentar Anda telah berhasil dihapus.',
         'delete_not_authorized' => 'Anda tidak memiliki izin untuk menghapus komentar ini.',

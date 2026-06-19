@@ -56,6 +56,7 @@ return [
         ],
 
         'comment_success_message' => 'Komen anda telah berjaya dihantar.',
+        'comment_pending_approval_message' => 'Terima kasih! Komen anda telah dihantar dan sedang menunggu pengesahan. Ia akan dipaparkan kepada umum setelah pentadbir meluluskannya, jadi mungkin tidak terus muncul selepas anda menghantarnya.',
         'rate_limit_error' => 'You are commenting too fast. Please wait :seconds seconds before posting another comment.',
         'comment_deleted_message' => 'Komen anda telah berjaya dipadamkan.',
         'delete_not_authorized' => 'Anda tidak diberi kuasa untuk memadam komen ini.',

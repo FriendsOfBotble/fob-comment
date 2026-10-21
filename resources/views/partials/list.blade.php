@@ -7,7 +7,7 @@
 
     // IP-based pending preview: matches WordPress behavior. Users behind shared NAT/proxy may
     // see each other's pending comments. Wrap in a setting if strict invisibility is required.
-    $currentIp = \Botble\Base\Supports\Helper::getIpFromThirdParty();
+    $currentIp = request()->ip();
     $allowAuthorDelete = \FriendsOfBotble\Comment\Support\CommentHelper::isAllowAuthorDelete();
     $currentUser = $allowAuthorDelete ? \FriendsOfBotble\Comment\Support\CommentHelper::getAuthorizedUser() : null;
 @endphp

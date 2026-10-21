@@ -2,6 +2,12 @@
 
 All notable changes to `fob-comment` will be documented in this file
 
+## 1.2.12 - 2026-10-21
+
+- Fix: store and compare the visitor's IP (`request()->ip()`) instead of `Helper::getIpFromThirdParty()`, which returned the server's own IP. Every comment stored the same IP, the rate limit was shared by the whole site, and pending comments were shown to every visitor.
+- Fix: replies now respect the "disable guest comments" setting, the rate limit and the `allow_comments` option, like new comments.
+- Security: comments and replies can only target public content (models registered with the slug helper, never user accounts).
+
 ## 1.2.10 - 2026-05-16
 
 - Add `deactivate()` lifecycle method to clear the runtime comment counter binding on deactivation. Persistent data (the `fob_comments` table and `fob_comment_*` settings) is preserved so re-activating the plugin restores all state.

@@ -4,19 +4,20 @@ namespace FriendsOfBotble\Comment\Http\Controllers\Fronts;
 
 use Botble\Base\Http\Controllers\BaseController;
 use Botble\Base\Models\BaseModel;
-use Botble\Base\Supports\Helper;
 use FriendsOfBotble\Comment\Actions\CreateNewComment;
 use FriendsOfBotble\Comment\Actions\GetCommentReference;
 use FriendsOfBotble\Comment\Enums\CommentStatus;
+use FriendsOfBotble\Comment\Http\Controllers\Fronts\Concerns\GuardsCommentSubmission;
 use FriendsOfBotble\Comment\Http\Requests\Fronts\CommentReferenceRequest;
 use FriendsOfBotble\Comment\Http\Requests\Fronts\CommentRequest;
 use FriendsOfBotble\Comment\Models\Comment;
 use FriendsOfBotble\Comment\Support\CommentHelper;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\RateLimiter;
 
 class CommentController extends BaseController
 {
+    use GuardsCommentSubmission;
+
     public function index(CommentReferenceRequest $request, GetCommentReference $getCommentReference)
     {
         $reference = new BaseModel();
@@ -38,7 +39,7 @@ class CommentController extends BaseController
                     ->where('status', CommentStatus::APPROVED)
                     ->orWhere(function (Builder $query): void {
                         $query->where('status', CommentStatus::PENDING)
-                            ->where('ip_address', Helper::getIpFromThirdParty());
+                            ->where('ip_address', request()->ip());
                     });
             })
             ->where('reply_to', null)
@@ -67,28 +68,8 @@ class CommentController extends BaseController
         CreateNewComment $createNewComment,
         GetCommentReference $getCommentReference
     ) {
-        if (CommentHelper::isGuestCommentDisabled() && ! CommentHelper::getAuthorizedUser()) {
-            return $this
-                ->httpResponse()
-                ->setError()
-                ->setMessage(trans('plugins/fob-comment::comment.front.form.login_required'));
-        }
-
-        $rateLimitSeconds = CommentHelper::getRateLimitSeconds();
-
-        if ($rateLimitSeconds > 0) {
-            $key = 'fob-comment:' . Helper::getIpFromThirdParty();
-
-            if (RateLimiter::tooManyAttempts($key, 1)) {
-                $seconds = RateLimiter::availableIn($key);
-
-                return $this
-                    ->httpResponse()
-                    ->setError()
-                    ->setMessage(trans('plugins/fob-comment::comment.front.rate_limit_error', ['seconds' => $seconds]));
-            }
-
-            RateLimiter::hit($key, $rateLimitSeconds);
+        if ($response = $this->guardCommentSubmission()) {
+            return $response;
         }
 
         $data = [

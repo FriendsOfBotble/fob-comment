@@ -2,7 +2,7 @@
 
 All notable changes to `fob-comment` will be documented in this file
 
-## 1.2.12 - 2026-10-21
+## 1.3.0 - 2026-10-21
 
 - Fix: store and compare the visitor's IP (`request()->ip()`) instead of `Helper::getIpFromThirdParty()`, which returned the server's own IP. Every comment stored the same IP, the rate limit was shared by the whole site, and pending comments were shown to every visitor.
 - Fix: replies now respect the "disable guest comments" setting, the rate limit and the `allow_comments` option, like new comments.

@@ -7,6 +7,7 @@ use Botble\Base\Facades\BaseHelper;
 use Botble\Base\Models\BaseModel;
 use Botble\Media\Facades\RvMedia;
 use FriendsOfBotble\Comment\Enums\CommentStatus;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -36,6 +37,16 @@ class Comment extends BaseModel
     protected $casts = [
         'status' => CommentStatus::class,
     ];
+
+    public function scopeVisibleToIp(Builder $query, string $ip): Builder
+    {
+        return $query->where(function (Builder $query) use ($ip): void {
+            $query->where('status', CommentStatus::APPROVED)
+                ->orWhere(function (Builder $query) use ($ip): void {
+                    $query->where('status', CommentStatus::PENDING)->where('ip_address', $ip);
+                });
+        });
+    }
 
     public function author(): MorphTo
     {
@@ -83,9 +94,7 @@ class Comment extends BaseModel
             $email = strtolower(trim($this->email));
             $hash = hash('sha256', $email);
 
-            $default = urlencode("https://unavatar.io/$email");
-
-            return "https://www.gravatar.com/avatar/$hash?d=mp&s=128&d=$default";
+            return "https://www.gravatar.com/avatar/$hash?d=mp&s=128";
         });
     }
 

@@ -10,9 +10,9 @@ use FriendsOfBotble\Comment\Enums\CommentStatus;
 use FriendsOfBotble\Comment\Http\Controllers\Fronts\Concerns\GuardsCommentSubmission;
 use FriendsOfBotble\Comment\Http\Requests\Fronts\CommentReferenceRequest;
 use FriendsOfBotble\Comment\Http\Requests\Fronts\CommentRequest;
+use FriendsOfBotble\Comment\Http\Resources\PublicCommentResource;
 use FriendsOfBotble\Comment\Models\Comment;
 use FriendsOfBotble\Comment\Support\CommentHelper;
-use Illuminate\Database\Eloquent\Builder;
 
 class CommentController extends BaseController
 {
@@ -33,17 +33,15 @@ class CommentController extends BaseController
                 ->where('reference_url', $request->input('reference_url'));
         }
 
+        $visibleReplies = function ($query) use (&$visibleReplies): void {
+            $query->visibleToIp(request()->ip())
+                ->with(['author', 'replies' => $visibleReplies]);
+        };
+
         $query
-            ->where(function (Builder $query): void {
-                $query
-                    ->where('status', CommentStatus::APPROVED)
-                    ->orWhere(function (Builder $query): void {
-                        $query->where('status', CommentStatus::PENDING)
-                            ->where('ip_address', request()->ip());
-                    });
-            })
+            ->visibleToIp(request()->ip())
             ->where('reply_to', null)
-            ->with(['author', 'replies', 'replies.author'])
+            ->with(['author', 'replies' => $visibleReplies])
             ->orderBy('created_at', CommentHelper::getCommentOrder());
 
         $comments = apply_filters('fob_comment_list_query', $query, $request)->paginate(10);
@@ -61,7 +59,7 @@ class CommentController extends BaseController
                     ? trans('plugins/fob-comment::comment.front.list.title_singular', ['count' => $count])
                     : trans('plugins/fob-comment::comment.front.list.title_plural', ['count' => $count]),
                 'html' => view($view, compact('comments'))->render(),
-                'comments' => $comments,
+                'comments' => $comments->through(fn (Comment $comment) => (new PublicCommentResource($comment))->resolve($request)),
             ]);
     }
 

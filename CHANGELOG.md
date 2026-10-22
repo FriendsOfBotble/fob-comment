@@ -2,6 +2,12 @@
 
 All notable changes to `fob-comment` will be documented in this file
 
+## Unreleased
+
+- Security: public comment JSON now exposes only public fields, excluding commenter email, IP address, user agent and author records.
+- Security: nested replies follow the same visibility rules as top-level comments; pending replies are visible only from the submitting IP, and spam and trashed replies are excluded.
+- Security: Gravatar URLs no longer include an email-based Unavatar fallback.
+
 ## 1.3.1 - 2026-10-22
 
 - Fix: store the page URL of a comment. `reference_url` was not fillable, so it was dropped on save and comments on pages without a reference model never showed.

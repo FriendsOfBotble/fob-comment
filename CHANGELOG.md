@@ -2,6 +2,14 @@
 
 All notable changes to `fob-comment` will be documented in this file
 
+## 1.3.1 - 2026-10-22
+
+- Fix: store the page URL of a comment. `reference_url` was not fillable, so it was dropped on save and comments on pages without a reference model never showed.
+- Fix: the comment count on a page without a reference model counted every such comment on the site; it now counts the approved comments of that page's URL.
+- Fix: the comment count included pending, spam and trashed comments of the reference.
+- Fix: a preloaded comment count threw a `TypeError` instead of returning the count, and preloading an empty collection loaded the counts of every reference.
+- Security: the comment page URL, including the Referer fallback, must be an http(s) URL of this site, since it is shown as a link in the admin and in emails.
+
 ## 1.3.0 - 2026-10-21
 
 - Fix: store and compare the visitor's IP (`request()->ip()`) instead of `Helper::getIpFromThirdParty()`, which returned the server's own IP. Every comment stored the same IP, the rate limit was shared by the whole site, and pending comments were shown to every visitor.

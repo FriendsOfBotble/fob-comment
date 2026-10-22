@@ -27,6 +27,7 @@ class Comment extends BaseModel
         'author_type',
         'reference_id',
         'reference_type',
+        'reference_url',
         'reply_to',
         'ip_address',
         'user_agent',

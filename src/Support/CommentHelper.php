@@ -149,7 +149,7 @@ class CommentHelper
         $counter = app('fob.comments.counter');
 
         if (isset($counter[$reference::class][$reference->getKey()])) {
-            return $counter[$reference->getKey()];
+            return $counter[$reference::class][$reference->getKey()];
         }
 
         $counter = static::loadCommentsCount([$reference]);
@@ -157,11 +157,25 @@ class CommentHelper
         return $counter[$reference::class][$reference->getKey()] ?? 0;
     }
 
+    /**
+     * Count for a page whose comments are linked by URL only, matching the comment list,
+     * which loads those comments by reference_url.
+     */
+    public static function getCommentsCountByUrl(string $url): int
+    {
+        return Comment::query()
+            ->where('reference_url', $url)
+            ->where('status', CommentStatus::APPROVED)
+            ->count();
+    }
+
     public static function loadCommentsCount(Collection|array $collect): array
     {
         $counter = app('fob.comments.counter');
 
-        if (empty($collect)) {
+        // empty() is never true for a Collection object, and with no references the
+        // query below would count the approved comments of every reference on the site.
+        if (collect($collect)->isEmpty()) {
             return $counter;
         }
 
@@ -169,15 +183,17 @@ class CommentHelper
 
         $query
             ->select(['reference_type', 'reference_id', DB::raw('count(*) as total')])
-            ->where('status', CommentStatus::APPROVED);
-
-        foreach ($collect as $reference) {
-            $query->orWhere(function (Builder $query) use ($reference): void {
-                $query
-                    ->where('reference_type', $reference::class)
-                    ->where('reference_id', $reference->getKey());
+            ->where('status', CommentStatus::APPROVED)
+            // Grouped, otherwise the status check is OR-ed with the references instead of applied to them.
+            ->where(function (Builder $query) use ($collect): void {
+                foreach ($collect as $reference) {
+                    $query->orWhere(function (Builder $query) use ($reference): void {
+                        $query
+                            ->where('reference_type', $reference::class)
+                            ->where('reference_id', $reference->getKey());
+                    });
+                }
             });
-        }
 
         $query->groupBy(['reference_type', 'reference_id']);
 

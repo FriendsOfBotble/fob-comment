@@ -48,7 +48,9 @@ class CommentController extends BaseController
 
         $comments = apply_filters('fob_comment_list_query', $query, $request)->paginate(10);
 
-        $count = CommentHelper::getCommentsCount($reference);
+        $count = $request->input('reference_type')
+            ? CommentHelper::getCommentsCount($reference)
+            : CommentHelper::getCommentsCountByUrl($request->input('reference_url'));
 
         $view = apply_filters('fob_comment_list_view_path', 'plugins/fob-comment::partials.list');
 
@@ -72,10 +74,7 @@ class CommentController extends BaseController
             return $response;
         }
 
-        $data = [
-            ...$request->validated(),
-            'reference_url' => $request->input('reference_url') ?? url()->previous(),
-        ];
+        $data = $request->validated();
 
         $reference = new BaseModel();
 

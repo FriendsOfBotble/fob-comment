@@ -3,16 +3,27 @@
 use Botble\Base\Facades\AdminHelper;
 use Botble\Theme\Facades\Theme;
 use FriendsOfBotble\Comment\Http\Controllers\CommentController;
-use FriendsOfBotble\Comment\Http\Controllers\ReplyCommentController;
-use FriendsOfBotble\Comment\Http\Controllers\Settings\CommentSettingController;
 use FriendsOfBotble\Comment\Http\Controllers\Fronts\CommentController as FrontCommentController;
 use FriendsOfBotble\Comment\Http\Controllers\Fronts\ReplyCommentController as FrontReplyCommentController;
+use FriendsOfBotble\Comment\Http\Controllers\ReplyCommentController;
+use FriendsOfBotble\Comment\Http\Controllers\Settings\CommentSettingController;
 use Illuminate\Support\Facades\Route;
-
 
 Route::name('fob-comment.')->group(function (): void {
     AdminHelper::registerRoutes(function (): void {
         Route::group(['prefix' => 'comments', 'as' => 'comments.'], function (): void {
+            Route::get('widgets/pending', [
+                'as' => 'widget.pending',
+                'uses' => CommentController::class . '@getWidgetPendingComments',
+                'permission' => 'fob-comment.comments.index',
+            ]);
+
+            Route::post('widgets/{comment}/moderate', [
+                'as' => 'widget.moderate',
+                'uses' => CommentController::class . '@postWidgetModerateComment',
+                'permission' => 'fob-comment.comments.edit',
+            ])->wherePrimaryKey();
+
             Route::resource('', CommentController::class)->parameters(['' => 'comment']);
             Route::post('{comment}/reply', [ReplyCommentController::class, '__invoke'])->name('reply');
         });

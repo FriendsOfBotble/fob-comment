@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Hover color for buttons. Leave empty to use a darker shade of the primary color.',
         ],
     ],
+    'widget_pending_comments' => 'Pending comments',
+    'widget_total_comments' => ':count comments in total',
+    'widget_pending_comments_list' => 'Comments Awaiting Review',
+    'widget_all_caught_up' => 'All caught up!',
+    'widget_no_pending_comments' => 'No comments are waiting for review.',
+    'widget_approve' => 'Approve',
+    'widget_spam' => 'Spam',
+    'widget_approved' => 'Comment approved.',
+    'widget_marked_spam' => 'Comment marked as spam.',
 ];

@@ -12,6 +12,8 @@ use Botble\Base\PanelSections\PanelSectionItem;
 use Botble\Base\Supports\ServiceProvider;
 use Botble\Base\Traits\LoadAndPublishDataTrait;
 use Botble\Blog\Forms\PostForm;
+use Botble\Dashboard\Events\RenderingDashboardWidgets;
+use Botble\Dashboard\Supports\DashboardWidgetInstance;
 use Botble\PluginManagement\Events\DeactivatedPlugin;
 use Botble\PluginManagement\Events\RemovedPlugin;
 use Botble\Setting\PanelSections\SettingOthersPanelSection;
@@ -22,6 +24,7 @@ use FriendsOfBotble\Comment\Http\Requests\Fronts\CommentRequest;
 use FriendsOfBotble\Comment\Http\Requests\Fronts\ReplyCommentRequest;
 use FriendsOfBotble\Comment\Models\Comment;
 use FriendsOfBotble\Comment\Support\CommentHelper;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 
 class CommentServiceProvider extends ServiceProvider
@@ -104,6 +107,10 @@ class CommentServiceProvider extends ServiceProvider
                 return $data;
             }, 1, 2);
 
+            $this->app['events']->listen(RenderingDashboardWidgets::class, function (): void {
+                add_filter(DASHBOARD_FILTER_ADMIN_LIST, [$this, 'registerDashboardWidgets'], 23, 2);
+            });
+
             Comment::saved(fn () => CommentHelper::forgetPendingCount());
             Comment::deleted(fn () => CommentHelper::forgetPendingCount());
 
@@ -138,5 +145,50 @@ class CommentServiceProvider extends ServiceProvider
                 }
             );
         });
+    }
+
+    public function registerDashboardWidgets(array $widgets, Collection $widgetSettings): array
+    {
+        if (! Auth::guard()->user()->hasPermission('fob-comment.comments.index')) {
+            return $widgets;
+        }
+
+        $stats = (new DashboardWidgetInstance())
+            ->setType('stats')
+            ->setPermission('fob-comment.comments.index')
+            ->setKey('widget_fob_comments_pending')
+            ->setTitle(trans('plugins/fob-comment::comment.widget_pending_comments'))
+            ->setIcon('ti ti-messages')
+            ->setColor('orange')
+            ->setStatsTotal(fn () => CommentHelper::getPendingCount())
+            ->setPriority(40)
+            ->setRoute(route('fob-comment.comments.index'))
+            ->setColumn('col-12 col-md-6 col-lg-3');
+
+        // The plugin also runs on older cores: use the newer dashboard widget API only when it exists
+        if (method_exists($stats, 'setStatsDescription')) {
+            $stats->setStatsDescription(fn () => trans('plugins/fob-comment::comment.widget_total_comments', [
+                'count' => number_format(Comment::query()->count()),
+            ]));
+        }
+
+        $stats->init($widgets, $widgetSettings);
+
+        // The list loads itself (auto-load) and moderates inline, both need the newer dashboard
+        if (! method_exists(DashboardWidgetInstance::class, 'setAutoLoad')) {
+            return $widgets;
+        }
+
+        return (new DashboardWidgetInstance())
+            ->setPermission('fob-comment.comments.index')
+            ->setKey('widget_fob_comments_pending_list')
+            ->setTitle(trans('plugins/fob-comment::comment.widget_pending_comments_list'))
+            ->setIcon('ti ti-messages')
+            ->setColor('orange')
+            ->setRoute(route('fob-comment.comments.widget.pending'))
+            ->setViewAllRoute(route('fob-comment.comments.index'))
+            ->setAutoLoad()
+            ->setColumn('col-md-6 col-sm-6')
+            ->init($widgets, $widgetSettings);
     }
 }

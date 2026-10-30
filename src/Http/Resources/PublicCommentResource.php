@@ -2,9 +2,13 @@
 
 namespace FriendsOfBotble\Comment\Http\Resources;
 
+use FriendsOfBotble\Comment\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
+/**
+ * @mixin Comment
+ */
 class PublicCommentResource extends JsonResource
 {
     public function toArray(Request $request): array

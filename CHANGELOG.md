@@ -2,8 +2,11 @@
 
 All notable changes to `fob-comment` will be documented in this file
 
-## Unreleased
+## 1.4.0 - 2026-10-30
 
+- Add: "Pending comments" dashboard tile with the total number of comments.
+- Add: "Comments Awaiting Review" dashboard widget listing pending comments, with inline Approve and Spam buttons. It needs a core with the auto-loading dashboard widgets; on older cores only the tile is shown.
+- Add: Persian (fa) translation.
 - Security: public comment JSON now exposes only public fields, excluding commenter email, IP address, user agent and author records.
 - Security: nested replies follow the same visibility rules as top-level comments; pending replies are visible only from the submitting IP, and spam and trashed replies are excluded.
 - Security: Gravatar URLs no longer include an email-based Unavatar fallback.

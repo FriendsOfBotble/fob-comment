@@ -2,6 +2,10 @@
 
 All notable changes to `fob-comment` will be documented in this file
 
+## Unreleased
+
+- Fix: reCAPTCHA v3 tokens are now refreshed while the page stays open and after each submit. The token was only fetched on page load, so a comment posted more than 2 minutes later, or retried after an error, failed validation.
+
 ## 1.4.0 - 2026-10-30
 
 - Add: "Pending comments" dashboard tile with the total number of comments.

@@ -48,7 +48,26 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         })
 
+    // reCAPTCHA v3 fetches its token once on page load, but tokens expire after 2 minutes and are
+    // single-use, so a comment written slowly or retried after an error would fail validation.
+    // Only v3 renders a hidden input here: on v2, refreshRecaptcha() would reset a ticked checkbox.
+    const refreshRecaptchaV3Token = () => {
+        if (
+            !$(document).find('.fob-comment-form input[name="g-recaptcha-response"]').length ||
+            typeof window.refreshRecaptcha !== 'function' ||
+            typeof window.grecaptcha?.ready !== 'function'
+        ) {
+            return
+        }
+
+        window.grecaptcha.ready(() => window.refreshRecaptcha())
+    }
+
+    setInterval(refreshRecaptchaV3Token, 90000)
+
     const resetRecaptcha = () => {
+        refreshRecaptchaV3Token()
+
         if (typeof window.grecaptcha === 'undefined' || typeof window.grecaptcha.render !== 'function') {
             return
         }
@@ -200,6 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (window?.Theme !== undefined) {
                         if (error) {
                             Theme.showError(message)
+                            resetRecaptcha()
 
                             return
                         }

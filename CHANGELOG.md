@@ -2,7 +2,7 @@
 
 All notable changes to `fob-comment` will be documented in this file
 
-## Unreleased
+## 1.4.1 - 2026-11-01
 
 - Fix: reCAPTCHA v3 tokens are now refreshed while the page stays open and after each submit. The token was only fetched on page load, so a comment posted more than 2 minutes later, or retried after an error, failed validation.
 

@@ -2,6 +2,11 @@
 
 All notable changes to `fob-comment` will be documented in this file
 
+## Unreleased
+
+- Add: `fob_comment_reference_types` filter, so plugins can allow comments on public models that are not registered with the slug helper (e.g. marketplace products). Account models stay rejected.
+- Fix: comment feature tests no longer fail on sites with captcha or the comment rate limit enabled.
+
 ## 1.4.1 - 2026-11-01
 
 - Fix: reCAPTCHA v3 tokens are now refreshed while the page stays open and after each submit. The token was only fetched on page load, so a comment posted more than 2 minutes later, or retried after an error, failed validation.

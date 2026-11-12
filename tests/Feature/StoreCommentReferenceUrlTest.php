@@ -3,6 +3,7 @@
 namespace FriendsOfBotble\Comment\Tests\Feature;
 
 use Botble\Page\Models\Page;
+use Botble\Setting\Facades\Setting;
 use FriendsOfBotble\Comment\Models\Comment;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
@@ -27,6 +28,15 @@ class StoreCommentReferenceUrlTest extends TestCase
         if (! class_exists(Comment::class)) {
             $this->markTestSkipped('The fob-comment plugin is not active.');
         }
+
+        // These tests post without a captcha answer, so a site with captcha or the comment rate
+        // limit switched on must not fail them.
+        Setting::set([
+            'enable_captcha' => false,
+            'enable_math_captcha' => false,
+            'fob_comment_enable_recaptcha' => false,
+            'fob_comment_rate_limit_seconds' => 0,
+        ]);
     }
 
     public function test_it_stores_the_url_of_the_page(): void

@@ -5,6 +5,7 @@ namespace FriendsOfBotble\Comment\Tests\Unit;
 use Botble\ACL\Models\User;
 use Botble\Page\Models\Page;
 use FriendsOfBotble\Comment\Actions\GetCommentReference;
+use FriendsOfBotble\Comment\Models\Comment;
 use Illuminate\Support\Facades\DB;
 use PHPUnit\Framework\Attributes\DataProvider;
 use stdClass;
@@ -53,5 +54,22 @@ class GetCommentReferenceTest extends TestCase
     public function test_it_accepts_public_content_models(): void
     {
         $this->assertTrue(GetCommentReference::isAllowedType(Page::class));
+    }
+
+    public function test_it_accepts_models_listed_by_the_reference_types_filter(): void
+    {
+        // A public model with its own routing, not registered with the slug helper.
+        $this->assertFalse(GetCommentReference::isAllowedType(Comment::class));
+
+        add_filter('fob_comment_reference_types', fn (array $types): array => [...$types, Comment::class]);
+
+        $this->assertTrue(GetCommentReference::isAllowedType(Comment::class));
+    }
+
+    public function test_the_reference_types_filter_cannot_allow_accounts(): void
+    {
+        add_filter('fob_comment_reference_types', fn (array $types): array => [...$types, User::class]);
+
+        $this->assertFalse(GetCommentReference::isAllowedType(User::class));
     }
 }

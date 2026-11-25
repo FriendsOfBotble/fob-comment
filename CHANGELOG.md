@@ -2,9 +2,11 @@
 
 All notable changes to `fob-comment` will be documented in this file
 
-## Unreleased
+## 1.5.0 - 2026-11-25
 
 - Add: `fob_comment_reference_types` filter, so plugins can allow comments on public models that are not registered with the slug helper (e.g. marketplace products). Account models stay rejected.
+- Add: translations of the dashboard widget strings for every bundled language.
+- Fix: the admin comment routes now register only the actions that exist. `admin/comments/create` was registered without a controller action and returned a 500 error.
 - Fix: comment feature tests no longer fail on sites with captcha or the comment rate limit enabled.
 
 ## 1.4.1 - 2026-11-01

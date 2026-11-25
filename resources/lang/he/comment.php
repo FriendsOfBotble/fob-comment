@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'צבע ריחוף לכפתורים. השאר ריק לשימוש בגוון כהה יותר של הצבע הראשי.',
         ],
     ],
+    'widget_pending_comments' => 'תגובות ממתינות',
+    'widget_total_comments' => 'סך הכול :count תגובות',
+    'widget_pending_comments_list' => 'תגובות הממתינות לבדיקה',
+    'widget_all_caught_up' => 'הכול מעודכן!',
+    'widget_no_pending_comments' => 'אין תגובות הממתינות לבדיקה.',
+    'widget_approve' => 'אשר',
+    'widget_spam' => 'ספאם',
+    'widget_approved' => 'התגובה אושרה.',
+    'widget_marked_spam' => 'התגובה סומנה כספאם.',
 ];

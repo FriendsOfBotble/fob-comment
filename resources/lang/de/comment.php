@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Hover-Farbe für Schaltflächen. Leer lassen, um einen dunkleren Ton der Primärfarbe zu verwenden.',
         ],
     ],
+    'widget_pending_comments' => 'Ausstehende Kommentare',
+    'widget_total_comments' => 'Insgesamt :count Kommentare',
+    'widget_pending_comments_list' => 'Kommentare zur Prüfung',
+    'widget_all_caught_up' => 'Alles erledigt!',
+    'widget_no_pending_comments' => 'Keine Kommentare warten auf Prüfung.',
+    'widget_approve' => 'Genehmigen',
+    'widget_spam' => 'Spam',
+    'widget_approved' => 'Kommentar genehmigt.',
+    'widget_marked_spam' => 'Kommentar als Spam markiert.',
 ];

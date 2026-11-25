@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'لون التمرير للأزرار. اتركه فارغاً لاستخدام ظل أغمق من اللون الأساسي.',
         ],
     ],
+    'widget_pending_comments' => 'التعليقات المعلّقة',
+    'widget_total_comments' => ':count تعليق في المجموع',
+    'widget_pending_comments_list' => 'تعليقات بانتظار المراجعة',
+    'widget_all_caught_up' => 'لا يوجد شيء معلّق!',
+    'widget_no_pending_comments' => 'لا توجد تعليقات بانتظار المراجعة.',
+    'widget_approve' => 'موافقة',
+    'widget_spam' => 'سبام',
+    'widget_approved' => 'تمت الموافقة على التعليق.',
+    'widget_marked_spam' => 'تم وضع علامة سبام على التعليق.',
 ];

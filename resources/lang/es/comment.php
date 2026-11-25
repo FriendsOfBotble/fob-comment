@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Color al pasar el cursor para los botones. Déjelo vacío para usar un tono más oscuro del color primario.',
         ],
     ],
+    'widget_pending_comments' => 'Comentarios pendientes',
+    'widget_total_comments' => ':count comentarios en total',
+    'widget_pending_comments_list' => 'Comentarios pendientes de revisión',
+    'widget_all_caught_up' => '¡Todo al día!',
+    'widget_no_pending_comments' => 'No hay comentarios pendientes de revisión.',
+    'widget_approve' => 'Aprobar',
+    'widget_spam' => 'Spam',
+    'widget_approved' => 'Comentario aprobado.',
+    'widget_marked_spam' => 'Comentario marcado como spam.',
 ];

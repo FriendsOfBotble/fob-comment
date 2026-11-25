@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'ボタンのホバーカラー。空白のままにするとプライマリカラーの暗い色調が使用されます。',
         ],
     ],
+    'widget_pending_comments' => '承認待ちコメント',
+    'widget_total_comments' => '合計 :count 件のコメント',
+    'widget_pending_comments_list' => 'レビュー待ちのコメント',
+    'widget_all_caught_up' => 'すべて対応済みです！',
+    'widget_no_pending_comments' => 'レビュー待ちのコメントはありません。',
+    'widget_approve' => '承認',
+    'widget_spam' => 'スパム',
+    'widget_approved' => 'コメントを承認しました。',
+    'widget_marked_spam' => 'コメントをスパムとしてマークしました。',
 ];

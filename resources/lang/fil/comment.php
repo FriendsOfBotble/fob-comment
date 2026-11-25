@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Hover na kulay para sa mga pindutan. Iwanang blangko para gamitin ang mas malalim na lilim ng pangunahing kulay.',
         ],
     ],
+    'widget_pending_comments' => 'Mga nakabinbing komento',
+    'widget_total_comments' => ':count komento sa kabuuan',
+    'widget_pending_comments_list' => 'Mga komentong naghihintay ng review',
+    'widget_all_caught_up' => 'Tapos na lahat!',
+    'widget_no_pending_comments' => 'Walang komentong naghihintay ng review.',
+    'widget_approve' => 'Aprubahan',
+    'widget_spam' => 'Spam',
+    'widget_approved' => 'Naaprubahan ang komento.',
+    'widget_marked_spam' => 'Namarkahan ang komento bilang spam.',
 ];

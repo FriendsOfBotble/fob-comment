@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Farba pri prechode pre tlačidlá. Nechajte prázdne, aby ste použili tmavší odtieň primárnej farby.',
         ],
     ],
+    'widget_pending_comments' => 'Čakajúce komentáre',
+    'widget_total_comments' => 'Spolu komentárov: :count',
+    'widget_pending_comments_list' => 'Komentáre čakajúce na schválenie',
+    'widget_all_caught_up' => 'Všetko vybavené!',
+    'widget_no_pending_comments' => 'Žiadne komentáre nečakajú na kontrolu.',
+    'widget_approve' => 'Schváliť',
+    'widget_spam' => 'Spam',
+    'widget_approved' => 'Komentár bol schválený.',
+    'widget_marked_spam' => 'Komentár bol označený ako spam.',
 ];

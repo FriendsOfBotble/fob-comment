@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Warna hover untuk tombol. Kosongkan untuk menggunakan warna yang lebih gelap dari warna utama.',
         ],
     ],
+    'widget_pending_comments' => 'Komentar tertunda',
+    'widget_total_comments' => 'Total :count komentar',
+    'widget_pending_comments_list' => 'Komentar Menunggu Tinjauan',
+    'widget_all_caught_up' => 'Semua sudah beres!',
+    'widget_no_pending_comments' => 'Tidak ada komentar yang menunggu tinjauan.',
+    'widget_approve' => 'Setujui',
+    'widget_spam' => 'Spam',
+    'widget_approved' => 'Komentar disetujui.',
+    'widget_marked_spam' => 'Komentar ditandai sebagai spam.',
 ];

@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'বোতামের জন্য হোভার রঙ। প্রাথমিক রঙের গাঢ় ছায়া ব্যবহার করতে খালি রাখুন।',
         ],
     ],
+    'widget_pending_comments' => 'অপেক্ষমাণ মন্তব্য',
+    'widget_total_comments' => 'মোট :count টি মন্তব্য',
+    'widget_pending_comments_list' => 'পর্যালোচনার অপেক্ষায় থাকা মন্তব্য',
+    'widget_all_caught_up' => 'সব দেখা শেষ!',
+    'widget_no_pending_comments' => 'পর্যালোচনার অপেক্ষায় কোনো মন্তব্য নেই।',
+    'widget_approve' => 'অনুমোদন',
+    'widget_spam' => 'স্প্যাম',
+    'widget_approved' => 'মন্তব্য অনুমোদিত হয়েছে।',
+    'widget_marked_spam' => 'মন্তব্য স্প্যাম হিসেবে চিহ্নিত হয়েছে।',
 ];

@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => '버튼의 호버 색상입니다. 기본 색상의 더 어두운 음영을 사용하려면 비워두세요.',
         ],
     ],
+    'widget_pending_comments' => '대기 중인 댓글',
+    'widget_total_comments' => '총 :count 개 댓글',
+    'widget_pending_comments_list' => '검토 대기 중인 댓글',
+    'widget_all_caught_up' => '모두 처리했습니다!',
+    'widget_no_pending_comments' => '검토를 기다리는 댓글이 없습니다.',
+    'widget_approve' => '승인',
+    'widget_spam' => '스팸',
+    'widget_approved' => '댓글이 승인되었습니다.',
+    'widget_marked_spam' => '댓글이 스팸으로 표시되었습니다.',
 ];

@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Χρώμα εναλλαγής για κουμπιά. Αφήστε κενό για χρήση πιο σκούρας απόχρωσης του κύριου χρώματος.',
         ],
     ],
+    'widget_pending_comments' => 'Σχόλια σε αναμονή',
+    'widget_total_comments' => ':count σχόλια συνολικά',
+    'widget_pending_comments_list' => 'Σχόλια προς έλεγχο',
+    'widget_all_caught_up' => 'Είστε ενήμεροι για όλα!',
+    'widget_no_pending_comments' => 'Κανένα σχόλιο δεν περιμένει έλεγχο.',
+    'widget_approve' => 'Έγκριση',
+    'widget_spam' => 'Spam',
+    'widget_approved' => 'Το σχόλιο εγκρίθηκε.',
+    'widget_marked_spam' => 'Το σχόλιο επισημάνθηκε ως spam.',
 ];

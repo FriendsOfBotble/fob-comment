@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Kolor najechania dla przycisków. Pozostaw puste, aby użyć ciemniejszego odcienia koloru podstawowego.',
         ],
     ],
+    'widget_pending_comments' => 'Oczekujące komentarze',
+    'widget_total_comments' => 'Łącznie komentarzy: :count',
+    'widget_pending_comments_list' => 'Komentarze oczekujące na przegląd',
+    'widget_all_caught_up' => 'Wszystko załatwione!',
+    'widget_no_pending_comments' => 'Żadne komentarze nie czekają na przegląd.',
+    'widget_approve' => 'Zatwierdź',
+    'widget_spam' => 'Spam',
+    'widget_approved' => 'Komentarz zatwierdzony.',
+    'widget_marked_spam' => 'Komentarz oznaczony jako spam.',
 ];

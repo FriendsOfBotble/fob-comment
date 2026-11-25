@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => '„Hover" spalva mygtukams. Palikite tuščią, kad naudotumėte tamsesnį pagrindinės spalvos atspalvį.',
         ],
     ],
+    'widget_pending_comments' => 'Laukiantys komentarai',
+    'widget_total_comments' => 'Iš viso komentarų: :count',
+    'widget_pending_comments_list' => 'Komentarai, laukiantys peržiūros',
+    'widget_all_caught_up' => 'Viskas sutvarkyta!',
+    'widget_no_pending_comments' => 'Nėra komentarų, laukiančių peržiūros.',
+    'widget_approve' => 'Patvirtinti',
+    'widget_spam' => 'Šlamštas',
+    'widget_approved' => 'Komentaras patvirtintas.',
+    'widget_marked_spam' => 'Komentaras pažymėtas kaip šlamštas.',
 ];

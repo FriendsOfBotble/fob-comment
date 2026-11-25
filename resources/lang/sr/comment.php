@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Боја при преласку мишем за дугмад. Оставите празно да бисте користили тамнији тон примарне боје.',
         ],
     ],
+    'widget_pending_comments' => 'Коментари на чекању',
+    'widget_total_comments' => 'Укупно коментара: :count',
+    'widget_pending_comments_list' => 'Коментари који чекају проверу',
+    'widget_all_caught_up' => 'Све је проверено!',
+    'widget_no_pending_comments' => 'Ниједан коментар не чека проверу.',
+    'widget_approve' => 'Одобри',
+    'widget_spam' => 'Спам',
+    'widget_approved' => 'Коментар је одобрен.',
+    'widget_marked_spam' => 'Коментар је означен као спам.',
 ];

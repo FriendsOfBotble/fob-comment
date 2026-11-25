@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Rámutatási szín a gombokhoz. Hagyd üresen az elsődleges szín sötétebb árnyalatának használatához.',
         ],
     ],
+    'widget_pending_comments' => 'Függő hozzászólások',
+    'widget_total_comments' => 'Összesen :count hozzászólás',
+    'widget_pending_comments_list' => 'Elbírálásra váró hozzászólások',
+    'widget_all_caught_up' => 'Minden rendben!',
+    'widget_no_pending_comments' => 'Nincs elbírálásra váró hozzászólás.',
+    'widget_approve' => 'Jóváhagyás',
+    'widget_spam' => 'Spam',
+    'widget_approved' => 'A hozzászólás jóváhagyva.',
+    'widget_marked_spam' => 'A hozzászólás spamként megjelölve.',
 ];

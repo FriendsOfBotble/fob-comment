@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Virzīšanas krāsa pogām. Atstājiet tukšu, lai izmantotu tumšāku primārās krāsas toni.',
         ],
     ],
+    'widget_pending_comments' => 'Gaidošie komentāri',
+    'widget_total_comments' => 'Kopā komentāru: :count',
+    'widget_pending_comments_list' => 'Komentāri, kas gaida pārbaudi',
+    'widget_all_caught_up' => 'Viss kārtībā!',
+    'widget_no_pending_comments' => 'Nav komentāru, kas gaida pārbaudi.',
+    'widget_approve' => 'Apstiprināt',
+    'widget_spam' => 'Surogātpasts',
+    'widget_approved' => 'Komentārs apstiprināts.',
+    'widget_marked_spam' => 'Komentārs atzīmēts kā surogātpasts.',
 ];

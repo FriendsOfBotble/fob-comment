@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => '按钮的悬停色。留空以使用主色调的较深色调。',
         ],
     ],
+    'widget_pending_comments' => '待审核评论',
+    'widget_total_comments' => '共 :count 条评论',
+    'widget_pending_comments_list' => '待审核的评论',
+    'widget_all_caught_up' => '全部处理完毕！',
+    'widget_no_pending_comments' => '没有等待审核的评论。',
+    'widget_approve' => '批准',
+    'widget_spam' => '垃圾评论',
+    'widget_approved' => '评论已批准。',
+    'widget_marked_spam' => '评论已标记为垃圾评论。',
 ];

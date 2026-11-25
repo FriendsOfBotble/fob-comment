@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Barva ob lebdenju za gumbe. Pustite prazno za temnejši odtenek primarne barve.',
         ],
     ],
+    'widget_pending_comments' => 'Komentarji v čakanju',
+    'widget_total_comments' => 'Skupaj :count komentarjev',
+    'widget_pending_comments_list' => 'Komentarji, ki čakajo na pregled',
+    'widget_all_caught_up' => 'Vse je pregledano!',
+    'widget_no_pending_comments' => 'Noben komentar ne čaka na pregled.',
+    'widget_approve' => 'Odobri',
+    'widget_spam' => 'Neželena pošta',
+    'widget_approved' => 'Komentar je odobren.',
+    'widget_marked_spam' => 'Komentar je označen kot neželena pošta.',
 ];

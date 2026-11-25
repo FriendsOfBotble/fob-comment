@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Colore al passaggio del mouse per i pulsanti. Lascia vuoto per usare una tonalità più scura del colore principale.',
         ],
     ],
+    'widget_pending_comments' => 'Commenti in sospeso',
+    'widget_total_comments' => ':count commenti in totale',
+    'widget_pending_comments_list' => 'Commenti in attesa di revisione',
+    'widget_all_caught_up' => 'Tutto in ordine!',
+    'widget_no_pending_comments' => 'Nessun commento in attesa di revisione.',
+    'widget_approve' => 'Approva',
+    'widget_spam' => 'Spam',
+    'widget_approved' => 'Commento approvato.',
+    'widget_marked_spam' => 'Commento contrassegnato come spam.',
 ];

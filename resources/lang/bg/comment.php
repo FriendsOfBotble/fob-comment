@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Цвят при задържане на курсора за бутони. Оставете празно, за да използвате по-тъмен нюанс на основния цвят.',
         ],
     ],
+    'widget_pending_comments' => 'Чакащи коментари',
+    'widget_total_comments' => 'Общо :count коментара',
+    'widget_pending_comments_list' => 'Коментари в очакване на преглед',
+    'widget_all_caught_up' => 'Всичко е прегледано!',
+    'widget_no_pending_comments' => 'Няма коментари, чакащи преглед.',
+    'widget_approve' => 'Одобряване',
+    'widget_spam' => 'Спам',
+    'widget_approved' => 'Коментарът е одобрен.',
+    'widget_marked_spam' => 'Коментарът е маркиран като спам.',
 ];

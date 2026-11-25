@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Culoarea hover pentru butoane. Lasă gol pentru a folosi o nuanță mai închisă a culorii primare.',
         ],
     ],
+    'widget_pending_comments' => 'Comentarii în așteptare',
+    'widget_total_comments' => ':count comentarii în total',
+    'widget_pending_comments_list' => 'Comentarii în așteptarea revizuirii',
+    'widget_all_caught_up' => 'Totul la zi!',
+    'widget_no_pending_comments' => 'Niciun comentariu nu așteaptă revizuirea.',
+    'widget_approve' => 'Aprobă',
+    'widget_spam' => 'Spam',
+    'widget_approved' => 'Comentariu aprobat.',
+    'widget_marked_spam' => 'Comentariu marcat ca spam.',
 ];

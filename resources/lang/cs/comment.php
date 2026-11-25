@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Barva při najetí kurzoru pro tlačítka. Ponechte prázdné pro použití tmavšího odstínu primární barvy.',
         ],
     ],
+    'widget_pending_comments' => 'Čekající komentáře',
+    'widget_total_comments' => 'Celkem :count komentářů',
+    'widget_pending_comments_list' => 'Komentáře čekající na schválení',
+    'widget_all_caught_up' => 'Vše vyřízeno!',
+    'widget_no_pending_comments' => 'Žádné komentáře nečekají na schválení.',
+    'widget_approve' => 'Schválit',
+    'widget_spam' => 'Spam',
+    'widget_approved' => 'Komentář byl schválen.',
+    'widget_marked_spam' => 'Komentář byl označen jako spam.',
 ];

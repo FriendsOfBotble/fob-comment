@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Boja prelaska za gumbe. Ostavite prazno za korištenje tamnijeg tona primarne boje.',
         ],
     ],
+    'widget_pending_comments' => 'Komentari na čekanju',
+    'widget_total_comments' => 'Ukupno komentara: :count',
+    'widget_pending_comments_list' => 'Komentari koji čekaju pregled',
+    'widget_all_caught_up' => 'Sve je riješeno!',
+    'widget_no_pending_comments' => 'Nema komentara koji čekaju pregled.',
+    'widget_approve' => 'Odobri',
+    'widget_spam' => 'Spam',
+    'widget_approved' => 'Komentar je odobren.',
+    'widget_marked_spam' => 'Komentar je označen kao spam.',
 ];

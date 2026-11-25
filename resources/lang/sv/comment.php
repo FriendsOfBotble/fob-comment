@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Hoverfärg för knappar. Lämna tomt för att använda en mörkare nyans av primärfärgen.',
         ],
     ],
+    'widget_pending_comments' => 'Väntande kommentarer',
+    'widget_total_comments' => ':count kommentarer totalt',
+    'widget_pending_comments_list' => 'Kommentarer som väntar på granskning',
+    'widget_all_caught_up' => 'Allt är klart!',
+    'widget_no_pending_comments' => 'Inga kommentarer väntar på granskning.',
+    'widget_approve' => 'Godkänn',
+    'widget_spam' => 'Skräppost',
+    'widget_approved' => 'Kommentaren godkändes.',
+    'widget_marked_spam' => 'Kommentaren markerades som skräppost.',
 ];

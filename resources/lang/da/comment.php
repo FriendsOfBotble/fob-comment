@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Hoverfarve til knapper. Lad feltet være tomt for at bruge en mørkere nuance af primærfarven.',
         ],
     ],
+    'widget_pending_comments' => 'Afventende kommentarer',
+    'widget_total_comments' => ':count kommentarer i alt',
+    'widget_pending_comments_list' => 'Kommentarer til gennemgang',
+    'widget_all_caught_up' => 'Alt er klaret!',
+    'widget_no_pending_comments' => 'Ingen kommentarer venter på gennemgang.',
+    'widget_approve' => 'Godkend',
+    'widget_spam' => 'Spam',
+    'widget_approved' => 'Kommentar godkendt.',
+    'widget_marked_spam' => 'Kommentar markeret som spam.',
 ];

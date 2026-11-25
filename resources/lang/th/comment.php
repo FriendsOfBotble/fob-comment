@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'สีเมื่อชี้เมาส์สำหรับปุ่ม ปล่อยว่างเพื่อใช้โทนสีที่เข้มกว่าของสีหลัก',
         ],
     ],
+    'widget_pending_comments' => 'ความคิดเห็นที่รอดำเนินการ',
+    'widget_total_comments' => 'ทั้งหมด :count ความคิดเห็น',
+    'widget_pending_comments_list' => 'ความคิดเห็นที่รอการตรวจสอบ',
+    'widget_all_caught_up' => 'จัดการครบแล้ว!',
+    'widget_no_pending_comments' => 'ไม่มีความคิดเห็นที่รอการตรวจสอบ',
+    'widget_approve' => 'อนุมัติ',
+    'widget_spam' => 'สแปม',
+    'widget_approved' => 'อนุมัติความคิดเห็นแล้ว',
+    'widget_marked_spam' => 'ทำเครื่องหมายความคิดเห็นเป็นสแปมแล้ว',
 ];

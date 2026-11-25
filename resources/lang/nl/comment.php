@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Zweefkleur voor knoppen. Laat leeg om een donkerdere tint van de primaire kleur te gebruiken.',
         ],
     ],
+    'widget_pending_comments' => 'Reacties in afwachting',
+    'widget_total_comments' => 'In totaal :count reacties',
+    'widget_pending_comments_list' => 'Reacties die op beoordeling wachten',
+    'widget_all_caught_up' => 'Alles bijgewerkt!',
+    'widget_no_pending_comments' => 'Er wachten geen reacties op beoordeling.',
+    'widget_approve' => 'Goedkeuren',
+    'widget_spam' => 'Spam',
+    'widget_approved' => 'Reactie goedgekeurd.',
+    'widget_marked_spam' => 'Reactie gemarkeerd als spam.',
 ];

@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Màu hover cho các nút. Để trống để sử dụng màu tối hơn của màu chủ đạo.',
         ],
     ],
+    'widget_pending_comments' => 'Bình luận chờ duyệt',
+    'widget_total_comments' => 'Tổng cộng :count bình luận',
+    'widget_pending_comments_list' => 'Bình luận đang chờ duyệt',
+    'widget_all_caught_up' => 'Đã xử lý hết!',
+    'widget_no_pending_comments' => 'Không có bình luận nào đang chờ duyệt.',
+    'widget_approve' => 'Duyệt',
+    'widget_spam' => 'Spam',
+    'widget_approved' => 'Đã duyệt bình luận.',
+    'widget_marked_spam' => 'Đã đánh dấu bình luận là spam.',
 ];

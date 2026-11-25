@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Warna hover untuk butang. Biarkan kosong untuk menggunakan warna yang lebih gelap daripada warna utama.',
         ],
     ],
+    'widget_pending_comments' => 'Komen belum diluluskan',
+    'widget_total_comments' => 'Jumlah :count komen',
+    'widget_pending_comments_list' => 'Komen Menunggu Semakan',
+    'widget_all_caught_up' => 'Semua sudah diselesaikan!',
+    'widget_no_pending_comments' => 'Tiada komen menunggu semakan.',
+    'widget_approve' => 'Lulus',
+    'widget_spam' => 'Spam',
+    'widget_approved' => 'Komen diluluskan.',
+    'widget_marked_spam' => 'Komen ditandakan sebagai spam.',
 ];

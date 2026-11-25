@@ -24,7 +24,10 @@ Route::name('fob-comment.')->group(function (): void {
                 'permission' => 'fob-comment.comments.edit',
             ])->wherePrimaryKey();
 
-            Route::resource('', CommentController::class)->parameters(['' => 'comment']);
+            // Comments are written on the front end; the admin has no create/store actions.
+            Route::resource('', CommentController::class)
+                ->only(['index', 'edit', 'update', 'destroy'])
+                ->parameters(['' => 'comment']);
             Route::post('{comment}/reply', [ReplyCommentController::class, '__invoke'])->name('reply');
         });
 

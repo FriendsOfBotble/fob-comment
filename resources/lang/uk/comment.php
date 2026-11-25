@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Колір при наведенні для кнопок. Залиште порожнім, щоб використовувати темніший відтінок основного кольору.',
         ],
     ],
+    'widget_pending_comments' => 'Коментарі на модерації',
+    'widget_total_comments' => 'Усього коментарів: :count',
+    'widget_pending_comments_list' => 'Коментарі, що очікують перевірки',
+    'widget_all_caught_up' => 'Усе перевірено!',
+    'widget_no_pending_comments' => 'Немає коментарів, що очікують перевірки.',
+    'widget_approve' => 'Схвалити',
+    'widget_spam' => 'Спам',
+    'widget_approved' => 'Коментар схвалено.',
+    'widget_marked_spam' => 'Коментар позначено як спам.',
 ];

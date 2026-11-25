@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Düğmeler için vurgu rengi. Birincil rengin daha koyu bir tonunu kullanmak için boş bırakın.',
         ],
     ],
+    'widget_pending_comments' => 'Bekleyen yorumlar',
+    'widget_total_comments' => 'Toplam :count yorum',
+    'widget_pending_comments_list' => 'İnceleme Bekleyen Yorumlar',
+    'widget_all_caught_up' => 'Hepsi tamam!',
+    'widget_no_pending_comments' => 'İnceleme bekleyen yorum yok.',
+    'widget_approve' => 'Onayla',
+    'widget_spam' => 'Spam',
+    'widget_approved' => 'Yorum onaylandı.',
+    'widget_marked_spam' => 'Yorum spam olarak işaretlendi.',
 ];

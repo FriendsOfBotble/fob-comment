@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Couleur au survol pour les boutons. Laissez vide pour utiliser une teinte plus foncée de la couleur principale.',
         ],
     ],
+    'widget_pending_comments' => 'Commentaires en attente',
+    'widget_total_comments' => ':count commentaires au total',
+    'widget_pending_comments_list' => 'Commentaires en attente de modération',
+    'widget_all_caught_up' => 'Tout est à jour !',
+    'widget_no_pending_comments' => 'Aucun commentaire n\'attend de modération.',
+    'widget_approve' => 'Approuver',
+    'widget_spam' => 'Spam',
+    'widget_approved' => 'Commentaire approuvé.',
+    'widget_marked_spam' => 'Commentaire marqué comme spam.',
 ];

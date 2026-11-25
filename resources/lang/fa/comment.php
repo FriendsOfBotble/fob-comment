@@ -143,4 +143,13 @@ return [
             'primary_color_hover_helper' => 'رنگ هاور برای دکمه‌ها. برای استفاده از سایه تیره‌تر رنگ اصلی، خالی بگذارید.',
         ],
     ],
+    'widget_pending_comments' => 'نظرات در انتظار',
+    'widget_total_comments' => 'در مجموع :count نظر',
+    'widget_pending_comments_list' => 'نظرات در انتظار بررسی',
+    'widget_all_caught_up' => 'همه‌چیز بررسی شده است!',
+    'widget_no_pending_comments' => 'هیچ نظری در انتظار بررسی نیست.',
+    'widget_approve' => 'تأیید',
+    'widget_spam' => 'اسپم',
+    'widget_approved' => 'نظر تأیید شد.',
+    'widget_marked_spam' => 'نظر به عنوان اسپم علامت‌گذاری شد.',
 ];

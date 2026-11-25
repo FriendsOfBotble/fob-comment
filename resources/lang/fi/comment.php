@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Hover-väri painikkeille. Jätä tyhjäksi käyttääksesi päävärin tummempaa sävyä.',
         ],
     ],
+    'widget_pending_comments' => 'Odottavat kommentit',
+    'widget_total_comments' => 'Yhteensä :count kommenttia',
+    'widget_pending_comments_list' => 'Tarkistusta odottavat kommentit',
+    'widget_all_caught_up' => 'Kaikki käsitelty!',
+    'widget_no_pending_comments' => 'Mikään kommentti ei odota tarkistusta.',
+    'widget_approve' => 'Hyväksy',
+    'widget_spam' => 'Roskaposti',
+    'widget_approved' => 'Kommentti hyväksytty.',
+    'widget_marked_spam' => 'Kommentti merkitty roskapostiksi.',
 ];

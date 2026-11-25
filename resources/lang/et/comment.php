@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Hõljumisevärv nuppude jaoks. Jätke tühjaks, et kasutada põhivärvi tumedamat tooni.',
         ],
     ],
+    'widget_pending_comments' => 'Ootel kommentaarid',
+    'widget_total_comments' => 'Kokku :count kommentaari',
+    'widget_pending_comments_list' => 'Ülevaatust ootavad kommentaarid',
+    'widget_all_caught_up' => 'Kõik tehtud!',
+    'widget_no_pending_comments' => 'Ükski kommentaar ei oota ülevaatust.',
+    'widget_approve' => 'Kinnita',
+    'widget_spam' => 'Rämpspost',
+    'widget_approved' => 'Kommentaar kinnitatud.',
+    'widget_marked_spam' => 'Kommentaar märgiti rämpspostiks.',
 ];

@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'बटन के लिए होवर रंग। प्राथमिक रंग का गहरा शेड उपयोग करने के लिए खाली छोड़ें।',
         ],
     ],
+    'widget_pending_comments' => 'लंबित टिप्पणियाँ',
+    'widget_total_comments' => 'कुल :count टिप्पणियाँ',
+    'widget_pending_comments_list' => 'समीक्षा की प्रतीक्षा में टिप्पणियाँ',
+    'widget_all_caught_up' => 'सब निपट गया!',
+    'widget_no_pending_comments' => 'कोई टिप्पणी समीक्षा की प्रतीक्षा में नहीं है।',
+    'widget_approve' => 'स्वीकृत करें',
+    'widget_spam' => 'स्पैम',
+    'widget_approved' => 'टिप्पणी स्वीकृत की गई।',
+    'widget_marked_spam' => 'टिप्पणी को स्पैम के रूप में चिह्नित किया गया।',
 ];

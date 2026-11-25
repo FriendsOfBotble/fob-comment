@@ -155,4 +155,13 @@ return [
             'primary_color_hover_helper' => 'Hoverfarge for knapper. La stå tom for å bruke en mørkere nyanse av primærfargen.',
         ],
     ],
+    'widget_pending_comments' => 'Ventende kommentarer',
+    'widget_total_comments' => ':count kommentarer totalt',
+    'widget_pending_comments_list' => 'Kommentarer som venter på gjennomgang',
+    'widget_all_caught_up' => 'Alt er gjort!',
+    'widget_no_pending_comments' => 'Ingen kommentarer venter på gjennomgang.',
+    'widget_approve' => 'Godkjenn',
+    'widget_spam' => 'Spam',
+    'widget_approved' => 'Kommentaren er godkjent.',
+    'widget_marked_spam' => 'Kommentaren er merket som spam.',
 ];
